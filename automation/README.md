@@ -44,6 +44,30 @@ owner (peterlcy1992@gmail.com). No SMTP setup or secrets required.
 > (PST) resumes. Ask to shift it to `0 16 * * *` when winter comes if you want
 > to keep the email landing at 08:00 year-round.
 
+## The Atlas artifact refresh (second Routine)
+
+A companion Routine keeps the [**GenAI Evolution Atlas**](https://claude.ai/code/artifact/41730737-b7b0-4055-9d7f-e0ea1cc34de9)
+artifact's embedded "latest digest" in sync with the repo.
+
+- **Name:** `Daily Atlas artifact refresh`
+- **Trigger ID:** `trig_015dw4QxPZX6n1GQ87Dqsrn7`
+- **Schedule (cron, UTC):** `40 15 * * *` (15:40 UTC — 40 min after the digest job)
+- **How it fires:** into the original interactive session (which holds the
+  Artifact publishing tool — the daily fresh-session job does **not**), so it can
+  actually republish the artifact.
+
+Each run: pulls `main`, runs
+[`../artifact/refresh_embedded_digest.py`](../artifact/refresh_embedded_digest.py)
+(which swaps the newest `digests/<date>.md` into the hidden `latest-digest` block
+of `knowledge-bank.html`), and — only if something changed — republishes the
+artifact to its existing URL and commits the HTML. If the embed is already
+current, it does nothing.
+
+> Note: this depends on the original session remaining resumable and retaining the
+> Artifact tool. If that ever stops working, the artifact still shows the last
+> embedded digest plus its always-current "All digests on GitHub" link, and the
+> embed can be refreshed manually by running the helper and re-publishing.
+
 ## Changing the automation
 
 You can just ask Claude Code (in a session on this repo) to do any of these, or
