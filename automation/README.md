@@ -16,8 +16,10 @@ session against this repository and runs the instruction in
    prepends the best new finds,
 4. writes a full, reader-friendly per-day digest to
    [`../digests/`](../digests/) (`YYYY-MM-DD.md`),
-5. commits + pushes directly to `main`, and
-6. **emails you** a brief: your current stage + a next action + the day's
+5. regenerates the public web page ([`../docs/index.html`](../docs/index.html))
+   with today's digest embedded,
+6. commits + pushes directly to `main`, and
+7. **emails you** a brief: your current stage + a next action + the day's
    highlights, with a **direct link to that day's digest**.
 
 The email is the Routine's **completion notification**, sent to the account
@@ -44,29 +46,29 @@ owner (peterlcy1992@gmail.com). No SMTP setup or secrets required.
 > (PST) resumes. Ask to shift it to `0 16 * * *` when winter comes if you want
 > to keep the email landing at 08:00 year-round.
 
-## The Atlas artifact refresh (second Routine)
+## The public web page (GitHub Pages)
 
-A companion Routine keeps the [**GenAI Evolution Atlas**](https://claude.ai/code/artifact/41730737-b7b0-4055-9d7f-e0ea1cc34de9)
-artifact's embedded "latest digest" in sync with the repo.
+The shareable page is [`../docs/index.html`](../docs/index.html) — a standalone
+build of the Atlas, intended to be served publicly by GitHub Pages from `/docs`.
 
-- **Name:** `Daily Atlas artifact refresh`
-- **Trigger ID:** `trig_015dw4QxPZX6n1GQ87Dqsrn7`
-- **Schedule (cron, UTC):** `40 15 * * *` (15:40 UTC — 40 min after the digest job)
-- **How it fires:** into the original interactive session (which holds the
-  Artifact publishing tool — the daily fresh-session job does **not**), so it can
-  actually republish the artifact.
+- **Build script:** [`../artifact/build_public_html.py`](../artifact/build_public_html.py)
+  wraps the Atlas source (`../artifact/knowledge-bank.html`) into a complete HTML
+  document at `../docs/index.html`. [`../artifact/refresh_embedded_digest.py`](../artifact/refresh_embedded_digest.py)
+  embeds the newest digest before the wrap.
+- **Kept current by the daily job:** step 5 above runs both scripts, so the
+  published site shows each day's digest automatically — no artifact and no
+  interactive session involved.
+- **Enable Pages (one-time):** make the repo public, then GitHub → **Settings →
+  Pages → Deploy from a branch → `main` / `/docs`**. The URL is
+  `https://peterlcy1992.github.io/genai_learning_repository/`.
 
-Each run: pulls `main`, runs
-[`../artifact/refresh_embedded_digest.py`](../artifact/refresh_embedded_digest.py)
-(which swaps the newest `digests/<date>.md` into the hidden `latest-digest` block
-of `knowledge-bank.html`), and — only if something changed — republishes the
-artifact to its existing URL and commits the HTML. If the embed is already
-current, it does nothing.
+To rebuild the page by hand: `python3 artifact/build_public_html.py`, then commit
+`docs/index.html`.
 
-> Note: this depends on the original session remaining resumable and retaining the
-> Artifact tool. If that ever stops working, the artifact still shows the last
-> embedded digest plus its always-current "All digests on GitHub" link, and the
-> embed can be refreshed manually by running the helper and re-publishing.
+> A private artifact version of the Atlas also exists
+> (`https://claude.ai/code/artifact/41730737-b7b0-4055-9d7f-e0ea1cc34de9`). Its
+> source is `../artifact/knowledge-bank.html`, but the published artifact no
+> longer auto-updates — the public page above is the maintained, shareable copy.
 
 ## Changing the automation
 

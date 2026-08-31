@@ -50,17 +50,24 @@ take effect, also update the live Routine's prompt (see
 >    new items, still write the digest with the stage reminder and note it was a
 >    quiet day. (See `digests/README.md` for why this file exists.)
 >
-> 6. **(Optional) Enrich the knowledge bank.** If a find is a genuinely seminal
+> 6. **Refresh the public page.** Run `python3 artifact/refresh_embedded_digest.py`
+>    (embeds the newest digest into `artifact/knowledge-bank.html`) then
+>    `python3 artifact/build_public_html.py` (regenerates `docs/index.html`, the
+>    public GitHub Pages page). Both must run so the shared page shows today's
+>    digest.
+>
+> 7. **(Optional) Enrich the knowledge bank.** If a find is a genuinely seminal
 >    piece that belongs in a stage's reading list, you may add a single line to
 >    the relevant `knowledge_bank/*.md` reading list. Be conservative — the
 >    rolling log is the default home for news.
 >
-> 7. **Commit and push.** Stage your changes and commit with a message like
->    `chore(updates): daily GenAI update YYYY-MM-DD`, then push directly to main
->    with `git push origin main` (retry with exponential backoff on network
+> 8. **Commit and push.** Stage all changes (`updates/latest.md`, `digests/`,
+>    `artifact/knowledge-bank.html`, `docs/index.html`) and commit with a message
+>    like `chore(updates): daily GenAI update YYYY-MM-DD`, then push directly to
+>    main with `git push origin main` (retry with exponential backoff on network
 >    errors). Do not open a pull request and do not use a feature branch.
 >
-> 8. **Write the email brief** as your final message. Only the opening ~1–2
+> 9. **Write the email brief** as your final message. Only the opening ~1–2
 >    sentences render in the email body (the rest sits behind an "Open session"
 >    button), so **front-load it**:
 >    - **First line — dense and self-contained:** "Stage N — <topic>. <M> new

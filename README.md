@@ -5,9 +5,11 @@ from the pre-transformer era, through *Attention Is All You Need* (2017), all
 the way to today's frontier reasoning models and agentic systems — and for
 **staying current** as the field keeps moving.
 
-> **📍 Visual companion:** the [**GenAI Evolution Atlas**](https://claude.ai/code/artifact/41730737-b7b0-4055-9d7f-e0ea1cc34de9)
-> — an interactive artifact with the full curriculum, diagrams, reference links,
-> and your daily digests loaded live. Source in [`artifact/`](artifact/).
+> **📍 Visual companion — the GenAI Evolution Atlas:** an interactive field guide
+> with the full curriculum, per-stage deep-dive pages, diagrams, reference links,
+> and the latest daily digest. Public web page: [`docs/index.html`](docs/index.html),
+> served via GitHub Pages at `https://peterlcy1992.github.io/genai_learning_repository/`
+> once enabled. Build source in [`artifact/`](artifact/).
 
 This repository does three things:
 
