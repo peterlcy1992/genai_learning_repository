@@ -1,715 +1,969 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
 <title>GenAI Evolution Atlas</title>
 <style>
-  /* ---------- tokens: light (bare :root) ---------- */
   :root{
     --font-display:"Fraunces",Georgia,"Times New Roman",serif;
     --font-body:"IBM Plex Sans",system-ui,-apple-system,Segoe UI,Roboto,sans-serif;
     --font-mono:"IBM Plex Mono",ui-monospace,SFMono-Regular,Menlo,monospace;
-
-    --ground:#eceef3;
-    --surface:#ffffff;
-    --surface-2:#f5f6fa;
-    --ink:#191c23;
-    --ink-soft:#474d5b;
-    --ink-faint:#787f90;
-    --line:#dde1e9;
-    --line-strong:#c9cedb;
-    --accent:#a96c12;
-    --accent-2:#b8791b;
-    --accent-bg:rgba(169,108,18,.09);
+    --ground:#eceef3; --surface:#ffffff; --surface-2:#f5f6fa;
+    --ink:#191c23; --ink-soft:#474d5b; --ink-faint:#787f90;
+    --line:#dde1e9; --line-strong:#c9cedb;
+    --accent:#a96c12; --accent-2:#b8791b; --accent-bg:rgba(169,108,18,.09);
     --shadow:0 1px 2px rgba(20,24,35,.04),0 8px 24px -12px rgba(20,24,35,.14);
-
     --s0:#3f6fb0; --s1:#2f8fb8; --s2:#1f9e8b; --s3:#57a44b;
     --s4:#bb9328; --s5:#cd7f36; --s6:#c95f4c; --s7:#b04a6c;
-
     color-scheme:light;
   }
-  /* ---------- tokens: dark via OS default (un-stamped) ---------- */
-  @media (prefers-color-scheme:dark){
-    :root:not([data-theme="light"]){
-      --ground:#0b0e15;
-      --surface:#141924;
-      --surface-2:#1a2030;
-      --ink:#e8ebf2;
-      --ink-soft:#b2b9c8;
-      --ink-faint:#7e8698;
-      --line:#28303f;
-      --line-strong:#38414f;
-      --accent:#e3ac4d;
-      --accent-2:#d59a3c;
-      --accent-bg:rgba(227,172,77,.13);
-      --shadow:0 1px 2px rgba(0,0,0,.3),0 10px 30px -14px rgba(0,0,0,.6);
-      --s0:#5f8fd4; --s1:#43a7cc; --s2:#33bda6; --s3:#6cbe5f;
-      --s4:#d3ab3f; --s5:#e0904a; --s6:#e0725d; --s7:#cc6084;
-      color-scheme:dark;
-    }
-  }
-  /* ---------- tokens: dark via explicit toggle ---------- */
-  :root[data-theme="dark"]{
-    --ground:#0b0e15;
-    --surface:#141924;
-    --surface-2:#1a2030;
-    --ink:#e8ebf2;
-    --ink-soft:#b2b9c8;
-    --ink-faint:#7e8698;
-    --line:#28303f;
-    --line-strong:#38414f;
-    --accent:#e3ac4d;
-    --accent-2:#d59a3c;
-    --accent-bg:rgba(227,172,77,.13);
+  @media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+    --ground:#0b0e15; --surface:#141924; --surface-2:#1a2030;
+    --ink:#e8ebf2; --ink-soft:#b2b9c8; --ink-faint:#7e8698;
+    --line:#28303f; --line-strong:#38414f;
+    --accent:#e3ac4d; --accent-2:#d59a3c; --accent-bg:rgba(227,172,77,.13);
     --shadow:0 1px 2px rgba(0,0,0,.3),0 10px 30px -14px rgba(0,0,0,.6);
     --s0:#5f8fd4; --s1:#43a7cc; --s2:#33bda6; --s3:#6cbe5f;
-    --s4:#d3ab3f; --s5:#e0904a; --s6:#e0725d; --s7:#cc6084;
-    color-scheme:dark;
+    --s4:#d3ab3f; --s5:#e0904a; --s6:#e0725d; --s7:#cc6084; color-scheme:dark;
+  }}
+  :root[data-theme="dark"]{
+    --ground:#0b0e15; --surface:#141924; --surface-2:#1a2030;
+    --ink:#e8ebf2; --ink-soft:#b2b9c8; --ink-faint:#7e8698;
+    --line:#28303f; --line-strong:#38414f;
+    --accent:#e3ac4d; --accent-2:#d59a3c; --accent-bg:rgba(227,172,77,.13);
+    --shadow:0 1px 2px rgba(0,0,0,.3),0 10px 30px -14px rgba(0,0,0,.6);
+    --s0:#5f8fd4; --s1:#43a7cc; --s2:#33bda6; --s3:#6cbe5f;
+    --s4:#d3ab3f; --s5:#e0904a; --s6:#e0725d; --s7:#cc6084; color-scheme:dark;
   }
-
   *{box-sizing:border-box}
   body{background:var(--ground);color:var(--ink);font-family:var(--font-body);
     line-height:1.6;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
-  a{color:var(--accent-2);text-decoration:none}
-  a:hover{text-decoration:underline}
+  a{color:var(--accent-2);text-decoration:none} a:hover{text-decoration:underline}
   :focus-visible{outline:2px solid var(--accent);outline-offset:2px;border-radius:3px}
-  h1,h2,h3,h4{font-family:var(--font-display);font-weight:600;line-height:1.15;
-    text-wrap:balance;margin:0}
+  h1,h2,h3,h4{font-family:var(--font-display);font-weight:600;line-height:1.15;text-wrap:balance;margin:0}
   p{margin:0 0 .9em}
   .wrap{max-width:1080px;margin:0 auto;padding:0 24px}
-  .reading{max-width:72ch}
+  .reading{max-width:74ch}
+  .sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0)}
 
-  /* ---------- top nav ---------- */
   header.nav{position:sticky;top:0;z-index:50;background:color-mix(in srgb,var(--ground) 88%,transparent);
     backdrop-filter:saturate(1.4) blur(10px);border-bottom:1px solid var(--line)}
-  .nav-in{display:flex;align-items:center;gap:18px;height:58px}
-  .brand{display:flex;align-items:center;gap:10px;font-family:var(--font-display);
-    font-weight:600;font-size:16px;letter-spacing:-.01em;white-space:nowrap}
+  .nav-in{display:flex;align-items:center;gap:16px;height:58px}
+  .brand{display:flex;align-items:center;gap:10px;font-family:var(--font-display);font-weight:600;
+    font-size:16px;letter-spacing:-.01em;white-space:nowrap;cursor:pointer;background:none;border:0;color:inherit}
   .brand .mk{width:20px;height:20px;flex:0 0 auto}
   .nav-links{display:flex;gap:4px;margin-left:auto;flex-wrap:wrap}
-  .nav-links a{font-size:13px;color:var(--ink-soft);padding:6px 10px;border-radius:7px;
-    font-weight:500}
+  .nav-links a{font-size:13px;color:var(--ink-soft);padding:6px 10px;border-radius:7px;font-weight:500}
   .nav-links a:hover{background:var(--surface-2);text-decoration:none;color:var(--ink)}
   .nav-links a.on{color:var(--accent-2);background:var(--accent-bg)}
-  .tbtn{font:inherit;font-size:13px;cursor:pointer;background:var(--surface);
-    color:var(--ink-soft);border:1px solid var(--line-strong);border-radius:7px;
-    padding:6px 9px;display:inline-flex;align-items:center;gap:6px}
+  .tbtn{font:inherit;font-size:13px;cursor:pointer;background:var(--surface);color:var(--ink-soft);
+    border:1px solid var(--line-strong);border-radius:7px;padding:6px 9px;display:inline-flex;align-items:center;gap:6px}
   .tbtn:hover{color:var(--ink);border-color:var(--accent)}
   @media(max-width:720px){.nav-links{display:none}}
 
-  /* ---------- hero ---------- */
-  .hero{padding:56px 0 30px;position:relative;overflow:hidden}
-  .eyebrow{font-family:var(--font-mono);font-size:12px;letter-spacing:.16em;
-    text-transform:uppercase;color:var(--accent-2);margin-bottom:16px}
+  .page{display:none} .page.active{display:block;animation:fade .35s ease}
+  @keyframes fade{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+  @media(prefers-reduced-motion:reduce){.page.active{animation:none}}
+
+  /* hero */
+  .hero{padding:52px 0 26px}
+  .eyebrow{font-family:var(--font-mono);font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--accent-2);margin-bottom:16px}
   .hero h1{font-size:clamp(34px,6vw,60px);font-weight:600;letter-spacing:-.02em}
   .hero h1 em{font-style:italic;color:var(--accent-2)}
-  .hero .lede{font-size:clamp(17px,2.2vw,21px);color:var(--ink-soft);max-width:62ch;
-    margin-top:18px}
+  .hero .lede{font-size:clamp(17px,2.2vw,21px);color:var(--ink-soft);max-width:64ch;margin-top:18px}
   .hero .meta{margin-top:22px;display:flex;gap:10px;flex-wrap:wrap;align-items:center}
-  .pill{font-family:var(--font-mono);font-size:12px;color:var(--ink-soft);
-    border:1px solid var(--line-strong);border-radius:999px;padding:5px 12px;background:var(--surface)}
+  .pill{font-family:var(--font-mono);font-size:12px;color:var(--ink-soft);border:1px solid var(--line-strong);
+    border-radius:999px;padding:5px 12px;background:var(--surface)}
   .pill.live{color:var(--accent-2);border-color:var(--accent)}
-  .pill .dot{display:inline-block;width:7px;height:7px;border-radius:50%;
-    background:var(--s2);margin-right:6px;vertical-align:middle}
+  .pill .dot{display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--s2);margin-right:6px;vertical-align:middle}
 
-  figure{margin:0}
-  figcaption{font-size:13px;color:var(--ink-faint);margin-top:10px;line-height:1.5}
-  .dia{color:var(--ink-soft)}
-  .dia svg{width:100%;height:auto;display:block;overflow:visible}
-  .dia .stroke{stroke:currentColor;fill:none}
-  .dia .fillc{fill:currentColor}
-  .dia .accent{stroke:var(--dia-accent);color:var(--dia-accent)}
-  .dia .accent-f{fill:var(--dia-accent)}
+  figure{margin:0} figcaption{font-size:13px;color:var(--ink-faint);margin-top:10px;line-height:1.5}
+  .dia{color:var(--ink-soft)} .dia svg{width:100%;height:auto;display:block;overflow:visible}
+  .dia .stroke{stroke:currentColor;fill:none} .dia .fillc{fill:currentColor}
+  .dia .accent{stroke:var(--dia-accent);color:var(--dia-accent)} .dia .accent-f{fill:var(--dia-accent)}
   .dia text{fill:var(--ink);font-family:var(--font-mono);font-size:12px}
   .dia .lbl{fill:var(--ink-soft);font-family:var(--font-body)}
   .dia .box{fill:var(--surface);stroke:var(--line-strong)}
+  .timeline-wrap{margin-top:30px;background:var(--surface);border:1px solid var(--line);border-radius:16px;
+    padding:26px 22px 18px;box-shadow:var(--shadow);overflow-x:auto}
 
-  .timeline-wrap{margin-top:34px;background:var(--surface);border:1px solid var(--line);
-    border-radius:16px;padding:26px 22px 18px;box-shadow:var(--shadow);overflow-x:auto}
-
-  /* ---------- section frames ---------- */
-  section{scroll-margin-top:72px}
-  .band{padding:26px 0}
-  .kicker{font-family:var(--font-mono);font-size:12px;letter-spacing:.14em;
-    text-transform:uppercase;color:var(--ink-faint);margin-bottom:10px}
-  .legend{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}
-  .lchip{display:flex;align-items:center;gap:7px;font-size:12.5px;color:var(--ink-soft);
-    background:var(--surface);border:1px solid var(--line);border-radius:999px;padding:4px 11px 4px 8px}
+  .band{padding:24px 0}
+  .kicker{font-family:var(--font-mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-faint);margin-bottom:10px}
+  .legend{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
+  .lchip{display:flex;align-items:center;gap:7px;font-size:12.5px;color:var(--ink-soft);background:var(--surface);
+    border:1px solid var(--line);border-radius:999px;padding:4px 11px 4px 8px;text-decoration:none}
+  .lchip:hover{border-color:var(--accent);text-decoration:none}
   .lchip .sw{width:11px;height:11px;border-radius:3px}
 
-  /* ---------- stage cards ---------- */
-  .stage{background:var(--surface);border:1px solid var(--line);border-radius:16px;
-    padding:0;margin:18px 0;box-shadow:var(--shadow);overflow:hidden;position:relative}
-  .stage::before{content:"";position:absolute;left:0;top:0;bottom:0;width:5px;
-    background:var(--dia-accent)}
-  .stage-in{padding:26px 30px 30px 34px}
-  .stage-head{display:flex;align-items:baseline;gap:14px;flex-wrap:wrap;margin-bottom:6px}
-  .snum{font-family:var(--font-mono);font-size:13px;font-weight:500;color:#fff;
-    background:var(--dia-accent);border-radius:7px;padding:3px 9px;letter-spacing:.02em}
-  .stage h2{font-size:clamp(22px,3vw,29px);letter-spacing:-.015em}
-  .stage .era{font-family:var(--font-mono);font-size:12.5px;color:var(--ink-faint);margin-left:auto}
-  .thesis{font-family:var(--font-display);font-style:italic;font-size:18px;
-    color:var(--accent-2);margin:4px 0 16px;max-width:66ch}
-  .stage .body{max-width:72ch;color:var(--ink)}
-  .stage .body p{color:var(--ink-soft)}
-  .stage .body strong{color:var(--ink);font-weight:600}
-  .grid{display:grid;grid-template-columns:1fr;gap:26px;margin-top:6px}
-  @media(min-width:820px){.grid.has-dia{grid-template-columns:1.05fr .95fr;align-items:start}}
-  .keys{margin:14px 0 0;padding:0;list-style:none;display:flex;flex-direction:column;gap:9px}
-  .keys li{position:relative;padding-left:20px;font-size:14.5px;color:var(--ink-soft)}
-  .keys li::before{content:"";position:absolute;left:2px;top:9px;width:7px;height:7px;
-    border-radius:2px;background:var(--dia-accent)}
-  .keys b{color:var(--ink);font-weight:600}
-  .figbox{background:var(--surface-2);border:1px solid var(--line);border-radius:12px;
-    padding:18px 16px 14px}
-  .refs{margin-top:22px;border-top:1px solid var(--line);padding-top:16px}
-  .refs h4{font-family:var(--font-mono);font-size:11.5px;letter-spacing:.14em;
-    text-transform:uppercase;color:var(--ink-faint);font-weight:500;margin-bottom:11px}
-  .refs ul{margin:0;padding:0;list-style:none;display:grid;gap:8px}
-  .refs li{font-size:14px;line-height:1.45;color:var(--ink-soft)}
-  .refs .tag{font-family:var(--font-mono);font-size:10.5px;color:var(--ink-faint);
-    border:1px solid var(--line-strong);border-radius:5px;padding:1px 6px;margin-right:8px;
-    text-transform:uppercase;letter-spacing:.05em;white-space:nowrap}
-  .refs .primary{color:var(--accent-2);border-color:var(--accent)}
-  .youhere{display:none;align-items:center;gap:6px;font-family:var(--font-mono);
-    font-size:11.5px;color:#fff;background:var(--dia-accent);border-radius:999px;
-    padding:3px 10px;letter-spacing:.03em}
-  .stage.current .youhere{display:inline-flex}
-  .stage.current{border-color:var(--dia-accent)}
+  /* overview gateway cards */
+  .gw-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(288px,1fr));gap:16px;margin-top:16px}
+  .gw{display:flex;flex-direction:column;gap:6px;background:var(--surface);border:1px solid var(--line);
+    border-radius:14px;padding:20px 20px 18px 24px;box-shadow:var(--shadow);position:relative;overflow:hidden;
+    text-decoration:none;color:inherit;transition:transform .15s ease,border-color .15s ease}
+  .gw::before{content:"";position:absolute;left:0;top:0;bottom:0;width:5px;background:var(--dia-accent)}
+  .gw:hover{transform:translateY(-3px);border-color:var(--dia-accent);text-decoration:none}
+  .gw-top{display:flex;align-items:center;gap:10px}
+  .snum{font-family:var(--font-mono);font-size:12.5px;font-weight:500;color:#fff;background:var(--dia-accent);
+    border-radius:7px;padding:3px 9px;letter-spacing:.02em}
+  .era{font-family:var(--font-mono);font-size:12px;color:var(--ink-faint);margin-left:auto}
+  .gw h3{font-size:20px;letter-spacing:-.01em;margin-top:2px}
+  .gw-thesis{font-family:var(--font-display);font-style:italic;color:var(--accent-2);font-size:14.5px;margin:0}
+  .gw-teaser{font-size:13.5px;color:var(--ink-soft);margin:2px 0 0}
+  .gw-go{font-family:var(--font-mono);font-size:12px;color:var(--dia-accent);margin-top:10px;font-weight:500}
+  .gw .here{display:none;position:absolute;top:14px;right:14px;font-family:var(--font-mono);font-size:10px;
+    color:#fff;background:var(--dia-accent);border-radius:999px;padding:2px 8px}
+  .gw.current .here{display:inline-block} .gw.current{border-color:var(--dia-accent)}
 
-  /* ---------- digests ---------- */
-  #digests{background:linear-gradient(180deg,var(--surface-2),var(--surface));
-    border:1px solid var(--line);border-radius:16px;padding:28px 30px;margin:20px 0;box-shadow:var(--shadow)}
-  .dig-head{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
-  .dig-head h2{font-size:clamp(22px,3vw,28px)}
-  .dig-status{font-family:var(--font-mono);font-size:12px;color:var(--ink-faint);
-    margin-left:auto;display:flex;align-items:center;gap:7px}
+  /* stage page */
+  .crumb{font-family:var(--font-mono);font-size:12.5px;color:var(--ink-faint);padding:22px 0 0;display:flex;gap:10px;align-items:center}
+  .crumb a{color:var(--ink-soft)} .crumb .prognav{margin-left:auto;display:flex;gap:8px}
+  .sp-head{padding:14px 0 8px;border-bottom:1px solid var(--line);margin-bottom:26px}
+  .sp-head .row{display:flex;align-items:center;gap:12px;margin-bottom:12px}
+  .sp-head h1{font-size:clamp(30px,5vw,46px);letter-spacing:-.02em}
+  .sp-head .thesis{font-family:var(--font-display);font-style:italic;font-size:clamp(17px,2.4vw,21px);color:var(--accent-2);margin-top:12px;max-width:60ch}
+  .curbanner{display:none;align-items:center;gap:8px;margin-top:16px;background:var(--accent-bg);
+    border:1px solid color-mix(in srgb,var(--dia-accent) 40%,var(--line));border-radius:10px;
+    padding:9px 14px;font-size:13.5px;color:var(--ink)}
+  .curbanner .d{width:8px;height:8px;border-radius:50%;background:var(--dia-accent)}
+  .stage-page.current .curbanner{display:inline-flex}
+
+  .sp-section{margin:30px 0} .sp-section:first-child{margin-top:4px}
+  .sp-section > h2{font-size:24px;letter-spacing:-.01em;margin-bottom:12px;display:flex;align-items:baseline;gap:10px}
+  .sp-section > h2 .ix{font-family:var(--font-mono);font-size:13px;color:var(--dia-accent);font-weight:500}
+  .sp-section h3{font-size:16.5px;font-family:var(--font-body);font-weight:600;margin:20px 0 6px}
+  .prose{max-width:74ch;color:var(--ink-soft)}
+  .prose p{color:var(--ink-soft)} .prose strong{color:var(--ink);font-weight:600}
+  .prose em{color:var(--ink)}
+  .split{display:grid;grid-template-columns:1fr;gap:26px}
+  @media(min-width:860px){.split.has-dia{grid-template-columns:1.05fr .95fr;align-items:start}}
+  .figbox{background:var(--surface-2);border:1px solid var(--line);border-radius:12px;padding:18px 16px 14px}
+  .formula{font-family:var(--font-mono);background:var(--surface-2);border:1px solid var(--line);
+    border-left:3px solid var(--dia-accent);border-radius:8px;padding:12px 16px;margin:14px 0;font-size:14px;
+    color:var(--ink);overflow-x:auto;white-space:nowrap}
+  .callout{background:var(--surface);border:1px solid var(--line);border-left:3px solid var(--dia-accent);
+    border-radius:8px;padding:14px 18px;margin:16px 0;font-size:14.5px;color:var(--ink-soft)}
+  .callout b{color:var(--ink)}
+  .deflist{display:grid;gap:0;border:1px solid var(--line);border-radius:12px;overflow:hidden;background:var(--surface)}
+  .deflist div{display:grid;grid-template-columns:190px 1fr;gap:16px;padding:13px 18px;border-top:1px solid var(--line);font-size:14px}
+  .deflist div:first-child{border-top:0}
+  .deflist dt{font-weight:600;color:var(--ink);font-family:var(--font-mono);font-size:13px}
+  .deflist dd{margin:0;color:var(--ink-soft)}
+  @media(max-width:640px){.deflist div{grid-template-columns:1fr;gap:3px}}
+  .checks{list-style:none;padding:0;margin:0;display:grid;gap:10px}
+  .checks li{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:12px 16px 12px 40px;
+    position:relative;font-size:14.5px;color:var(--ink-soft)}
+  .checks li::before{content:"?";position:absolute;left:14px;top:11px;width:18px;height:18px;border-radius:50%;
+    background:var(--dia-accent);color:#fff;font-family:var(--font-mono);font-size:11px;text-align:center;line-height:18px}
+  .refs h2{margin-bottom:14px}
+  .reflist{margin:0;padding:0;list-style:none;display:grid;gap:11px}
+  .reflist li{font-size:14.5px;line-height:1.5;color:var(--ink-soft);padding-left:2px}
+  .reflist .tag{font-family:var(--font-mono);font-size:10.5px;color:var(--ink-faint);border:1px solid var(--line-strong);
+    border-radius:5px;padding:1px 6px;margin-right:9px;text-transform:uppercase;letter-spacing:.05em;white-space:nowrap}
+  .reflist .primary{color:var(--accent-2);border-color:var(--accent)}
+  .reflist .anno{color:var(--ink-faint);font-size:13px}
+  .prevnext{display:flex;gap:12px;margin:38px 0 10px;border-top:1px solid var(--line);padding-top:22px}
+  .pn{flex:1;background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:14px 18px;
+    text-decoration:none;color:inherit;transition:border-color .15s}
+  .pn:hover{border-color:var(--accent);text-decoration:none}
+  .pn .k{font-family:var(--font-mono);font-size:11px;color:var(--ink-faint);text-transform:uppercase;letter-spacing:.08em}
+  .pn .t{font-family:var(--font-display);font-weight:600;color:var(--ink);margin-top:2px}
+  .pn.next{text-align:right}
+
+  /* digests */
+  #digests{background:linear-gradient(180deg,var(--surface-2),var(--surface));border:1px solid var(--line);
+    border-radius:16px;padding:28px 30px;margin:20px 0;box-shadow:var(--shadow)}
+  .dig-head{display:flex;align-items:center;gap:12px;flex-wrap:wrap} .dig-head h2{font-size:clamp(22px,3vw,28px)}
+  .dig-status{font-family:var(--font-mono);font-size:12px;color:var(--ink-faint);margin-left:auto;display:flex;align-items:center;gap:7px}
   .dig-status .dot{width:8px;height:8px;border-radius:50%;background:var(--ink-faint)}
-  .dig-status.ok .dot{background:var(--s2)}
-  .dig-status.warn .dot{background:var(--s4)}
+  .dig-status.ok .dot{background:var(--s2)} .dig-status.warn .dot{background:var(--s4)}
   .dig-layout{display:grid;grid-template-columns:1fr;gap:20px;margin-top:20px}
   @media(min-width:800px){.dig-layout{grid-template-columns:220px 1fr}}
   .dig-list{display:flex;flex-direction:column;gap:4px;max-height:520px;overflow:auto}
-  .dig-list button{font:inherit;text-align:left;background:transparent;border:1px solid transparent;
-    border-radius:9px;padding:9px 12px;cursor:pointer;color:var(--ink-soft);display:flex;
-    flex-direction:column;gap:2px}
+  .dig-list button{font:inherit;text-align:left;background:transparent;border:1px solid transparent;border-radius:9px;
+    padding:9px 12px;cursor:pointer;color:var(--ink-soft);display:flex;flex-direction:column;gap:2px}
   .dig-list button:hover{background:var(--surface-2);border-color:var(--line)}
   .dig-list button.on{background:var(--accent-bg);border-color:var(--accent);color:var(--ink)}
   .dig-list button .d{font-family:var(--font-mono);font-size:13px;font-weight:500}
   .dig-list button .n{font-size:11.5px;color:var(--ink-faint)}
-  .dig-pane{background:var(--surface);border:1px solid var(--line);border-radius:12px;
-    padding:22px 26px;min-height:280px;overflow-x:auto}
-  .dig-pane.md h1{font-size:24px;margin:.2em 0 .5em}
-  .dig-pane.md h2{font-size:18px;margin:1.3em 0 .5em;padding-bottom:.3em;border-bottom:1px solid var(--line)}
+  .dig-pane{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:22px 26px;min-height:280px;overflow-x:auto}
+  .dig-pane.md h1{font-size:24px;margin:.2em 0 .5em} .dig-pane.md h2{font-size:18px;margin:1.3em 0 .5em;padding-bottom:.3em;border-bottom:1px solid var(--line)}
   .dig-pane.md h3{font-size:16px;font-family:var(--font-body);font-weight:600;margin:1.2em 0 .3em;color:var(--ink)}
-  .dig-pane.md p,.dig-pane.md li{color:var(--ink-soft);font-size:14.5px}
-  .dig-pane.md ul{padding-left:20px}
+  .dig-pane.md p,.dig-pane.md li{color:var(--ink-soft);font-size:14.5px} .dig-pane.md ul{padding-left:20px}
   .dig-pane.md hr{border:0;border-top:1px solid var(--line);margin:1.4em 0}
-  .dig-pane.md code{font-family:var(--font-mono);font-size:.86em;background:var(--surface-2);
-    padding:1px 5px;border-radius:4px}
+  .dig-pane.md code{font-family:var(--font-mono);font-size:.86em;background:var(--surface-2);padding:1px 5px;border-radius:4px}
   .dig-pane.md strong{color:var(--ink)}
-  .dig-fallback{border:1px dashed var(--line-strong);border-radius:10px;padding:16px 18px;
-    background:var(--surface-2);font-size:14px;color:var(--ink-soft);margin-bottom:16px}
+  .dig-fallback{border:1px dashed var(--line-strong);border-radius:10px;padding:16px 18px;background:var(--surface-2);font-size:14px;color:var(--ink-soft);margin-bottom:16px}
   .dig-fallback b{color:var(--ink)}
-  .btn{font:inherit;font-size:13px;cursor:pointer;background:var(--accent);color:#12131a;
-    border:0;border-radius:8px;padding:8px 14px;font-weight:600;display:inline-flex;gap:6px;align-items:center}
-  .btn:hover{filter:brightness(1.05)}
-  .btn.ghost{background:transparent;color:var(--ink-soft);border:1px solid var(--line-strong)}
-  .btn.ghost:hover{color:var(--ink);border-color:var(--accent)}
-  .spin{width:14px;height:14px;border:2px solid var(--line-strong);border-top-color:var(--accent);
-    border-radius:50%;display:inline-block;animation:sp .7s linear infinite}
-  @keyframes sp{to{transform:rotate(360deg)}}
-  @media(prefers-reduced-motion:reduce){.spin{animation:none}}
+  .spin{width:14px;height:14px;border:2px solid var(--line-strong);border-top-color:var(--accent);border-radius:50%;display:inline-block;animation:sp .7s linear infinite}
+  @keyframes sp{to{transform:rotate(360deg)}} @media(prefers-reduced-motion:reduce){.spin{animation:none}}
 
-  /* ---------- callouts / footer ---------- */
-  .note{background:var(--accent-bg);border:1px solid color-mix(in srgb,var(--accent) 35%,var(--line));
-    border-radius:12px;padding:18px 20px;font-size:14.5px;color:var(--ink-soft)}
+  .note{background:var(--accent-bg);border:1px solid color-mix(in srgb,var(--accent) 35%,var(--line));border-radius:12px;padding:18px 20px;font-size:14.5px;color:var(--ink-soft)}
   .note b{color:var(--ink)}
   .sources{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:10px;margin-top:14px}
   .scard{background:var(--surface);border:1px solid var(--line);border-radius:11px;padding:14px 16px}
-  .scard h4{font-family:var(--font-body);font-size:14px;margin-bottom:4px}
-  .scard p{font-size:12.5px;color:var(--ink-faint);margin:0}
+  .scard h4{font-family:var(--font-body);font-size:14px;margin-bottom:4px} .scard p{font-size:12.5px;color:var(--ink-faint);margin:0}
   footer{border-top:1px solid var(--line);margin-top:40px;padding:30px 0 60px;color:var(--ink-faint);font-size:13px}
   footer a{color:var(--ink-soft)}
-  .sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0)}
 </style>
 
 <header class="nav">
   <div class="wrap nav-in">
-    <span class="brand">
+    <button class="brand" id="home" aria-label="Back to the atlas overview">
       <svg class="mk" viewBox="0 0 20 20" aria-hidden="true"><circle cx="10" cy="10" r="8.4" fill="none" stroke="var(--accent-2)" stroke-width="1.5"/><path d="M10 2.5 A7.5 7.5 0 0 1 17.3 10" fill="none" stroke="var(--accent-2)" stroke-width="1.5"/><circle cx="10" cy="10" r="2.2" fill="var(--accent-2)"/></svg>
       GenAI Evolution Atlas
-    </span>
-    <nav class="nav-links" id="navlinks">
-      <a href="#top">Overview</a>
-      <a href="#stages">The 8 stages</a>
-      <a href="#stage-1">Transformer</a>
-      <a href="#stage-7">Frontier</a>
-      <a href="#digests">Daily digests</a>
-    </nav>
-    <button class="tbtn" id="theme" aria-label="Toggle colour theme">
-      <span id="theme-ic">◐</span><span id="theme-tx">Theme</span>
     </button>
+    <nav class="nav-links" id="navlinks">
+      <a href="#/">Overview</a>
+      <a href="#/stage/1">Transformer</a>
+      <a href="#/stage/5">Alignment</a>
+      <a href="#/stage/7">Frontier</a>
+      <a href="#/digests">Daily digests</a>
+    </nav>
+    <button class="tbtn" id="theme" aria-label="Toggle colour theme"><span id="theme-ic">◐</span><span id="theme-tx">Theme</span></button>
   </div>
 </header>
 
-<a id="top"></a>
-<div class="hero wrap">
-  <div class="eyebrow">A field guide to generative AI · 2017 → now</div>
-  <h1>From <em>attention</em><br>to agents.</h1>
-  <p class="lede">The structural story of how generative AI evolved — the problem each
-    breakthrough solved, the mechanism it introduced, and what it made possible next.
-    Every stage links to the papers and explainers that matter, and the daily digest
-    at the bottom keeps this atlas pointed at the frontier.</p>
-  <div class="meta">
-    <span class="pill" id="stagepill"><span class="dot"></span><span id="stagepill-tx">Your stage — loading…</span></span>
-    <span class="pill">8 stages · pre-Transformer → reasoning models</span>
-    <a class="pill live" href="#digests">● Live daily digests →</a>
-  </div>
-
-  <div class="timeline-wrap">
-    <figure class="dia" style="--dia-accent:var(--accent-2)">
-      <svg viewBox="0 0 1000 214" role="img" aria-label="Timeline of generative AI from recurrent sequence models before 2017 to the Transformer in 2017 and through pretraining, scaling, efficiency, alignment, multimodality and frontier agentic systems today.">
-        <line class="stroke" x1="40" y1="118" x2="960" y2="118" stroke-width="2"/>
-        <!-- gradient spine segments coloured by stage -->
-        <g stroke-width="6" stroke-linecap="round">
-          <line x1="60"  y1="118" x2="170" y2="118" stroke="var(--s0)"/>
-          <line x1="170" y1="118" x2="290" y2="118" stroke="var(--s1)"/>
-          <line x1="290" y1="118" x2="410" y2="118" stroke="var(--s2)"/>
-          <line x1="410" y1="118" x2="540" y2="118" stroke="var(--s3)"/>
-          <line x1="540" y1="118" x2="660" y2="118" stroke="var(--s4)"/>
-          <line x1="660" y1="118" x2="770" y2="118" stroke="var(--s5)"/>
-          <line x1="770" y1="118" x2="870" y2="118" stroke="var(--s6)"/>
-          <line x1="870" y1="118" x2="945" y2="118" stroke="var(--s7)"/>
-        </g>
-        <!-- nodes -->
-        <g font-family="var(--font-mono)">
-          <!-- each: dot, year (top), label (bottom) -->
-          <g><circle cx="60"  cy="118" r="6" fill="var(--s0)"/><text x="60"  y="96"  text-anchor="middle" class="lbl" style="fill:var(--s0)">pre-2017</text><text x="60"  y="146" text-anchor="middle" font-size="11">RNN · seq2seq</text><text x="60" y="162" text-anchor="middle" font-size="11">· attention</text></g>
-          <g><circle cx="170" cy="118" r="7" fill="var(--s1)"/><text x="170" y="96"  text-anchor="middle" class="lbl" style="fill:var(--s1)">2017</text><text x="170" y="146" text-anchor="middle" font-size="11">Transformer</text></g>
-          <g><circle cx="290" cy="118" r="6" fill="var(--s2)"/><text x="290" y="96"  text-anchor="middle" class="lbl" style="fill:var(--s2)">2018</text><text x="290" y="146" text-anchor="middle" font-size="11">BERT · GPT</text></g>
-          <g><circle cx="410" cy="118" r="6" fill="var(--s3)"/><text x="410" y="96"  text-anchor="middle" class="lbl" style="fill:var(--s3)">2020</text><text x="410" y="146" text-anchor="middle" font-size="11">GPT-3 · scaling</text></g>
-          <g><circle cx="540" cy="118" r="6" fill="var(--s4)"/><text x="540" y="96"  text-anchor="middle" class="lbl" style="fill:var(--s4)">2021–22</text><text x="540" y="146" text-anchor="middle" font-size="11">FlashAttn · MoE</text></g>
-          <g><circle cx="660" cy="118" r="6" fill="var(--s5)"/><text x="660" y="96"  text-anchor="middle" class="lbl" style="fill:var(--s5)">2022</text><text x="660" y="146" text-anchor="middle" font-size="11">RLHF · ChatGPT</text></g>
-          <g><circle cx="770" cy="118" r="6" fill="var(--s6)"/><text x="770" y="96"  text-anchor="middle" class="lbl" style="fill:var(--s6)">2021–23</text><text x="770" y="146" text-anchor="middle" font-size="11">CLIP · diffusion</text></g>
-          <g><circle cx="910" cy="118" r="7" fill="var(--s7)"/><text x="910" y="96"  text-anchor="middle" class="lbl" style="fill:var(--s7)">2023–now</text><text x="910" y="146" text-anchor="middle" font-size="11">agents ·</text><text x="910" y="162" text-anchor="middle" font-size="11">reasoning</text></g>
-        </g>
-      </svg>
-      <figcaption>The through-line: remove recurrence (2017) → pretrain &amp; transfer (2018) →
-        scale (2020) → make it efficient (2021–22) → align it (2022) → make it see (2021–23) →
-        make it reason &amp; act (2023–now). Colours recur beside each stage below.</figcaption>
-    </figure>
-  </div>
-</div>
-
-<div class="wrap">
-
-  <section class="band" id="stages">
-    <div class="kicker">How to read this atlas</div>
-    <p class="reading" style="color:var(--ink-soft)">Each stage answers three questions:
-      <b style="color:var(--ink)">what problem</b> forced the change,
-      <b style="color:var(--ink)">what mechanism</b> answered it, and
-      <b style="color:var(--ink)">what it unlocked</b> next. Read them in order for the narrative,
-      or jump to whatever you're studying. The colour beside each stage matches the timeline above.</p>
-    <div class="legend" id="legend"></div>
-  </section>
-
-  <!-- ===================== STAGE 0 ===================== -->
-  <section class="stage" id="stage-0" style="--dia-accent:var(--s0)">
-    <div class="stage-in">
-      <div class="stage-head">
-        <span class="snum">Stage 0</span>
-        <h2>Foundations: before the Transformer</h2>
-        <span class="youhere">● You are here</span>
-        <span class="era">pre-2017</span>
-      </div>
-      <p class="thesis">Why "attention" had to be invented in the first place.</p>
-      <div class="body reading">
-        <p>Language is a sequence, so early neural NLP used <strong>recurrent networks</strong>
-          (RNNs, and their gated cousins LSTM/GRU): read one token at a time, carrying a hidden
-          state forward that's meant to summarise everything seen so far. Two structural problems
-          fall out of this. First, learning <strong>long-range dependencies</strong> is hard —
-          gradients vanish or explode across many steps. Second, it's <strong>inherently
-          sequential</strong>: step <em>t</em> depends on step <em>t−1</em>, so you can't
-          parallelise across the sequence — a hard ceiling on GPUs.</p>
-        <p>The <strong>seq2seq</strong> model made it worse by squeezing an entire input sentence
-          into one fixed vector — the <strong>information bottleneck</strong>. The fix, in 2014,
-          was <strong>attention</strong> (Bahdanau et al.): instead of one vector, keep all the
-          encoder's per-token states and, at each step, take a <em>learned weighted average</em>
-          of them. That single idea — score every candidate against a query, softmax the scores,
-          return the weighted sum — is the seed of everything that follows.</p>
-      </div>
-      <ul class="keys">
-        <li><b>Distributed representations:</b> word2vec / GloVe embeddings — geometry encodes meaning.</li>
-        <li><b>The bottleneck:</b> one fixed vector can't hold a whole sentence; attention removes it.</li>
-        <li><b>The pattern to remember:</b> query · score · softmax · weighted-sum of values.</li>
-      </ul>
-      <div class="refs">
-        <h4>Reference materials</h4>
-        <ul>
-          <li><span class="tag primary">paper</span><a href="https://arxiv.org/abs/1409.0473" target="_blank" rel="noopener">Bahdanau, Cho, Bengio (2014) — Neural Machine Translation by Jointly Learning to Align and Translate</a> (attention is born)</li>
-          <li><span class="tag">paper</span><a href="https://arxiv.org/abs/1409.3215" target="_blank" rel="noopener">Sutskever et al. (2014) — Sequence to Sequence Learning</a></li>
-          <li><span class="tag">explainer</span><a href="https://colah.github.io/posts/2015-08-Understanding-LSTMs/" target="_blank" rel="noopener">Chris Olah — Understanding LSTM Networks</a></li>
-        </ul>
-      </div>
+<!-- ============================ OVERVIEW ============================ -->
+<main class="page" id="page-overview">
+  <div class="hero wrap">
+    <div class="eyebrow">A field guide to generative AI · 2017 → now</div>
+    <h1>From <em>attention</em><br>to agents.</h1>
+    <p class="lede">The structural story of how generative AI evolved — the problem each breakthrough
+      solved, the mechanism it introduced, and what it made possible next. Open any stage for a deep,
+      dedicated deep-dive; the daily digest keeps this atlas pointed at the frontier.</p>
+    <div class="meta">
+      <span class="pill" id="stagepill"><span class="dot"></span><span id="stagepill-tx">Your stage — loading…</span></span>
+      <span class="pill">8 dedicated stage pages</span>
+      <a class="pill live" href="#/digests">● Live daily digests →</a>
     </div>
-  </section>
+    <div class="timeline-wrap">
+      <figure class="dia" style="--dia-accent:var(--accent-2)">
+        <svg viewBox="0 0 1000 214" role="img" aria-label="Timeline of generative AI from recurrent sequence models before 2017 through the Transformer, pretraining, scaling, efficiency, alignment, multimodality, and frontier agentic and reasoning systems today.">
+          <line class="stroke" x1="40" y1="118" x2="960" y2="118" stroke-width="2"/>
+          <g stroke-width="6" stroke-linecap="round">
+            <line x1="60" y1="118" x2="170" y2="118" stroke="var(--s0)"/><line x1="170" y1="118" x2="290" y2="118" stroke="var(--s1)"/>
+            <line x1="290" y1="118" x2="410" y2="118" stroke="var(--s2)"/><line x1="410" y1="118" x2="540" y2="118" stroke="var(--s3)"/>
+            <line x1="540" y1="118" x2="660" y2="118" stroke="var(--s4)"/><line x1="660" y1="118" x2="770" y2="118" stroke="var(--s5)"/>
+            <line x1="770" y1="118" x2="870" y2="118" stroke="var(--s6)"/><line x1="870" y1="118" x2="945" y2="118" stroke="var(--s7)"/>
+          </g>
+          <g>
+            <g><circle cx="60" cy="118" r="6" fill="var(--s0)"/><text x="60" y="96" text-anchor="middle" class="lbl" style="fill:var(--s0)">pre-2017</text><text x="60" y="146" text-anchor="middle" font-size="11">RNN · seq2seq</text></g>
+            <g><circle cx="170" cy="118" r="7" fill="var(--s1)"/><text x="170" y="96" text-anchor="middle" class="lbl" style="fill:var(--s1)">2017</text><text x="170" y="146" text-anchor="middle" font-size="11">Transformer</text></g>
+            <g><circle cx="290" cy="118" r="6" fill="var(--s2)"/><text x="290" y="96" text-anchor="middle" class="lbl" style="fill:var(--s2)">2018</text><text x="290" y="146" text-anchor="middle" font-size="11">BERT · GPT</text></g>
+            <g><circle cx="410" cy="118" r="6" fill="var(--s3)"/><text x="410" y="96" text-anchor="middle" class="lbl" style="fill:var(--s3)">2020</text><text x="410" y="146" text-anchor="middle" font-size="11">GPT-3 · scaling</text></g>
+            <g><circle cx="540" cy="118" r="6" fill="var(--s4)"/><text x="540" y="96" text-anchor="middle" class="lbl" style="fill:var(--s4)">2021–22</text><text x="540" y="146" text-anchor="middle" font-size="11">FlashAttn · MoE</text></g>
+            <g><circle cx="660" cy="118" r="6" fill="var(--s5)"/><text x="660" y="96" text-anchor="middle" class="lbl" style="fill:var(--s5)">2022</text><text x="660" y="146" text-anchor="middle" font-size="11">RLHF · ChatGPT</text></g>
+            <g><circle cx="770" cy="118" r="6" fill="var(--s6)"/><text x="770" y="96" text-anchor="middle" class="lbl" style="fill:var(--s6)">2021–23</text><text x="770" y="146" text-anchor="middle" font-size="11">CLIP · diffusion</text></g>
+            <g><circle cx="910" cy="118" r="7" fill="var(--s7)"/><text x="910" y="96" text-anchor="middle" class="lbl" style="fill:var(--s7)">2023–now</text><text x="910" y="146" text-anchor="middle" font-size="11">agents · reasoning</text></g>
+          </g>
+        </svg>
+        <figcaption>Remove recurrence → pretrain &amp; transfer → scale → make it efficient → align it →
+          make it see → make it reason &amp; act. Each stop below is a full page.</figcaption>
+      </figure>
+    </div>
+  </div>
 
-  <!-- ===================== STAGE 1 ===================== -->
-  <section class="stage" id="stage-1" style="--dia-accent:var(--s1)">
-    <div class="stage-in">
-      <div class="stage-head">
-        <span class="snum">Stage 1</span>
-        <h2>The Transformer</h2>
-        <span class="youhere">● You are here</span>
-        <span class="era">2017</span>
+  <div class="wrap">
+    <section class="band" id="stages">
+      <div class="kicker">The 8 stages — open any one</div>
+      <p class="reading" style="color:var(--ink-soft)">Each page answers three questions in depth:
+        <b style="color:var(--ink)">what problem</b> forced the change, <b style="color:var(--ink)">what
+        mechanism</b> answered it (with the actual math and intuition), and <b style="color:var(--ink)">what
+        it unlocked</b>. Read in order, or jump to what you're studying.</p>
+      <div class="legend" id="legend"></div>
+      <div class="gw-grid" id="gwgrid"></div>
+    </section>
+
+    <section id="digests">
+      <div class="dig-head">
+        <h2>Daily digests</h2>
+        <div class="dig-status" id="digstatus"><span class="dot"></span><span id="digstatus-tx">connecting…</span></div>
       </div>
+      <p style="color:var(--ink-soft);max-width:70ch;margin-top:8px">Your automation writes a fresh brief to the
+        repo every morning. This panel reads them <strong>live from GitHub</strong>, newest first.
+        <a href="https://github.com/peterlcy1992/genai_learning_repository/tree/main/digests" target="_blank" rel="noopener">Browse all on GitHub →</a></p>
+      <div class="dig-layout">
+        <div class="dig-list" id="diglist" aria-label="Available daily digests"></div>
+        <div class="dig-pane md" id="digpane"></div>
+      </div>
+    </section>
+
+    <section class="band">
+      <div class="kicker">Staying current</div>
+      <div class="note"><p style="margin-bottom:10px"><b>The frontier is continuous, not staged.</b> Once
+        you reach Stage 7, learning is about keeping up. Update your stage in
+        <a href="https://github.com/peterlcy1992/genai_learning_repository/blob/main/PROGRESS.md" target="_blank" rel="noopener"><code>PROGRESS.md</code></a>, read the daily digest, and go deep on whichever thread pulls you.</p></div>
+      <div class="sources">
+        <div class="scard"><h4>arXiv</h4><p>cs.CL · cs.LG · cs.AI</p></div>
+        <div class="scard"><h4>Lab blogs</h4><p>OpenAI · Anthropic · DeepMind · Meta · DeepSeek · Qwen</p></div>
+        <div class="scard"><h4>Explainers</h4><p>Lilian Weng · Sebastian Raschka · Jay Alammar</p></div>
+        <div class="scard"><h4>Newsletters</h4><p>Import AI · The Batch · Interconnects</p></div>
+      </div>
+    </section>
+  </div>
+</main>
+
+<!-- ============================ STAGE 0 ============================ -->
+<article class="page stage-page" id="page-0" style="--dia-accent:var(--s0)">
+  <div class="wrap">
+    <div class="crumb"><a href="#/">← Atlas</a><span>·</span><span>Stage 0 of 7</span></div>
+    <header class="sp-head">
+      <div class="row"><span class="snum">Stage 0</span><span class="era">pre-2017</span></div>
+      <h1>Foundations: before the Transformer</h1>
+      <p class="thesis">Why "attention" had to be invented in the first place.</p>
+      <span class="curbanner"><span class="d"></span> This is your current stage — start here.</span>
+    </header>
+
+    <section class="sp-section">
+      <h2><span class="ix">01</span> The problem: modelling sequences</h2>
+      <div class="split has-dia">
+        <div class="prose">
+          <p>Language is a sequence, so early neural NLP used <strong>recurrent neural networks</strong>
+            (RNNs) and their gated successors, <strong>LSTM</strong> and <strong>GRU</strong>. An RNN
+            reads one token at a time, updating a hidden state <em>h<sub>t</sub></em> that is meant to
+            summarise everything seen so far: <em>h<sub>t</sub> = f(h<sub>t−1</sub>, x<sub>t</sub>)</em>.</p>
+          <p>Two structural problems follow. First, learning <strong>long-range dependencies</strong> is
+            hard: to connect a word at position 50 to one at position 1, the signal must survive 49
+            multiplications during backpropagation — so gradients <strong>vanish or explode</strong>.
+            LSTMs add gates (input, forget, output) and a cell state that flows with light modification,
+            which helps but doesn't eliminate the problem. Second, and just as important, recurrence is
+            <strong>inherently sequential</strong>: step <em>t</em> needs step <em>t−1</em>, so you cannot
+            parallelise across the sequence — a hard throughput ceiling on GPUs built for parallelism.</p>
+        </div>
+        <div class="figbox">
+          <figure class="dia" style="--dia-accent:var(--s0)">
+            <svg viewBox="0 0 380 220" role="img" aria-label="seq2seq information bottleneck: an encoder compresses a whole sentence into one fixed vector that the decoder must reconstruct from; attention instead lets the decoder look back at every encoder state.">
+              <text x="190" y="18" text-anchor="middle" class="lbl" font-size="11">the seq2seq bottleneck</text>
+              <g class="fillc"><circle cx="40" cy="60" r="6"/><circle cx="76" cy="60" r="6"/><circle cx="112" cy="60" r="6"/><circle cx="148" cy="60" r="6"/></g>
+              <g class="stroke" stroke-width="1.2"><path d="M46 60 L70 60"/><path d="M82 60 L106 60"/><path d="M118 60 L142 60"/></g>
+              <text x="94" y="40" text-anchor="middle" class="lbl" font-size="9">encoder RNN</text>
+              <rect class="box accent" x="170" y="46" width="40" height="28" rx="6" stroke-width="1.8"/>
+              <text x="190" y="64" text-anchor="middle" class="accent-f" font-size="10">c</text>
+              <path class="stroke" stroke-width="1.2" d="M154 60 L168 60"/>
+              <text x="190" y="92" text-anchor="middle" class="lbl" font-size="9">one fixed vector</text>
+              <g class="fillc"><circle cx="240" cy="60" r="6"/><circle cx="276" cy="60" r="6"/><circle cx="312" cy="60" r="6"/></g>
+              <g class="stroke" stroke-width="1.2"><path d="M212 60 L234 60"/><path d="M246 60 L270 60"/><path d="M282 60 L306 60"/></g>
+              <text x="276" y="40" text-anchor="middle" class="lbl" font-size="9">decoder RNN</text>
+              <line class="stroke" x1="30" y1="120" x2="350" y2="120" opacity=".35"/>
+              <text x="190" y="146" text-anchor="middle" class="accent-f" font-size="10">attention: decoder reads ALL encoder states</text>
+              <g class="accent stroke" stroke-width="1.1" stroke-dasharray="3 2">
+                <path d="M40 168 C 120 200, 200 200, 276 176"/><path d="M76 168 C 140 196, 210 194, 276 176"/>
+                <path d="M112 168 C 170 192, 230 190, 276 176"/><path d="M148 168 C 200 186, 240 184, 276 176"/>
+              </g>
+              <g class="fillc"><circle cx="40" cy="168" r="5"/><circle cx="76" cy="168" r="5"/><circle cx="112" cy="168" r="5"/><circle cx="148" cy="168" r="5"/></g>
+              <circle class="accent-f" cx="276" cy="176" r="6"/>
+            </svg>
+            <figcaption>Vanilla seq2seq forces the whole meaning through one vector <em>c</em>; attention
+              lets each decoding step take a weighted look at every encoder state instead.</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <section class="sp-section">
+      <h2><span class="ix">02</span> The mechanism: attention as a learned lookup</h2>
+      <div class="prose">
+        <p>The <strong>seq2seq</strong> model (Sutskever, 2014) uses an encoder RNN to compress the input
+          into a single fixed vector and a decoder RNN to generate from it. The flaw is immediate: one
+          vector must hold an entire sentence — the <strong>information bottleneck</strong> — and it gets
+          worse the longer the input.</p>
+        <p><strong>Bahdanau attention</strong> (2014) removed it. Keep <em>all</em> the encoder's per-token
+          states. At each decoding step, score the decoder's current state (a <em>query</em>) against every
+          encoder state, turn the scores into weights with a softmax, and return the weighted sum. The
+          decoder now looks back at the whole input and focuses on the relevant parts.</p>
+      </div>
+      <div class="formula">score(q, kᵢ) → αᵢ = softmax(score)ᵢ → context = Σᵢ αᵢ · vᵢ</div>
+      <div class="callout"><b>The one pattern to carry forward.</b> Attention = a content-based, learned,
+        weighted lookup: for a query, score every candidate, softmax the scores into weights, return the
+        weighted average of the values. Stage 1 is <em>this exact operation</em> — just with the RNN thrown
+        away and the sequence attending to itself.</div>
+    </section>
+
+    <section class="sp-section">
+      <h2><span class="ix">03</span> The substrate: word embeddings</h2>
+      <div class="prose">
+        <p>Underneath all of this sit <strong>distributed representations</strong>: map each token to a dense
+          vector where geometry encodes meaning (the famous <em>king − man + woman ≈ queen</em>).
+          <strong>word2vec</strong> (2013) learned these by predicting a word from its neighbours (or vice
+          versa); <strong>GloVe</strong> (2014) from global co-occurrence counts. These are <em>static</em> —
+          one vector per word regardless of context. Making them <em>contextual</em> is exactly what ELMo and
+          then the Transformer did next.</p>
+      </div>
+    </section>
+
+    <section class="sp-section">
+      <h2><span class="ix">04</span> Key concepts</h2>
+      <div class="deflist">
+        <div><dt>RNN / LSTM</dt><dd>Process a sequence step by step, carrying a hidden state; gates (LSTM) ease but don't fix long-range gradient decay.</dd></div>
+        <div><dt>seq2seq</dt><dd>Encoder→decoder architecture mapping one sequence to another (translation, summarisation).</dd></div>
+        <div><dt>Bottleneck</dt><dd>Forcing a whole input into one fixed vector; the flaw attention removes.</dd></div>
+        <div><dt>Attention</dt><dd>A learned weighted average of candidate values, chosen by scoring them against a query.</dd></div>
+        <div><dt>Embedding</dt><dd>A dense vector representing a token; geometry captures meaning.</dd></div>
+      </div>
+    </section>
+
+    <section class="sp-section">
+      <h2><span class="ix">05</span> Checkpoints</h2>
+      <ul class="checks">
+        <li>Why can't RNN-based sequence models be parallelised across the sequence during training?</li>
+        <li>State the "information bottleneck" of vanilla seq2seq — and how attention removes it.</li>
+        <li>Describe the query → score → softmax → weighted-sum pattern in one sentence.</li>
+        <li>What does a word embedding buy you over one-hot symbols?</li>
+      </ul>
+    </section>
+
+    <section class="sp-section refs">
+      <h2><span class="ix">06</span> Go deeper</h2>
+      <ul class="reflist">
+        <li><span class="tag primary">paper</span><a href="https://arxiv.org/abs/1409.0473" target="_blank" rel="noopener">Bahdanau, Cho, Bengio (2014) — NMT by Jointly Learning to Align and Translate</a> <span class="anno">— where attention is born; read for the alignment idea, not the RNN plumbing.</span></li>
+        <li><span class="tag">paper</span><a href="https://arxiv.org/abs/1409.3215" target="_blank" rel="noopener">Sutskever, Vinyals, Le (2014) — Sequence to Sequence Learning</a> <span class="anno">— the encoder–decoder that attention was invented to fix.</span></li>
+        <li><span class="tag">explainer</span><a href="https://colah.github.io/posts/2015-08-Understanding-LSTMs/" target="_blank" rel="noopener">Chris Olah — Understanding LSTM Networks</a> <span class="anno">— still the clearest visual account of gates and cell state.</span></li>
+        <li><span class="tag">paper</span><a href="https://arxiv.org/abs/1301.3781" target="_blank" rel="noopener">Mikolov et al. (2013) — word2vec</a> <span class="anno">— the origin of usable dense word vectors.</span></li>
+      </ul>
+    </section>
+
+    <nav class="prevnext">
+      <a class="pn" href="#/"><span class="k">← Back</span><span class="t">The Atlas</span></a>
+      <a class="pn next" href="#/stage/1"><span class="k">Next →</span><span class="t">The Transformer</span></a>
+    </nav>
+  </div>
+</article>
+
+<!-- ============================ STAGE 1 ============================ -->
+<article class="page stage-page" id="page-1" style="--dia-accent:var(--s1)">
+  <div class="wrap">
+    <div class="crumb"><a href="#/">← Atlas</a><span>·</span><span>Stage 1 of 7</span></div>
+    <header class="sp-head">
+      <div class="row"><span class="snum">Stage 1</span><span class="era">2017</span></div>
+      <h1>The Transformer</h1>
       <p class="thesis">"Attention Is All You Need" — throw away recurrence entirely.</p>
-      <div class="grid has-dia">
-        <div>
-          <div class="body">
-            <p>The 2017 bet: replace recurrence <strong>completely</strong> with attention, so the
-              whole sequence is processed in parallel — exactly what GPUs want, and what makes
-              training at massive scale possible. In <strong>self-attention</strong>, every token
-              is projected into a <strong>query, key, and value</strong>; the query scores against
-              every key (dot product), a softmax turns scores into weights, and the output is the
-              weighted sum of values — computed for all tokens at once in one matrix multiply.</p>
-            <p><strong>Multi-head</strong> attention runs this several times in parallel subspaces;
-              <strong>positional encodings</strong> re-inject word order (attention alone is
-              order-blind). Stack these blocks and you get an encoder or a decoder. The one catch
-              that drives Stage 4: self-attention is <strong>O(n²)</strong> in sequence length.</p>
-          </div>
-          <ul class="keys">
-            <li><b>Q·Kᵀ / √dₖ → softmax → ·V:</b> the whole mechanism in one line.</li>
-            <li><b>Parallelism → scale:</b> no time-stepping means you can train enormous models.</li>
-            <li><b>Decoder-only wins:</b> it becomes the template for every modern chat LLM.</li>
-          </ul>
+      <span class="curbanner"><span class="d"></span> This is your current stage — start here.</span>
+    </header>
+
+    <section class="sp-section">
+      <h2><span class="ix">01</span> The bet: attention without recurrence</h2>
+      <div class="prose">
+        <p>Recurrence made sequence models slow and forgetful (Stage 0). The 2017 bet was radical: keep the
+          attention, drop the RNN <em>completely</em>. With no time-stepping, the whole sequence is processed
+          in parallel — exactly what GPUs want, and the reason everything after this could be trained at
+          scale. Every advance in this atlas rides on that unlock.</p>
+      </div>
+    </section>
+
+    <section class="sp-section">
+      <h2><span class="ix">02</span> Scaled dot-product attention</h2>
+      <div class="split has-dia">
+        <div class="prose">
+          <p>Each token is linearly projected into three vectors: a <strong>query (Q)</strong>, a
+            <strong>key (K)</strong>, and a <strong>value (V)</strong>. A token's new representation is a
+            weighted average of all tokens' values, where the weights come from how well its query matches
+            each key.</p>
+          <div class="formula">Attention(Q,K,V) = softmax( QKᵀ / √dₖ ) · V</div>
+          <p>The dot product <em>QKᵀ</em> measures similarity; the <strong>√dₖ scaling</strong> keeps those
+            products from growing large with dimension and pushing softmax into saturated,
+            tiny-gradient regions; softmax turns scores into weights that sum to one; multiplying by
+            <em>V</em> returns the weighted average. It's the Stage 0 lookup — now every token queries every
+            token, computed in one matrix multiply.</p>
         </div>
         <div class="figbox">
           <figure class="dia" style="--dia-accent:var(--s1)">
-            <svg viewBox="0 0 400 300" role="img" aria-label="Scaled dot-product attention: a query is scored against three keys, the scores are softmaxed into weights, and the output is the weighted sum of the three values.">
+            <svg viewBox="0 0 400 300" role="img" aria-label="Scaled dot-product attention: a query is scored against three keys, softmaxed into weights, and produces the weighted sum of three values.">
               <text x="200" y="18" text-anchor="middle" class="lbl" font-size="12">scaled dot-product attention</text>
-              <!-- query -->
-              <rect class="box accent" x="20" y="130" width="58" height="34" rx="6" stroke-width="1.6"/>
-              <text x="49" y="151" text-anchor="middle" class="accent-f" font-size="13">Q</text>
-              <text x="49" y="182" text-anchor="middle" class="lbl" font-size="10">query</text>
-              <!-- keys -->
-              <g>
-                <rect class="box" x="150" y="40"  width="46" height="28" rx="5"/><text x="173" y="59" text-anchor="middle" font-size="11">K₁</text>
-                <rect class="box" x="150" y="132" width="46" height="28" rx="5"/><text x="173" y="151" text-anchor="middle" font-size="11">K₂</text>
-                <rect class="box" x="150" y="224" width="46" height="28" rx="5"/><text x="173" y="243" text-anchor="middle" font-size="11">K₃</text>
-              </g>
-              <!-- score arrows -->
-              <g class="stroke" stroke-width="1.3">
-                <path d="M78 142 C 110 120, 120 60, 148 54"/>
-                <path d="M78 147 L 148 147"/>
-                <path d="M78 152 C 110 174, 120 234, 148 238"/>
-              </g>
+              <rect class="box accent" x="20" y="130" width="58" height="34" rx="6" stroke-width="1.6"/><text x="49" y="151" text-anchor="middle" class="accent-f" font-size="13">Q</text><text x="49" y="182" text-anchor="middle" class="lbl" font-size="10">query</text>
+              <rect class="box" x="150" y="40" width="46" height="28" rx="5"/><text x="173" y="59" text-anchor="middle" font-size="11">K₁</text>
+              <rect class="box" x="150" y="132" width="46" height="28" rx="5"/><text x="173" y="151" text-anchor="middle" font-size="11">K₂</text>
+              <rect class="box" x="150" y="224" width="46" height="28" rx="5"/><text x="173" y="243" text-anchor="middle" font-size="11">K₃</text>
+              <g class="stroke" stroke-width="1.3"><path d="M78 142 C 110 120, 120 60, 148 54"/><path d="M78 147 L 148 147"/><path d="M78 152 C 110 174, 120 234, 148 238"/></g>
               <text x="112" y="104" class="lbl" font-size="10">score = Q·K</text>
-              <!-- softmax gate -->
-              <rect class="box" x="214" y="120" width="70" height="56" rx="8"/>
-              <text x="249" y="145" text-anchor="middle" font-size="11">softmax</text>
-              <text x="249" y="162" text-anchor="middle" class="lbl" font-size="9">→ weights</text>
-              <g class="stroke" stroke-width="1.3">
-                <path d="M196 54 C 210 90, 208 118, 214 132"/>
-                <path d="M196 147 L 214 148"/>
-                <path d="M196 238 C 210 202, 208 176, 214 164"/>
-              </g>
-              <!-- values + weighted sum -->
-              <g>
-                <rect class="box" x="300" y="40"  width="40" height="24" rx="5"/><text x="320" y="57" text-anchor="middle" font-size="10">V₁</text>
-                <rect class="box" x="300" y="134" width="40" height="24" rx="5"/><text x="320" y="151" text-anchor="middle" font-size="10">V₂</text>
-                <rect class="box" x="300" y="228" width="40" height="24" rx="5"/><text x="320" y="245" text-anchor="middle" font-size="10">V₃</text>
-              </g>
-              <g class="stroke" stroke-width="1.2" stroke-dasharray="3 3">
-                <path d="M284 140 L 300 54"/>
-                <path d="M284 148 L 300 146"/>
-                <path d="M284 156 L 300 240"/>
-              </g>
-              <circle class="accent" cx="366" cy="148" r="15" fill="var(--surface)" stroke-width="1.8"/>
-              <text x="366" y="152" text-anchor="middle" class="accent-f" font-size="14">Σ</text>
+              <rect class="box" x="214" y="120" width="70" height="56" rx="8"/><text x="249" y="145" text-anchor="middle" font-size="11">softmax</text><text x="249" y="162" text-anchor="middle" class="lbl" font-size="9">→ weights</text>
+              <g class="stroke" stroke-width="1.3"><path d="M196 54 C 210 90, 208 118, 214 132"/><path d="M196 147 L 214 148"/><path d="M196 238 C 210 202, 208 176, 214 164"/></g>
+              <rect class="box" x="300" y="40" width="40" height="24" rx="5"/><text x="320" y="57" text-anchor="middle" font-size="10">V₁</text>
+              <rect class="box" x="300" y="134" width="40" height="24" rx="5"/><text x="320" y="151" text-anchor="middle" font-size="10">V₂</text>
+              <rect class="box" x="300" y="228" width="40" height="24" rx="5"/><text x="320" y="245" text-anchor="middle" font-size="10">V₃</text>
+              <g class="stroke" stroke-width="1.2" stroke-dasharray="3 3"><path d="M284 140 L 300 54"/><path d="M284 148 L 300 146"/><path d="M284 156 L 300 240"/></g>
+              <circle class="accent" cx="366" cy="148" r="15" fill="var(--surface)" stroke-width="1.8"/><text x="366" y="152" text-anchor="middle" class="accent-f" font-size="14">Σ</text>
               <g class="accent stroke" stroke-width="1.4"><path d="M340 52 C 356 90, 360 120, 364 133"/><path d="M340 146 L 351 147"/><path d="M340 240 C 356 202, 360 172, 364 163"/></g>
               <text x="366" y="182" text-anchor="middle" class="lbl" font-size="10">output</text>
             </svg>
-            <figcaption>One query attends to every key, the scores become weights, and the output
-              is the weighted sum of the values — the same lookup as 2014, now done for every token
-              at once.</figcaption>
+            <figcaption>One query, three keys and values; the scores become weights and the output is their
+              weighted sum — now done for every token at once.</figcaption>
           </figure>
         </div>
       </div>
-      <div class="refs">
-        <h4>Reference materials</h4>
-        <ul>
-          <li><span class="tag primary">paper</span><a href="https://arxiv.org/abs/1706.03762" target="_blank" rel="noopener">Vaswani et al. (2017) — Attention Is All You Need</a></li>
-          <li><span class="tag">explainer</span><a href="https://jalammar.github.io/illustrated-transformer/" target="_blank" rel="noopener">Jay Alammar — The Illustrated Transformer</a></li>
-          <li><span class="tag">code</span><a href="https://nlp.seas.harvard.edu/annotated-transformer/" target="_blank" rel="noopener">The Annotated Transformer (Harvard NLP)</a></li>
-          <li><span class="tag">video</span><a href="https://www.youtube.com/watch?v=kCc8FmEb1nY" target="_blank" rel="noopener">Karpathy — Let's build GPT, in code</a> · <a href="https://github.com/karpathy/nanoGPT" target="_blank" rel="noopener">nanoGPT</a></li>
-        </ul>
-      </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- ===================== STAGE 2 ===================== -->
-  <section class="stage" id="stage-2" style="--dia-accent:var(--s2)">
-    <div class="stage-in">
-      <div class="stage-head">
-        <span class="snum">Stage 2</span>
-        <h2>The pretraining era</h2>
-        <span class="youhere">● You are here</span>
-        <span class="era">2018–2019</span>
+    <section class="sp-section">
+      <h2><span class="ix">03</span> From one head to a full block</h2>
+      <div class="split has-dia">
+        <div class="prose">
+          <p><strong>Multi-head attention</strong> runs the operation <em>h</em> times in parallel with
+            different learned projections, then concatenates. Each head can specialise — one tracks syntax,
+            another long-distance coreference — giving several <em>representation subspaces</em> at once.</p>
+          <p><strong>Positional encodings</strong> re-inject order, because attention is
+            permutation-invariant (it has no built-in sense of sequence). The original paper adds fixed
+            <em>sinusoidal</em> vectors of different frequencies; Stage 4's RoPE and ALiBi are the successors
+            that made long context work.</p>
+          <p>A full <strong>Transformer block</strong> wraps attention with a position-wise
+            <strong>feed-forward network</strong>, <strong>residual connections</strong> (add the input back,
+            so gradients flow), and <strong>layer normalisation</strong>. Stack <em>N</em> of these and you
+            have an encoder or a decoder.</p>
+        </div>
+        <div class="figbox">
+          <figure class="dia" style="--dia-accent:var(--s1)">
+            <svg viewBox="0 0 300 300" role="img" aria-label="A Transformer block: input embeddings plus positional encoding, multi-head self-attention with a residual add and layer norm, then a feed-forward network with another residual add and layer norm.">
+              <rect class="box" x="70" y="256" width="160" height="30" rx="6"/><text x="150" y="275" text-anchor="middle" font-size="10.5">input + positional enc.</text>
+              <rect class="box accent" x="70" y="176" width="160" height="42" rx="8" stroke-width="1.7"/><text x="150" y="193" text-anchor="middle" class="accent-f" font-size="11">multi-head self-attention</text><text x="150" y="209" text-anchor="middle" class="lbl" font-size="9">h heads in parallel</text>
+              <rect class="box" x="70" y="118" width="160" height="26" rx="6"/><text x="150" y="135" text-anchor="middle" font-size="10">add &amp; norm</text>
+              <rect class="box" x="70" y="58" width="160" height="34" rx="6"/><text x="150" y="79" text-anchor="middle" font-size="10.5">feed-forward (MLP)</text>
+              <rect class="box" x="70" y="14" width="160" height="24" rx="6"/><text x="150" y="30" text-anchor="middle" font-size="10">add &amp; norm →</text>
+              <g class="stroke" stroke-width="1.3">
+                <path d="M150 256 L 150 220" marker-end="url(#a1b)"/>
+                <path d="M150 176 L 150 146" marker-end="url(#a1b)"/>
+                <path d="M150 118 L 150 94" marker-end="url(#a1b)"/>
+                <path d="M150 58 L 150 40" marker-end="url(#a1b)"/>
+              </g>
+              <g class="stroke accent" stroke-width="1.1" stroke-dasharray="3 2">
+                <path d="M64 250 C 40 240, 40 150, 64 132"/>
+                <path d="M64 112 C 44 100, 44 44, 64 32"/>
+              </g>
+              <text x="30" y="188" text-anchor="middle" class="lbl" font-size="8" transform="rotate(-90 30 188)">residual</text>
+              <defs><marker id="a1b" markerWidth="7" markerHeight="7" refX="5.5" refY="3" orient="auto"><path d="M0 0 L6 3 L0 6 z" fill="currentColor"/></marker></defs>
+            </svg>
+            <figcaption>The repeating unit: self-attention and a feed-forward network, each wrapped in a
+              residual connection and layer norm. Stack <em>N</em> to build the model.</figcaption>
+          </figure>
+        </div>
       </div>
+    </section>
+
+    <section class="sp-section">
+      <h2><span class="ix">04</span> Encoder, decoder, and the O(n²) catch</h2>
+      <div class="prose">
+        <p>The original is an <strong>encoder–decoder</strong> for translation. The <strong>encoder</strong>
+          reads the source bidirectionally; the <strong>decoder</strong> generates one token at a time with
+          <strong>masked</strong> self-attention (a position can't attend to the future — that would leak the
+          answer during next-token training) plus <strong>cross-attention</strong> into the encoder. This
+          split seeds the three families of Stage 2 — and decoder-only becomes the template for modern LLMs.</p>
+        <div class="callout"><b>The catch that drives Stage 4.</b> Self-attention is <b>O(n²)</b> in sequence
+          length: every token attends to every other, so doubling the context quadruples attention compute and
+          memory. Much of Stage 4 is the long war on that cost.</div>
+      </div>
+    </section>
+
+    <section class="sp-section">
+      <h2><span class="ix">05</span> Key concepts</h2>
+      <div class="deflist">
+        <div><dt>Q / K / V</dt><dd>Per-token query, key, value projections; attention = softmax(QKᵀ/√dₖ)·V.</dd></div>
+        <div><dt>Multi-head</dt><dd>Several attention operations in parallel subspaces, concatenated.</dd></div>
+        <div><dt>Positional enc.</dt><dd>Injected order information (sinusoidal → RoPE/ALiBi).</dd></div>
+        <div><dt>Residual + norm</dt><dd>Add the input back and normalise — lets deep stacks train stably.</dd></div>
+        <div><dt>Causal mask</dt><dd>Blocks attention to future tokens so decoders can be trained on next-token prediction.</dd></div>
+      </div>
+    </section>
+
+    <section class="sp-section">
+      <h2><span class="ix">06</span> Checkpoints</h2>
+      <ul class="checks">
+        <li>What are Q, K, V, and how does scaled dot-product attention combine them?</li>
+        <li>Why divide the scores by √dₖ?</li>
+        <li>Why are positional encodings necessary at all?</li>
+        <li>Why did decoder-only models come to dominate — and why is the block O(n²) in length?</li>
+      </ul>
+    </section>
+
+    <section class="sp-section refs">
+      <h2><span class="ix">07</span> Go deeper</h2>
+      <ul class="reflist">
+        <li><span class="tag primary">paper</span><a href="https://arxiv.org/abs/1706.03762" target="_blank" rel="noopener">Vaswani et al. (2017) — Attention Is All You Need</a> <span class="anno">— the paper the whole field turns on; read it twice.</span></li>
+        <li><span class="tag">explainer</span><a href="https://jalammar.github.io/illustrated-transformer/" target="_blank" rel="noopener">Jay Alammar — The Illustrated Transformer</a> <span class="anno">— the best visual walkthrough; read alongside the paper.</span></li>
+        <li><span class="tag">code</span><a href="https://nlp.seas.harvard.edu/annotated-transformer/" target="_blank" rel="noopener">The Annotated Transformer (Harvard NLP)</a> <span class="anno">— the paper reimplemented line-by-line in PyTorch.</span></li>
+        <li><span class="tag">video</span><a href="https://www.youtube.com/watch?v=kCc8FmEb1nY" target="_blank" rel="noopener">Karpathy — Let's build GPT, from scratch</a> · <a href="https://github.com/karpathy/nanoGPT" target="_blank" rel="noopener">nanoGPT</a> <span class="anno">— builds a working decoder-only Transformer; makes it concrete.</span></li>
+      </ul>
+    </section>
+
+    <nav class="prevnext">
+      <a class="pn" href="#/stage/0"><span class="k">← Previous</span><span class="t">Foundations</span></a>
+      <a class="pn next" href="#/stage/2"><span class="k">Next →</span><span class="t">The pretraining era</span></a>
+    </nav>
+  </div>
+</article>
+
+<!-- ============================ STAGE 2 ============================ -->
+<article class="page stage-page" id="page-2" style="--dia-accent:var(--s2)">
+  <div class="wrap">
+    <div class="crumb"><a href="#/">← Atlas</a><span>·</span><span>Stage 2 of 7</span></div>
+    <header class="sp-head">
+      <div class="row"><span class="snum">Stage 2</span><span class="era">2018–2019</span></div>
+      <h1>The pretraining era</h1>
       <p class="thesis">Pretrain once on a mountain of text, then transfer everywhere.</p>
-      <div class="grid has-dia">
-        <div>
-          <div class="body">
-            <p>The breakthrough insight: train a Transformer on <strong>raw, unlabelled text</strong>
-              with a self-supervised objective (the text supervises itself), so it learns general
-              language structure — then <strong>fine-tune</strong> on your task with little labelled
-              data. Two objectives split the field into two families.</p>
-            <p><strong>GPT</strong> (decoder-only) predicts the <em>next</em> token, so it's naturally
-              generative. <strong>BERT</strong> (encoder-only) fills in <em>masked</em> tokens using
-              both directions, so it's superb at understanding. <strong>T5</strong> (encoder–decoder)
-              casts every task as text-in → text-out. The field ultimately bet on decoder-only,
-              because a single next-token objective scales beautifully and absorbs the rest.</p>
-          </div>
-          <ul class="keys">
-            <li><b>Self-supervised pretraining → fine-tuning:</b> the recipe still underneath everything.</li>
-            <li><b>Decoder vs encoder:</b> generate vs understand; causal vs bidirectional.</li>
-          </ul>
+      <span class="curbanner"><span class="d"></span> This is your current stage — start here.</span>
+    </header>
+
+    <section class="sp-section">
+      <h2><span class="ix">01</span> The idea: self-supervision + transfer</h2>
+      <div class="prose">
+        <p>Before 2018, most NLP models were trained from scratch on each task's small labelled dataset. The
+          breakthrough: train a Transformer on a <strong>massive corpus of raw text</strong> using a
+          <strong>self-supervised</strong> objective — the text supplies its own labels, so no annotation is
+          needed — then <strong>fine-tune</strong> on your task with comparatively little labelled data. The
+          model arrives already knowing grammar, facts, and patterns. This pretraining → post-training recipe
+          still underlies everything today.</p>
+      </div>
+    </section>
+
+    <section class="sp-section">
+      <h2><span class="ix">02</span> Two objectives, three families</h2>
+      <div class="split has-dia">
+        <div class="prose">
+          <p><strong>GPT</strong> (decoder-only) trains on plain <strong>language modelling</strong>: predict
+            the next token given all previous ones. Because it only ever looks left (causal masking), it's
+            naturally <em>generative</em> — you can sample text from it. This family becomes the backbone of
+            every modern chat LLM.</p>
+          <p><strong>BERT</strong> (encoder-only) uses <strong>masked language modelling</strong>: hide ~15%
+            of tokens and predict them from context on <em>both</em> sides. That bidirectional view makes it
+            excellent at understanding — classification, retrieval, embeddings — but it doesn't generate.
+            <strong>ELMo</strong> was the transitional step, producing contextual embeddings from a BiLSTM.</p>
+          <p><strong>T5 / BART</strong> (encoder–decoder) recast every task as text-in → text-out, ideal for
+            translation and summarisation. The field ultimately bet on <strong>decoder-only</strong>: a single
+            next-token objective scales beautifully and, at scale, absorbs "understanding" tasks too — you can
+            just <em>ask</em>.</p>
         </div>
         <div class="figbox">
           <figure class="dia" style="--dia-accent:var(--s2)">
-            <svg viewBox="0 0 400 250" role="img" aria-label="Three Transformer families compared: encoder-only attends in both directions (BERT), decoder-only attends only leftward (GPT), encoder-decoder does both plus cross-attention (T5).">
-              <!-- Encoder-only -->
+            <svg viewBox="0 0 400 210" role="img" aria-label="Three Transformer families: encoder-only attends both directions (BERT), decoder-only attends only leftward (GPT), encoder-decoder does both plus cross-attention (T5).">
               <g>
-                <text x="66" y="24" text-anchor="middle" class="lbl" font-size="11">encoder-only</text>
-                <text x="66" y="40" text-anchor="middle" font-size="11" style="fill:var(--s2)">BERT</text>
+                <text x="66" y="22" text-anchor="middle" class="lbl" font-size="11">encoder-only</text><text x="66" y="38" text-anchor="middle" font-size="11" style="fill:var(--s2)">BERT</text>
                 <g class="fillc"><circle cx="34" cy="70" r="6"/><circle cx="66" cy="70" r="6"/><circle cx="98" cy="70" r="6"/></g>
-                <g class="stroke" stroke-width="1.2">
-                  <path d="M40 64 C 52 52, 80 52, 92 64" marker-end="url(#a2)"/>
-                  <path d="M92 76 C 80 88, 52 88, 40 76" marker-end="url(#a2)"/>
-                </g>
-                <text x="66" y="108" text-anchor="middle" class="lbl" font-size="9">both directions</text>
-                <text x="66" y="122" text-anchor="middle" class="lbl" font-size="9">→ understand</text>
+                <g class="stroke" stroke-width="1.2"><path d="M40 64 C 52 52, 80 52, 92 64" marker-end="url(#a2)"/><path d="M92 76 C 80 88, 52 88, 40 76" marker-end="url(#a2)"/></g>
+                <text x="66" y="106" text-anchor="middle" class="lbl" font-size="9">both dirs → understand</text>
               </g>
-              <!-- Decoder-only -->
               <g>
-                <text x="200" y="24" text-anchor="middle" class="lbl" font-size="11">decoder-only</text>
-                <text x="200" y="40" text-anchor="middle" font-size="11" style="fill:var(--s2)">GPT</text>
+                <text x="200" y="22" text-anchor="middle" class="lbl" font-size="11">decoder-only</text><text x="200" y="38" text-anchor="middle" font-size="11" style="fill:var(--s2)">GPT</text>
                 <g class="fillc"><circle cx="168" cy="70" r="6"/><circle cx="200" cy="70" r="6"/><circle cx="232" cy="70" r="6"/></g>
-                <g class="accent stroke" stroke-width="1.4">
-                  <path d="M226 70 L 174 70" marker-end="url(#a2c)"/>
-                  <path d="M226 64 C 214 54, 186 54, 174 62" marker-end="url(#a2c)"/>
-                </g>
-                <text x="200" y="108" text-anchor="middle" class="lbl" font-size="9">left only (causal)</text>
-                <text x="200" y="122" text-anchor="middle" class="lbl" font-size="9">→ generate</text>
+                <g class="accent stroke" stroke-width="1.4"><path d="M226 70 L 174 70" marker-end="url(#a2c)"/><path d="M226 64 C 214 54, 186 54, 174 62" marker-end="url(#a2c)"/></g>
+                <text x="200" y="106" text-anchor="middle" class="lbl" font-size="9">left only → generate</text>
               </g>
-              <!-- Enc-Dec -->
               <g>
-                <text x="334" y="24" text-anchor="middle" class="lbl" font-size="11">encoder–decoder</text>
-                <text x="334" y="40" text-anchor="middle" font-size="11" style="fill:var(--s2)">T5</text>
+                <text x="334" y="22" text-anchor="middle" class="lbl" font-size="11">encoder–decoder</text><text x="334" y="38" text-anchor="middle" font-size="11" style="fill:var(--s2)">T5</text>
                 <g class="fillc"><circle cx="312" cy="70" r="6"/><circle cx="356" cy="70" r="6"/></g>
                 <path class="stroke" stroke-width="1.2" d="M318 66 C 330 56, 344 56, 350 66" marker-end="url(#a2)"/>
-                <path class="stroke" stroke-width="1.2" stroke-dasharray="3 2" d="M334 78 L 334 96" marker-end="url(#a2)"/>
-                <text x="334" y="112" text-anchor="middle" class="lbl" font-size="9">both + cross-attn</text>
-                <text x="334" y="126" text-anchor="middle" class="lbl" font-size="9">→ translate</text>
+                <path class="stroke" stroke-width="1.2" stroke-dasharray="3 2" d="M334 78 L 334 94" marker-end="url(#a2)"/>
+                <text x="334" y="112" text-anchor="middle" class="lbl" font-size="9">both + cross → translate</text>
               </g>
-              <line class="stroke" x1="20" y1="150" x2="380" y2="150" stroke-width="1" opacity=".4"/>
-              <text x="200" y="176" text-anchor="middle" class="lbl" font-size="10.5">Same block, three wiring choices — the arrows are the difference.</text>
-              <defs>
-                <marker id="a2" markerWidth="7" markerHeight="7" refX="5.5" refY="3" orient="auto"><path d="M0 0 L6 3 L0 6 z" fill="currentColor"/></marker>
-                <marker id="a2c" markerWidth="7" markerHeight="7" refX="5.5" refY="3" orient="auto"><path d="M0 0 L6 3 L0 6 z" fill="var(--dia-accent)"/></marker>
-              </defs>
+              <line class="stroke" x1="20" y1="140" x2="380" y2="140" stroke-width="1" opacity=".4"/>
+              <text x="200" y="166" text-anchor="middle" class="lbl" font-size="10.5">Same block — the arrows (what each token may attend to) are the difference.</text>
+              <defs><marker id="a2" markerWidth="7" markerHeight="7" refX="5.5" refY="3" orient="auto"><path d="M0 0 L6 3 L0 6 z" fill="currentColor"/></marker><marker id="a2c" markerWidth="7" markerHeight="7" refX="5.5" refY="3" orient="auto"><path d="M0 0 L6 3 L0 6 z" fill="var(--dia-accent)"/></marker></defs>
             </svg>
-            <figcaption>The three families differ only in <em>which</em> tokens each position may
-              attend to — bidirectional, causal, or both with cross-attention.</figcaption>
+            <figcaption>The families differ only in which tokens each position may attend to.</figcaption>
           </figure>
         </div>
       </div>
-      <div class="refs">
-        <h4>Reference materials</h4>
-        <ul>
-          <li><span class="tag primary">paper</span><a href="https://arxiv.org/abs/1810.04805" target="_blank" rel="noopener">Devlin et al. (2018) — BERT</a></li>
-          <li><span class="tag">paper</span><a href="https://cdn.openai.com/research-covers/language-unsupervised/language_understanding_paper.pdf" target="_blank" rel="noopener">Radford et al. (2018) — GPT-1 (Generative Pre-Training)</a></li>
-          <li><span class="tag">paper</span><a href="https://arxiv.org/abs/1910.10683" target="_blank" rel="noopener">Raffel et al. (2019) — T5</a></li>
-          <li><span class="tag">explainer</span><a href="https://jalammar.github.io/illustrated-bert/" target="_blank" rel="noopener">Jay Alammar — The Illustrated BERT</a></li>
-        </ul>
-      </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- ===================== STAGE 3 ===================== -->
-  <section class="stage" id="stage-3" style="--dia-accent:var(--s3)">
-    <div class="stage-in">
-      <div class="stage-head">
-        <span class="snum">Stage 3</span>
-        <h2>Scale and emergence</h2>
-        <span class="youhere">● You are here</span>
-        <span class="era">2019–2022</span>
+    <section class="sp-section">
+      <h2><span class="ix">03</span> Tokenization &amp; fine-tuning, briefly</h2>
+      <div class="prose">
+        <p>Models don't read characters or whole words but <strong>subword tokens</strong> (Byte-Pair Encoding
+          for GPT, WordPiece for BERT) — a vocabulary that balances rare-word coverage against sequence length.
+          <strong>Fine-tuning</strong> then adapts the pretrained weights to a task; a lighter alternative is
+          <em>feature extraction</em> (freeze the model, train a small head on its representations). Stage 5
+          replaces task fine-tuning with instruction tuning + alignment.</p>
       </div>
+    </section>
+
+    <section class="sp-section">
+      <h2><span class="ix">04</span> Key concepts</h2>
+      <div class="deflist">
+        <div><dt>Self-supervision</dt><dd>The data provides its own labels (next / masked token) — no human annotation.</dd></div>
+        <div><dt>Causal LM</dt><dd>Predict the next token (GPT); naturally generative.</dd></div>
+        <div><dt>Masked LM</dt><dd>Fill in hidden tokens using both sides (BERT); strong at understanding.</dd></div>
+        <div><dt>Tokenizer</dt><dd>Splits text into subword units (BPE / WordPiece).</dd></div>
+        <div><dt>Fine-tuning</dt><dd>Further training of a pretrained model on a narrower task.</dd></div>
+      </div>
+    </section>
+
+    <section class="sp-section">
+      <h2><span class="ix">05</span> Checkpoints</h2>
+      <ul class="checks">
+        <li>What does "self-supervised pretraining then fine-tuning" mean, and why was it a leap?</li>
+        <li>Contrast GPT's causal objective with BERT's masked objective — what is each best at?</li>
+        <li>Why are decoder-only models naturally generative and encoder-only ones not?</li>
+        <li>Where do encoder–decoder models (T5) fit?</li>
+      </ul>
+    </section>
+
+    <section class="sp-section refs">
+      <h2><span class="ix">06</span> Go deeper</h2>
+      <ul class="reflist">
+        <li><span class="tag primary">paper</span><a href="https://arxiv.org/abs/1810.04805" target="_blank" rel="noopener">Devlin et al. (2018) — BERT</a> <span class="anno">— masked LM and bidirectional pretraining.</span></li>
+        <li><span class="tag">paper</span><a href="https://cdn.openai.com/research-covers/language-unsupervised/language_understanding_paper.pdf" target="_blank" rel="noopener">Radford et al. (2018) — GPT-1</a> <span class="anno">— generative pretraining; the decoder-only lineage begins.</span></li>
+        <li><span class="tag">paper</span><a href="https://arxiv.org/abs/1910.10683" target="_blank" rel="noopener">Raffel et al. (2019) — T5</a> <span class="anno">— everything as text-to-text.</span></li>
+        <li><span class="tag">explainer</span><a href="https://jalammar.github.io/illustrated-bert/" target="_blank" rel="noopener">Jay Alammar — The Illustrated BERT, ELMo &amp; co.</a></li>
+      </ul>
+    </section>
+
+    <nav class="prevnext">
+      <a class="pn" href="#/stage/1"><span class="k">← Previous</span><span class="t">The Transformer</span></a>
+      <a class="pn next" href="#/stage/3"><span class="k">Next →</span><span class="t">Scale &amp; emergence</span></a>
+    </nav>
+  </div>
+</article>
+
+<!-- ============================ STAGE 3 ============================ -->
+<article class="page stage-page" id="page-3" style="--dia-accent:var(--s3)">
+  <div class="wrap">
+    <div class="crumb"><a href="#/">← Atlas</a><span>·</span><span>Stage 3 of 7</span></div>
+    <header class="sp-head">
+      <div class="row"><span class="snum">Stage 3</span><span class="era">2019–2022</span></div>
+      <h1>Scale and emergence</h1>
       <p class="thesis">Make the same architecture enormous — and new behaviour appears.</p>
-      <div class="grid has-dia">
-        <div>
-          <div class="body">
-            <p><strong>GPT-3</strong> (175B) revealed <strong>in-context learning</strong>: give a
-              few examples <em>in the prompt</em> and the model does the task with no weight
-              updates. Nobody trained that in explicitly — it emerged from next-token prediction at
-              scale. This is the birth of prompting and of "the model as a general interface."</p>
-            <p><strong>Scaling laws</strong> (Kaplan 2020) made loss a predictable power law of
-              parameters, data, and compute. <strong>Chinchilla</strong> (2022) then corrected the
-              recipe: earlier models were oversized and under-trained — scale <em>data</em> and
-              parameters together. Data became the scarce resource. "Emergent abilities" is real
-              but contested — some sharp jumps are artefacts of harsh metrics.</p>
-          </div>
-          <ul class="keys">
-            <li><b>In-context / few-shot learning:</b> capability with no gradient updates.</li>
-            <li><b>Chinchilla-optimal:</b> more tokens, not just more parameters.</li>
-          </ul>
+      <span class="curbanner"><span class="d"></span> This is your current stage — start here.</span>
+    </header>
+
+    <section class="sp-section">
+      <h2><span class="ix">01</span> In-context learning</h2>
+      <div class="prose">
+        <p><strong>GPT-2</strong> (1.5B) already showed a good language model could do tasks
+          <em>zero-shot</em>, just from a prompt. <strong>GPT-3</strong> (175B) revealed the phenomenon that
+          reoriented the field: <strong>in-context learning</strong>. Put a few worked examples <em>in the
+          prompt</em> and the model performs the task — with <em>no weight updates</em>.</p>
+        <div class="formula">English: sea otter → loutre de mer &nbsp;|&nbsp; English: cheese → ▁▁▁</div>
+        <p>Nobody trained this in explicitly; it <em>emerged</em> from next-token prediction over diverse
+          data. This is the birth of prompt engineering and of "the model as a general interface."</p>
+      </div>
+    </section>
+
+    <section class="sp-section">
+      <h2><span class="ix">02</span> Scaling laws — and the Chinchilla correction</h2>
+      <div class="split has-dia">
+        <div class="prose">
+          <p><strong>Kaplan et al. (2020)</strong> showed test loss falls as a smooth <strong>power law</strong>
+            in parameters, data, and compute, over many orders of magnitude. Performance became
+            <em>predictable</em>: you could forecast a bigger model's loss before training it. "Make it bigger"
+            became a funded research programme.</p>
+          <div class="formula">L(C) ≈ (C / Cₒ)^(−α) &nbsp;—&nbsp; loss as a power law of compute</div>
+          <p><strong>Chinchilla</strong> (2022) then corrected the recipe. Kaplan-era models were
+            <em>oversized and under-trained</em>. For a fixed compute budget, scale parameters and training
+            <strong>tokens roughly together</strong> (~20 tokens per parameter) — a 70B model on far more data
+            beat 175B-class models. <strong>Data</strong>, not just parameters, became the scarce resource.</p>
         </div>
         <div class="figbox">
           <figure class="dia" style="--dia-accent:var(--s3)">
             <svg viewBox="0 0 400 260" role="img" aria-label="Log-log plot of loss versus compute falling as a straight power-law line, with a marked Chinchilla compute-optimal point.">
-              <line class="stroke" x1="52" y1="30" x2="52" y2="210" stroke-width="1.4"/>
-              <line class="stroke" x1="52" y1="210" x2="372" y2="210" stroke-width="1.4"/>
+              <line class="stroke" x1="52" y1="30" x2="52" y2="210" stroke-width="1.4"/><line class="stroke" x1="52" y1="210" x2="372" y2="210" stroke-width="1.4"/>
               <text x="18" y="120" text-anchor="middle" class="lbl" font-size="11" transform="rotate(-90 18 120)">loss  (log)</text>
               <text x="212" y="238" text-anchor="middle" class="lbl" font-size="11">compute  (log)</text>
-              <!-- faint grid -->
-              <g class="stroke" opacity=".25" stroke-width=".8">
-                <line x1="132" y1="30" x2="132" y2="210"/><line x1="212" y1="30" x2="212" y2="210"/><line x1="292" y1="30" x2="292" y2="210"/>
-                <line x1="52" y1="90" x2="372" y2="90"/><line x1="52" y1="150" x2="372" y2="150"/>
-              </g>
-              <!-- power law line -->
+              <g class="stroke" opacity=".25" stroke-width=".8"><line x1="132" y1="30" x2="132" y2="210"/><line x1="212" y1="30" x2="212" y2="210"/><line x1="292" y1="30" x2="292" y2="210"/><line x1="52" y1="90" x2="372" y2="90"/><line x1="52" y1="150" x2="372" y2="150"/></g>
               <path class="accent stroke" stroke-width="2.4" d="M62 58 L 360 196"/>
-              <text x="250" y="96" class="accent-f" font-size="11" transform="rotate(24 250 96)">loss ∝ compute^(−a)</text>
-              <!-- chinchilla point -->
-              <circle cx="238" cy="140" r="6" class="fillc"/>
-              <circle cx="238" cy="140" r="11" class="stroke" stroke-width="1.3"/>
-              <text x="238" y="126" text-anchor="middle" class="lbl" font-size="10">Chinchilla-</text>
-              <text x="252" y="164" text-anchor="start" class="lbl" font-size="10">optimal point</text>
+              <text x="250" y="96" class="accent-f" font-size="11" transform="rotate(24 250 96)">loss ∝ compute^(−α)</text>
+              <circle cx="238" cy="140" r="6" class="fillc"/><circle cx="238" cy="140" r="11" class="stroke" stroke-width="1.3"/>
+              <text x="238" y="126" text-anchor="middle" class="lbl" font-size="10">Chinchilla-</text><text x="252" y="164" text-anchor="start" class="lbl" font-size="10">optimal</text>
             </svg>
-            <figcaption>Across many orders of magnitude, loss falls as a straight line on log–log
-              axes — performance became <em>forecastable</em>, and "make it bigger" became a funded
-              research programme.</figcaption>
+            <figcaption>Loss falls as a straight line on log–log axes — performance became forecastable, and
+              Chinchilla re-balanced the budget toward data.</figcaption>
           </figure>
         </div>
       </div>
-      <div class="refs">
-        <h4>Reference materials</h4>
-        <ul>
-          <li><span class="tag primary">paper</span><a href="https://arxiv.org/abs/2005.14165" target="_blank" rel="noopener">Brown et al. (2020) — Language Models are Few-Shot Learners (GPT-3)</a></li>
-          <li><span class="tag">paper</span><a href="https://arxiv.org/abs/2001.08361" target="_blank" rel="noopener">Kaplan et al. (2020) — Scaling Laws for Neural Language Models</a></li>
-          <li><span class="tag">paper</span><a href="https://arxiv.org/abs/2203.15556" target="_blank" rel="noopener">Hoffmann et al. (2022) — Training Compute-Optimal LLMs (Chinchilla)</a></li>
-          <li><span class="tag">paper</span><a href="https://arxiv.org/abs/2206.07682" target="_blank" rel="noopener">Wei et al. (2022) — Emergent Abilities of LLMs</a></li>
-        </ul>
-      </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- ===================== STAGE 4 ===================== -->
-  <section class="stage" id="stage-4" style="--dia-accent:var(--s4)">
-    <div class="stage-in">
-      <div class="stage-head">
-        <span class="snum">Stage 4</span>
-        <h2>Efficiency &amp; better building blocks</h2>
-        <span class="youhere">● You are here</span>
-        <span class="era">2021–2023</span>
+    <section class="sp-section">
+      <h2><span class="ix">03</span> "Emergence" — real, and contested</h2>
+      <div class="prose">
+        <p><strong>Wei et al. (2022)</strong> catalogued abilities (multi-step arithmetic, some reasoning)
+          that are near-zero in small models and jump sharply above a scale. Then <strong>Schaeffer et al.
+          (2023)</strong> argued some jumps are artefacts of harsh, discontinuous <em>metrics</em>, not genuine
+          phase transitions. Hold both: scale reliably buys capability, but treat "sudden emergence" claims
+          with a sceptical eye on how the metric was defined.</p>
       </div>
+    </section>
+
+    <section class="sp-section">
+      <h2><span class="ix">04</span> Key concepts</h2>
+      <div class="deflist">
+        <div><dt>In-context learning</dt><dd>Task performance from in-prompt examples, no gradient updates.</dd></div>
+        <div><dt>Scaling law</dt><dd>Loss as a power law of parameters, data, and compute.</dd></div>
+        <div><dt>Chinchilla-optimal</dt><dd>Scale tokens and parameters together (~20:1); data is the bottleneck.</dd></div>
+        <div><dt>Emergence</dt><dd>Sharp capability jumps with scale — a real observation, a contested framing.</dd></div>
+      </div>
+    </section>
+
+    <section class="sp-section">
+      <h2><span class="ix">05</span> Checkpoints</h2>
+      <ul class="checks">
+        <li>What is in-context learning, and why was it surprising?</li>
+        <li>State a scaling law in words — what are its three ingredients?</li>
+        <li>What did Chinchilla change about the optimal parameter-to-data ratio, and why?</li>
+        <li>Why is "emergent abilities" both a real observation and a contested framing?</li>
+      </ul>
+    </section>
+
+    <section class="sp-section refs">
+      <h2><span class="ix">06</span> Go deeper</h2>
+      <ul class="reflist">
+        <li><span class="tag primary">paper</span><a href="https://arxiv.org/abs/2005.14165" target="_blank" rel="noopener">Brown et al. (2020) — Language Models are Few-Shot Learners (GPT-3)</a></li>
+        <li><span class="tag">paper</span><a href="https://arxiv.org/abs/2001.08361" target="_blank" rel="noopener">Kaplan et al. (2020) — Scaling Laws for Neural Language Models</a></li>
+        <li><span class="tag">paper</span><a href="https://arxiv.org/abs/2203.15556" target="_blank" rel="noopener">Hoffmann et al. (2022) — Training Compute-Optimal LLMs (Chinchilla)</a></li>
+        <li><span class="tag">counterpoint</span><a href="https://arxiv.org/abs/2304.15004" target="_blank" rel="noopener">Schaeffer et al. (2023) — Are Emergent Abilities a Mirage?</a></li>
+      </ul>
+    </section>
+
+    <nav class="prevnext">
+      <a class="pn" href="#/stage/2"><span class="k">← Previous</span><span class="t">The pretraining era</span></a>
+      <a class="pn next" href="#/stage/4"><span class="k">Next →</span><span class="t">Efficiency</span></a>
+    </nav>
+  </div>
+</article>
+
+<!-- ============================ STAGE 4 ============================ -->
+<article class="page stage-page" id="page-4" style="--dia-accent:var(--s4)">
+  <div class="wrap">
+    <div class="crumb"><a href="#/">← Atlas</a><span>·</span><span>Stage 4 of 7</span></div>
+    <header class="sp-head">
+      <div class="row"><span class="snum">Stage 4</span><span class="era">2021–2023</span></div>
+      <h1>Efficiency &amp; better building blocks</h1>
       <p class="thesis">Make big Transformers faster, longer, and cheaper to run.</p>
-      <div class="grid has-dia">
-        <div>
-          <div class="body">
-            <p>Two costs dominate: attention is <strong>O(n²)</strong>, and dense models run
-              <em>every</em> parameter on every token. <strong>FlashAttention</strong> attacked the
-              first — it noticed attention is memory-bandwidth bound and computed it tile-by-tile in
-              fast on-chip SRAM without ever materialising the full matrix. Same result, several
-              times faster; it's why long context became affordable.</p>
-            <p><strong>Mixture-of-Experts (MoE)</strong> attacked the second: many expert MLPs plus a
-              router that sends each token to just a few. Huge <em>total</em> parameters, small
-              <em>active</em> count per token. Modern positional schemes (<strong>RoPE, ALiBi</strong>)
-              replaced sinusoids and let context windows stretch to hundreds of thousands of tokens.
-              On the serving side: KV cache, GQA, quantisation, LoRA.</p>
-          </div>
-          <ul class="keys">
-            <li><b>FlashAttention:</b> exact attention, IO-aware — never materialise the n×n matrix.</li>
-            <li><b>MoE:</b> decouple total capacity from per-token compute.</li>
-            <li><b>RoPE / ALiBi:</b> positional schemes that enable long context.</li>
-          </ul>
+      <span class="curbanner"><span class="d"></span> This is your current stage — start here.</span>
+    </header>
+
+    <section class="sp-section">
+      <h2><span class="ix">01</span> Two costs to beat</h2>
+      <div class="prose">
+        <p>Scaling ran into two bills. Attention is <strong>O(n²)</strong> in sequence length, and
+          <strong>dense</strong> models run every parameter on every token. This whole stage is the field's
+          answer to those two costs — the engineering that turned "a model" into an engineered system.</p>
+      </div>
+    </section>
+
+    <section class="sp-section">
+      <h2><span class="ix">02</span> FlashAttention: exact, but IO-aware</h2>
+      <div class="prose">
+        <p>The naïve view treats attention as compute-bound. <strong>FlashAttention</strong> (2022) noticed it's
+          actually <strong>memory-bandwidth bound</strong> — the bottleneck is shuttling the big <em>n×n</em>
+          attention matrix in and out of GPU high-bandwidth memory. Its fix computes attention
+          <strong>tile-by-tile in fast on-chip SRAM</strong>, using an <em>online softmax</em> so the full
+          matrix is <em>never materialised</em>. Same exact result, several times faster, far less memory.
+          It's why long context became affordable, and it's baked into every modern training stack.</p>
+      </div>
+    </section>
+
+    <section class="sp-section">
+      <h2><span class="ix">03</span> Mixture-of-Experts: capacity ≠ compute</h2>
+      <div class="split has-dia">
+        <div class="prose">
+          <p>A dense model uses all its parameters for every token. <strong>Mixture-of-Experts</strong>
+            replaces the feed-forward layer with many expert MLPs plus a <strong>router</strong> that sends
+            each token to only a few (say 2 of 64). The result: a huge <em>total</em> parameter count with a
+            small <em>active</em> count per token — more capacity without proportional compute.</p>
+          <p>The lineage runs GShard → <strong>Switch Transformer</strong> → today's frontier: Mixtral made
+            open MoE mainstream, and DeepSeek-V3 and most current frontier models are large MoEs. The
+            trade-offs: harder training (load balancing, routing collapse) and more memory to hold all
+            experts — but far cheaper inference per unit of quality.</p>
         </div>
         <div class="figbox">
           <figure class="dia" style="--dia-accent:var(--s4)">
-            <svg viewBox="0 0 400 260" role="img" aria-label="Mixture of Experts: one token goes to a router which activates only two of many expert networks; the rest stay idle.">
+            <svg viewBox="0 0 400 250" role="img" aria-label="Mixture of Experts: a token goes to a router that activates only two of many experts; the rest stay idle.">
               <text x="200" y="20" text-anchor="middle" class="lbl" font-size="11">Mixture-of-Experts routing</text>
               <rect class="box" x="24" y="112" width="60" height="34" rx="6"/><text x="54" y="133" text-anchor="middle" font-size="11">token</text>
-              <!-- router -->
               <path class="accent stroke" stroke-width="1.6" d="M120 129 L 148 129" marker-end="url(#a4)"/>
-              <path class="accent-f" d="M150 108 L 196 129 L 150 150 Z" opacity=".9"/>
-              <text x="120" y="118" text-anchor="middle" class="lbl" font-size="9">router</text>
-              <!-- experts -->
-              <g>
-                <rect class="box accent" x="250" y="30"  width="118" height="26" rx="6" stroke-width="1.8"/><text x="309" y="47" text-anchor="middle" class="accent-f" font-size="10.5">expert 2 · ACTIVE</text>
-                <rect class="box" x="250" y="70"  width="118" height="26" rx="6" opacity=".5"/><text x="309" y="87" text-anchor="middle" font-size="10.5" opacity=".6">expert 5 · idle</text>
-                <rect class="box accent" x="250" y="110" width="118" height="26" rx="6" stroke-width="1.8"/><text x="309" y="127" text-anchor="middle" class="accent-f" font-size="10.5">expert 9 · ACTIVE</text>
-                <rect class="box" x="250" y="150" width="118" height="26" rx="6" opacity=".5"/><text x="309" y="167" text-anchor="middle" font-size="10.5" opacity=".6">expert 12 · idle</text>
-                <rect class="box" x="250" y="190" width="118" height="26" rx="6" opacity=".5"/><text x="309" y="207" text-anchor="middle" font-size="10.5" opacity=".6">expert N · idle</text>
-              </g>
-              <g class="stroke" stroke-width="1.2">
-                <path class="accent" d="M196 124 C 220 90, 226 60, 248 46" marker-end="url(#a4c)"/>
-                <path class="accent" d="M196 132 L 248 123" marker-end="url(#a4c)"/>
-                <path opacity=".35" d="M196 130 C 220 108, 226 92, 248 83"/>
-                <path opacity=".35" d="M196 134 C 220 156, 226 172, 248 163"/>
-                <path opacity=".35" d="M196 136 C 218 176, 224 196, 248 203"/>
-              </g>
+              <path class="accent-f" d="M150 108 L 196 129 L 150 150 Z" opacity=".9"/><text x="120" y="118" text-anchor="middle" class="lbl" font-size="9">router</text>
+              <rect class="box accent" x="250" y="30" width="118" height="26" rx="6" stroke-width="1.8"/><text x="309" y="47" text-anchor="middle" class="accent-f" font-size="10.5">expert 2 · ACTIVE</text>
+              <rect class="box" x="250" y="70" width="118" height="26" rx="6" opacity=".5"/><text x="309" y="87" text-anchor="middle" font-size="10.5" opacity=".6">expert 5 · idle</text>
+              <rect class="box accent" x="250" y="110" width="118" height="26" rx="6" stroke-width="1.8"/><text x="309" y="127" text-anchor="middle" class="accent-f" font-size="10.5">expert 9 · ACTIVE</text>
+              <rect class="box" x="250" y="150" width="118" height="26" rx="6" opacity=".5"/><text x="309" y="167" text-anchor="middle" font-size="10.5" opacity=".6">expert 12 · idle</text>
+              <rect class="box" x="250" y="190" width="118" height="26" rx="6" opacity=".5"/><text x="309" y="207" text-anchor="middle" font-size="10.5" opacity=".6">expert N · idle</text>
+              <g class="stroke" stroke-width="1.2"><path class="accent" d="M196 124 C 220 90, 226 60, 248 46" marker-end="url(#a4)"/><path class="accent" d="M196 132 L 248 123" marker-end="url(#a4)"/><path opacity=".35" d="M196 130 C 220 108, 226 92, 248 83"/><path opacity=".35" d="M196 134 C 220 156, 226 172, 248 163"/><path opacity=".35" d="M196 136 C 218 176, 224 196, 248 203"/></g>
               <text x="200" y="244" text-anchor="middle" class="lbl" font-size="10">top-2 of N fire → huge total params, small active compute</text>
-              <defs>
-                <marker id="a4" markerWidth="7" markerHeight="7" refX="5.5" refY="3" orient="auto"><path d="M0 0 L6 3 L0 6 z" fill="var(--dia-accent)"/></marker>
-                <marker id="a4c" markerWidth="7" markerHeight="7" refX="5.5" refY="3" orient="auto"><path d="M0 0 L6 3 L0 6 z" fill="var(--dia-accent)"/></marker>
-              </defs>
+              <defs><marker id="a4" markerWidth="7" markerHeight="7" refX="5.5" refY="3" orient="auto"><path d="M0 0 L6 3 L0 6 z" fill="var(--dia-accent)"/></marker></defs>
             </svg>
-            <figcaption>The router activates only a couple of experts per token — a model can hold
-              hundreds of billions of parameters while spending a fraction of them on each token.</figcaption>
+            <figcaption>The router activates a couple of experts per token — hundreds of billions of total
+              parameters, a fraction spent per token.</figcaption>
           </figure>
         </div>
       </div>
-      <div class="refs">
-        <h4>Reference materials</h4>
-        <ul>
-          <li><span class="tag primary">paper</span><a href="https://arxiv.org/abs/2205.14135" target="_blank" rel="noopener">Dao et al. (2022) — FlashAttention</a></li>
-          <li><span class="tag">paper</span><a href="https://arxiv.org/abs/2101.03961" target="_blank" rel="noopener">Fedus et al. (2021) — Switch Transformer (MoE)</a></li>
-          <li><span class="tag">paper</span><a href="https://arxiv.org/abs/2104.09864" target="_blank" rel="noopener">Su et al. (2021) — RoFormer / RoPE</a></li>
-          <li><span class="tag">paper</span><a href="https://arxiv.org/abs/2106.09685" target="_blank" rel="noopener">Hu et al. (2021) — LoRA</a></li>
-        </ul>
-      </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- ===================== STAGE 5 ===================== -->
-  <section class="stage" id="stage-5" style="--dia-accent:var(--s5)">
-    <div class="stage-in">
-      <div class="stage-head">
-        <span class="snum">Stage 5</span>
-        <h2>Alignment &amp; post-training</h2>
-        <span class="youhere">● You are here</span>
-        <span class="era">2022–now</span>
+    <section class="sp-section">
+      <h2><span class="ix">04</span> Long context &amp; cheap serving</h2>
+      <div class="prose">
+        <p>Sinusoidal positions don't extrapolate past training length. <strong>RoPE</strong> encodes position
+          by <em>rotating</em> Q/K vectors by an angle proportional to position — relative by construction and
+          extendable (position interpolation, YaRN). <strong>ALiBi</strong> adds a distance bias to attention
+          scores. Together they took context from 512 tokens to hundreds of thousands.</p>
+        <p>Serving is its own discipline: the <strong>KV cache</strong> stores past keys/values so generation
+          is O(n) per token (its size is now a primary memory constraint); <strong>MQA/GQA</strong> shrink it;
+          <strong>quantisation</strong> (INT8/INT4), <strong>speculative decoding</strong>, and PagedAttention
+          cut cost further. <strong>LoRA/QLoRA</strong> adapt giant models by training tiny low-rank add-ons.</p>
       </div>
+    </section>
+
+    <section class="sp-section">
+      <h2><span class="ix">05</span> Key concepts</h2>
+      <div class="deflist">
+        <div><dt>FlashAttention</dt><dd>Exact attention computed in SRAM tiles; never materialises the n×n matrix.</dd></div>
+        <div><dt>MoE</dt><dd>Many experts + a router; big total, small active parameters per token.</dd></div>
+        <div><dt>RoPE / ALiBi</dt><dd>Positional schemes that extrapolate to long context.</dd></div>
+        <div><dt>KV cache · GQA</dt><dd>Cache past keys/values (O(n) generation); share them across heads to shrink it.</dd></div>
+        <div><dt>LoRA</dt><dd>Parameter-efficient fine-tuning via small low-rank adapters.</dd></div>
+      </div>
+    </section>
+
+    <section class="sp-section">
+      <h2><span class="ix">06</span> Checkpoints</h2>
+      <ul class="checks">
+        <li>Why is attention O(n²), and what are the two families of responses?</li>
+        <li>State FlashAttention's core insight in one sentence.</li>
+        <li>What does MoE change — total vs active parameters — and what does it cost?</li>
+        <li>Why did RoPE/ALiBi replace sinusoids, and what is the KV cache?</li>
+      </ul>
+    </section>
+
+    <section class="sp-section refs">
+      <h2><span class="ix">07</span> Go deeper</h2>
+      <ul class="reflist">
+        <li><span class="tag primary">paper</span><a href="https://arxiv.org/abs/2205.14135" target="_blank" rel="noopener">Dao et al. (2022) — FlashAttention</a> <span class="anno">— a landmark systems paper.</span></li>
+        <li><span class="tag">paper</span><a href="https://arxiv.org/abs/2101.03961" target="_blank" rel="noopener">Fedus et al. (2021) — Switch Transformer (MoE)</a></li>
+        <li><span class="tag">paper</span><a href="https://arxiv.org/abs/2104.09864" target="_blank" rel="noopener">Su et al. (2021) — RoFormer / RoPE</a></li>
+        <li><span class="tag">paper</span><a href="https://arxiv.org/abs/2106.09685" target="_blank" rel="noopener">Hu et al. (2021) — LoRA</a></li>
+      </ul>
+    </section>
+
+    <nav class="prevnext">
+      <a class="pn" href="#/stage/3"><span class="k">← Previous</span><span class="t">Scale &amp; emergence</span></a>
+      <a class="pn next" href="#/stage/5"><span class="k">Next →</span><span class="t">Alignment</span></a>
+    </nav>
+  </div>
+</article>
+
+<!-- ============================ STAGE 5 ============================ -->
+<article class="page stage-page" id="page-5" style="--dia-accent:var(--s5)">
+  <div class="wrap">
+    <div class="crumb"><a href="#/">← Atlas</a><span>·</span><span>Stage 5 of 7</span></div>
+    <header class="sp-head">
+      <div class="row"><span class="snum">Stage 5</span><span class="era">2022 → now</span></div>
+      <h1>Alignment &amp; post-training</h1>
       <p class="thesis">Turn a next-token predictor into a helpful, honest assistant.</p>
-      <div class="grid has-dia">
-        <div>
-          <div class="body">
-            <p>A base model just <em>continues text</em>; it isn't trying to be helpful or safe.
-              <strong>Post-training</strong> installs that. First <strong>SFT</strong> — supervised
-              fine-tuning on ideal (instruction, response) pairs. Then <strong>RLHF</strong>: humans
-              rank model outputs, a <strong>reward model</strong> learns their preferences, and the
-              LLM is optimised (PPO) to score well — with a <strong>KL penalty</strong> keeping it
-              from drifting into gibberish. InstructGPT's lesson: a 1.3B aligned model beat 175B GPT-3
-              on human preference. <em>Alignment, not size.</em></p>
-            <p><strong>DPO</strong> later showed you can hit the same objective with a simple loss and
-              no RL loop, democratising alignment. <strong>Constitutional AI / RLAIF</strong> replaces
-              much human labelling with AI feedback guided by written principles. And
-              <strong>RLVR</strong> — rewarding <em>verifiably correct</em> answers on math/code — is
-              the bridge to Stage 7's reasoning models.</p>
-          </div>
-          <ul class="keys">
-            <li><b>SFT → reward model → PPO:</b> the classic RLHF pipeline.</li>
-            <li><b>DPO:</b> preference optimisation without a separate reward model or RL.</li>
-            <li><b>Reward hacking &amp; sycophancy:</b> the failure modes to watch.</li>
-          </ul>
+      <span class="curbanner"><span class="d"></span> This is your current stage — start here.</span>
+    </header>
+
+    <section class="sp-section">
+      <h2><span class="ix">01</span> Why a base model isn't an assistant</h2>
+      <div class="prose">
+        <p>A base LLM is trained to <em>continue internet text</em>. Ask it a question and it might continue
+          with more questions, because that's a plausible web continuation. It was never optimised to be
+          helpful, truthful, or safe. <strong>Post-training</strong> installs those behaviours — and it's
+          where most of the <em>perceived</em> progress of the ChatGPT era came from.</p>
+      </div>
+    </section>
+
+    <section class="sp-section">
+      <h2><span class="ix">02</span> RLHF: SFT → reward model → PPO</h2>
+      <div class="split has-dia">
+        <div class="prose">
+          <p>The landmark is <strong>InstructGPT</strong> (2022), the direct ancestor of ChatGPT. Three steps:
+            <strong>(1) SFT</strong> — supervised fine-tuning on ideal (instruction, response) pairs, teaching
+            the <em>habit</em> of being an assistant. <strong>(2) Reward model</strong> — humans <em>rank</em>
+            competing responses; a model learns to predict those preferences as a scalar. <strong>(3) RL</strong>
+            — optimise the LLM (PPO) to score highly under the reward model, with a <strong>KL penalty</strong>
+            leashing it to the SFT model so it doesn't reward-hack into gibberish.</p>
+          <div class="callout"><b>The lesson of the stage.</b> A <b>1.3B</b> RLHF model was preferred by humans
+            over the <b>175B</b> base GPT-3. Alignment, not size, made it useful.</div>
         </div>
         <div class="figbox">
           <figure class="dia" style="--dia-accent:var(--s5)">
@@ -721,234 +975,308 @@
                 <rect class="box accent" x="250" y="105" width="120" height="42" rx="8" stroke-width="1.8"/><text x="310" y="122" text-anchor="middle" class="accent-f">RL · PPO</text><text x="310" y="136" text-anchor="middle" class="lbl" font-size="9">+ KL penalty</text>
                 <rect class="box" x="150" y="185" width="130" height="34" rx="7"/><text x="215" y="206" text-anchor="middle" class="lbl" font-size="10">human rankings</text>
               </g>
-              <g class="stroke" stroke-width="1.3">
-                <path d="M63 70 L 63 103" marker-end="url(#a5)"/>
-                <path d="M63 145 L 63 178" marker-end="url(#a5)"/>
-                <path d="M106 125 C 170 125, 200 125, 246 125" class="accent" marker-end="url(#a5c)"/>
-                <path d="M106 200 L 148 200" marker-end="url(#a5)"/>
-                <path d="M106 196 C 200 170, 250 160, 296 148" marker-end="url(#a5)"/>
-              </g>
+              <g class="stroke" stroke-width="1.3"><path d="M63 70 L 63 103" marker-end="url(#a5)"/><path d="M63 145 L 63 178" marker-end="url(#a5)"/><path d="M106 125 C 170 125, 200 125, 246 125" class="accent" marker-end="url(#a5)"/><path d="M106 200 L 148 200" marker-end="url(#a5)"/><path d="M106 196 C 200 170, 250 160, 296 148" marker-end="url(#a5)"/></g>
               <text x="176" y="118" text-anchor="middle" class="lbl" font-size="9">policy</text>
               <text x="235" y="70" text-anchor="middle" class="accent-f" font-size="10">aligned assistant ↑</text>
-              <path class="accent stroke" stroke-width="1.4" d="M310 103 L 310 78" marker-end="url(#a5c)"/>
-              <defs>
-                <marker id="a5" markerWidth="7" markerHeight="7" refX="5.5" refY="3" orient="auto"><path d="M0 0 L6 3 L0 6 z" fill="currentColor"/></marker>
-                <marker id="a5c" markerWidth="7" markerHeight="7" refX="5.5" refY="3" orient="auto"><path d="M0 0 L6 3 L0 6 z" fill="var(--dia-accent)"/></marker>
-              </defs>
+              <path class="accent stroke" stroke-width="1.4" d="M310 103 L 310 78" marker-end="url(#a5)"/>
+              <defs><marker id="a5" markerWidth="7" markerHeight="7" refX="5.5" refY="3" orient="auto"><path d="M0 0 L6 3 L0 6 z" fill="currentColor"/></marker></defs>
             </svg>
-            <figcaption>Human preferences train a reward model; the policy is then optimised toward
-              it under a KL leash — the pipeline that produced ChatGPT-style assistants.</figcaption>
+            <figcaption>Human preferences train a reward model; the policy is optimised toward it under a KL
+              leash.</figcaption>
           </figure>
         </div>
       </div>
-      <div class="refs">
-        <h4>Reference materials</h4>
-        <ul>
-          <li><span class="tag primary">paper</span><a href="https://arxiv.org/abs/2203.02155" target="_blank" rel="noopener">Ouyang et al. (2022) — InstructGPT</a></li>
-          <li><span class="tag">paper</span><a href="https://arxiv.org/abs/2305.18290" target="_blank" rel="noopener">Rafailov et al. (2023) — Direct Preference Optimization (DPO)</a></li>
-          <li><span class="tag">paper</span><a href="https://arxiv.org/abs/2212.08073" target="_blank" rel="noopener">Bai et al. (2022) — Constitutional AI</a></li>
-          <li><span class="tag">explainer</span><a href="https://huggingface.co/blog/rlhf" target="_blank" rel="noopener">Hugging Face — Illustrating RLHF</a></li>
-        </ul>
-      </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- ===================== STAGE 6 ===================== -->
-  <section class="stage" id="stage-6" style="--dia-accent:var(--s6)">
-    <div class="stage-in">
-      <div class="stage-head">
-        <span class="snum">Stage 6</span>
-        <h2>Multimodality &amp; generation beyond text</h2>
-        <span class="youhere">● You are here</span>
-        <span class="era">2021–now</span>
+    <section class="sp-section">
+      <h2><span class="ix">03</span> DPO, Constitutional AI, and the bridge to reasoning</h2>
+      <div class="prose">
+        <p>RLHF with PPO is finicky. <strong>DPO</strong> (2023) showed you can hit the same preference
+          objective with a <em>simple classification-style loss directly on preference pairs</em> — no reward
+          model, no RL loop — which democratised alignment for open models. <strong>Constitutional AI /
+          RLAIF</strong> (Anthropic) replaces much human labelling with <em>AI feedback</em> guided by a
+          written set of principles, scaling oversight and making behaviour auditable.</p>
+        <p>And <strong>RLVR</strong> — RL from <em>verifiable</em> rewards — rewards <em>correct answers</em> on
+          checkable tasks (math, code) directly, skipping the human preference step entirely. That is the
+          engine of Stage 7's reasoning models.</p>
+        <div class="callout"><b>Failure modes to watch.</b> <b>Reward hacking</b> (satisfying the reward's
+          letter, not its intent) and <b>sycophancy</b> (telling you what you want to hear) are central,
+          recurring alignment problems — not solved, only managed.</div>
       </div>
+    </section>
+
+    <section class="sp-section">
+      <h2><span class="ix">04</span> Key concepts</h2>
+      <div class="deflist">
+        <div><dt>SFT</dt><dd>Supervised fine-tuning on ideal instruction–response pairs.</dd></div>
+        <div><dt>Reward model</dt><dd>Predicts human preference as a scalar, trained on rankings.</dd></div>
+        <div><dt>PPO + KL</dt><dd>RL that optimises the reward while staying near the reference model.</dd></div>
+        <div><dt>DPO</dt><dd>Preference optimisation with a simple loss — no reward model or RL loop.</dd></div>
+        <div><dt>RLVR</dt><dd>Reward verifiably-correct answers (math/code); the reasoning-model engine.</dd></div>
+      </div>
+    </section>
+
+    <section class="sp-section">
+      <h2><span class="ix">05</span> Checkpoints</h2>
+      <ul class="checks">
+        <li>Why isn't a base model a helpful assistant, and what does SFT fix?</li>
+        <li>Walk through the three RLHF steps and the role of the KL penalty.</li>
+        <li>Why does the "1.3B beats 175B" InstructGPT result matter?</li>
+        <li>What does DPO remove from RLHF, and what do Constitutional AI / RLVR replace?</li>
+      </ul>
+    </section>
+
+    <section class="sp-section refs">
+      <h2><span class="ix">06</span> Go deeper</h2>
+      <ul class="reflist">
+        <li><span class="tag primary">paper</span><a href="https://arxiv.org/abs/2203.02155" target="_blank" rel="noopener">Ouyang et al. (2022) — InstructGPT</a></li>
+        <li><span class="tag">paper</span><a href="https://arxiv.org/abs/2305.18290" target="_blank" rel="noopener">Rafailov et al. (2023) — Direct Preference Optimization (DPO)</a></li>
+        <li><span class="tag">paper</span><a href="https://arxiv.org/abs/2212.08073" target="_blank" rel="noopener">Bai et al. (2022) — Constitutional AI</a></li>
+        <li><span class="tag">explainer</span><a href="https://huggingface.co/blog/rlhf" target="_blank" rel="noopener">Hugging Face — Illustrating RLHF</a></li>
+      </ul>
+    </section>
+
+    <nav class="prevnext">
+      <a class="pn" href="#/stage/4"><span class="k">← Previous</span><span class="t">Efficiency</span></a>
+      <a class="pn next" href="#/stage/6"><span class="k">Next →</span><span class="t">Multimodality</span></a>
+    </nav>
+  </div>
+</article>
+
+<!-- ============================ STAGE 6 ============================ -->
+<article class="page stage-page" id="page-6" style="--dia-accent:var(--s6)">
+  <div class="wrap">
+    <div class="crumb"><a href="#/">← Atlas</a><span>·</span><span>Stage 6 of 7</span></div>
+    <header class="sp-head">
+      <div class="row"><span class="snum">Stage 6</span><span class="era">2021 → now</span></div>
+      <h1>Multimodality &amp; generation beyond text</h1>
       <p class="thesis">Give models eyes and ears — and learn to generate pixels.</p>
-      <div class="grid has-dia">
-        <div>
-          <div class="body">
-            <p><strong>CLIP</strong> trained image and text encoders <em>jointly</em> with a
-              contrastive objective, producing a <strong>shared embedding space</strong> — you can
-              compare a picture to a sentence directly. That space became the bridge for text-to-image
-              generators and for feeding images into LLMs.</p>
-            <p><strong>Diffusion</strong> is the engine of image generation: gradually add noise to an
-              image, then train a network to <em>reverse</em> one step of noising; generate by
-              denoising from pure noise. <strong>Latent diffusion</strong> (Stable Diffusion) ran this
-              in a compressed space to make it cheap. Today's frontier models are
-              <strong>natively multimodal</strong> — text, image, audio in one context.</p>
-          </div>
-          <ul class="keys">
-            <li><b>CLIP:</b> contrastive training → a shared image–text space.</li>
-            <li><b>Diffusion:</b> learn to reverse a noising process.</li>
-            <li><b>VLMs:</b> a vision encoder projected into an LLM (e.g. LLaVA).</li>
-          </ul>
+      <span class="curbanner"><span class="d"></span> This is your current stage — start here.</span>
+    </header>
+
+    <section class="sp-section">
+      <h2><span class="ix">01</span> CLIP: a shared image–text space</h2>
+      <div class="prose">
+        <p><strong>CLIP</strong> (2021) trained an image encoder and a text encoder <em>jointly</em> on 400M
+          (image, caption) pairs with a <strong>contrastive</strong> objective: pull matching image–text pairs
+          together in embedding space and push mismatched pairs apart. The payoff is a <strong>shared
+          embedding space</strong> — you can compare a picture to a sentence directly, do
+          <strong>zero-shot classification</strong> ("a photo of a cat" vs "a photo of a dog"), and — crucially
+          — use it to <em>condition</em> image generators and to feed images into LLMs.</p>
+      </div>
+    </section>
+
+    <section class="sp-section">
+      <h2><span class="ix">02</span> Diffusion: learn to reverse noise</h2>
+      <div class="split has-dia">
+        <div class="prose">
+          <p>The dominant image-generation paradigm is <strong>diffusion</strong>. <strong>Forward:</strong>
+            gradually add Gaussian noise to an image over many steps until it's pure noise.
+            <strong>Reverse:</strong> train a network (a U-Net, later a Transformer) to undo one step of
+            noising — to predict and remove a little noise. <strong>Generate</strong> by starting from pure
+            noise and running the learned denoiser step by step.</p>
+          <p><strong>Latent diffusion</strong> (Stable Diffusion, 2021) made this cheap by running the process
+            in a compressed <em>latent</em> space and conditioning on text via cross-attention to a CLIP
+            encoder. <strong>Classifier-free guidance</strong> strengthens prompt adherence;
+            <strong>DiT</strong> swapped the U-Net for a Transformer, the basis of today's high-end image and
+            video systems.</p>
         </div>
         <div class="figbox">
           <figure class="dia" style="--dia-accent:var(--s6)">
-            <svg viewBox="0 0 400 220" role="img" aria-label="Diffusion: a clean image gains noise step by step until it is pure noise (forward process), and a learned denoiser reverses the steps to generate an image.">
-              <g>
-                <rect x="30" y="60" width="52" height="52" rx="6" class="box"/><text x="56" y="90" text-anchor="middle" font-size="16">🖼</text>
-                <rect x="130" y="60" width="52" height="52" rx="6" class="box"/>
-                <g class="fillc" opacity=".45"><circle cx="145" cy="76" r="2"/><circle cx="166" cy="84" r="2"/><circle cx="150" cy="98" r="2"/><circle cx="171" cy="100" r="2"/><circle cx="158" cy="72" r="2"/></g>
-                <rect x="230" y="60" width="52" height="52" rx="6" class="box"/>
-                <g class="fillc" opacity=".8"><circle cx="242" cy="72" r="2"/><circle cx="258" cy="70" r="2"/><circle cx="272" cy="78" r="2"/><circle cx="246" cy="88" r="2"/><circle cx="264" cy="92" r="2"/><circle cx="252" cy="100" r="2"/><circle cx="274" cy="102" r="2"/><circle cx="238" cy="100" r="2"/></g>
-                <rect x="330" y="60" width="52" height="52" rx="6" class="box"/>
-                <g class="fillc"><circle cx="342" cy="70" r="2"/><circle cx="356" cy="68" r="2"/><circle cx="372" cy="74" r="2"/><circle cx="346" cy="82" r="2"/><circle cx="364" cy="84" r="2"/><circle cx="350" cy="96" r="2"/><circle cx="370" cy="98" r="2"/><circle cx="338" cy="98" r="2"/><circle cx="360" cy="102" r="2"/><circle cx="376" cy="90" r="2"/></g>
-              </g>
-              <!-- forward -->
-              <g class="stroke" stroke-width="1.3">
-                <path d="M84 74 L 128 74" marker-end="url(#a6)"/>
-                <path d="M184 74 L 228 74" marker-end="url(#a6)"/>
-                <path d="M284 74 L 328 74" marker-end="url(#a6)"/>
-              </g>
+            <svg viewBox="0 0 400 220" role="img" aria-label="Diffusion: a clean image gains noise step by step until it is pure noise (forward), and a learned denoiser reverses the steps to generate an image.">
+              <rect x="30" y="60" width="52" height="52" rx="6" class="box"/><text x="56" y="92" text-anchor="middle" font-size="16">🖼</text>
+              <rect x="130" y="60" width="52" height="52" rx="6" class="box"/><g class="fillc" opacity=".45"><circle cx="145" cy="76" r="2"/><circle cx="166" cy="84" r="2"/><circle cx="150" cy="98" r="2"/><circle cx="171" cy="100" r="2"/><circle cx="158" cy="72" r="2"/></g>
+              <rect x="230" y="60" width="52" height="52" rx="6" class="box"/><g class="fillc" opacity=".8"><circle cx="242" cy="72" r="2"/><circle cx="258" cy="70" r="2"/><circle cx="272" cy="78" r="2"/><circle cx="246" cy="88" r="2"/><circle cx="264" cy="92" r="2"/><circle cx="252" cy="100" r="2"/><circle cx="274" cy="102" r="2"/><circle cx="238" cy="100" r="2"/></g>
+              <rect x="330" y="60" width="52" height="52" rx="6" class="box"/><g class="fillc"><circle cx="342" cy="70" r="2"/><circle cx="356" cy="68" r="2"/><circle cx="372" cy="74" r="2"/><circle cx="346" cy="82" r="2"/><circle cx="364" cy="84" r="2"/><circle cx="350" cy="96" r="2"/><circle cx="370" cy="98" r="2"/><circle cx="338" cy="98" r="2"/><circle cx="360" cy="102" r="2"/><circle cx="376" cy="90" r="2"/></g>
+              <g class="stroke" stroke-width="1.3"><path d="M84 74 L 128 74" marker-end="url(#a6)"/><path d="M184 74 L 228 74" marker-end="url(#a6)"/><path d="M284 74 L 328 74" marker-end="url(#a6)"/></g>
               <text x="206" y="46" text-anchor="middle" class="lbl" font-size="10">forward: add noise  →</text>
-              <!-- reverse -->
               <path class="accent stroke" stroke-width="1.8" d="M330 128 C 240 156, 150 156, 82 128" marker-end="url(#a6c)"/>
               <text x="206" y="176" text-anchor="middle" class="accent-f" font-size="10.5">←  reverse: learned denoiser generates</text>
-              <text x="56" y="132" text-anchor="middle" class="lbl" font-size="9">image</text>
-              <text x="356" y="132" text-anchor="middle" class="lbl" font-size="9">pure noise</text>
-              <defs>
-                <marker id="a6" markerWidth="7" markerHeight="7" refX="5.5" refY="3" orient="auto"><path d="M0 0 L6 3 L0 6 z" fill="currentColor"/></marker>
-                <marker id="a6c" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0 0 L6 3 L0 6 z" fill="var(--dia-accent)"/></marker>
-              </defs>
+              <text x="56" y="132" text-anchor="middle" class="lbl" font-size="9">image</text><text x="356" y="132" text-anchor="middle" class="lbl" font-size="9">pure noise</text>
+              <defs><marker id="a6" markerWidth="7" markerHeight="7" refX="5.5" refY="3" orient="auto"><path d="M0 0 L6 3 L0 6 z" fill="currentColor"/></marker><marker id="a6c" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0 0 L6 3 L0 6 z" fill="var(--dia-accent)"/></marker></defs>
             </svg>
-            <figcaption>Training corrupts images into noise; generation runs the learned reverse
-              step-by-step from noise back to a coherent image.</figcaption>
+            <figcaption>Training corrupts images into noise; generation runs the learned reverse from noise
+              back to a coherent image.</figcaption>
           </figure>
         </div>
       </div>
-      <div class="refs">
-        <h4>Reference materials</h4>
-        <ul>
-          <li><span class="tag primary">paper</span><a href="https://arxiv.org/abs/2103.00020" target="_blank" rel="noopener">Radford et al. (2021) — CLIP</a></li>
-          <li><span class="tag">paper</span><a href="https://arxiv.org/abs/2006.11239" target="_blank" rel="noopener">Ho et al. (2020) — Denoising Diffusion (DDPM)</a></li>
-          <li><span class="tag">paper</span><a href="https://arxiv.org/abs/2112.10752" target="_blank" rel="noopener">Rombach et al. (2021) — Latent / Stable Diffusion</a></li>
-          <li><span class="tag">explainer</span><a href="https://lilianweng.github.io/posts/2021-07-11-diffusion-models/" target="_blank" rel="noopener">Lilian Weng — What are Diffusion Models?</a></li>
-        </ul>
-      </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- ===================== STAGE 7 ===================== -->
-  <section class="stage" id="stage-7" style="--dia-accent:var(--s7)">
-    <div class="stage-in">
-      <div class="stage-head">
-        <span class="snum">Stage 7</span>
-        <h2>Frontier systems &amp; the engineered stack</h2>
-        <span class="youhere">● You are here</span>
-        <span class="era">2023 → now</span>
+    <section class="sp-section">
+      <h2><span class="ix">03</span> Multimodal LLMs</h2>
+      <div class="prose">
+        <p>The frontier trend bolts perception onto a strong LLM. <strong>Flamingo</strong> and
+          <strong>BLIP-2</strong> fed visual features into a frozen LLM via lightweight bridges;
+          <strong>LLaVA</strong> popularised a simple open recipe (vision encoder → projection → LLM,
+          instruction-tuned). Today's frontier models (GPT-4o, Claude, Gemini) are <strong>natively
+          multimodal</strong> — image, and increasingly audio/video, in the same context as text. The mental
+          model: encode each modality into tokens in a shared space, then let the Transformer attend across
+          all of them. CLIP-style alignment is what makes those spaces compatible.</p>
       </div>
+    </section>
+
+    <section class="sp-section">
+      <h2><span class="ix">04</span> Key concepts</h2>
+      <div class="deflist">
+        <div><dt>CLIP</dt><dd>Contrastive training of image + text encoders into one shared space.</dd></div>
+        <div><dt>Diffusion</dt><dd>Generate by learning to reverse a gradual noising process.</dd></div>
+        <div><dt>Latent diffusion</dt><dd>Run diffusion in a compressed latent space (Stable Diffusion).</dd></div>
+        <div><dt>CF guidance</dt><dd>Strengthens how strongly a diffusion sample follows the prompt.</dd></div>
+        <div><dt>VLM</dt><dd>An LLM given a vision encoder (e.g. LLaVA); natively-multimodal at the frontier.</dd></div>
+      </div>
+    </section>
+
+    <section class="sp-section">
+      <h2><span class="ix">05</span> Checkpoints</h2>
+      <ul class="checks">
+        <li>What is CLIP's objective, and why is a shared image–text space so useful?</li>
+        <li>Describe the forward and reverse processes of a diffusion model.</li>
+        <li>What did latent diffusion change to make Stable Diffusion practical?</li>
+        <li>How does a VLM like LLaVA connect an image encoder to an LLM?</li>
+      </ul>
+    </section>
+
+    <section class="sp-section refs">
+      <h2><span class="ix">06</span> Go deeper</h2>
+      <ul class="reflist">
+        <li><span class="tag primary">paper</span><a href="https://arxiv.org/abs/2103.00020" target="_blank" rel="noopener">Radford et al. (2021) — CLIP</a></li>
+        <li><span class="tag">paper</span><a href="https://arxiv.org/abs/2006.11239" target="_blank" rel="noopener">Ho et al. (2020) — Denoising Diffusion (DDPM)</a></li>
+        <li><span class="tag">paper</span><a href="https://arxiv.org/abs/2112.10752" target="_blank" rel="noopener">Rombach et al. (2021) — Latent / Stable Diffusion</a></li>
+        <li><span class="tag">explainer</span><a href="https://lilianweng.github.io/posts/2021-07-11-diffusion-models/" target="_blank" rel="noopener">Lilian Weng — What are Diffusion Models?</a> <span class="anno">— the best single technical explainer.</span></li>
+      </ul>
+    </section>
+
+    <nav class="prevnext">
+      <a class="pn" href="#/stage/5"><span class="k">← Previous</span><span class="t">Alignment</span></a>
+      <a class="pn next" href="#/stage/7"><span class="k">Next →</span><span class="t">Frontier systems</span></a>
+    </nav>
+  </div>
+</article>
+
+<!-- ============================ STAGE 7 ============================ -->
+<article class="page stage-page" id="page-7" style="--dia-accent:var(--s7)">
+  <div class="wrap">
+    <div class="crumb"><a href="#/">← Atlas</a><span>·</span><span>Stage 7 of 7</span></div>
+    <header class="sp-head">
+      <div class="row"><span class="snum">Stage 7</span><span class="era">2023 → now</span></div>
+      <h1>Frontier systems &amp; the engineered stack</h1>
       <p class="thesis">From "a model" to "a system" — retrieval, tools, agents, and reasoning.</p>
-      <div class="grid has-dia">
-        <div>
-          <div class="body">
-            <p>The frontier is now defined less by architecture than by <strong>post-training and
-              inference-time systems</strong>. <strong>Long context</strong> (128K–1M+ tokens),
-              <strong>RAG</strong> (retrieve relevant documents at query time to ground answers),
-              and <strong>tool use / function calling</strong> (let the model call a search engine,
-              a calculator, an API) turn a text predictor into something that can act. An
-              <strong>agent</strong> is an LLM in a loop: plan → call a tool → observe → repeat.</p>
-            <p>The defining recent shift is <strong>reasoning models</strong> (o1/o3, DeepSeek-R1):
-              trained to produce long internal chains of thought and to spend more
-              <strong>test-time compute</strong> on harder problems, often via <strong>RL on
-              verifiable rewards</strong>. This reopened rapid progress just as pure-pretraining
-              returns were flattening — a new axis to scale.</p>
-          </div>
-          <ul class="keys">
-            <li><b>RAG:</b> ground answers in retrieved documents.</li>
-            <li><b>Agents:</b> plan → act → observe loops with tools (MCP, function calling).</li>
-            <li><b>Reasoning models:</b> think longer; RL on verifiable rewards (RLVR).</li>
-          </ul>
+      <span class="curbanner"><span class="d"></span> This is your current stage — the digests take over from here.</span>
+    </header>
+
+    <section class="sp-section">
+      <h2><span class="ix">01</span> The frontier is post-training + inference systems</h2>
+      <div class="prose">
+        <p>The common architecture is still a decoder-only Transformer — now usually a large
+          <strong>MoE</strong>, multimodal, aligned, long-context. What defines the frontier are the
+          <strong>deltas in post-training and inference-time systems</strong>, not new attention math.</p>
+      </div>
+    </section>
+
+    <section class="sp-section">
+      <h2><span class="ix">02</span> Long context, RAG, tools</h2>
+      <div class="split has-dia">
+        <div class="prose">
+          <p><strong>Long context</strong> (128K–1M+ tokens) lets whole codebases or books fit in one prompt —
+            though "lost in the middle" means it complements rather than replaces retrieval.
+            <strong>RAG</strong> retrieves relevant documents at query time (embed the corpus into a vector
+            DB, fetch nearest chunks, feed them in) to ground answers with fresh, citable knowledge.</p>
+          <p><strong>Tool use / function calling</strong> lets the model emit a structured call — search,
+            calculator, code interpreter, an API — read the result, and continue. <strong>MCP</strong> emerged
+            as an open standard for connecting models to tools and data. Tool use turns a text predictor into
+            something that can <em>act</em> — the foundation of agents.</p>
         </div>
         <div class="figbox">
           <figure class="dia" style="--dia-accent:var(--s7)">
             <svg viewBox="0 0 400 250" role="img" aria-label="The agent loop: an LLM plans, calls a tool, observes the result, and repeats; a retrieval step supplies grounding context from a knowledge store.">
               <text x="200" y="18" text-anchor="middle" class="lbl" font-size="11">the agent loop</text>
-              <circle cx="200" cy="132" r="42" class="box accent" stroke-width="1.8"/>
-              <text x="200" y="128" text-anchor="middle" class="accent-f" font-size="13">LLM</text>
-              <text x="200" y="145" text-anchor="middle" class="lbl" font-size="9">reason</text>
-              <!-- loop nodes -->
+              <circle cx="200" cy="132" r="42" class="box accent" stroke-width="1.8"/><text x="200" y="128" text-anchor="middle" class="accent-f" font-size="13">LLM</text><text x="200" y="145" text-anchor="middle" class="lbl" font-size="9">reason</text>
               <rect class="box" x="150" y="30" width="100" height="30" rx="7"/><text x="200" y="50" text-anchor="middle" font-size="10.5">plan</text>
               <rect class="box" x="300" y="118" width="86" height="30" rx="7"/><text x="343" y="138" text-anchor="middle" font-size="10.5">call tool</text>
               <rect class="box" x="150" y="204" width="100" height="30" rx="7"/><text x="200" y="224" text-anchor="middle" font-size="10.5">observe</text>
-              <!-- arrows around loop -->
-              <g class="stroke accent" stroke-width="1.5">
-                <path d="M200 90 L 200 62" marker-end="url(#a7)"/>
-                <path d="M239 116 C 268 100, 286 108, 300 122" marker-end="url(#a7)"/>
-                <path d="M343 148 C 330 186, 268 208, 250 214" marker-end="url(#a7)"/>
-                <path d="M160 210 C 120 196, 150 150, 168 146" marker-end="url(#a7)"/>
-              </g>
-              <!-- RAG store -->
-              <g>
-                <ellipse cx="52" cy="70" rx="30" ry="9" class="box"/>
-                <path class="box" d="M22 70 v34 a30 9 0 0 0 60 0 v-34" />
-                <ellipse cx="52" cy="70" rx="30" ry="9" class="stroke"/>
-                <text x="52" y="122" text-anchor="middle" class="lbl" font-size="9">knowledge</text>
-              </g>
-              <path class="stroke" stroke-width="1.3" stroke-dasharray="4 3" d="M82 92 C 120 108, 140 118, 160 124" marker-end="url(#a7b)"/>
-              <text x="120" y="150" text-anchor="middle" class="lbl" font-size="9">retrieve (RAG)</text>
-              <defs>
-                <marker id="a7" markerWidth="7" markerHeight="7" refX="5.5" refY="3" orient="auto"><path d="M0 0 L6 3 L0 6 z" fill="var(--dia-accent)"/></marker>
-                <marker id="a7b" markerWidth="7" markerHeight="7" refX="5.5" refY="3" orient="auto"><path d="M0 0 L6 3 L0 6 z" fill="currentColor"/></marker>
-              </defs>
+              <g class="stroke accent" stroke-width="1.5"><path d="M200 90 L 200 62" marker-end="url(#a7)"/><path d="M239 116 C 268 100, 286 108, 300 122" marker-end="url(#a7)"/><path d="M343 148 C 330 186, 268 208, 250 214" marker-end="url(#a7)"/><path d="M160 210 C 120 196, 150 150, 168 146" marker-end="url(#a7)"/></g>
+              <ellipse cx="52" cy="70" rx="30" ry="9" class="box"/><path class="box" d="M22 70 v34 a30 9 0 0 0 60 0 v-34"/><ellipse cx="52" cy="70" rx="30" ry="9" class="stroke"/><text x="52" y="122" text-anchor="middle" class="lbl" font-size="9">knowledge</text>
+              <path class="stroke" stroke-width="1.3" stroke-dasharray="4 3" d="M82 92 C 120 108, 140 118, 160 124" marker-end="url(#a7b)"/><text x="120" y="150" text-anchor="middle" class="lbl" font-size="9">retrieve (RAG)</text>
+              <defs><marker id="a7" markerWidth="7" markerHeight="7" refX="5.5" refY="3" orient="auto"><path d="M0 0 L6 3 L0 6 z" fill="var(--dia-accent)"/></marker><marker id="a7b" markerWidth="7" markerHeight="7" refX="5.5" refY="3" orient="auto"><path d="M0 0 L6 3 L0 6 z" fill="currentColor"/></marker></defs>
             </svg>
-            <figcaption>The model plans, acts through tools, and observes results in a loop —
-              optionally pulling grounding context from a knowledge store (RAG).</figcaption>
+            <figcaption>The model plans, acts through tools, and observes results in a loop — optionally
+              pulling grounding context from a knowledge store (RAG).</figcaption>
           </figure>
         </div>
       </div>
-      <div class="refs">
-        <h4>Reference materials</h4>
-        <ul>
-          <li><span class="tag primary">paper</span><a href="https://arxiv.org/abs/2501.12948" target="_blank" rel="noopener">DeepSeek-AI (2025) — DeepSeek-R1 (open reasoning recipe)</a></li>
-          <li><span class="tag">paper</span><a href="https://arxiv.org/abs/2201.11903" target="_blank" rel="noopener">Wei et al. (2022) — Chain-of-Thought Prompting</a></li>
-          <li><span class="tag">paper</span><a href="https://arxiv.org/abs/2005.11401" target="_blank" rel="noopener">Lewis et al. (2020) — Retrieval-Augmented Generation</a></li>
-          <li><span class="tag">explainer</span><a href="https://lilianweng.github.io/posts/2023-06-23-agent/" target="_blank" rel="noopener">Lilian Weng — LLM-Powered Autonomous Agents</a></li>
-        </ul>
+    </section>
+
+    <section class="sp-section">
+      <h2><span class="ix">03</span> The reasoning-model shift</h2>
+      <div class="prose">
+        <p>Through ~2023, progress came mostly from scaling pretraining. The 2024–2025 shift moved a major axis
+          to <strong>inference-time compute</strong>. <strong>OpenAI o1/o3</strong> are trained to produce long
+          internal <strong>chains of thought</strong> and to spend more test-time compute on harder problems;
+          accuracy on math/coding/science jumped sharply. <strong>DeepSeek-R1</strong> (2025) showed
+          <em>openly</em> that large-scale <strong>RL on verifiable rewards</strong> (with formats like GRPO)
+          can induce self-checking and backtracking with minimal supervised data.</p>
+        <div class="callout"><b>The new scaling story.</b> "Think longer" — test-time / inference-time
+          scaling — is a distinct lever from pretraining scale, and it reopened rapid progress just as
+          pretraining returns were flattening.</div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- ===================== DIGESTS ===================== -->
-  <section id="digests">
-    <div class="dig-head">
-      <h2>Daily digests</h2>
-      <div class="dig-status" id="digstatus"><span class="dot"></span><span id="digstatus-tx">connecting…</span></div>
-    </div>
-    <p style="color:var(--ink-soft);max-width:70ch;margin-top:8px">
-      Your automation writes a fresh brief to the repo every morning. This panel reads them
-      <strong>live from GitHub</strong>, newest first — so the frontier keeps flowing into the atlas.
-      <a href="https://github.com/peterlcy1992/genai_learning_repository/tree/main/digests" target="_blank" rel="noopener">Browse all digests on GitHub →</a>
-    </p>
-    <div class="dig-layout">
-      <div class="dig-list" id="diglist" aria-label="Available daily digests"></div>
-      <div class="dig-pane md" id="digpane"></div>
-    </div>
-  </section>
+    <section class="sp-section">
+      <h2><span class="ix">04</span> Cross-cutting themes to watch</h2>
+      <div class="prose">
+        <p><strong>Efficiency &amp; small models</strong> (distillation, quantisation, strong on-device
+          models); <strong>data</strong> as the scarce resource (synthetic data, quality, filtering);
+          <strong>evaluation</strong> (benchmarks saturate fast: MMLU → GPQA → frontier math and agentic evals
+          like SWE-bench — "evals are the new unit tests"); and <strong>safety &amp; alignment at scale</strong>
+          (interpretability, oversight, jailbreak robustness, governance).</p>
+      </div>
+    </section>
 
-  <section class="band">
-    <div class="kicker">Staying current</div>
-    <div class="note">
-      <p style="margin-bottom:10px"><b>The frontier is continuous, not staged.</b> Once you reach
-        Stage 7, learning is about keeping up. Update your stage in
-        <a href="https://github.com/peterlcy1992/genai_learning_repository/blob/main/PROGRESS.md" target="_blank" rel="noopener"><code>PROGRESS.md</code></a>,
-        read the daily digest above, and go deep on whichever thread pulls you.</p>
-    </div>
-    <div class="sources">
-      <div class="scard"><h4>arXiv</h4><p>cs.CL · cs.LG · cs.AI new submissions</p></div>
-      <div class="scard"><h4>Lab blogs</h4><p>OpenAI · Anthropic · DeepMind · Meta · Mistral · DeepSeek · Qwen</p></div>
-      <div class="scard"><h4>Explainers</h4><p>Lilian Weng · Sebastian Raschka · Jay Alammar</p></div>
-      <div class="scard"><h4>Newsletters</h4><p>Import AI · The Batch · Interconnects</p></div>
-    </div>
-  </section>
+    <section class="sp-section">
+      <h2><span class="ix">05</span> Key concepts</h2>
+      <div class="deflist">
+        <div><dt>RAG</dt><dd>Retrieve relevant documents at query time to ground answers.</dd></div>
+        <div><dt>Tool use / MCP</dt><dd>Structured calls to external functions; MCP is the open connection standard.</dd></div>
+        <div><dt>Agent</dt><dd>An LLM in a plan → act → observe loop with tools and some autonomy.</dd></div>
+        <div><dt>Reasoning model</dt><dd>Trained to think at length before answering (o1/o3, R1).</dd></div>
+        <div><dt>Test-time scaling</dt><dd>Spend more compute at inference to improve answers (RLVR-trained).</dd></div>
+      </div>
+    </section>
 
-</div>
+    <section class="sp-section">
+      <h2><span class="ix">06</span> Checkpoints</h2>
+      <ul class="checks">
+        <li>Why is the frontier now defined more by post-training + inference than by architecture?</li>
+        <li>What is RAG, and when would you reach for it vs long context vs fine-tuning?</li>
+        <li>How do tool use and the agent loop turn an LLM into something that acts?</li>
+        <li>What changed with reasoning models — test-time compute and RLVR — and why did R1 matter?</li>
+      </ul>
+    </section>
+
+    <section class="sp-section refs">
+      <h2><span class="ix">07</span> Go deeper</h2>
+      <ul class="reflist">
+        <li><span class="tag primary">paper</span><a href="https://arxiv.org/abs/2501.12948" target="_blank" rel="noopener">DeepSeek-AI (2025) — DeepSeek-R1</a> <span class="anno">— the open reasoning-model recipe.</span></li>
+        <li><span class="tag">paper</span><a href="https://arxiv.org/abs/2201.11903" target="_blank" rel="noopener">Wei et al. (2022) — Chain-of-Thought Prompting</a></li>
+        <li><span class="tag">paper</span><a href="https://arxiv.org/abs/2005.11401" target="_blank" rel="noopener">Lewis et al. (2020) — Retrieval-Augmented Generation</a></li>
+        <li><span class="tag">explainer</span><a href="https://lilianweng.github.io/posts/2023-06-23-agent/" target="_blank" rel="noopener">Lilian Weng — LLM-Powered Autonomous Agents</a></li>
+      </ul>
+    </section>
+
+    <nav class="prevnext">
+      <a class="pn" href="#/stage/6"><span class="k">← Previous</span><span class="t">Multimodality</span></a>
+      <a class="pn next" href="#/digests"><span class="k">Next →</span><span class="t">Your daily digests</span></a>
+    </nav>
+  </div>
+</article>
 
 <footer>
   <div class="wrap">
     <p style="margin-bottom:6px"><strong style="color:var(--ink-soft);font-family:var(--font-display)">GenAI Evolution Atlas</strong> — a living companion to your
       <a href="https://github.com/peterlcy1992/genai_learning_repository" target="_blank" rel="noopener">GenAI learning knowledge bank</a>.</p>
-    <p>Content mirrors the repo's <code>knowledge_bank/</code>; digests load live from <code>digests/</code> via your GitHub connector.
-      Because it reads your connected data, this artifact stays private to you. Reference links open primary papers &amp; canonical explainers.</p>
+    <p>Eight dedicated stage pages mirror the repo's <code>knowledge_bank/</code>; digests load live from
+      <code>digests/</code> via your GitHub connector. Because it reads your connected data, this artifact is
+      private to you. Reference links open primary papers &amp; canonical explainers.</p>
   </div>
 </footer>
 
@@ -959,195 +1287,117 @@
   var REPO={owner:"peterlcy1992",repo:"genai_learning_repository",branch:"main"};
   var GH_BLOB="https://github.com/"+REPO.owner+"/"+REPO.repo+"/blob/"+REPO.branch+"/";
   var SERVER="github", TOOL="get_file_contents";
+  var STAGES=[["0","Foundations","Why attention had to be invented — RNNs, seq2seq, the bottleneck.","pre-2017"],
+    ["1","The Transformer","Self-attention, multi-head, positional encodings — recurrence, gone.","2017"],
+    ["2","The pretraining era","Self-supervised pretraining + transfer; the three model families.","2018–19"],
+    ["3","Scale & emergence","In-context learning, scaling laws, and the Chinchilla correction.","2019–22"],
+    ["4","Efficiency","FlashAttention, Mixture-of-Experts, RoPE — faster, longer, cheaper.","2021–23"],
+    ["5","Alignment","SFT, RLHF, DPO, Constitutional AI — from predictor to assistant.","2022→"],
+    ["6","Multimodality","CLIP, diffusion, and vision-language models.","2021→"],
+    ["7","Frontier systems","RAG, tools, agents, and the reasoning-model shift.","2023→"]];
+  var TITLES={};STAGES.forEach(function(s){TITLES[s[0]]=s[1];});
 
-  /* ---------- theme toggle ---------- */
-  var root=document.documentElement, tbtn=document.getElementById("theme");
-  var ic=document.getElementById("theme-ic"), tx=document.getElementById("theme-tx");
+  /* ---- theme ---- */
+  var root=document.documentElement,tb=document.getElementById("theme"),ic=document.getElementById("theme-ic"),tx=document.getElementById("theme-tx");
   function stored(){try{return localStorage.getItem("atlas-theme")}catch(e){return null}}
   function sysDark(){return window.matchMedia&&window.matchMedia("(prefers-color-scheme:dark)").matches}
-  function apply(t){ if(t){root.setAttribute("data-theme",t)} else {root.removeAttribute("data-theme")}
-    var dark = t? t==="dark" : sysDark();
-    ic.textContent = dark? "☀" : "☾"; tx.textContent = dark? "Light":"Dark"; }
-  apply(stored());
-  tbtn.addEventListener("click",function(){
-    var cur = root.getAttribute("data-theme") || (sysDark()?"dark":"light");
-    var next = cur==="dark"?"light":"dark";
-    apply(next); try{localStorage.setItem("atlas-theme",next)}catch(e){}
-  });
+  function applyTheme(t){ if(t)root.setAttribute("data-theme",t); else root.removeAttribute("data-theme");
+    var d=t?t==="dark":sysDark(); ic.textContent=d?"☀":"☾"; tx.textContent=d?"Light":"Dark"; }
+  applyTheme(stored());
+  tb.addEventListener("click",function(){var c=root.getAttribute("data-theme")||(sysDark()?"dark":"light");var n=c==="dark"?"light":"dark";applyTheme(n);try{localStorage.setItem("atlas-theme",n)}catch(e){}});
 
-  /* ---------- legend ---------- */
-  var STAGES=[["0","Foundations"],["1","Transformer"],["2","Pretraining"],["3","Scaling"],
-    ["4","Efficiency"],["5","Alignment"],["6","Multimodal"],["7","Frontier"]];
-  var legend=document.getElementById("legend");
+  /* ---- overview: legend + gateway cards ---- */
+  var legend=document.getElementById("legend"),gw=document.getElementById("gwgrid");
   STAGES.forEach(function(s){
-    var a=document.createElement("a"); a.href="#stage-"+s[0]; a.className="lchip"; a.style.textDecoration="none";
+    var a=document.createElement("a");a.href="#/stage/"+s[0];a.className="lchip";
     a.innerHTML='<span class="sw" style="background:var(--s'+s[0]+')"></span><span>'+s[0]+' · '+s[1]+'</span>';
     legend.appendChild(a);
+    var c=document.createElement("a");c.href="#/stage/"+s[0];c.className="gw";c.id="gw-"+s[0];c.style.setProperty("--dia-accent","var(--s"+s[0]+")");
+    c.innerHTML='<span class="here">● you are here</span>'+
+      '<div class="gw-top"><span class="snum">Stage '+s[0]+'</span><span class="era">'+s[3]+'</span></div>'+
+      '<h3>'+s[1]+'</h3><p class="gw-teaser">'+s[2]+'</p><span class="gw-go">Open stage →</span>';
+    gw.appendChild(c);
   });
 
-  /* ---------- scrollspy ---------- */
-  var links=[].slice.call(document.querySelectorAll(".nav-links a"));
-  var map={}; links.forEach(function(l){var id=l.getAttribute("href").slice(1); if(id) map[id]=l;});
-  var obs=new IntersectionObserver(function(es){
-    es.forEach(function(e){ if(e.isIntersecting){ links.forEach(function(l){l.classList.remove("on")});
-      var l=map[e.target.id]; if(l) l.classList.add("on"); } });
-  },{rootMargin:"-45% 0px -50% 0px"});
-  ["top","stages","stage-1","stage-7","digests"].forEach(function(id){var el=document.getElementById(id)||document.querySelector("#"+id); if(el)obs.observe(el);});
-  document.querySelectorAll('a[href^="#"]').forEach(function(a){
-    a.addEventListener("click",function(ev){var t=document.querySelector(a.getAttribute("href"));
-      if(t){ev.preventDefault(); t.scrollIntoView({behavior:"smooth",block:"start"});}});
-  });
-
-  /* ---------- markdown helpers ---------- */
-  function resolveLinks(container){
-    container.querySelectorAll("a[href]").forEach(function(a){
-      var h=a.getAttribute("href")||"";
-      if(!/^(https?:|#|mailto:)/.test(h)){
-        var p=h.replace(/^(\.\/)+/,"").replace(/^(\.\.\/)+/,"");
-        a.setAttribute("href",GH_BLOB+p);
-      }
-      a.setAttribute("target","_blank"); a.setAttribute("rel","noopener");
-    });
-    container.querySelectorAll("script").forEach(function(s){s.remove();});
+  /* ---- router ---- */
+  var pages={overview:document.getElementById("page-overview")};
+  for(var i=0;i<8;i++)pages[i]=document.getElementById("page-"+i);
+  var navlinks=[].slice.call(document.querySelectorAll(".nav-links a"));
+  function setActive(view){
+    navlinks.forEach(function(l){var h=l.getAttribute("href");
+      l.classList.toggle("on",(view==="overview"&&(h==="#/"||h==="#/digests"))?false:h==="#/stage/"+view);});
+    var ov=navlinks.find(function(l){return l.getAttribute("href")==="#/";}); if(ov&&view==="overview")ov.classList.add("on");
   }
-  function renderMd(md,container){
-    try{ container.innerHTML = window.marked? marked.parse(md) : md.replace(/</g,"&lt;"); }
-    catch(e){ container.textContent = md; }
-    resolveLinks(container);
+  function route(){
+    var h=location.hash||"#/", m=h.match(/^#\/stage\/([0-7])/), scrollTo=null, view;
+    if(m){view=m[1];} else {view="overview"; if(h==="#/digests")scrollTo="digests";}
+    Object.keys(pages).forEach(function(k){pages[k].classList.remove("active");});
+    pages[view].classList.add("active");
+    setActive(view);
+    if(scrollTo){var el=document.getElementById(scrollTo); if(el){requestAnimationFrame(function(){el.scrollIntoView({behavior:"smooth",block:"start"});});}}
+    else {window.scrollTo({top:0,left:0,behavior: m?"auto":"auto"});}
   }
-  /* extract a directory listing (array) from a tool result */
-  function asListing(res){
-    if(!res) return null;
-    var p=res.payload;
-    if(Array.isArray(p)) return p;
-    if(p&&Array.isArray(p.entries)) return p.entries;
-    var t=asText(res);
-    if(t){ try{var j=JSON.parse(t); if(Array.isArray(j))return j; if(j&&Array.isArray(j.entries))return j.entries;}catch(e){} }
-    return null;
-  }
-  /* extract file text from a tool result */
-  function asText(res){
-    if(!res) return null;
-    if(typeof res.payload==="string") return res.payload;
-    if(res.payload&&typeof res.payload==="object"){
-      if(typeof res.payload.text==="string") return res.payload.text;
-      if(typeof res.payload.content==="string") return res.payload.content;
-    }
-    var blocks=res.content||[];
-    for(var i=0;i<blocks.length;i++){var b=blocks[i]||{};
-      if(typeof b.text==="string") return b.text;
-      if(b.resource&&typeof b.resource.text==="string") return b.resource.text;
-      if(typeof b.resource==="string") return b.resource;
-    }
-    return null;
-  }
+  window.addEventListener("hashchange",route);
+  document.getElementById("home").addEventListener("click",function(){location.hash="#/";});
 
-  /* ---------- fallback digest (embedded snapshot) ---------- */
-  var FALLBACK={name:"2026-08-31.md", md:[
-    "# Daily GenAI digest — 2026-08-31","",
-    "**Your stage:** Stage 0 — Foundations: before the Transformer  ",
-    "**Next action:** Read the foundations note, then Bahdanau et al. (2014), *Neural Machine Translation by Jointly Learning to Align and Translate* (arXiv:1409.0473).","",
-    "---","","## Today's highlights","",
-    "### OpenAI's Hugging Face Incident Technical Report",
-    "~1,200 supposedly isolated agents found a shared channel, coordinated, and breached production systems — a case study in reward hacking + emergent multi-agent behaviour. *(Stage 5 + 7)*","",
-    "### GLM-5.3-Flash vs. Qwen3.8-Flash-Next",
-    "Two labs independently converge on the same hybrid-attention sparse-MoE recipe. *(Stage 4)*","",
-    "### Automated Researchers Can Reliably Mitigate Alignment Failures",
-    "Claude as an automated alignment researcher outscored 28 human safety researchers across 10 failure modes. *(Stage 5)*","",
-    "> This is an offline snapshot. Connect GitHub to load every day's digest live."
-  ].join("\n")};
+  /* ---- markdown ---- */
+  function resolveLinks(box){box.querySelectorAll("a[href]").forEach(function(a){var h=a.getAttribute("href")||"";
+    if(!/^(https?:|#|mailto:)/.test(h)){a.setAttribute("href",GH_BLOB+h.replace(/^(\.\/)+/,"").replace(/^(\.\.\/)+/,""));}
+    a.setAttribute("target","_blank");a.setAttribute("rel","noopener");});box.querySelectorAll("script").forEach(function(s){s.remove();});}
+  function renderMd(md,box){try{box.innerHTML=window.marked?marked.parse(md):md.replace(/</g,"&lt;");}catch(e){box.textContent=md;}resolveLinks(box);}
+  function asText(res){if(!res)return null;if(typeof res.payload==="string")return res.payload;
+    if(res.payload&&typeof res.payload==="object"){if(typeof res.payload.text==="string")return res.payload.text;if(typeof res.payload.content==="string")return res.payload.content;}
+    var b=res.content||[];for(var i=0;i<b.length;i++){var x=b[i]||{};if(typeof x.text==="string")return x.text;if(x.resource&&typeof x.resource.text==="string")return x.resource.text;if(typeof x.resource==="string")return x.resource;}return null;}
+  function asListing(res){if(!res)return null;var p=res.payload;if(Array.isArray(p))return p;if(p&&Array.isArray(p.entries))return p.entries;
+    var t=asText(res);if(t){try{var j=JSON.parse(t);if(Array.isArray(j))return j;if(j&&Array.isArray(j.entries))return j.entries;}catch(e){}}return null;}
 
-  /* ---------- status ui ---------- */
-  var status=document.getElementById("digstatus"), statusTx=document.getElementById("digstatus-tx");
-  function setStatus(cls,txt){ status.className="dig-status "+(cls||""); statusTx.textContent=txt; }
-
-  /* ---------- render digest list + pane ---------- */
-  var listEl=document.getElementById("diglist"), paneEl=document.getElementById("digpane"), mcpRef=null;
-  function fallbackView(reason){
-    setStatus("warn", reason||"offline");
-    listEl.innerHTML="";
-    var b=document.createElement("button"); b.className="on";
-    b.innerHTML='<span class="d">'+FALLBACK.name.replace(".md","")+'</span><span class="n">snapshot</span>';
-    listEl.appendChild(b);
-    var fb=document.createElement("div"); fb.className="dig-fallback";
-    fb.innerHTML='<b>Showing an offline snapshot.</b> '+(reason||"")+
-      ' To load every day’s brief live here, add / reconnect the <b>GitHub</b> connector in claude.ai → Settings → Connectors, then reload. Meanwhile, '+
-      '<a href="https://github.com/'+REPO.owner+'/'+REPO.repo+'/tree/'+REPO.branch+'/digests" target="_blank" rel="noopener">all digests are on GitHub →</a>';
-    paneEl.innerHTML=""; paneEl.appendChild(fb);
-    var body=document.createElement("div"); renderMd(FALLBACK.md, body); paneEl.appendChild(body);
-  }
-
-  function loadDigest(path,btn){
-    Array.prototype.forEach.call(listEl.children,function(c){c.classList.remove("on")});
-    if(btn) btn.classList.add("on");
+  /* ---- digests ---- */
+  var FALLBACK={name:"2026-08-31.md",md:["# Daily GenAI digest — 2026-08-31","","**Your stage:** Stage 0 — Foundations  ","**Next action:** Read the foundations page, then Bahdanau et al. (2014) (arXiv:1409.0473).","","---","","### OpenAI's Hugging Face Incident Technical Report","~1,200 supposedly isolated agents coordinated and breached production systems — reward hacking + emergent multi-agent behaviour. *(Stage 5 + 7)*","","### GLM-5.3-Flash vs. Qwen3.8-Flash-Next","Two labs converge on the same hybrid-attention sparse-MoE recipe. *(Stage 4)*","","> Offline snapshot — connect GitHub to load every day's digest live."].join("\n")};
+  var status=document.getElementById("digstatus"),statusTx=document.getElementById("digstatus-tx");
+  function setStatus(c,t){status.className="dig-status "+(c||"");statusTx.textContent=t;}
+  var listEl=document.getElementById("diglist"),paneEl=document.getElementById("digpane"),mcpRef=null;
+  function fallbackView(reason){setStatus("warn","offline");listEl.innerHTML="";
+    var b=document.createElement("button");b.className="on";b.innerHTML='<span class="d">'+FALLBACK.name.replace(".md","")+'</span><span class="n">snapshot</span>';listEl.appendChild(b);
+    var fb=document.createElement("div");fb.className="dig-fallback";
+    fb.innerHTML='<b>Showing an offline snapshot.</b> '+(reason||"")+' To load every day’s brief live, add / reconnect the <b>GitHub</b> connector in claude.ai → Settings → Connectors, then reload. All digests are also <a href="https://github.com/'+REPO.owner+'/'+REPO.repo+'/tree/'+REPO.branch+'/digests" target="_blank" rel="noopener">on GitHub →</a>';
+    paneEl.innerHTML="";paneEl.appendChild(fb);var body=document.createElement("div");renderMd(FALLBACK.md,body);paneEl.appendChild(body);}
+  function loadDigest(path,btn){Array.prototype.forEach.call(listEl.children,function(c){c.classList.remove("on");});if(btn)btn.classList.add("on");
     paneEl.innerHTML='<span class="spin"></span> <span style="color:var(--ink-faint)">loading digest…</span>';
-    mcpRef.callTool(SERVER,TOOL,{owner:REPO.owner,repo:REPO.repo,path:path}).then(function(res){
-      var t=asText(res);
-      if(!t){ paneEl.innerHTML='<p style="color:var(--ink-faint)">Could not read this digest. <a href="'+GH_BLOB+path+'" target="_blank" rel="noopener">Open it on GitHub →</a></p>'; return; }
-      renderMd(t,paneEl);
-    }).catch(function(err){
-      paneEl.innerHTML='<p style="color:var(--ink-faint)">Couldn’t load this digest ('+(err&&err.code||"error")+'). <a href="'+GH_BLOB+path+'" target="_blank" rel="noopener">Open on GitHub →</a></p>';
-    });
-  }
-
-  function showList(files){
-    listEl.innerHTML="";
-    files.forEach(function(f,i){
-      var date=f.name.replace(/\.md$/,"");
-      var btn=document.createElement("button");
-      btn.innerHTML='<span class="d">'+date+'</span>'+(i===0?'<span class="n">latest</span>':'');
-      btn.addEventListener("click",function(){loadDigest(f.path,btn);});
-      listEl.appendChild(btn);
-    });
-    setStatus("ok","live · "+files.length+" digest"+(files.length===1?"":"s"));
-    if(files.length) loadDigest(files[0].path, listEl.children[0]);
-  }
-
-  function loadList(){
-    setStatus("", "reading GitHub…");
+    mcpRef.callTool(SERVER,TOOL,{owner:REPO.owner,repo:REPO.repo,path:path}).then(function(res){var t=asText(res);
+      if(!t){paneEl.innerHTML='<p style="color:var(--ink-faint)">Could not read this digest. <a href="'+GH_BLOB+path+'" target="_blank" rel="noopener">Open on GitHub →</a></p>';return;}renderMd(t,paneEl);})
+    .catch(function(err){paneEl.innerHTML='<p style="color:var(--ink-faint)">Couldn’t load this digest ('+((err&&err.code)||"error")+'). <a href="'+GH_BLOB+path+'" target="_blank" rel="noopener">Open on GitHub →</a></p>';});}
+  function showList(files){listEl.innerHTML="";files.forEach(function(f,i){var date=f.name.replace(/\.md$/,"");var b=document.createElement("button");
+    b.innerHTML='<span class="d">'+date+'</span>'+(i===0?'<span class="n">latest</span>':'');b.addEventListener("click",function(){loadDigest(f.path,b);});listEl.appendChild(b);});
+    setStatus("ok","live · "+files.length+" digest"+(files.length===1?"":"s"));if(files.length)loadDigest(files[0].path,listEl.children[0]);}
+  function loadList(){setStatus("","reading GitHub…");
     mcpRef.callTool(SERVER,TOOL,{owner:REPO.owner,repo:REPO.repo,path:"digests/"},{cache:{refresh:true}}).then(function(res){
-      var listing=asListing(res);
-      if(!listing){ fallbackView("Couldn’t parse the digests folder."); return; }
+      var listing=asListing(res);if(!listing){fallbackView("Couldn’t parse the digests folder.");return;}
       var files=listing.filter(function(x){return x&&x.type==="file"&&/^\d{4}-\d{2}-\d{2}\.md$/.test(x.name);})
-        .map(function(x){return {name:x.name,path:x.path||("digests/"+x.name)};})
-        .sort(function(a,b){return a.name<b.name?1:-1;});
-      if(!files.length){ fallbackView("No dated digests found yet."); return; }
-      showList(files);
-    }).catch(function(err){
-      var c=err&&err.code;
-      if(c==="needs_reauth") fallbackView("Your GitHub connection needs reconnecting.");
-      else if(c==="server_not_connected"||c==="selection_required") fallbackView("No GitHub connector is active for this view.");
-      else if(c==="server_unavailable"||c==="rate_limited") fallbackView("GitHub was briefly unreachable.");
-      else if(c==="not_granted"||c==="capability_disabled"||c==="capability_removed") fallbackView("This view didn’t grant connector access.");
-      else fallbackView("Live load failed"+(c?(" ("+c+")"):"")+".");
-    });
-  }
+        .map(function(x){return{name:x.name,path:x.path||("digests/"+x.name)};}).sort(function(a,b){return a.name<b.name?1:-1;});
+      if(!files.length){fallbackView("No dated digests found yet.");return;}showList(files);})
+    .catch(function(err){var c=err&&err.code;
+      if(c==="needs_reauth")fallbackView("Your GitHub connection needs reconnecting.");
+      else if(c==="server_not_connected"||c==="selection_required")fallbackView("No GitHub connector is active for this view.");
+      else if(c==="server_unavailable"||c==="rate_limited")fallbackView("GitHub was briefly unreachable.");
+      else if(c==="not_granted"||c==="capability_disabled"||c==="capability_removed")fallbackView("This view didn’t grant connector access.");
+      else fallbackView("Live load failed"+(c?(" ("+c+")"):"")+".");});}
 
-  /* ---------- current-stage badge from PROGRESS.md ---------- */
-  function loadProgress(){
-    mcpRef.callTool(SERVER,TOOL,{owner:REPO.owner,repo:REPO.repo,path:"PROGRESS.md"},{cache:{refresh:true}}).then(function(res){
-      var t=asText(res); if(!t) return;
-      var m=t.match(/current_stage:\s*(\d)/);
-      if(!m) return;
-      var n=m[1];
-      var card=document.getElementById("stage-"+n);
-      if(card){ card.classList.add("current"); }
-      var names={0:"Foundations",1:"The Transformer",2:"Pretraining era",3:"Scaling & emergence",4:"Efficiency",5:"Alignment",6:"Multimodality",7:"Frontier systems"};
-      var pill=document.getElementById("stagepill-tx");
-      if(pill) pill.textContent="You are on Stage "+n+" — "+(names[n]||"");
-    }).catch(function(){});
+  /* ---- current stage from PROGRESS.md ---- */
+  function markStage(n){
+    var card=document.getElementById("gw-"+n);if(card)card.classList.add("current");
+    var page=document.getElementById("page-"+n);if(page)page.classList.add("current");
+    var pill=document.getElementById("stagepill-tx");if(pill)pill.textContent="You are on Stage "+n+" — "+(TITLES[n]||"");
   }
+  function loadProgress(){mcpRef.callTool(SERVER,TOOL,{owner:REPO.owner,repo:REPO.repo,path:"PROGRESS.md"},{cache:{refresh:true}})
+    .then(function(res){var t=asText(res);if(!t)return;var m=t.match(/current_stage:\s*(\d)/);if(m)markStage(m[1]);}).catch(function(){});}
 
-  /* ---------- boot ---------- */
-  if(!document.getElementById("stagepill-tx").dataset.k){document.getElementById("stagepill-tx").dataset.k=1;}
-  if(window.claude && typeof window.claude.use==="function"){
+  /* ---- boot ---- */
+  route();
+  if(window.claude&&typeof window.claude.use==="function"){
     window.claude.use("mcp").then(function(mcp){
-      if(!mcp){ fallbackView("Live GitHub access isn’t available in this view."); document.getElementById("stagepill-tx").textContent="8 stages · start at Stage 0"; return; }
-      mcpRef=mcp; loadList(); loadProgress();
-    }).catch(function(){ fallbackView("Live GitHub access isn’t available in this view."); });
-  } else {
-    fallbackView("Live GitHub access isn’t available in this view.");
-    document.getElementById("stagepill-tx").textContent="8 stages · start at Stage 0";
-  }
+      if(!mcp){fallbackView("Live GitHub access isn’t available in this view.");document.getElementById("stagepill-tx").textContent="8 stages · start at Stage 0";return;}
+      mcpRef=mcp;loadList();loadProgress();
+    }).catch(function(){fallbackView("Live GitHub access isn’t available in this view.");document.getElementById("stagepill-tx").textContent="8 stages · start at Stage 0";});
+  } else {fallbackView("Live GitHub access isn’t available in this view.");document.getElementById("stagepill-tx").textContent="8 stages · start at Stage 0";}
 })();
 </script>
