@@ -15,24 +15,29 @@ Transformer block, the model families, scaling laws, MoE routing, the RLHF
 pipeline, diffusion, the agent loop), and reference links to the primary papers
 and canonical explainers — plus a **live Daily Digests** panel.
 
-## How the live digests work
-The Atlas reads your [`../digests/`](../digests/) folder **directly from GitHub**
-at open time, using the `mcp` runtime capability with your GitHub connector
-(`get_file_contents`). New daily digests therefore appear automatically — no
-re-publish needed. It also reads [`../PROGRESS.md`](../PROGRESS.md) to mark your
-current stage ("You are here"). If the GitHub connector isn't available in a
-given view, the panel degrades gracefully to an embedded snapshot plus a link to
-the digests folder on GitHub.
+## How the digests work
+The Atlas embeds the **latest daily brief** (rendered in-page) plus a prominent
+**"All digests on GitHub"** link to [`../digests/`](../digests/), which always has
+every day's brief. It does **not** use a runtime connector.
 
-Because it reads your connected data, the artifact is **private to you** and can't
-be publicly shared (a constraint of connector-backed artifacts).
+> We first built the digests panel to read `digests/` live via the `mcp`
+> capability + the GitHub connector, but the account's GitHub connector is a
+> *Web*-type connector that the artifact viewer does not expose to pages
+> ("no matching connector found"), so live-fetch isn't possible here. The
+> embedded-latest + GitHub-link design is the robust equivalent. To refresh the
+> embedded brief, re-publish the artifact; the full archive is always live on
+> GitHub regardless.
+
+The **current-stage marker** is a click-to-set picker in the hero; the choice is
+saved per-viewer in the browser (`localStorage`) and highlights that stage's
+gateway card and page. No connector or repo read involved.
 
 ## Notes for maintainers
 - `knowledge-bank.html` is the **artifact body** (no `<!doctype>`/`<html>`/`<head>`/
   `<body>` — those are added at publish time), so it won't render standalone by
   double-clicking; it's the source of truth for the published artifact.
-- To update the design/content: edit this file, then re-publish to the **same
-  URL** (pass it as `url` to the Artifact tool, or republish the same path in the
-  originating session). The digests update themselves live and do **not** require
-  a republish.
-- Declared capability: `mcp` → server `github`, tool `get_file_contents`.
+- To update the design/content or refresh the embedded latest digest: edit this
+  file, then re-publish to the **same URL** (pass it as `url` to the Artifact
+  tool, or republish the same path in the originating session).
+- No runtime capabilities are declared (`capabilities: {}`); the page is fully
+  self-contained apart from the Google Fonts + marked.js CDN loads.

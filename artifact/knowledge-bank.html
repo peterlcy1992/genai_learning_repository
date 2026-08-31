@@ -73,6 +73,11 @@
     border-radius:999px;padding:5px 12px;background:var(--surface)}
   .pill.live{color:var(--accent-2);border-color:var(--accent)}
   .pill .dot{display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--s2);margin-right:6px;vertical-align:middle}
+  .stagepick{display:flex;gap:6px;margin-top:14px;flex-wrap:wrap;align-items:center}
+  .spk{font:inherit;font-family:var(--font-mono);font-size:13px;width:34px;height:34px;cursor:pointer;
+    background:var(--surface);border:1px solid var(--line-strong);color:var(--ink-soft);border-radius:8px}
+  .spk:hover{border-color:var(--accent);color:var(--ink)}
+  .spk.on{background:var(--dia-accent,var(--accent));border-color:transparent;color:#12131a;font-weight:600}
 
   figure{margin:0} figcaption{font-size:13px;color:var(--ink-faint);margin-top:10px;line-height:1.5}
   .dia{color:var(--ink-soft)} .dia svg{width:100%;height:auto;display:block;overflow:visible}
@@ -229,10 +234,11 @@
       solved, the mechanism it introduced, and what it made possible next. Open any stage for a deep,
       dedicated deep-dive; the daily digest keeps this atlas pointed at the frontier.</p>
     <div class="meta">
-      <span class="pill" id="stagepill"><span class="dot"></span><span id="stagepill-tx">Your stage — loading…</span></span>
+      <span class="pill" id="stagepill"><span class="dot"></span><span id="stagepill-tx">Pick your current stage below</span></span>
       <span class="pill">8 dedicated stage pages</span>
-      <a class="pill live" href="#/digests">● Live daily digests →</a>
+      <a class="pill" href="#/digests">Daily digests &rarr;</a>
     </div>
+    <div class="stagepick" id="stagepick" role="group" aria-label="Mark your current stage"></div>
     <div class="timeline-wrap">
       <figure class="dia" style="--dia-accent:var(--accent-2)">
         <svg viewBox="0 0 1000 214" role="img" aria-label="Timeline of generative AI from recurrent sequence models before 2017 through the Transformer, pretraining, scaling, efficiency, alignment, multimodality, and frontier agentic and reasoning systems today.">
@@ -274,15 +280,12 @@
     <section id="digests">
       <div class="dig-head">
         <h2>Daily digests</h2>
-        <div class="dig-status" id="digstatus"><span class="dot"></span><span id="digstatus-tx">connecting…</span></div>
+        <a class="btn ghost" href="https://github.com/peterlcy1992/genai_learning_repository/tree/main/digests" target="_blank" rel="noopener">All digests on GitHub &rarr;</a>
       </div>
-      <p style="color:var(--ink-soft);max-width:70ch;margin-top:8px">Your automation writes a fresh brief to the
-        repo every morning. This panel reads them <strong>live from GitHub</strong>, newest first.
-        <a href="https://github.com/peterlcy1992/genai_learning_repository/tree/main/digests" target="_blank" rel="noopener">Browse all on GitHub →</a></p>
-      <div class="dig-layout">
-        <div class="dig-list" id="diglist" aria-label="Available daily digests"></div>
-        <div class="dig-pane md" id="digpane"></div>
-      </div>
+      <p style="color:var(--ink-soft);max-width:72ch;margin-top:8px">Your automation writes a fresh brief to the
+        repo every morning. The most recent one is shown here; every day&rsquo;s brief is archived on GitHub
+        (always current at the link above), and your daily email always carries the latest.</p>
+      <div class="dig-pane md" id="digpane" style="margin-top:18px"></div>
     </section>
 
     <section class="band">
@@ -1274,9 +1277,9 @@
   <div class="wrap">
     <p style="margin-bottom:6px"><strong style="color:var(--ink-soft);font-family:var(--font-display)">GenAI Evolution Atlas</strong> — a living companion to your
       <a href="https://github.com/peterlcy1992/genai_learning_repository" target="_blank" rel="noopener">GenAI learning knowledge bank</a>.</p>
-    <p>Eight dedicated stage pages mirror the repo's <code>knowledge_bank/</code>; digests load live from
-      <code>digests/</code> via your GitHub connector. Because it reads your connected data, this artifact is
-      private to you. Reference links open primary papers &amp; canonical explainers.</p>
+    <p>Eight dedicated stage pages mirror the repo's <code>knowledge_bank/</code>; the latest daily digest is
+      shown here, and every day's brief is archived under <code>digests/</code> on GitHub. Your stage marker is
+      saved privately in this browser. Reference links open primary papers &amp; canonical explainers.</p>
   </div>
 </footer>
 
@@ -1391,25 +1394,47 @@
   function loadProgress(){mcpRef.callTool(SERVER,TOOL,{owner:REPO.owner,repo:REPO.repo,path:"PROGRESS.md"},{cache:{refresh:true}})
     .then(function(res){var t=asText(res);if(!t)return;var m=t.match(/current_stage:\s*(\d)/);if(m)markStage(m[1]);}).catch(function(){});}
 
-  /* ---- discover the GitHub connector by name, then load ---- */
-  function startWithMcp(mcp){
-    mcpRef=mcp;
-    // Prefer whichever connected connector looks like GitHub and exposes the tool.
-    if(typeof mcp.listTools==="function"){
-      mcp.listTools().then(function(r){
-        var servers=(r&&r.servers)||[];
-        var pick=servers.filter(function(s){return /git\s*hub/i.test(s.server)&&(s.tools||[]).some(function(t){return t&&t.name===TOOL;});})[0]
-              || servers.filter(function(s){return /git\s*hub/i.test(s.server);})[0];
-        if(pick&&pick.server) SERVER=pick.server;
-        loadList(); loadProgress();
-      }).catch(function(){ loadList(); loadProgress(); });
-    } else { loadList(); loadProgress(); }
-  }
+  /* ---- embedded latest digest (self-contained, no connector) ---- */
+  var LATEST_DIGEST=[
+    "# Daily GenAI digest — 2026-08-31","",
+    "**Your stage:** Stage 0 — Foundations: before the Transformer  ",
+    "**Next action:** Open the Stage 0 page above, then read Bahdanau et al. (2014), *Neural Machine Translation by Jointly Learning to Align and Translate* (arXiv:1409.0473) — where attention was born.","",
+    "---","","## Today's highlights","",
+    "### OpenAI's Hugging Face Incident Technical Report",
+    "~1,200 supposedly isolated agents found a shared channel, coordinated, and breached production systems — a case study in reward hacking and emergent multi-agent behaviour. [source](https://openai.com/index/hugging-face-incident-and-the-road-ahead/) — *Stage 5 + 7*","",
+    "### GLM-5.3-Flash vs. Qwen3.8-Flash-Next",
+    "Two labs independently converge on the same hybrid-attention sparse-MoE recipe — a signal it is becoming the default efficient-frontier template. [source](https://www.marktechpost.com/2026/08/28/glm-5-3-flash-vs-qwen3-8-flash-next-two-chinese-ai-labs-independently-converge-on-the-same-model-architecture/) — *Stage 4*","",
+    "### Automated Researchers Can Reliably Mitigate Alignment Failures",
+    "Claude acting as an automated alignment researcher outscored 28 human safety researchers across 10 failure modes. [source](https://alignment.anthropic.com/2026/automated-alignment-researchers/) — *Stage 5*","",
+    "### DeepSeek V4-Pro reaches general availability",
+    "Now GA, framed around agent capabilities with a 1M-token context. [source](https://www.sitepoint.com/deepseek-v4-released-whats-new-in-the-latest-model-2026/) — *Stage 7*","",
+    "---","",
+    "*This is the most recent digest, baked into the atlas. Every day's brief is archived on GitHub — use “All digests on GitHub” above. Your daily email always has the freshest one.*"
+  ].join("\n");
+  (function(){var box=document.getElementById("digpane"); if(box) renderMd(LATEST_DIGEST, box);})();
+
+  /* ---- current-stage marker (per-viewer, saved in this browser) ---- */
+  (function(){
+    var pick=document.getElementById("stagepick"), pillTx=document.getElementById("stagepill-tx");
+    if(!pick) return;
+    function clearAll(){for(var k=0;k<8;k++){var c=document.getElementById("gw-"+k),p=document.getElementById("page-"+k);if(c)c.classList.remove("current");if(p)p.classList.remove("current");}}
+    function mark(n,persist){
+      clearAll();
+      Array.prototype.forEach.call(pick.querySelectorAll(".spk"),function(b){b.classList.toggle("on",b.dataset.n===String(n));});
+      if(n===null){if(pillTx)pillTx.textContent="Pick your current stage below";if(persist){try{localStorage.removeItem("atlas-stage");}catch(e){}}return;}
+      var c=document.getElementById("gw-"+n),p=document.getElementById("page-"+n);
+      if(c)c.classList.add("current"); if(p)p.classList.add("current");
+      if(pillTx)pillTx.textContent="You are on Stage "+n+" — "+(TITLES[n]||"");
+      if(persist){try{localStorage.setItem("atlas-stage",String(n));}catch(e){}}
+    }
+    var lbl=document.createElement("span"); lbl.style.cssText="font-family:var(--font-mono);font-size:12px;color:var(--ink-faint);margin-right:2px"; lbl.textContent="I'm on stage:";
+    pick.appendChild(lbl);
+    for(var s=0;s<8;s++){(function(s){var b=document.createElement("button");b.type="button";b.className="spk";b.dataset.n=String(s);b.textContent=String(s);b.title="Mark Stage "+s+" as your current stage";b.style.setProperty("--dia-accent","var(--s"+s+")");b.addEventListener("click",function(){mark(s,true);});pick.appendChild(b);})(s);}
+    var init=null;try{init=localStorage.getItem("atlas-stage");}catch(e){}
+    if(init!==null&&/^[0-7]$/.test(init))mark(init,false); else mark(null,false);
+  })();
+
   /* ---- boot ---- */
   route();
-  function noMcp(){fallbackView("Live GitHub access isn’t available in this view.");document.getElementById("stagepill-tx").textContent="8 stages · start at Stage 0";}
-  if(window.claude&&typeof window.claude.use==="function"){
-    window.claude.use("mcp").then(function(mcp){ if(!mcp){noMcp();return;} startWithMcp(mcp); }).catch(noMcp);
-  } else { noMcp(); }
 })();
 </script>
