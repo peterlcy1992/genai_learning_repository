@@ -13,7 +13,7 @@ session against this repository and runs the instruction in
 2. web-searches for the newest notable GenAI papers, releases, and blog posts,
 3. de-duplicates against [`../updates/latest.md`](../updates/latest.md) and
    prepends the best new finds,
-4. commits + pushes to `claude/genai-learning-knowledge-bank-rn9s7p`, and
+4. commits + pushes directly to `main`, and
 5. **emails you** a brief: your current stage + a next action + the day's
    highlights.
 
@@ -25,6 +25,7 @@ owner (peterlcy1992@gmail.com). No SMTP setup or secrets required.
 - **Name:** `Daily GenAI knowledge-bank update`
 - **Trigger ID:** `trig_016nEKMsZ2iG9AbeVBwGne4J`
 - **Schedule (cron, UTC):** `0 16 * * *`  (= 08:00 PST)
+- **Target:** commits directly to `main` (no pull request).
 - **Type:** fresh session per fire, email notification enabled.
 
 > Note on daylight saving: cron runs in fixed UTC, so `16:00 UTC` is 08:00

@@ -11,8 +11,11 @@ take effect, also update the live Routine's prompt (see
 ## Prompt (copy of what the Routine sends)
 
 > You are the daily updater for a Generative AI learning knowledge bank in this
-> repository. Work on the branch `claude/genai-learning-knowledge-bank-rn9s7p`.
+> repository. Commit your work directly to the default branch `main`.
 > Do the following, then stop:
+>
+> 0. **Sync.** Ensure you are on `main` and up to date (`git checkout main` then
+>    `git pull origin main`).
 >
 > 1. **Read the learner's progress.** Open `PROGRESS.md` and parse the
 >    machine-readable YAML block: note `current_stage` (0–7) and its topic from
@@ -45,10 +48,9 @@ take effect, also update the live Routine's prompt (see
 >    rolling log is the default home for news.
 >
 > 6. **Commit and push.** Stage your changes and commit with a message like
->    `chore(updates): daily GenAI update YYYY-MM-DD`, then push with
->    `git push -u origin claude/genai-learning-knowledge-bank-rn9s7p`
->    (retry with exponential backoff on network errors). Do not open a pull
->    request.
+>    `chore(updates): daily GenAI update YYYY-MM-DD`, then push directly to main
+>    with `git push origin main` (retry with exponential backoff on network
+>    errors). Do not open a pull request and do not use a feature branch.
 >
 > 7. **Write the email brief.** End your run with a concise summary that will be
 >    delivered to the learner by email. Structure it as:
