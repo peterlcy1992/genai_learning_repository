@@ -23,7 +23,7 @@ owner (peterlcy1992@gmail.com). No SMTP setup or secrets required.
 ## The live Routine
 
 - **Name:** `Daily GenAI knowledge-bank update`
-- **Trigger ID:** `TRIGGER_ID_PLACEHOLDER`
+- **Trigger ID:** `trig_016nEKMsZ2iG9AbeVBwGne4J`
 - **Schedule (cron, UTC):** `0 16 * * *`  (= 08:00 PST)
 - **Type:** fresh session per fire, email notification enabled.
 
