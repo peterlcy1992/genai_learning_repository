@@ -1286,7 +1286,7 @@
   "use strict";
   var REPO={owner:"peterlcy1992",repo:"genai_learning_repository",branch:"main"};
   var GH_BLOB="https://github.com/"+REPO.owner+"/"+REPO.repo+"/blob/"+REPO.branch+"/";
-  var SERVER="github", TOOL="get_file_contents";
+  var SERVER="GitHub Integration", TOOL="get_file_contents";
   var STAGES=[["0","Foundations","Why attention had to be invented — RNNs, seq2seq, the bottleneck.","pre-2017"],
     ["1","The Transformer","Self-attention, multi-head, positional encodings — recurrence, gone.","2017"],
     ["2","The pretraining era","Self-supervised pretraining + transfer; the three model families.","2018–19"],
@@ -1391,13 +1391,25 @@
   function loadProgress(){mcpRef.callTool(SERVER,TOOL,{owner:REPO.owner,repo:REPO.repo,path:"PROGRESS.md"},{cache:{refresh:true}})
     .then(function(res){var t=asText(res);if(!t)return;var m=t.match(/current_stage:\s*(\d)/);if(m)markStage(m[1]);}).catch(function(){});}
 
+  /* ---- discover the GitHub connector by name, then load ---- */
+  function startWithMcp(mcp){
+    mcpRef=mcp;
+    // Prefer whichever connected connector looks like GitHub and exposes the tool.
+    if(typeof mcp.listTools==="function"){
+      mcp.listTools().then(function(r){
+        var servers=(r&&r.servers)||[];
+        var pick=servers.filter(function(s){return /git\s*hub/i.test(s.server)&&(s.tools||[]).some(function(t){return t&&t.name===TOOL;});})[0]
+              || servers.filter(function(s){return /git\s*hub/i.test(s.server);})[0];
+        if(pick&&pick.server) SERVER=pick.server;
+        loadList(); loadProgress();
+      }).catch(function(){ loadList(); loadProgress(); });
+    } else { loadList(); loadProgress(); }
+  }
   /* ---- boot ---- */
   route();
+  function noMcp(){fallbackView("Live GitHub access isn’t available in this view.");document.getElementById("stagepill-tx").textContent="8 stages · start at Stage 0";}
   if(window.claude&&typeof window.claude.use==="function"){
-    window.claude.use("mcp").then(function(mcp){
-      if(!mcp){fallbackView("Live GitHub access isn’t available in this view.");document.getElementById("stagepill-tx").textContent="8 stages · start at Stage 0";return;}
-      mcpRef=mcp;loadList();loadProgress();
-    }).catch(function(){fallbackView("Live GitHub access isn’t available in this view.");document.getElementById("stagepill-tx").textContent="8 stages · start at Stage 0";});
-  } else {fallbackView("Live GitHub access isn’t available in this view.");document.getElementById("stagepill-tx").textContent="8 stages · start at Stage 0";}
+    window.claude.use("mcp").then(function(mcp){ if(!mcp){noMcp();return;} startWithMcp(mcp); }).catch(noMcp);
+  } else { noMcp(); }
 })();
 </script>
