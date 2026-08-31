@@ -4,8 +4,9 @@ How the knowledge bank keeps itself up to date and reminds you where you are.
 
 ## What runs
 
-A scheduled **Routine** (Claude Code on the web) fires **once per day at 08:00
-America/Los_Angeles (16:00 UTC)**. Each firing starts a fresh Claude Code
+A scheduled **Routine** (Claude Code on the web) fires **once per day at 15:00
+UTC** — 08:00 Pacific while daylight saving is in effect (PDT). Each firing
+starts a fresh Claude Code
 session against this repository and runs the instruction in
 [`daily_update_prompt.md`](daily_update_prompt.md):
 
@@ -24,13 +25,14 @@ owner (peterlcy1992@gmail.com). No SMTP setup or secrets required.
 
 - **Name:** `Daily GenAI knowledge-bank update`
 - **Trigger ID:** `trig_016nEKMsZ2iG9AbeVBwGne4J`
-- **Schedule (cron, UTC):** `0 16 * * *`  (= 08:00 PST)
+- **Schedule (cron, UTC):** `0 15 * * *`  (= 08:00 PDT, current Pacific time)
 - **Target:** commits directly to `main` (no pull request).
 - **Type:** fresh session per fire, email notification enabled.
 
-> Note on daylight saving: cron runs in fixed UTC, so `16:00 UTC` is 08:00
-> during PST and 09:00 during PDT (roughly mid-March to early November). Ask to
-> shift it to `0 15 * * *` if you want a steady 08:00 during PDT.
+> Note on daylight saving: cron runs in fixed UTC, so `15:00 UTC` is 08:00
+> during PDT (roughly mid-March to early November) and 07:00 once standard time
+> (PST) resumes. Ask to shift it to `0 16 * * *` when winter comes if you want
+> to keep the email landing at 08:00 year-round.
 
 ## Changing the automation
 
