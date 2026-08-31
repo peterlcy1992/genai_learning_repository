@@ -6,9 +6,12 @@ this knowledge bank, published as a Claude Artifact.
 **Live artifact:** https://claude.ai/code/artifact/41730737-b7b0-4055-9d7f-e0ea1cc34de9
 
 ## What it is
-A single-page field guide to the evolution of generative AI: the 8 stages from
-[`../knowledge_bank/`](../knowledge_bank/) with expanded write-ups, hand-drawn
-diagrams (attention, the model families, scaling laws, MoE routing, the RLHF
+A hash-routed **multi-page** field guide to the evolution of generative AI. The
+overview (`#/`) is a map of 8 gateway cards; each opens a **dedicated deep page**
+(`#/stage/N`) mirroring [`../knowledge_bank/`](../knowledge_bank/) with a full
+write-up (problem → mechanism with math → key concepts → checkpoints → annotated
+reading list), hand-drawn diagrams (the seq2seq bottleneck, attention, the
+Transformer block, the model families, scaling laws, MoE routing, the RLHF
 pipeline, diffusion, the agent loop), and reference links to the primary papers
 and canonical explainers — plus a **live Daily Digests** panel.
 
