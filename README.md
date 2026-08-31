@@ -47,6 +47,7 @@ This repository does three things:
 | [`PROGRESS.md`](PROGRESS.md) | Your current learning stage and checklist (edit this as you go) |
 | [`knowledge_bank/`](knowledge_bank/) | One deep-dive note per stage + glossary + master reading list |
 | [`updates/latest.md`](updates/latest.md) | Rolling log of the latest innovations (auto-appended daily) |
+| [`digests/`](digests/) | Full, reader-friendly per-day brief (`YYYY-MM-DD.md`) that the daily email links to |
 | [`automation/`](automation/) | The daily-update prompt and docs on how the automation works |
 
 ---
@@ -59,8 +60,11 @@ a fresh session against this repository and:
 1. Reads [`PROGRESS.md`](PROGRESS.md) to learn your current stage.
 2. Searches the web for the newest GenAI papers and technical blog posts.
 3. Appends notable, non-duplicate finds to [`updates/latest.md`](updates/latest.md).
-4. Commits and pushes the update to this repo.
-5. Emails you a short brief: *"You're on Stage N — here's what's new today."*
+4. Writes a full per-day brief to [`digests/`](digests/) (`YYYY-MM-DD.md`).
+5. Commits and pushes the update to this repo.
+6. Emails you a short brief — *"You're on Stage N — here's what's new today"* —
+   that **links straight to the day's digest** (the email body is a fixed
+   template, so the full write-up lives in the linked digest).
 
 Full details, and how to change the schedule or pause it, are in
 [`automation/README.md`](automation/README.md).

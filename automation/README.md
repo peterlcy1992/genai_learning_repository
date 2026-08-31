@@ -14,12 +14,22 @@ session against this repository and runs the instruction in
 2. web-searches for the newest notable GenAI papers, releases, and blog posts,
 3. de-duplicates against [`../updates/latest.md`](../updates/latest.md) and
    prepends the best new finds,
-4. commits + pushes directly to `main`, and
-5. **emails you** a brief: your current stage + a next action + the day's
-   highlights.
+4. writes a full, reader-friendly per-day digest to
+   [`../digests/`](../digests/) (`YYYY-MM-DD.md`),
+5. commits + pushes directly to `main`, and
+6. **emails you** a brief: your current stage + a next action + the day's
+   highlights, with a **direct link to that day's digest**.
 
 The email is the Routine's **completion notification**, sent to the account
 owner (peterlcy1992@gmail.com). No SMTP setup or secrets required.
+
+> **About the email body:** the completion notification is a fixed template —
+> a short summary plus an "Open session" button — so the full brief can't be
+> inlined into it. Instead the summary is front-loaded (stage + top items) and
+> **links straight to that day's [`digests/`](../digests/) file**, which GitHub
+> renders in full. One click, no session needed. Enable it under
+> **claude.ai → Settings → Notifications → "Emails from Claude Code on the web"**
+> (this is separate from the push toggle).
 
 ## The live Routine
 
