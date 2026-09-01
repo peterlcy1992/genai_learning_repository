@@ -10,7 +10,7 @@
 ```yaml
 # --- machine-readable progress block (the daily job reads this) ---
 learner: peterlcy1992@gmail.com
-current_stage: 0            # 0..7 — the stage you are actively working on
+current_stage: 0            # 0..8 — the stage you are actively working on (8 = ongoing "stay current")
 started_on: 2026-08-31
 last_reviewed: 2026-08-31   # update when you touch this file
 pace: "1-2 weeks per stage"
@@ -34,6 +34,7 @@ Update the `current_stage` number above and the checklist below as you go. When
 - [ ] **Stage 5 — Alignment & post-training** (RLHF, DPO, Constitutional AI)
 - [ ] **Stage 6 — Multimodality** (CLIP, diffusion, vision-language models)
 - [ ] **Stage 7 — Frontier systems** (RAG, tools, agents, reasoning models)
+- [ ] **Stage 8 — Staying current** (the refresh loop — triage digests, integrate the critical few; ongoing, never "done")
 
 ## Log
 

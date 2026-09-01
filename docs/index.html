@@ -4,9 +4,9 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="color-scheme" content="light dark">
-<meta name="description" content="A field guide to the evolution of generative AI — 8 dedicated stage deep-dives with diagrams and reference links, plus the latest daily digest.">
+<meta name="description" content="A field guide to the evolution of generative AI — 9 dedicated stage deep-dives with diagrams and reference links, plus the latest daily digest.">
 <meta property="og:title" content="GenAI Evolution Atlas">
-<meta property="og:description" content="A field guide to the evolution of generative AI — 8 dedicated stage deep-dives with diagrams and reference links, plus the latest daily digest.">
+<meta property="og:description" content="A field guide to the evolution of generative AI — 9 dedicated stage deep-dives with diagrams and reference links, plus the latest daily digest.">
 <meta property="og:type" content="website">
 <title>GenAI Evolution Atlas</title>
 <style>
@@ -29,7 +29,7 @@
     --accent:#a96c12; --accent-2:#b8791b; --accent-bg:rgba(169,108,18,.09);
     --shadow:0 1px 2px rgba(20,24,35,.04),0 8px 24px -12px rgba(20,24,35,.14);
     --s0:#3f6fb0; --s1:#2f8fb8; --s2:#1f9e8b; --s3:#57a44b;
-    --s4:#bb9328; --s5:#cd7f36; --s6:#c95f4c; --s7:#b04a6c;
+    --s4:#bb9328; --s5:#cd7f36; --s6:#c95f4c; --s7:#b04a6c; --s8:#7a5ea8;
     color-scheme:light;
   }
   @media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
@@ -39,7 +39,7 @@
     --accent:#e3ac4d; --accent-2:#d59a3c; --accent-bg:rgba(227,172,77,.13);
     --shadow:0 1px 2px rgba(0,0,0,.3),0 10px 30px -14px rgba(0,0,0,.6);
     --s0:#5f8fd4; --s1:#43a7cc; --s2:#33bda6; --s3:#6cbe5f;
-    --s4:#d3ab3f; --s5:#e0904a; --s6:#e0725d; --s7:#cc6084; color-scheme:dark;
+    --s4:#d3ab3f; --s5:#e0904a; --s6:#e0725d; --s7:#cc6084; --s8:#9f86cf; color-scheme:dark;
   }}
   :root[data-theme="dark"]{
     --ground:#0b0e15; --surface:#141924; --surface-2:#1a2030;
@@ -48,7 +48,7 @@
     --accent:#e3ac4d; --accent-2:#d59a3c; --accent-bg:rgba(227,172,77,.13);
     --shadow:0 1px 2px rgba(0,0,0,.3),0 10px 30px -14px rgba(0,0,0,.6);
     --s0:#5f8fd4; --s1:#43a7cc; --s2:#33bda6; --s3:#6cbe5f;
-    --s4:#d3ab3f; --s5:#e0904a; --s6:#e0725d; --s7:#cc6084; color-scheme:dark;
+    --s4:#d3ab3f; --s5:#e0904a; --s6:#e0725d; --s7:#cc6084; --s8:#9f86cf; color-scheme:dark;
   }
   *{box-sizing:border-box}
   body{background:var(--ground);color:var(--ink);font-family:var(--font-body);
@@ -286,7 +286,7 @@
 
   <div class="wrap">
     <section class="band" id="stages">
-      <div class="kicker">The 8 stages — open any one</div>
+      <div class="kicker">The 9 stages — open any one</div>
       <p class="reading" style="color:var(--ink-soft)">Each page answers three questions in depth:
         <b style="color:var(--ink)">what problem</b> forced the change, <b style="color:var(--ink)">what
         mechanism</b> answered it (with the actual math and intuition), and <b style="color:var(--ink)">what
@@ -367,9 +367,10 @@ today is understanding *why attention was invented*.
 
     <section class="band">
       <div class="kicker">Staying current</div>
-      <div class="note"><p style="margin-bottom:10px"><b>The frontier is continuous, not staged.</b> Once
-        you reach Stage 7, learning is about keeping up. Update your stage in
-        <a href="https://github.com/peterlcy1992/genai_learning_repository/blob/main/PROGRESS.md" target="_blank" rel="noopener"><code>PROGRESS.md</code></a>, read the daily digest, and go deep on whichever thread pulls you.</p></div>
+      <div class="note"><p style="margin-bottom:10px"><b>The frontier is continuous, not staged.</b> That discipline
+        is <a href="#/stage/8">Stage 8 — Staying current</a>: skim the daily digest, triage the week's most critical
+        improvements, integrate the few that matter, and prune what they supersede. Update your stage in
+        <a href="https://github.com/peterlcy1992/genai_learning_repository/blob/main/PROGRESS.md" target="_blank" rel="noopener"><code>PROGRESS.md</code></a> and go deep on whichever thread pulls you.</p></div>
       <div class="sources">
         <div class="scard"><h4>arXiv</h4><p>cs.CL · cs.LG · cs.AI</p></div>
         <div class="scard"><h4>Lab blogs</h4><p>OpenAI · Anthropic · DeepMind · Meta · DeepSeek · Qwen</p></div>
@@ -383,7 +384,7 @@ today is understanding *why attention was invented*.
 <!-- ============================ STAGE 0 ============================ -->
 <article class="page stage-page" id="page-0" style="--dia-accent:var(--s0)">
   <div class="wrap">
-    <div class="crumb"><a href="#/">← Atlas</a><span>·</span><span>Stage 0 of 7</span></div>
+    <div class="crumb"><a href="#/">← Atlas</a><span>·</span><span>Stage 0 of 8</span></div>
     <header class="sp-head">
       <div class="row"><span class="snum">Stage 0</span><span class="era">pre-2017</span></div>
       <h1>Foundations: before the Transformer</h1>
@@ -509,7 +510,7 @@ today is understanding *why attention was invented*.
 <!-- ============================ STAGE 1 ============================ -->
 <article class="page stage-page" id="page-1" style="--dia-accent:var(--s1)">
   <div class="wrap">
-    <div class="crumb"><a href="#/">← Atlas</a><span>·</span><span>Stage 1 of 7</span></div>
+    <div class="crumb"><a href="#/">← Atlas</a><span>·</span><span>Stage 1 of 8</span></div>
     <header class="sp-head">
       <div class="row"><span class="snum">Stage 1</span><span class="era">2017</span></div>
       <h1>The Transformer</h1>
@@ -668,7 +669,7 @@ today is understanding *why attention was invented*.
 <!-- ============================ STAGE 2 ============================ -->
 <article class="page stage-page" id="page-2" style="--dia-accent:var(--s2)">
   <div class="wrap">
-    <div class="crumb"><a href="#/">← Atlas</a><span>·</span><span>Stage 2 of 7</span></div>
+    <div class="crumb"><a href="#/">← Atlas</a><span>·</span><span>Stage 2 of 8</span></div>
     <header class="sp-head">
       <div class="row"><span class="snum">Stage 2</span><span class="era">2018–2019</span></div>
       <h1>The pretraining era</h1>
@@ -789,7 +790,7 @@ today is understanding *why attention was invented*.
 <!-- ============================ STAGE 3 ============================ -->
 <article class="page stage-page" id="page-3" style="--dia-accent:var(--s3)">
   <div class="wrap">
-    <div class="crumb"><a href="#/">← Atlas</a><span>·</span><span>Stage 3 of 7</span></div>
+    <div class="crumb"><a href="#/">← Atlas</a><span>·</span><span>Stage 3 of 8</span></div>
     <header class="sp-head">
       <div class="row"><span class="snum">Stage 3</span><span class="era">2019–2022</span></div>
       <h1>Scale and emergence</h1>
@@ -894,7 +895,7 @@ today is understanding *why attention was invented*.
 <!-- ============================ STAGE 4 ============================ -->
 <article class="page stage-page" id="page-4" style="--dia-accent:var(--s4)">
   <div class="wrap">
-    <div class="crumb"><a href="#/">← Atlas</a><span>·</span><span>Stage 4 of 7</span></div>
+    <div class="crumb"><a href="#/">← Atlas</a><span>·</span><span>Stage 4 of 8</span></div>
     <header class="sp-head">
       <div class="row"><span class="snum">Stage 4</span><span class="era">2021–2023</span></div>
       <h1>Efficiency &amp; better building blocks</h1>
@@ -1014,7 +1015,7 @@ today is understanding *why attention was invented*.
 <!-- ============================ STAGE 5 ============================ -->
 <article class="page stage-page" id="page-5" style="--dia-accent:var(--s5)">
   <div class="wrap">
-    <div class="crumb"><a href="#/">← Atlas</a><span>·</span><span>Stage 5 of 7</span></div>
+    <div class="crumb"><a href="#/">← Atlas</a><span>·</span><span>Stage 5 of 8</span></div>
     <header class="sp-head">
       <div class="row"><span class="snum">Stage 5</span><span class="era">2022 → now</span></div>
       <h1>Alignment &amp; post-training</h1>
@@ -1126,7 +1127,7 @@ today is understanding *why attention was invented*.
 <!-- ============================ STAGE 6 ============================ -->
 <article class="page stage-page" id="page-6" style="--dia-accent:var(--s6)">
   <div class="wrap">
-    <div class="crumb"><a href="#/">← Atlas</a><span>·</span><span>Stage 6 of 7</span></div>
+    <div class="crumb"><a href="#/">← Atlas</a><span>·</span><span>Stage 6 of 8</span></div>
     <header class="sp-head">
       <div class="row"><span class="snum">Stage 6</span><span class="era">2021 → now</span></div>
       <h1>Multimodality &amp; generation beyond text</h1>
@@ -1236,7 +1237,7 @@ today is understanding *why attention was invented*.
 <!-- ============================ STAGE 7 ============================ -->
 <article class="page stage-page" id="page-7" style="--dia-accent:var(--s7)">
   <div class="wrap">
-    <div class="crumb"><a href="#/">← Atlas</a><span>·</span><span>Stage 7 of 7</span></div>
+    <div class="crumb"><a href="#/">← Atlas</a><span>·</span><span>Stage 7 of 8</span></div>
     <header class="sp-head">
       <div class="row"><span class="snum">Stage 7</span><span class="era">2023 → now</span></div>
       <h1>Frontier systems &amp; the engineered stack</h1>
@@ -1345,6 +1346,127 @@ today is understanding *why attention was invented*.
 
     <nav class="prevnext">
       <a class="pn" href="#/stage/6"><span class="k">← Previous</span><span class="t">Multimodality</span></a>
+      <a class="pn next" href="#/stage/8"><span class="k">Next →</span><span class="t">Staying current</span></a>
+    </nav>
+  </div>
+</article>
+
+<!-- ============================ STAGE 8 ============================ -->
+<article class="page stage-page" id="page-8" style="--dia-accent:var(--s8)">
+  <div class="wrap">
+    <div class="crumb"><a href="#/">← Atlas</a><span>·</span><span>Stage 8 of 8</span></div>
+    <header class="sp-head">
+      <div class="row"><span class="snum">Stage 8</span><span class="era">ongoing</span></div>
+      <h1>Staying current: the refresh loop</h1>
+      <p class="thesis">Turn the daily firehose into a few durable improvements — the stage that never ends.</p>
+      <span class="curbanner"><span class="d"></span> This is your current stage — a loop you run, not a page you finish.</span>
+    </header>
+
+    <section class="sp-section">
+      <h2><span class="ix">01</span> Why this stage exists</h2>
+      <div class="prose">
+        <p>A plan that stops at Stage 7 rots within months; trying to read <em>everything</em> burns you out and
+          teaches nothing durable, because you never stop to integrate. Stage 8 is the middle path — a
+          <strong>repeatable triage</strong> that spends your scarce attention on the few developments that change
+          how you'd build or reason, and lets the rest wash past.</p>
+        <div class="callout"><b>The mantra.</b> Most news is noise; a little of it is a genuine improvement. Your
+          job is to find that little — and actually absorb it.</div>
+      </div>
+    </section>
+
+    <section class="sp-section">
+      <h2><span class="ix">02</span> The refresh loop</h2>
+      <div class="split has-dia">
+        <div class="prose">
+          <p><strong>Skim (daily).</strong> The digest already did first-pass filtering — read the one-line "why it
+            matters"; open nothing yet unless it's obviously seismic.</p>
+          <p><strong>Triage (weekly).</strong> Re-read the week's digests together and pick the <strong>1–3 most
+            critical items</strong> (rubric below). A week's remove from the hype makes the signal far easier to see.</p>
+          <p><strong>Integrate (weekly).</strong> Read the primary source, then <strong>write the change down</strong>
+            — a line in the right note and a sentence on what it changes. If it changes nothing, it wasn't critical.</p>
+          <p><strong>Prune (monthly).</strong> Mark what's been <strong>superseded</strong>. A current bank beats a
+            complete one; additive-only notes decay into a museum.</p>
+        </div>
+        <div class="figbox">
+          <figure class="dia" style="--dia-accent:var(--s8)">
+            <svg viewBox="0 0 400 250" role="img" aria-label="A four-step cycle — skim, triage, integrate, prune — arranged in a loop that feeds back on itself.">
+              <text x="200" y="18" text-anchor="middle" class="lbl" font-size="11">the weekly loop</text>
+              <rect class="box accent" x="150" y="30" width="100" height="30" rx="7"/><text x="200" y="50" text-anchor="middle" class="accent-f" font-size="10.5">skim (daily)</text>
+              <rect class="box" x="300" y="110" width="86" height="30" rx="7"/><text x="343" y="130" text-anchor="middle" font-size="10.5">triage</text>
+              <rect class="box" x="150" y="200" width="100" height="30" rx="7"/><text x="200" y="220" text-anchor="middle" font-size="10.5">integrate</text>
+              <rect class="box" x="14" y="110" width="86" height="30" rx="7"/><text x="57" y="130" text-anchor="middle" font-size="10.5">prune</text>
+              <g class="stroke accent" stroke-width="1.5">
+                <path d="M250 48 C 300 54, 330 78, 344 108" marker-end="url(#a8)"/>
+                <path d="M343 142 C 330 174, 292 196, 250 208" marker-end="url(#a8)"/>
+                <path d="M150 214 C 108 196, 72 172, 58 144" marker-end="url(#a8)"/>
+                <path d="M57 108 C 72 78, 104 54, 150 46" marker-end="url(#a8)"/>
+              </g>
+              <text x="200" y="132" text-anchor="middle" class="lbl" font-size="9">keep only what</text>
+              <text x="200" y="146" text-anchor="middle" class="lbl" font-size="9">changes the bank</text>
+              <defs><marker id="a8" markerWidth="7" markerHeight="7" refX="5.5" refY="3" orient="auto"><path d="M0 0 L6 3 L0 6 z" fill="var(--dia-accent)"/></marker></defs>
+            </svg>
+            <figcaption>Skim daily, triage weekly, integrate the critical few, prune the superseded — then loop.</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <section class="sp-section">
+      <h2><span class="ix">03</span> What counts as "critical" — the rubric</h2>
+      <div class="prose">
+        <p>Score a candidate on four axes; integrate the ones that score high on most:</p>
+        <p><strong>Durability</strong> — paradigm shift or increment? "Will this still matter in a year?"
+          <strong>Breadth</strong> — how many downstream things does it change (a training recipe beats one model
+          release). <strong>Evidence</strong> — reproduced, open, measured beats a press demo; discount hype, wait
+          for replication. <strong>Proximity</strong> — does it touch <em>your</em> goals and stage?</p>
+        <div class="callout"><b>The test.</b> Would you change a sentence in the knowledge bank because of it? If
+          yes, it's probably critical. If it's "another model, slightly better," it's log-and-move-on.</div>
+      </div>
+    </section>
+
+    <section class="sp-section">
+      <h2><span class="ix">04</span> Scout vs. curator</h2>
+      <div class="prose">
+        <p>The daily Routine is your <strong>scout</strong>, not your curator: it searches, de-dupes, links, tags
+          each find with a "Relates to: Stage N," and archives a digest. Stage 8 is the <strong>human-in-the-loop</strong>
+          step on top — the machine ranks recency and relevance, but only you decide what durably updates your model
+          of the field. Let the job gather; you curate.</p>
+      </div>
+    </section>
+
+    <section class="sp-section">
+      <h2><span class="ix">05</span> Habits that make it stick</h2>
+      <div class="deflist">
+        <div><dt>Small &amp; regular</dt><dd>A 30-minute weekly pass sustains for years; a monthly binge doesn't.</dd></div>
+        <div><dt>Write to remember</dt><dd>An idea you can't summarise in a sentence you don't yet understand.</dd></div>
+        <div><dt>Threads, not feeds</dt><dd>Follow two or three arcs deeply; let the rest stay peripheral.</dd></div>
+        <div><dt>Let benchmarks age</dt><dd>Records fall weekly; integrate the <em>methods</em>, not the scores.</dd></div>
+        <div><dt>Skipping is fine</dt><dd>Digests are archived — the loop tolerates gaps by design.</dd></div>
+      </div>
+    </section>
+
+    <section class="sp-section">
+      <h2><span class="ix">06</span> Checkpoints</h2>
+      <ul class="checks">
+        <li>Why are "read everything" and "stop at Stage 7" both failure modes?</li>
+        <li>What are the four criticality axes, and how would you pick this week's 1–3 items with them?</li>
+        <li>Why does integration mean writing the change down and pruning what it replaces — not just bookmarking?</li>
+        <li>What's the division of labour between the daily automation and you?</li>
+      </ul>
+    </section>
+
+    <section class="sp-section refs">
+      <h2><span class="ix">07</span> Go deeper</h2>
+      <ul class="reflist">
+        <li><span class="tag primary">method</span><a href="https://github.com/peterlcy1992/genai_learning_repository/blob/main/knowledge_bank/08_staying_current.md" target="_blank" rel="noopener">The refresh loop, in full</a> <span class="anno">— this stage's deep-dive note.</span></li>
+        <li><span class="tag">source</span><a href="https://github.com/peterlcy1992/genai_learning_repository/blob/main/updates/latest.md" target="_blank" rel="noopener">updates/latest.md</a> <span class="anno">— the raw stream you curate.</span></li>
+        <li><span class="tag">explainer</span><a href="https://www.interconnects.ai/" target="_blank" rel="noopener">Nathan Lambert — Interconnects</a> <span class="anno">— a model of a good weekly filter.</span></li>
+        <li><span class="tag">explainer</span><a href="https://importai.substack.com/" target="_blank" rel="noopener">Jack Clark — Import AI</a> <span class="anno">— curation that selects and contextualises.</span></li>
+      </ul>
+    </section>
+
+    <nav class="prevnext">
+      <a class="pn" href="#/stage/7"><span class="k">← Previous</span><span class="t">Frontier systems</span></a>
       <a class="pn next" href="#/digests"><span class="k">Next →</span><span class="t">Your daily digests</span></a>
     </nav>
   </div>
@@ -1354,7 +1476,7 @@ today is understanding *why attention was invented*.
   <div class="wrap">
     <p style="margin-bottom:6px"><strong style="color:var(--ink-soft);font-family:var(--font-display)">GenAI Evolution Atlas</strong> — a living companion to your
       <a href="https://github.com/peterlcy1992/genai_learning_repository" target="_blank" rel="noopener">GenAI learning knowledge bank</a>.</p>
-    <p>Eight dedicated stage pages mirror the repo's <code>knowledge_bank/</code>; the latest daily digest is
+    <p>Nine dedicated stage pages mirror the repo's <code>knowledge_bank/</code>; the latest daily digest is
       shown here, and every day's brief is archived under <code>digests/</code> on GitHub. Your stage marker is
       saved privately in this browser. Reference links open primary papers &amp; canonical explainers.</p>
   </div>
@@ -1374,7 +1496,8 @@ today is understanding *why attention was invented*.
     ["4","Efficiency","FlashAttention, Mixture-of-Experts, RoPE — faster, longer, cheaper.","2021–23"],
     ["5","Alignment","SFT, RLHF, DPO, Constitutional AI — from predictor to assistant.","2022→"],
     ["6","Multimodality","CLIP, diffusion, and vision-language models.","2021→"],
-    ["7","Frontier systems","RAG, tools, agents, and the reasoning-model shift.","2023→"]];
+    ["7","Frontier systems","RAG, tools, agents, and the reasoning-model shift.","2023→"],
+    ["8","Staying current","Turn the daily digest stream into curated, integrated understanding.","ongoing"]];
   var TITLES={};STAGES.forEach(function(s){TITLES[s[0]]=s[1];});
 
   /* ---- theme ---- */
@@ -1409,7 +1532,7 @@ today is understanding *why attention was invented*.
     var ov=navlinks.find(function(l){return l.getAttribute("href")==="#/";}); if(ov&&view==="overview")ov.classList.add("on");
   }
   function route(){
-    var h=location.hash||"#/", m=h.match(/^#\/stage\/([0-7])/), scrollTo=null, view;
+    var h=location.hash||"#/", m=h.match(/^#\/stage\/([0-8])/), scrollTo=null, view;
     if(m){view=m[1];} else {view="overview"; if(h==="#/digests")scrollTo="digests";}
     Object.keys(pages).forEach(function(k){pages[k].classList.remove("active");});
     pages[view].classList.add("active");
@@ -1497,7 +1620,7 @@ today is understanding *why attention was invented*.
     pick.appendChild(lbl);
     for(var s=0;s<8;s++){(function(s){var b=document.createElement("button");b.type="button";b.className="spk";b.dataset.n=String(s);b.textContent=String(s);b.title="Mark Stage "+s+" as your current stage";b.style.setProperty("--dia-accent","var(--s"+s+")");b.addEventListener("click",function(){mark(s,true);});pick.appendChild(b);})(s);}
     var init=null;try{init=localStorage.getItem("atlas-stage");}catch(e){}
-    if(init!==null&&/^[0-7]$/.test(init))mark(init,false); else mark(null,false);
+    if(init!==null&&/^[0-8]$/.test(init))mark(init,false); else mark(null,false);
   })();
 
   /* ---- boot ---- */

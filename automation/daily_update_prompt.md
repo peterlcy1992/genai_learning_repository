@@ -18,8 +18,11 @@ take effect, also update the live Routine's prompt (see
 >    `git pull origin main`).
 >
 > 1. **Read the learner's progress.** Open `PROGRESS.md` and parse the
->    machine-readable YAML block: note `current_stage` (0–7) and its topic from
->    `LEARNING_PLAN.md`. This is what the learner is working on now.
+>    machine-readable YAML block: note `current_stage` (0–8) and its topic from
+>    `LEARNING_PLAN.md`. This is what the learner is working on now. Stage 8
+>    ("Staying current") is the ongoing refresh loop — if the learner is at
+>    Stage 8, frame the brief as "anything here worth a permanent change to the
+>    knowledge bank?" rather than "what to study next."
 >
 > 2. **Find what's new.** Use web search to find the most notable Generative AI
 >    developments from roughly the last 1–2 days: new arXiv papers (cs.CL,

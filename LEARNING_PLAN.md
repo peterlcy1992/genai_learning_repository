@@ -32,6 +32,7 @@ Pre-2017   RNNs / LSTMs / seq2seq / attention-as-an-add-on
   2021-23  Multimodality: CLIP, diffusion, vision-language models
   2023-26  Frontier systems: GPT-4/5, Claude, Gemini, Llama; long context,
            retrieval, tool use, agents, and reasoning ("thinking") models
+  ongoing  Staying current: curate the daily stream into durable understanding
 ```
 
 ---
@@ -94,6 +95,17 @@ the shift to **reasoning / "thinking" models** trained with RL on verifiable
 rewards (o1/o3-style, and the DeepSeek-R1 line). This is the current frontier —
 and where [`updates/latest.md`](updates/latest.md) keeps you moving.
 → [`knowledge_bank/07_frontier_systems.md`](knowledge_bank/07_frontier_systems.md)
+
+### Stage 8 — Staying current: the refresh loop
+*The stage that never ends.*
+Once you're at the frontier, the challenge flips from *learning the past* to
+*keeping up with the present* without drowning. Stage 8 is a repeatable
+discipline: skim the daily digests, **triage the week's most critical
+improvements** against a rubric (durability, breadth, evidence, proximity),
+**integrate** the few that matter into the knowledge bank, and **prune** what
+they supersede. The daily automation is your scout; you are the curator. This
+stage loops — you stay parked here, refreshing, rather than "completing" it.
+→ [`knowledge_bank/08_staying_current.md`](knowledge_bank/08_staying_current.md)
 
 ---
 
