@@ -22,7 +22,12 @@ machine's "maybe worth a permanent note" pile; you still decide what to genuinel
 integrate (§2).
 
 <!-- FRONTIER_LOG_START -->
-_No entries yet — the daily job appends genuinely durable developments here._
+- **2025** · **DeepSeek-R1 — open RLVR reasoning** — Open recipe showing RL on verifiable rewards induces reasoning — the test-time-compute paradigm, in the open. ([source](https://arxiv.org/abs/2501.12948)) · _Stage 7_
+- **2022** · **FlashAttention — IO-aware exact attention** — Made long context affordable by never materialising the n×n matrix; baked into every modern training stack. ([source](https://arxiv.org/abs/2205.14135)) · _Stage 4_
+- **2022** · **InstructGPT — RLHF** — Alignment, not size, makes models useful — a 1.3B RLHF model beat 175B GPT-3 on human preference. ([source](https://arxiv.org/abs/2203.02155)) · _Stage 5_
+- **2021** · **CLIP — contrastive image–text pretraining** — A shared image–text embedding space; the bridge that enabled text-to-image and multimodal LLMs. ([source](https://arxiv.org/abs/2103.00020)) · _Stage 6_
+- **2020** · **GPT-3 — in-context learning** — Few-shot learning from prompt examples with no weight updates — created prompting and the model-as-interface. ([source](https://arxiv.org/abs/2005.14165)) · _Stage 3_
+- **2017** · **Transformer — Attention Is All You Need** — Replaced recurrence with self-attention — the architecture the entire field is still built on. ([source](https://arxiv.org/abs/1706.03762)) · _Stage 1_
 <!-- FRONTIER_LOG_END -->
 
 ---
