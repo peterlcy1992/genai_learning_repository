@@ -175,21 +175,38 @@ cd ../..
 ## Step 8 — Create the RSS.com draft (best-effort, never publish)
 
 The manifest record must exist first (do Step 9's append before this, or write
-the manifest then upload). Then:
+the manifest then upload) — the uploader reads the episode's `audio`/`cover`
+paths, `title`, `description`, and season/number from it. Then:
 
 ```sh
 python3 automation/rss_upload.py --episode {N} --yes    # creates an UNPUBLISHED draft
 ```
 
-- Needs `RSS_API_KEY` (env secret) and egress to `api.rss.com`. If either is
-  missing the script exits with a clear message — that's fine: **skip** this
-  step, leave `rss_status: "not_uploaded"`, and tell the owner in the final
-  message that the episode is ready for a manual/local upload.
-- The uploader creates the episode as a **draft**; it never publishes. It writes
-  `rss_status: "draft"` and the `rss_episode_id` back into the manifest on
-  success.
-- `rss_show_id` is discovered from the API on first use (matched by show name)
-  and cached in the manifest.
+What it does (RSS.com Core API v4, `X-Api-Key` auth):
+1. `GET /v4/podcasts` → find the podcast id for "The GenAI Evolution Atlas".
+2. `POST /v4/podcasts/{id}/assets/presigned-uploads` for the audio (and the
+   cover image) → PUT the local files to the returned presigned URLs. The API
+   ingests the **bytes directly** — it does not fetch a public URL, so the
+   `.m4a` and `.png` just need to exist locally (the `raw.githubusercontent.com`
+   link is only a human-shareable convenience).
+3. `POST /v4/podcasts/{id}/episodes` with `title`, `description`,
+   `itunes_season`, `itunes_episode`, `itunes_episode_type: "full"`,
+   `audio_upload_id`, `cover_upload_id` — and **no `schedule_datetime`**, which
+   is exactly what leaves the episode as a **draft** (`status: "draft"`).
+   Setting `schedule_datetime` is what schedules/publishes; the script never
+   sends it.
+
+Notes:
+- Needs `RSS_API_KEY` (env secret) and egress to `api.rss.com` **and** to the
+  presigned storage host. If either is missing the script exits with a clear
+  message — that's fine: **skip** this step, leave `rss_status: "not_uploaded"`,
+  and tell the owner in the final message that the episode is ready for a
+  manual or local upload (`python3 automation/rss_upload.py --episode {N} --yes`
+  on a machine that can reach RSS.com).
+- On success it writes `rss_status` (`draft`) and `rss_episode_id` back into the
+  manifest, and caches the podcast id in `rss_show_id`.
+- It refuses to touch an episode already `scheduled`/`published`, and warns if
+  the API ever returns a non-draft status.
 
 ## Step 9 — Update the manifest
 
