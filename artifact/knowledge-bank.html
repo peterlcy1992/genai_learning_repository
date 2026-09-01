@@ -138,6 +138,11 @@
   .podcast .s{font-size:12.5px;color:var(--ink-faint);margin-top:2px}
   .podcast .play{flex:0 0 auto;white-space:nowrap}
   @media(max-width:560px){.podcast{flex-wrap:wrap}.podcast .meta{order:2;flex-basis:100%}.podcast .play{order:3}}
+  .flog{background:var(--surface);border:1px solid var(--line);border-left:4px solid var(--dia-accent);
+    border-radius:12px;padding:12px 20px;margin-top:8px}
+  .flog ul{padding-left:20px;margin:6px 0} .flog li{color:var(--ink-soft);font-size:14.5px;margin:7px 0}
+  .flog li strong{color:var(--ink)} .flog em{color:var(--ink-faint)} .flog p{color:var(--ink-faint);margin:2px 0}
+  .flog a{color:var(--accent-2)}
 
   .sp-section{margin:30px 0} .sp-section:first-child{margin-top:4px}
   .sp-section > h2{font-size:24px;letter-spacing:-.01em;margin-bottom:12px;display:flex;align-items:baseline;gap:10px}
@@ -1359,6 +1364,20 @@ your radar.
     </header>
 
     <section class="sp-section">
+      <h2><span class="ix">★</span> Frontier log — auto-curated</h2>
+      <div class="prose"><p>An automatically maintained shortlist of the durable, high-signal developments the
+        daily scout flags — the small fraction that scores high on the rubric below (durability · breadth ·
+        evidence). Newest first, deduped. The machine's "maybe worth a permanent note" pile; you still decide
+        what to truly integrate.</p></div>
+      <script type="text/markdown" id="frontier-log">
+<!-- FRONTIER_LOG_START -->
+_No entries yet — the daily job appends genuinely durable developments here._
+<!-- FRONTIER_LOG_END -->
+      </script>
+      <div class="flog" id="frontier-log-pane"></div>
+    </section>
+
+    <section class="sp-section">
       <h2><span class="ix">01</span> Why this stage exists</h2>
       <div class="prose">
         <p>A plan that stops at Stage 7 rots within months; trying to read <em>everything</em> burns you out and
@@ -1596,6 +1615,14 @@ your radar.
     if(!box) return;
     var md=(el?el.textContent:"").replace(/<!--\s*LATEST_DIGEST_START\s*-->/,"").replace(/<!--\s*LATEST_DIGEST_END\s*-->/,"").trim();
     renderMd(md||"_No digest embedded yet — see “All digests on GitHub” above._", box);
+  })();
+
+  /* ---- embedded Stage 8 frontier log (read from its hidden markdown block) ---- */
+  (function(){
+    var el=document.getElementById("frontier-log"), box=document.getElementById("frontier-log-pane");
+    if(!box) return;
+    var md=(el?el.textContent:"").replace(/<!--\s*FRONTIER_LOG_START\s*-->/,"").replace(/<!--\s*FRONTIER_LOG_END\s*-->/,"").trim();
+    renderMd(md||"_No entries yet — the daily scout appends durable developments here._", box);
   })();
 
   /* ---- current-stage marker (per-viewer, saved in this browser) ---- */

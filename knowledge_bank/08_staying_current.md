@@ -13,6 +13,20 @@ that back into your mental model.
 
 ---
 
+## 📜 Frontier log — auto-curated
+
+An automatically maintained shortlist of the *durable, high-signal* developments
+the daily scout flags — the small fraction that scores high on the rubric in §3
+(durability · breadth · evidence). Newest first, deduped. Treat it as the
+machine's "maybe worth a permanent note" pile; you still decide what to genuinely
+integrate (§2).
+
+<!-- FRONTIER_LOG_START -->
+_No entries yet — the daily job appends genuinely durable developments here._
+<!-- FRONTIER_LOG_END -->
+
+---
+
 ## 1. Why this stage exists
 
 A learning plan that ends at Stage 7 rots within months: models, records, and

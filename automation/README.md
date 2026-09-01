@@ -16,10 +16,13 @@ session against this repository and runs the instruction in
    prepends the best new finds,
 4. writes a full, reader-friendly per-day digest to
    [`../digests/`](../digests/) (`YYYY-MM-DD.md`),
-5. regenerates the public web page ([`../docs/index.html`](../docs/index.html))
-   with today's digest embedded,
-6. commits + pushes directly to `main`, and
-7. **emails you** a brief: your current stage + a next action + the day's
+5. (strict, usually nothing) appends a genuinely durable find to the Stage 8
+   [Frontier log](../knowledge_bank/08_staying_current.md) via
+   [`frontier_log_add.py`](frontier_log_add.py),
+6. regenerates the public web page ([`../docs/index.html`](../docs/index.html))
+   with today's digest (and any Frontier-log update) embedded,
+7. commits + pushes directly to `main`, and
+8. **emails you** a brief: your current stage + a next action + the day's
    highlights, with a **direct link to that day's digest**.
 
 The email is the Routine's **completion notification**, sent to the account

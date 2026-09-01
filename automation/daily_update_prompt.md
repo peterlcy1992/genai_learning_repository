@@ -53,24 +53,34 @@ take effect, also update the live Routine's prompt (see
 >    new items, still write the digest with the stage reminder and note it was a
 >    quiet day. (See `digests/README.md` for why this file exists.)
 >
-> 6. **Refresh the public page.** Run `python3 artifact/refresh_embedded_digest.py`
+> 6. **Update the Stage 8 Frontier log (curated, strict).** Judge today's finds
+>    against Stage 8's rubric (durability · breadth · evidence · proximity). Be
+>    strict — most days nothing qualifies. For each genuinely durable, high-signal
+>    development (a paradigm shift or broadly-applicable, well-evidenced method —
+>    not just another model or benchmark point), run
+>    `python3 automation/frontier_log_add.py "<date>" "<title>" "<url>" "<why it durably matters>" "<Stage N>"`;
+>    it appends to both `knowledge_bank/08_staying_current.md` and
+>    `artifact/knowledge-bank.html`, deduped by URL. Zero on a normal day.
+>
+> 7. **Refresh the public page.** Run `python3 artifact/refresh_embedded_digest.py`
 >    (embeds the newest digest into `artifact/knowledge-bank.html`) then
 >    `python3 artifact/build_public_html.py` (regenerates `docs/index.html`, the
 >    public GitHub Pages page). Both must run so the shared page shows today's
 >    digest.
 >
-> 7. **(Optional) Enrich the knowledge bank.** If a find is a genuinely seminal
+> 8. **(Optional) Enrich the knowledge bank.** If a find is a genuinely seminal
 >    piece that belongs in a stage's reading list, you may add a single line to
 >    the relevant `knowledge_bank/*.md` reading list. Be conservative — the
 >    rolling log is the default home for news.
 >
-> 8. **Commit and push.** Stage all changes (`updates/latest.md`, `digests/`,
->    `artifact/knowledge-bank.html`, `docs/index.html`) and commit with a message
->    like `chore(updates): daily GenAI update YYYY-MM-DD`, then push directly to
->    main with `git push origin main` (retry with exponential backoff on network
->    errors). Do not open a pull request and do not use a feature branch.
+> 9. **Commit and push.** Stage all changes (`updates/latest.md`, `digests/`,
+>    `knowledge_bank/08_staying_current.md` and any other edited `knowledge_bank/`
+>    file, `artifact/knowledge-bank.html`, `docs/index.html`) and commit with a
+>    message like `chore(updates): daily GenAI update YYYY-MM-DD`, then push
+>    directly to main with `git push origin main` (retry with exponential backoff
+>    on network errors). Do not open a pull request and do not use a feature branch.
 >
-> 9. **Write the email brief** as your final message. Only the opening ~1–2
+> 10. **Write the email brief** as your final message. Only the opening ~1–2
 >    sentences render in the email body (the rest sits behind an "Open session"
 >    button), so **front-load it**:
 >    - **First line — dense and self-contained:** "Stage N — <topic>. <M> new
