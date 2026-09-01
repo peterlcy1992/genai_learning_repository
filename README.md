@@ -54,7 +54,8 @@ This repository does three things:
 | [`knowledge_bank/`](knowledge_bank/) | One deep-dive note per stage + glossary + master reading list |
 | [`updates/latest.md`](updates/latest.md) | Rolling log of the latest innovations (auto-appended daily) |
 | [`digests/`](digests/) | Full, reader-friendly per-day brief (`YYYY-MM-DD.md`) that the daily email links to |
-| [`automation/`](automation/) | The daily-update prompt and docs on how the automation works |
+| [`podcasts/`](podcasts/) | Weekly NotebookLM podcast episodes for *The GenAI Evolution Atlas* (audio + manifest) |
+| [`automation/`](automation/) | The daily-update and weekly-podcast prompts, and docs on how the automation works |
 
 ---
 
@@ -74,3 +75,14 @@ a fresh session against this repository and:
 
 Full details, and how to change the schedule or pause it, are in
 [`automation/README.md`](automation/README.md).
+
+## Weekly podcasts
+
+Two weekly Routines turn the digests into audio for the RSS.com show
+**The GenAI Evolution Atlas** (Season 2): a **Wednesday Deep Dive** on the
+week's most important innovation, and a **Friday News Roundup** of everything
+worth calling out plus commentary and a look ahead. Both are made with
+**NotebookLM** (Deep Dive format, Long length), get a mono-color episode cover,
+and are prepared as an **unpublished RSS.com draft** for you to review and
+publish — the automation never publishes. See
+[`automation/podcast_playbook.md`](automation/podcast_playbook.md).

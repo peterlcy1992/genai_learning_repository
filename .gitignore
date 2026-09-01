@@ -1,0 +1,12 @@
+# Ephemeral thumbnail render intermediates (regenerated on demand)
+artifact/thumbnails/build/
+artifact/thumbnails/png/
+artifact/thumbnails/podcast_build/
+
+# NotebookLM auth material — never commit (materialized from an env secret)
+.notebooklm/
+**/master_token.json
+
+# Python
+__pycache__/
+*.pyc

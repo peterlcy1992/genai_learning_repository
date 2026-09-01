@@ -1,0 +1,8 @@
+{
+  "show": "The GenAI Evolution Atlas",
+  "rss_show_id": null,
+  "season": 2,
+  "next_episode": 1,
+  "notes": "Single shared episode counter across both weekly formats. Each run reads next_episode, uses it, appends a record below, and increments next_episode. rss_show_id is filled in once known (looked up via the RSS.com API or provided by the owner). rss_status per episode: not_uploaded -> draft -> published (the owner publishes manually).",
+  "episodes": []
+}
