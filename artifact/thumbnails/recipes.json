@@ -1,0 +1,102 @@
+[
+  {
+    "mode": "complementary duotone",
+    "ink": "Cobalt #2148B8 + Terracotta #C65F38",
+    "layout": "editorial cover",
+    "type": "grotesk display + serif aside",
+    "process": "dot halftone / flat plates",
+    "focal": "milestone arc \u2014 the whole evolution as one sweep",
+    "slug": "00-atlas-site",
+    "title": "GenAI Evolution Atlas (site cover)"
+  },
+  {
+    "mode": "chromatic + black",
+    "ink": "Charcoal #30343A + Signal Red #C83232",
+    "layout": "ruled information poster",
+    "type": "mono structure + serif aside",
+    "process": "dot halftone cells",
+    "focal": "the sequence bottleneck, with attention fanning back in red",
+    "slug": "01-stage00-foundations",
+    "title": "Stage 0 \u2014 Foundations"
+  },
+  {
+    "mode": "chromatic + black",
+    "ink": "Electric Blue #173AE3 + Carbon #242321",
+    "layout": "type-led declaration",
+    "type": "cultural grotesk + serif aside",
+    "process": "thin plate line-work",
+    "focal": "the all-to-all attention field, one query head in carbon",
+    "slug": "02-stage01-transformer",
+    "title": "Stage 1 \u2014 The Transformer"
+  },
+  {
+    "mode": "complementary duotone",
+    "ink": "Botanical Green #008A4B + Oxblood #8F3434",
+    "layout": "specimen annotation / archival plate",
+    "type": "literary serif + grotesk labels",
+    "process": "dot halftone layers",
+    "focal": "three pretraining families, one transfer arrow in oxblood",
+    "slug": "03-stage02-pretraining",
+    "title": "Stage 2 \u2014 The Pretraining Era"
+  },
+  {
+    "mode": "overprint duotone",
+    "ink": "Ultramarine #263E99 + Safety Orange #E55D2B",
+    "layout": "type-led declaration",
+    "type": "assertive grotesk + mono label",
+    "process": "dot halftone mass",
+    "focal": "extreme scale jump \u2014 one giant screened circle, emergence spark in orange",
+    "slug": "04-stage03-scale",
+    "title": "Stage 3 \u2014 Scale & Emergence"
+  },
+  {
+    "mode": "overprint duotone",
+    "ink": "Brick Red #B64032 + Cyan #159DDA",
+    "layout": "object field",
+    "type": "grotesk caps + serif aside",
+    "process": "dot halftone blocks",
+    "focal": "a field of experts, only a sparse few routed in cyan",
+    "slug": "05-stage04-efficiency",
+    "title": "Stage 4 \u2014 Efficiency & Building Blocks"
+  },
+  {
+    "mode": "pure one-ink",
+    "ink": "Signal Red #C83232",
+    "layout": "type-led declaration",
+    "type": "civic grotesk + serif aside",
+    "process": "single-plate density / halftone",
+    "focal": "a preference bending the path onto the reward target",
+    "slug": "06-stage05-alignment",
+    "title": "Stage 5 \u2014 Alignment & Post-training"
+  },
+  {
+    "mode": "complementary duotone",
+    "ink": "Tangerine #E46C2D + Slate Blue #4773A5",
+    "layout": "editorial cover",
+    "type": "large typographic + serif aside",
+    "process": "stochastic dot denoise",
+    "focal": "diffusion noise resolving into a vision aperture",
+    "slug": "07-stage06-multimodal",
+    "title": "Stage 6 \u2014 Multimodality"
+  },
+  {
+    "mode": "complementary duotone",
+    "ink": "Cobalt #2148B8 + Terracotta #C65F38",
+    "layout": "editorial cover",
+    "type": "literary serif + mono labels",
+    "process": "dot halftone core",
+    "focal": "a reasoning loop with tool/agent branches in terracotta",
+    "slug": "08-stage07-frontier",
+    "title": "Stage 7 \u2014 Frontier Systems"
+  },
+  {
+    "mode": "chromatic + black",
+    "ink": "Mint Green #5EB783 + Warm Charcoal #302D2E",
+    "layout": "editorial journal",
+    "type": "literary serif + mono label",
+    "process": "dot halftone loop",
+    "focal": "a refresh loop enclosing the daily log stack",
+    "slug": "09-stage08-staying-current",
+    "title": "Stage 8 \u2014 Staying Current"
+  }
+]
