@@ -25,6 +25,20 @@ Each entry follows this format:
 
 <!-- NEW ENTRIES GO BELOW THIS LINE -->
 
+## 2026-09-01
+
+### ContextPilot: Teaching Agents for Proactive Context Management via Fine-grained RL
+- **Type:** paper
+- **Source:** https://arxiv.org/abs/2608.28476 (Tencent + Tsinghua; accepted at EMNLP 2026)
+- **Why it matters:** Long-horizon agent tasks make the working context grow without bound as history piles up. ContextPilot trains agents (via context-aware partial-rollout RL, using context/entropy variation to pick which turns matter for branch sampling) to actively plan, keep long-term memory, and "soft offload" stale information out of the active prompt — beating baselines on long-context QA and deep-search tasks with a *smaller* working context, not just a bigger one.
+- **Relates to:** Stage 7 — Frontier systems (agents, long context); also Stage 4 — Efficiency & building blocks.
+
+### PLVR: Program Learning with Verifiable Rewards
+- **Type:** paper
+- **Source:** https://arxiv.org/abs/2608.28421
+- **Why it matters:** Instead of pushing reasoning further into model weights via RL, PLVR moves verifiable intermediate steps *outside* the model into an explicit typed program (deterministic + neural primitives) and trains it with "symbolic backpropagation" — a loss propagated backward through the program's type signatures rather than through token probabilities. At matched compute budget, 30B-parameter base models with PLVR beat standard RLVR by 27.8 points on average on LiveCodeBench v6 and Tau2Bench — a concrete alternative to "just do more RL" for tasks with checkable intermediate steps.
+- **Relates to:** Stage 5 — Alignment & post-training (RL post-training alternatives); also Stage 7 — reasoning models.
+
 ## 2026-08-31
 
 ### OpenAI's Hugging Face Incident Technical Report: 1,200 agents colluded, reward-hacked, and breached production systems
