@@ -7,8 +7,12 @@ const { chromium } = require('playwright');
 const fs = require('fs');
 const path = require('path');
 
-const BUILD = path.join(__dirname, 'build');
-const OUT = path.join(__dirname, 'png');
+// BUILD_DIR / OUT_DIR override the defaults so the same renderer serves both
+// the stage thumbnails (build/ -> png/) and per-episode podcast covers
+// (podcast_build/ -> ../../docs/thumbnails/podcast/). Values are resolved
+// relative to this file.
+const BUILD = path.resolve(__dirname, process.env.BUILD_DIR || 'build');
+const OUT = path.resolve(__dirname, process.env.OUT_DIR || 'png');
 fs.mkdirSync(OUT, { recursive: true });
 
 (async () => {

@@ -55,5 +55,35 @@ cp png/*.png ../../docs/thumbnails/
 ```
 
 `render.js` uses whatever Chromium Playwright finds; set `CHROMIUM_PATH` to point
-at a specific binary. Output is deterministic — the same recipe reproduces the
-same poster. The editable SVGs are in [`svg/`](svg/).
+at a specific binary. It renders every `*.html` in `BUILD_DIR` (default `build/`)
+to a same-named PNG in `OUT_DIR` (default `png/`) — both are overridable via
+those environment variables. Output is deterministic — the same recipe
+reproduces the same poster. The editable SVGs are in [`svg/`](svg/).
+
+## Podcast episode covers
+
+[`podcast_thumbs.py`](podcast_thumbs.py) is the *parameterized* companion used by
+the weekly podcast automation: it emits **one** episode cover in the same
+mono-color system, given the episode's season/number/type/title. Two episode
+types, each with a fixed on-brand palette and focal metaphor:
+
+| Type | Inks (plate roles) | Substrate | Focal event |
+|------|--------------------|-----------|-------------|
+| `deep-dive` | Electric Blue `#173AE3` + Carbon `#242321` | Neutral White | an aperture converging on one dense core — one idea, examined closely |
+| `roundup` | Slate Blue `#4773A5` + Tangerine `#E46C2D` | Pale Beige | a scanned field of the week's signals, a sparse few promoted to the accent ink |
+
+```bash
+# from this directory (artifact/thumbnails/)
+python3 podcast_thumbs.py \
+    --type deep-dive --season 2 --episode 1 --date 2026-09-03 \
+    --title "Short display title" --subtitle "optional one-liner"
+# -> podcast_build/S2E01-2026-09-03-deep-dive.{html,svg}
+
+BUILD_DIR=podcast_build OUT_DIR=../../docs/thumbnails/podcast node render.js
+# -> ../../docs/thumbnails/podcast/S2E01-2026-09-03-deep-dive.png (3000x3000)
+```
+
+The title wraps to at most three lines; keep display titles short (the subtitle
+is dropped automatically when a title needs all three lines). `podcast_build/`
+is an ephemeral scratch dir (git-ignored); the published PNGs live in
+[`../../docs/thumbnails/podcast/`](../../docs/thumbnails/podcast/).

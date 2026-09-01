@@ -89,6 +89,44 @@ do them yourself with the Routines/`claude-code-remote` tools:
 To find the Routine later, list your Routines and match the name/trigger ID
 above.
 
+## The weekly podcasts
+
+On top of the daily job, **two weekly Routines** turn the digests into audio
+episodes for the RSS.com show **The GenAI Evolution Atlas** (Season 2):
+
+- **Wednesday — Deep Dive:** an in-depth episode on the single most important
+  innovation of the past week (usually one article, at most three).
+- **Friday — News Roundup:** a broad tour of everything worth calling out that
+  week, then synthesis, opinion, and a look ahead.
+
+Both are generated with **NotebookLM** (Deep Dive format, Long length) via
+[`notebooklm-py`](https://github.com/teng-lin/notebooklm-py), given a mono-color
+episode cover, and prepared for upload to RSS.com as an **unpublished draft** for
+you to review and publish. The automation never publishes.
+
+The authoritative procedure is [`podcast_playbook.md`](podcast_playbook.md).
+Supporting files:
+
+| File | What it is |
+|------|-----------|
+| [`podcast_playbook.md`](podcast_playbook.md) | The full weekly procedure (both episodes), end to end. |
+| [`podcast_deepdive_prompt.md`](podcast_deepdive_prompt.md) | NotebookLM steering prompt for the Wednesday Deep Dive. |
+| [`podcast_roundup_prompt.md`](podcast_roundup_prompt.md) | NotebookLM steering prompt for the Friday News Roundup. |
+| [`rss_upload.py`](rss_upload.py) | Creates the RSS.com episode as an unpublished draft (X-API-Key; run with the key present). |
+| [`../podcasts/`](../podcasts/) | The episode manifest (`episodes.json`) + generated audio + per-episode copy. |
+| [`../artifact/thumbnails/podcast_thumbs.py`](../artifact/thumbnails/podcast_thumbs.py) | Parameterized mono-color episode cover generator. |
+
+**Requirements.** The podcast Routines must run in an environment that has the
+`NOTEBOOKLM_MASTER_TOKEN_JSON` secret **and** Google egress (the environment
+`env_017Ev8YD93Ey36h3gyP68kyH` already does). The RSS.com draft upload
+additionally needs `RSS_API_KEY` (an RSS.com **Network** plan) and egress to
+`api.rss.com`; when that isn't present, the episode is still fully prepared and
+left ready for a manual or local upload. See the playbook for details.
+
+> **Schedule:** the two Routines are created separately (Wed + Fri). Until they
+> are, generate an episode on demand by following `podcast_playbook.md` in a
+> session on this repo, or ask Claude Code to create/fire the Routines.
+
 ## How the system knows your learning progress
 
 It reads the machine-readable YAML block at the top of
