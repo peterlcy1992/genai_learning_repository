@@ -146,6 +146,16 @@
     padding:9px 14px;font-size:13.5px;color:var(--ink)}
   .curbanner .d{width:8px;height:8px;border-radius:50%;background:var(--dia-accent)}
   .stage-page.current .curbanner{display:inline-flex}
+  .podcast{display:flex;align-items:center;gap:15px;background:var(--surface-2);
+    border:1px solid var(--line);border-left:4px solid var(--dia-accent);
+    border-radius:12px;padding:14px 18px;margin:22px 0 4px}
+  .podcast .ico{width:42px;height:42px;flex:0 0 auto;border-radius:11px;
+    background:var(--dia-accent);color:#12131a;display:grid;place-items:center;font-size:21px}
+  .podcast .meta{flex:1;min-width:0}
+  .podcast .t{font-family:var(--font-display);font-weight:600;font-size:15.5px;letter-spacing:-.01em}
+  .podcast .s{font-size:12.5px;color:var(--ink-faint);margin-top:2px}
+  .podcast .play{flex:0 0 auto;white-space:nowrap}
+  @media(max-width:560px){.podcast{flex-wrap:wrap}.podcast .meta{order:2;flex-basis:100%}.podcast .play{order:3}}
 
   .sp-section{margin:30px 0} .sp-section:first-child{margin-top:4px}
   .sp-section > h2{font-size:24px;letter-spacing:-.01em;margin-bottom:12px;display:flex;align-items:baseline;gap:10px}
@@ -391,6 +401,15 @@ today is understanding *why attention was invented*.
       <span class="curbanner"><span class="d"></span> This is your current stage — start here.</span>
     </header>
 
+    <div class="podcast">
+      <span class="ico" aria-hidden="true">🎧</span>
+      <div class="meta">
+        <div class="t">Podcast — Foundations before the Transformer</div>
+        <div class="s">A NotebookLM audio deep-dive for this stage · great as a warm-up before reading.</div>
+      </div>
+      <a class="btn play" href="https://notebook.google.com/notebook/ad605b75-05c6-4ad8-aa64-2302ad1e0772/artifact/1b352d81-18e8-4292-b276-6574399102ba?utm_source=nlm_web_share&amp;utm_medium=google_oo&amp;utm_campaign=art_share_1&amp;utm_content=&amp;utm_smc=nlm_web_share_google_oo_art_share_1_" target="_blank" rel="noopener">▶ Listen</a>
+    </div>
+
     <section class="sp-section">
       <h2><span class="ix">01</span> The problem: modelling sequences</h2>
       <div class="split has-dia">
@@ -516,6 +535,15 @@ today is understanding *why attention was invented*.
       <p class="thesis">"Attention Is All You Need" — throw away recurrence entirely.</p>
       <span class="curbanner"><span class="d"></span> This is your current stage — start here.</span>
     </header>
+
+    <div class="podcast">
+      <span class="ico" aria-hidden="true">🎧</span>
+      <div class="meta">
+        <div class="t">Podcast — The Transformer</div>
+        <div class="s">A NotebookLM audio deep-dive for this stage · great as a warm-up before reading.</div>
+      </div>
+      <a class="btn play" href="https://notebook.google.com/notebook/ad605b75-05c6-4ad8-aa64-2302ad1e0772/artifact/57821855-7588-419a-a44b-3aa1775ed30c?utm_source=nlm_web_share&amp;utm_medium=google_oo&amp;utm_campaign=art_share_1&amp;utm_content=&amp;utm_smc=nlm_web_share_google_oo_art_share_1_" target="_blank" rel="noopener">▶ Listen</a>
+    </div>
 
     <section class="sp-section">
       <h2><span class="ix">01</span> The bet: attention without recurrence</h2>
