@@ -20,6 +20,10 @@ SRC = REPO / "artifact" / "knowledge-bank.html"
 OUT = REPO / "docs" / "index.html"
 DESCRIPTION = ("A field guide to the evolution of generative AI — 9 dedicated stage "
                "deep-dives with diagrams and reference links, plus the latest daily digest.")
+# Absolute base URL of the published site (GitHub Pages), used for social-preview
+# (Open Graph / Twitter) image URLs, which must be absolute.
+SITE_BASE = "https://peterlcy1992.github.io/genai_learning_repository"
+OG_IMAGE = f"{SITE_BASE}/thumbnails/00-atlas-site.png"
 
 
 def main() -> int:
@@ -43,6 +47,14 @@ def main() -> int:
 <meta property="og:title" content="{title}">
 <meta property="og:description" content="{DESCRIPTION}">
 <meta property="og:type" content="website">
+<meta property="og:image" content="{OG_IMAGE}">
+<meta property="og:image:width" content="3000">
+<meta property="og:image:height" content="3000">
+<meta property="og:image:alt" content="{title} — mono-color editorial cover">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="{title}">
+<meta name="twitter:description" content="{DESCRIPTION}">
+<meta name="twitter:image" content="{OG_IMAGE}">
 <title>{title}</title>
 <style>
   html{{color-scheme:light dark}}

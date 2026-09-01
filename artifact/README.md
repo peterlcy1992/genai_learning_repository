@@ -32,6 +32,16 @@ The **current-stage marker** is a click-to-set picker in the hero; the choice is
 saved per-viewer in the browser (`localStorage`) and highlights that stage's
 gateway card and page. No connector or repo read involved.
 
+## Podcast thumbnails
+Square (1:1, 3000×3000) cover images for the Atlas and each of the nine stages
+live in [`thumbnails/`](thumbnails/), generated with the
+[mono-color editorial print](https://github.com/yanliudesign/mono-color-skill)
+visual system (adaptive substrate, ≤2 inks with assigned plate roles, halftone
+reproduction, active negative space, one focal event). The published PNGs are in
+[`../docs/thumbnails/`](../docs/thumbnails/); the site cover doubles as the Open
+Graph / Twitter social-preview image (wired in by `build_public_html.py`). See
+[`thumbnails/README.md`](thumbnails/README.md) for recipes and how to regenerate.
+
 ## Notes for maintainers
 - `knowledge-bank.html` is the **artifact body** (no `<!doctype>`/`<html>`/`<head>`/
   `<body>` — those are added at publish time), so it won't render standalone by
