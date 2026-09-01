@@ -77,7 +77,14 @@ Legend: 📄 paper · ✍️ blog/explainer · 🎥 video/course
 
 ---
 
-## Ongoing sources (for staying current — Stage 7 onward)
+## Stage 8 — Staying current
+No fixed papers — the "reading" is your own live stream, worked on a cadence.
+- 📄 This repo's [`updates/latest.md`](../updates/latest.md) and [`digests/`](../digests/) — the raw material you curate.
+- ✍️ **Nathan Lambert** — *Interconnects* — a model of a good weekly filter (selects and contextualises).
+- ✍️ **Jack Clark** — *Import AI* — another curation exemplar.
+- 🧭 The refresh-loop method itself → [`08_staying_current.md`](08_staying_current.md), then the ongoing sources below.
+
+## Ongoing sources (for staying current — Stage 8)
 
 **Where the daily automation looks, and where you should browse too:**
 

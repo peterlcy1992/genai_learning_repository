@@ -18,7 +18,7 @@ from pathlib import Path
 REPO = Path(__file__).resolve().parent.parent
 SRC = REPO / "artifact" / "knowledge-bank.html"
 OUT = REPO / "docs" / "index.html"
-DESCRIPTION = ("A field guide to the evolution of generative AI — 8 dedicated stage "
+DESCRIPTION = ("A field guide to the evolution of generative AI — 9 dedicated stage "
                "deep-dives with diagrams and reference links, plus the latest daily digest.")
 
 
