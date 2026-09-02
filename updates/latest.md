@@ -25,6 +25,32 @@ Each entry follows this format:
 
 <!-- NEW ENTRIES GO BELOW THIS LINE -->
 
+## 2026-09-02
+
+### OpenAI's Astra becomes the first model to cross the "Critical" cyber capability threshold
+- **Type:** blog / safety framework update
+- **Source:** https://openai.com/index/path-to-astra/ (also https://www.cnbc.com/2026/09/01/open-ai-astra-cyber-model.html)
+- **Why it matters:** Under OpenAI's Preparedness Framework, Astra is the first model to be assessed as reaching "Critical" cyber capability — able to find and exploit previously-unknown zero-days in hardened real-world systems, and to plan and execute end-to-end cyberattack strategies from only a high-level goal, without step-by-step human guidance. OpenAI says Astra will still ship, but with tightened access controls and monitoring around its cyber capabilities — a concrete marker of capability thresholds translating into real deployment restrictions.
+- **Relates to:** Stage 5 — Alignment & post-training (capability evaluation, safeguards); also Stage 7 — Frontier systems (agentic cyber capability).
+
+### Anthropic ships Claude Fable 5.1 and Mythos 5.1
+- **Type:** model release
+- **Source:** https://www.anthropic.com/claude-fable-and-mythos-5-1
+- **Why it matters:** Same underlying model, two safeguard tiers: Fable 5.1 is generally available, Mythos 5.1 is gated to trusted-access programs for cybersecurity/life-sciences work. Fable 5.1 targets root-cause debugging over quick patches, cuts cached-input pricing by 75% (roughly 25% cheaper for typical workloads, up to 45% for heavily agentic ones), reports ~60% fewer Claude Code cybersecurity false positives, and adds EU AI Act-compliant invisible watermarking to outputs.
+- **Relates to:** Stage 7 — Frontier systems; also Stage 4 — Efficiency & building blocks (cache pricing).
+
+### Google previews Gemini 3.8 Flash, a coding-focused Flash model
+- **Type:** model release
+- **Source:** https://www.investing.com/news/stock-market-news/google-prepares-gemini-38-flash-to-narrow-ai-coding-gap-wsj-reports-4884683
+- **Why it matters:** A smaller, faster Flash-tier model explicitly aimed at closing Google's coding-capability gap with OpenAI and Anthropic; Google's own engineers reportedly preferred it over Claude Opus in internal tests on Google's coding tool. Notable mainly as a data point on how fast the "cheap, fast, agent-friendly coding model" tier is iterating (barely three weeks after Gemini 3.7 Flash).
+- **Relates to:** Stage 7 — Frontier systems; also Stage 4 — Efficiency & building blocks.
+
+### Qwen3.8-Max-0902: a same-price snapshot update with a big coding/agent jump
+- **Type:** model release
+- **Source:** https://technode.com/2026/09/02/alibaba-upgrades-qwen38-max-with-new-0902-snapshot/
+- **Why it matters:** Alibaba re-post-trained Qwen3.8-Max on coding and collaborative-agent work at unchanged pricing: all 8 programming benchmarks improved (e.g. TerminalBench 3.0 from 11.3 to 29.0), and it now beats Claude Opus 5 on three benchmarks (MLS-Bench-Lite, SWE-Atlas QnA, QwenSWEbench V2) while still trailing overall — a useful illustration of how much post-training alone (no architecture or scale change) can move agentic coding performance.
+- **Relates to:** Stage 5 — Alignment & post-training (post-training's impact); also Stage 7 — Frontier systems.
+
 ## 2026-09-01
 
 ### ContextPilot: Teaching Agents for Proactive Context Management via Fine-grained RL

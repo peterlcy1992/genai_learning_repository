@@ -318,7 +318,7 @@
         (always current at the link above), and your daily email always carries the latest.</p>
       <script type="text/markdown" id="latest-digest">
 <!-- LATEST_DIGEST_START -->
-# Daily GenAI digest — 2026-09-01
+# Daily GenAI digest — 2026-09-02
 
 **Your stage:** Stage 0 — Foundations: before the Transformer
 **Next action:** Read [`knowledge_bank/00_foundations.md`](../knowledge_bank/00_foundations.md),
@@ -330,30 +330,43 @@ was born, and it makes Stage 1 (the Transformer) feel inevitable.
 
 ## Today's highlights
 
-A quieter day — two solid papers, no major model releases or blog posts that
-clear the bar. Both are Stage 4/5/7 material (agents, RL post-training), well
-ahead of where you are, but worth knowing exist for when you get there.
+A busy release day rather than a research day — four notable items, all model
+releases or safety-framework news, none of them arXiv papers. All are Stage
+4/5/7 material, well ahead of where you are, but worth knowing exist.
 
-### ContextPilot: Teaching Agents for Proactive Context Management via Fine-grained RL
-- **Type:** paper
-- **Link:** https://arxiv.org/abs/2608.28476
-- **Why it matters:** Tencent + Tsinghua (EMNLP 2026). Long-running agents accumulate an ever-growing working context as they retrieve and integrate information over many turns. ContextPilot trains agents with RL to actively plan, hold long-term memory, and "soft offload" stale context — beating baselines on long-context QA and deep-search tasks with a *smaller* context, not a bigger one.
-- **Relates to:** Stage 7 — Frontier systems (agents, long context); also Stage 4 — Efficiency & building blocks.
+### OpenAI's Astra becomes the first model to cross the "Critical" cyber capability threshold
+- **Type:** blog / safety framework update
+- **Link:** https://openai.com/index/path-to-astra/
+- **Why it matters:** Under OpenAI's Preparedness Framework, Astra is the first model assessed as reaching "Critical" cyber capability — finding and exploiting previously-unknown zero-days in hardened systems, and planning/executing end-to-end cyberattacks from only a high-level goal, without step-by-step human help. It will still ship, but with tightened access controls and monitoring — a real example of a capability threshold translating into deployment restrictions rather than staying theoretical.
+- **Relates to:** Stage 5 — Alignment & post-training (capability evaluation, safeguards); also Stage 7 — Frontier systems.
 
-### PLVR: Program Learning with Verifiable Rewards
-- **Type:** paper
-- **Link:** https://arxiv.org/abs/2608.28421
-- **Why it matters:** Rather than pushing reasoning further into model weights via more RL, PLVR moves verifiable intermediate steps into an explicit typed program and trains it with "symbolic backpropagation" through the program's structure. At matched compute, 30B models with PLVR beat standard RL-with-verifiable-rewards by 27.8 points (avg.) on LiveCodeBench v6 and Tau2Bench — a genuine alternative to "just do more RL" for checkable tasks.
-- **Relates to:** Stage 5 — Alignment & post-training (RL post-training alternatives); also Stage 7 — reasoning models.
+### Anthropic ships Claude Fable 5.1 and Mythos 5.1
+- **Type:** model release
+- **Link:** https://www.anthropic.com/claude-fable-and-mythos-5-1
+- **Why it matters:** Same model, two safeguard tiers — Fable 5.1 generally available, Mythos 5.1 gated to trusted cybersecurity/life-sciences access. Notable for root-cause-first debugging behavior, a 75% cut to cached-input pricing (up to 45% cheaper overall for agentic workloads), ~60% fewer Claude Code cybersecurity false positives, and EU AI Act-compliant invisible watermarking.
+- **Relates to:** Stage 7 — Frontier systems; also Stage 4 — Efficiency & building blocks (cache pricing).
+
+### Google previews Gemini 3.8 Flash, a coding-focused Flash model
+- **Type:** model release
+- **Link:** https://www.investing.com/news/stock-market-news/google-prepares-gemini-38-flash-to-narrow-ai-coding-gap-wsj-reports-4884683
+- **Why it matters:** A smaller Flash-tier model explicitly aimed at closing Google's coding gap with OpenAI/Anthropic — notable mostly for the pace (barely three weeks after Gemini 3.7 Flash) rather than any architectural novelty.
+- **Relates to:** Stage 7 — Frontier systems; also Stage 4 — Efficiency & building blocks.
+
+### Qwen3.8-Max-0902: a same-price snapshot update with a big coding/agent jump
+- **Type:** model release
+- **Link:** https://technode.com/2026/09/02/alibaba-upgrades-qwen38-max-with-new-0902-snapshot/
+- **Why it matters:** Re-post-training alone (no architecture or scale change, unchanged pricing) moved all 8 programming benchmarks up, and now beats Claude Opus 5 on three of them — a clean illustration of how much headroom post-training still has independent of pretraining scale.
+- **Relates to:** Stage 5 — Alignment & post-training (post-training's impact); also Stage 7 — Frontier systems.
 
 ---
 
 ## 📌 If you read one thing today
-Neither news item is where you are — skip straight to the **foundations note**
+None of today's news is where you are yet — stick with the **foundations note**
 ([`knowledge_bank/00_foundations.md`](../knowledge_bank/00_foundations.md)) and
-the Bahdanau attention paper. File ContextPilot and PLVR away for Stage 5/7;
-they'll make more sense once RL post-training and agentic reasoning are on
-your radar.
+the Bahdanau attention paper. If you want a taste of where this is heading, the
+Astra item is the most conceptually interesting: it's a concrete look at how
+labs formally define and gate dangerous capability levels, a theme (safety
+evaluation, alignment) you'll meet properly at Stage 5.
 
 ---
 *This digest was generated automatically. Full rolling log:
