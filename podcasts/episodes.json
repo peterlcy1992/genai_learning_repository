@@ -1,8 +1,27 @@
 {
   "show": "The GenAI Evolution Atlas",
-  "rss_show_id": null,
+  "rss_show_id": 400601,
   "season": 2,
-  "next_episode": 1,
+  "next_episode": 2,
   "notes": "Single shared episode counter across both weekly formats. Each run reads next_episode, uses it, appends a record below, and increments next_episode. rss_show_id holds the RSS.com podcast id for this show (discovered by title via GET /v4/podcasts on first upload, then cached here). rss_status per episode: not_uploaded -> draft -> scheduled/published (the owner publishes manually on RSS.com).",
-  "episodes": []
+  "episodes": [
+    {
+      "season": 2,
+      "episode": 1,
+      "type": "deep-dive",
+      "date": "2026-09-02",
+      "week_of": "2026-08-27..2026-09-02",
+      "title": "Deep Dive: When AI Crosses the Critical Line \u2014 Inside OpenAI's Astra",
+      "description": "OpenAI's Astra is the first model ever assessed as reaching \"Critical\" cyber capability under the company's Preparedness Framework \u2014 able to find and exploit previously-unknown zero-days in hardened systems and plan/execute end-to-end cyberattacks from only a high-level goal, without step-by-step human guidance. This episode digs into what that threshold means, how a capability like this gets evaluated and gated, and why Astra still ships \u2014 just with tightened access controls and monitoring rather than staying on the shelf. Source: https://openai.com/index/path-to-astra/",
+      "audio": "podcasts/S2E01-2026-09-02-deep-dive.m4a",
+      "audio_url": "https://raw.githubusercontent.com/peterlcy1992/genai_learning_repository/main/podcasts/S2E01-2026-09-02-deep-dive.m4a",
+      "cover": "docs/thumbnails/podcast/S2E01-2026-09-02-deep-dive.png",
+      "sources": [
+        "https://openai.com/index/path-to-astra/"
+      ],
+      "notebook_id": "98c1cf38-2f7b-4f3f-9f1e-b1d5f8a50d0c",
+      "rss_status": "draft",
+      "rss_episode_id": 3115742
+    }
+  ]
 }
