@@ -318,7 +318,7 @@
         (always current at the link above), and your daily email always carries the latest.</p>
       <script type="text/markdown" id="latest-digest">
 <!-- LATEST_DIGEST_START -->
-# Daily GenAI digest — 2026-09-02
+# Daily GenAI digest — 2026-09-03
 
 **Your stage:** Stage 0 — Foundations: before the Transformer
 **Next action:** Read [`knowledge_bank/00_foundations.md`](../knowledge_bank/00_foundations.md),
@@ -330,43 +330,38 @@ was born, and it makes Stage 1 (the Transformer) feel inevitable.
 
 ## Today's highlights
 
-A busy release day rather than a research day — four notable items, all model
-releases or safety-framework news, none of them arXiv papers. All are Stage
-4/5/7 material, well ahead of where you are, but worth knowing exist.
+A quieter, research-flavored day — three fresh arXiv papers (all submitted
+Sept 1–2), no major model releases. All are firmly Stage 7 territory, well
+ahead of where you are, but worth knowing exist.
 
-### OpenAI's Astra becomes the first model to cross the "Critical" cyber capability threshold
-- **Type:** blog / safety framework update
-- **Link:** https://openai.com/index/path-to-astra/
-- **Why it matters:** Under OpenAI's Preparedness Framework, Astra is the first model assessed as reaching "Critical" cyber capability — finding and exploiting previously-unknown zero-days in hardened systems, and planning/executing end-to-end cyberattacks from only a high-level goal, without step-by-step human help. It will still ship, but with tightened access controls and monitoring — a real example of a capability threshold translating into deployment restrictions rather than staying theoretical.
-- **Relates to:** Stage 5 — Alignment & post-training (capability evaluation, safeguards); also Stage 7 — Frontier systems.
+### Latent Recurrent Thoughts: reasoning in continuous latent space with a frozen LLM
+- **Type:** paper
+- **Link:** https://arxiv.org/abs/2609.01117
+- **Why it matters:** Instead of chain-of-thought in discrete token space (where errors propagate word by word), this keeps a large LLM frozen and adds a small recurrent "reasoner" that refines continuous latent-vector thoughts over many steps before the frozen LLM decodes an answer. It decouples how much reasoning compute you spend from how big the underlying model is — a different knob than the token-hungry chain-of-thought most reasoning models use today.
+- **Relates to:** Stage 7 — Frontier systems (reasoning/"thinking" models); also Stage 3 — Scale and emergence (test-time compute).
 
-### Anthropic ships Claude Fable 5.1 and Mythos 5.1
-- **Type:** model release
-- **Link:** https://www.anthropic.com/claude-fable-and-mythos-5-1
-- **Why it matters:** Same model, two safeguard tiers — Fable 5.1 generally available, Mythos 5.1 gated to trusted cybersecurity/life-sciences access. Notable for root-cause-first debugging behavior, a 75% cut to cached-input pricing (up to 45% cheaper overall for agentic workloads), ~60% fewer Claude Code cybersecurity false positives, and EU AI Act-compliant invisible watermarking.
-- **Relates to:** Stage 7 — Frontier systems; also Stage 4 — Efficiency & building blocks (cache pricing).
+### MASkills: continual skill learning for multi-agent LLM systems
+- **Type:** paper (EMNLP 2026 Findings)
+- **Link:** https://arxiv.org/abs/2609.02094
+- **Why it matters:** Most multi-agent systems either stay static or accumulate hard-to-reuse "experience memories." MASkills instead has agents build and refine a library of structured, actionable skills (when to act, how, with which tools) via skill-conditioned credit assignment and pruning — showing gains on HotpotQA, LoCoMo, and GAIA. A concrete data point on how multi-agent systems might actually improve from experience rather than restarting from scratch each run.
+- **Relates to:** Stage 7 — Frontier systems (agents).
 
-### Google previews Gemini 3.8 Flash, a coding-focused Flash model
-- **Type:** model release
-- **Link:** https://www.investing.com/news/stock-market-news/google-prepares-gemini-38-flash-to-narrow-ai-coding-gap-wsj-reports-4884683
-- **Why it matters:** A smaller Flash-tier model explicitly aimed at closing Google's coding gap with OpenAI/Anthropic — notable mostly for the pace (barely three weeks after Gemini 3.7 Flash) rather than any architectural novelty.
-- **Relates to:** Stage 7 — Frontier systems; also Stage 4 — Efficiency & building blocks.
-
-### Qwen3.8-Max-0902: a same-price snapshot update with a big coding/agent jump
-- **Type:** model release
-- **Link:** https://technode.com/2026/09/02/alibaba-upgrades-qwen38-max-with-new-0902-snapshot/
-- **Why it matters:** Re-post-training alone (no architecture or scale change, unchanged pricing) moved all 8 programming benchmarks up, and now beats Claude Opus 5 on three of them — a clean illustration of how much headroom post-training still has independent of pretraining scale.
-- **Relates to:** Stage 5 — Alignment & post-training (post-training's impact); also Stage 7 — Frontier systems.
+### Thinking effort aligns between humans and reasoning models in abductive reasoning
+- **Type:** paper
+- **Link:** https://arxiv.org/abs/2609.01867
+- **Why it matters:** Reasoning models (LRMs) are trained with RL on verifiable rewards to search for correct answers, not to mimic human text — so it's not obvious their "effort" should track human effort. Using abductive reasoning (where difficulty can't be inferred from surface structure, closing off cheap shortcuts), this finds LRM thinking-effort and error patterns do track human ones — a small but genuine data point on what RLVR training actually selects for.
+- **Relates to:** Stage 7 — Frontier systems (reasoning models); also Stage 5 — Alignment & post-training (RL post-training).
 
 ---
 
 ## 📌 If you read one thing today
-None of today's news is where you are yet — stick with the **foundations note**
+Skip the papers for now and stay with the **foundations note**
 ([`knowledge_bank/00_foundations.md`](../knowledge_bank/00_foundations.md)) and
-the Bahdanau attention paper. If you want a taste of where this is heading, the
-Astra item is the most conceptually interesting: it's a concrete look at how
-labs formally define and gate dangerous capability levels, a theme (safety
-evaluation, alignment) you'll meet properly at Stage 5.
+the Bahdanau attention paper — that's the one piece of reading that unlocks
+everything else on this list. If you want a preview of where "reasoning
+models" are heading, the Latent Recurrent Thoughts paper is the most
+conceptually interesting of today's three: it's a glimpse of chain-of-thought's
+likely successor.
 
 ---
 *This digest was generated automatically. Full rolling log:

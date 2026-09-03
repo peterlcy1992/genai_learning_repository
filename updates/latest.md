@@ -25,6 +25,26 @@ Each entry follows this format:
 
 <!-- NEW ENTRIES GO BELOW THIS LINE -->
 
+## 2026-09-03
+
+### Latent Recurrent Thoughts: reasoning in continuous latent space with a frozen LLM
+- **Type:** paper
+- **Source:** https://arxiv.org/abs/2609.01117
+- **Why it matters:** Instead of chain-of-thought in discrete token space (where errors propagate word by word), this keeps a large LLM frozen and adds a small recurrent "reasoner" that refines continuous latent-vector thoughts over many steps before the frozen LLM decodes an answer. It decouples how much reasoning compute you spend from how big the underlying model is — a different knob than the token-hungry chain-of-thought most reasoning models use today.
+- **Relates to:** Stage 7 — Frontier systems (reasoning/"thinking" models); also Stage 3 — Scale and emergence (test-time compute).
+
+### MASkills: continual skill learning for multi-agent LLM systems
+- **Type:** paper (EMNLP 2026 Findings)
+- **Source:** https://arxiv.org/abs/2609.02094
+- **Why it matters:** Most multi-agent systems either stay static or accumulate hard-to-reuse "experience memories." MASkills instead has agents build and refine a library of structured, actionable skills (when to act, how, with which tools) via skill-conditioned credit assignment and pruning — showing gains on HotpotQA, LoCoMo, and GAIA. A concrete data point on how multi-agent systems might actually improve from experience rather than restarting from scratch each run.
+- **Relates to:** Stage 7 — Frontier systems (agents).
+
+### Thinking effort aligns between humans and reasoning models in abductive reasoning
+- **Type:** paper
+- **Source:** https://arxiv.org/abs/2609.01867
+- **Why it matters:** Reasoning models (LRMs) are trained with RL on verifiable rewards to search for correct answers, not to mimic human text — so it's not obvious their "effort" should track human effort. Using abductive reasoning (where difficulty can't be inferred from surface structure, closing off cheap shortcuts), this finds LRM thinking-effort and error patterns do track human ones — a small but genuine data point on what RLVR training actually selects for.
+- **Relates to:** Stage 7 — Frontier systems (reasoning models); also Stage 5 — Alignment & post-training (RL post-training).
+
 ## 2026-09-02
 
 ### OpenAI's Astra becomes the first model to cross the "Critical" cyber capability threshold
