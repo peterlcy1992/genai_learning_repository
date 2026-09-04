@@ -25,6 +25,32 @@ Each entry follows this format:
 
 <!-- NEW ENTRIES GO BELOW THIS LINE -->
 
+## 2026-09-04
+
+### GPT-6 Astra launches: OpenAI's first "Critical"-cyber, computer-use-focused flagship
+- **Type:** model release
+- **Source:** https://openai.com/index/gpt-6-astra/ (also https://openai.com/index/safety-overview-gpt-6-astra/, https://www.cnbc.com/2026/09/03/open-ai-astra-gpt-6-cyber.html)
+- **Why it matters:** Following the Sept 1 announcement that Astra would cross the "Critical" cyber-capability threshold, OpenAI has now actually rolled it out — pitched as "anything you can do on a computer, Astra can do for you," with reported scores of ~98% on FrontierMath Tier 4, 99.9% on ARC-AGI-3, and 100% on ExploitBench. OpenAI frames it as its most aligned model yet (far lower out-of-scope action rate than its predecessor), but access is being gated behind its cybersecurity partner program first — a concrete case study in shipping a highly capable agentic model with staged access controls rather than a blanket release.
+- **Relates to:** Stage 7 — Frontier systems (agents, computer use, reasoning models); also Stage 5 — Alignment & post-training (staged capability access).
+
+### NVIDIA to acquire Hugging Face for ~$13B
+- **Type:** blog / industry news
+- **Source:** https://blogs.nvidia.com/blog/nvidia-to-acquire-hugging-face/ (also https://techcrunch.com/2026/09/03/nvidia-confirms-it-will-buy-hugging-face-for-12-9-billion/)
+- **Why it matters:** Hugging Face — host to ~3M models, ~500K datasets, and the de facto distribution layer for open-weight GenAI — is being acquired by NVIDIA, which says the platform and its open-source mission will continue to operate independently. Worth tracking less as a research result and more as an ecosystem/infrastructure shift: a huge share of the open-model tooling this knowledge bank references (weights, Spaces, Daily Papers) now sits inside the largest AI-hardware company.
+- **Relates to:** Stage 4 — Efficiency & building blocks (open-model ecosystem); also Stage 7 — Frontier systems.
+
+### Post-Training Language Models for Gold-Medal Performance in Coding Competitions
+- **Type:** paper
+- **Source:** https://arxiv.org/abs/2609.02849
+- **Why it matters:** NVIDIA researchers take a 30B-A3B model (Nemotron-3-Nano-CC) through curated-problem SFT + RL, then add GenCorrect — a feedback-driven test-time-compute loop that generates, evaluates, and refines candidate solutions — and clear IOI 2025's gold-medal threshold (468 points vs. a 438.3 bar), up from a 130-point base model. A clean, reproducible illustration of how far SFT + RL + structured test-time compute (rather than raw scale) can push competitive-programming performance.
+- **Relates to:** Stage 5 — Alignment & post-training (RL post-training); also Stage 7 — Frontier systems (reasoning/coding agents).
+
+### Towards a Statistical Understanding of Mixture-of-Experts
+- **Type:** paper
+- **Source:** https://arxiv.org/abs/2609.03501
+- **Why it matters:** Most MoE progress has been empirical (routing tricks, load-balancing losses, shared experts); this paper works out oracle risk bounds for dense vs. sparse (Top-K) routing with evolving experts, giving a statistical account of why sparse routing can preserve the benefits of localized aggregation while capping per-input compute. Useful theoretical grounding under a technique that now underlies most efficient frontier-class models.
+- **Relates to:** Stage 4 — Efficiency & building blocks (MoE).
+
 ## 2026-09-03
 
 ### Latent Recurrent Thoughts: reasoning in continuous latent space with a frozen LLM

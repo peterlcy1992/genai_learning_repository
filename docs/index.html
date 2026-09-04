@@ -318,50 +318,57 @@
         (always current at the link above), and your daily email always carries the latest.</p>
       <script type="text/markdown" id="latest-digest">
 <!-- LATEST_DIGEST_START -->
-# Daily GenAI digest — 2026-09-03
+# Daily GenAI digest — 2026-09-04
 
 **Your stage:** Stage 0 — Foundations: before the Transformer
 **Next action:** Read [`knowledge_bank/00_foundations.md`](../knowledge_bank/00_foundations.md),
 then the primary paper — Bahdanau et al. (2014), *Neural Machine Translation by
-Jointly Learning to Align and Translate* (arXiv:1409.0473). It's where "attention"
-was born, and it makes Stage 1 (the Transformer) feel inevitable.
+Jointly Learning to Align and Translate* (arXiv:1409.0473). That's the paper
+where "attention" was born, and it's what makes the Transformer (Stage 1) feel
+like an inevitable next step rather than a leap out of nowhere.
 
 ---
 
 ## Today's highlights
 
-A quieter, research-flavored day — three fresh arXiv papers (all submitted
-Sept 1–2), no major model releases. All are firmly Stage 7 territory, well
-ahead of where you are, but worth knowing exist.
+A busier day than yesterday, mixing one very high-profile model launch, one
+industry/infrastructure story, and two solid research papers. All four sit
+well ahead of where you are on the learning plan (Stage 0), but they're worth
+knowing exist — you'll recognize the shape of these ideas once you get to
+Stages 5 and 7.
 
-### Latent Recurrent Thoughts: reasoning in continuous latent space with a frozen LLM
+### GPT-6 Astra launches: OpenAI's first "Critical"-cyber, computer-use-focused flagship
+- **Type:** model release
+- **Link:** https://openai.com/index/gpt-6-astra/ (safety overview: https://openai.com/index/safety-overview-gpt-6-astra/)
+- **Why it matters:** Following the Sept 1 announcement that Astra would cross the "Critical" cyber-capability threshold, OpenAI has now actually rolled it out — pitched as "anything you can do on a computer, Astra can do for you," with reported scores of ~98% on FrontierMath Tier 4, 99.9% on ARC-AGI-3, and 100% on ExploitBench. OpenAI frames it as its most aligned model yet, but access is being gated behind its cybersecurity partner program first — a concrete case study in shipping a highly capable agentic model with staged access controls rather than a blanket release.
+- **Relates to:** Stage 7 — Frontier systems (agents, computer use, reasoning models); also Stage 5 — Alignment & post-training (staged capability access).
+
+### NVIDIA to acquire Hugging Face for ~$13B
+- **Type:** blog / industry news
+- **Link:** https://blogs.nvidia.com/blog/nvidia-to-acquire-hugging-face/
+- **Why it matters:** Hugging Face — host to ~3M models and ~500K datasets, and the de facto distribution layer for open-weight GenAI — is being acquired by NVIDIA, which says the platform and its open-source mission will continue independently. Less a research result than an ecosystem shift: a lot of the open-model infrastructure this knowledge bank references now sits inside the biggest AI-hardware company.
+- **Relates to:** Stage 4 — Efficiency & building blocks (open-model ecosystem); also Stage 7 — Frontier systems.
+
+### Post-Training Language Models for Gold-Medal Performance in Coding Competitions
 - **Type:** paper
-- **Link:** https://arxiv.org/abs/2609.01117
-- **Why it matters:** Instead of chain-of-thought in discrete token space (where errors propagate word by word), this keeps a large LLM frozen and adds a small recurrent "reasoner" that refines continuous latent-vector thoughts over many steps before the frozen LLM decodes an answer. It decouples how much reasoning compute you spend from how big the underlying model is — a different knob than the token-hungry chain-of-thought most reasoning models use today.
-- **Relates to:** Stage 7 — Frontier systems (reasoning/"thinking" models); also Stage 3 — Scale and emergence (test-time compute).
+- **Link:** https://arxiv.org/abs/2609.02849
+- **Why it matters:** NVIDIA researchers take a 30B-A3B model through curated-problem SFT + RL, then add GenCorrect — a feedback-driven test-time-compute loop that generates, evaluates, and refines candidate solutions — and clear IOI 2025's gold-medal threshold (468 points vs. a 438.3 bar), up from a 130-point base model. A clean illustration of how far SFT + RL + structured test-time compute (not just raw scale) can push competitive-programming performance.
+- **Relates to:** Stage 5 — Alignment & post-training (RL post-training); also Stage 7 — Frontier systems (reasoning/coding agents).
 
-### MASkills: continual skill learning for multi-agent LLM systems
-- **Type:** paper (EMNLP 2026 Findings)
-- **Link:** https://arxiv.org/abs/2609.02094
-- **Why it matters:** Most multi-agent systems either stay static or accumulate hard-to-reuse "experience memories." MASkills instead has agents build and refine a library of structured, actionable skills (when to act, how, with which tools) via skill-conditioned credit assignment and pruning — showing gains on HotpotQA, LoCoMo, and GAIA. A concrete data point on how multi-agent systems might actually improve from experience rather than restarting from scratch each run.
-- **Relates to:** Stage 7 — Frontier systems (agents).
-
-### Thinking effort aligns between humans and reasoning models in abductive reasoning
+### Towards a Statistical Understanding of Mixture-of-Experts
 - **Type:** paper
-- **Link:** https://arxiv.org/abs/2609.01867
-- **Why it matters:** Reasoning models (LRMs) are trained with RL on verifiable rewards to search for correct answers, not to mimic human text — so it's not obvious their "effort" should track human effort. Using abductive reasoning (where difficulty can't be inferred from surface structure, closing off cheap shortcuts), this finds LRM thinking-effort and error patterns do track human ones — a small but genuine data point on what RLVR training actually selects for.
-- **Relates to:** Stage 7 — Frontier systems (reasoning models); also Stage 5 — Alignment & post-training (RL post-training).
+- **Link:** https://arxiv.org/abs/2609.03501
+- **Why it matters:** Most MoE progress has been empirical (routing tricks, load-balancing losses, shared experts); this paper works out oracle risk bounds for dense vs. sparse (Top-K) routing with evolving experts, giving a statistical account of why sparse routing can preserve the benefits of localized aggregation while capping per-input compute — theory underneath a technique that now powers most efficient frontier-class models.
+- **Relates to:** Stage 4 — Efficiency & building blocks (MoE).
 
 ---
 
 ## 📌 If you read one thing today
-Skip the papers for now and stay with the **foundations note**
-([`knowledge_bank/00_foundations.md`](../knowledge_bank/00_foundations.md)) and
-the Bahdanau attention paper — that's the one piece of reading that unlocks
-everything else on this list. If you want a preview of where "reasoning
-models" are heading, the Latent Recurrent Thoughts paper is the most
-conceptually interesting of today's three: it's a glimpse of chain-of-thought's
-likely successor.
+Stay with the foundations for now — the GPT-6 Astra launch is loud, but it's
+a Stage 7 story, and you'll get far more out of it once you've built up the
+attention/seq2seq intuition first. If you want one non-foundations read for
+context, skim the GPT-6 Astra announcement just to see where the arc you're
+about to start studying eventually leads.
 
 ---
 *This digest was generated automatically. Full rolling log:
