@@ -2,7 +2,7 @@
   "show": "The GenAI Evolution Atlas",
   "rss_show_id": 400601,
   "season": 2,
-  "next_episode": 2,
+  "next_episode": 3,
   "notes": "Single shared episode counter across both weekly formats. Each run reads next_episode, uses it, appends a record below, and increments next_episode. rss_show_id holds the RSS.com podcast id for this show (discovered by title via GET /v4/podcasts on first upload, then cached here). rss_status per episode: not_uploaded -> draft -> scheduled/published (the owner publishes manually on RSS.com).",
   "episodes": [
     {
@@ -22,6 +22,42 @@
       "notebook_id": "98c1cf38-2f7b-4f3f-9f1e-b1d5f8a50d0c",
       "rss_status": "draft",
       "rss_episode_id": 3115742
+    },
+    {
+      "season": 2,
+      "episode": 2,
+      "type": "roundup",
+      "date": "2026-09-04",
+      "week_of": "2026-08-31..2026-09-04",
+      "title": "GenAI News Roundup \u2014 week of Aug 31\u2013Sep 4",
+      "description": "This week: OpenAI's Astra crosses the \"Critical\" cyber capability threshold and then actually ships as GPT-6 Astra, NVIDIA moves to acquire Hugging Face for ~$13B days after OpenAI's own Hugging Face security-incident report, and labs keep converging on the same sparse-MoE + hybrid-attention playbook \u2014 plus commentary and what's next. Covers: the OpenAI Hugging Face incident report; GLM-5.3-Flash and its architectural convergence with Qwen3.8-Flash-Next; Anthropic's automated-alignment-researcher results; DeepSeek V4-Pro's GA; ContextPilot and PLVR; OpenAI's Astra Critical-threshold announcement and the GPT-6 Astra launch; Claude Fable 5.1 and Mythos 5.1; Gemini 3.8 Flash; Qwen3.8-Max-0902; Latent Recurrent Thoughts; MASkills; thinking-effort alignment in abductive reasoning; NVIDIA's Hugging Face acquisition; NVIDIA's gold-medal competitive-programming post-training work; and a statistical theory of Mixture-of-Experts.",
+      "audio": "podcasts/S2E02-2026-09-04-roundup.m4a",
+      "audio_url": "https://raw.githubusercontent.com/peterlcy1992/genai_learning_repository/main/podcasts/S2E02-2026-09-04-roundup.m4a",
+      "cover": "docs/thumbnails/podcast/S2E02-2026-09-04-roundup.png",
+      "sources": [
+        "https://openai.com/index/hugging-face-incident-and-the-road-ahead/",
+        "https://www.marktechpost.com/2026/08/28/glm-5-3-flash-vs-qwen3-8-flash-next-two-chinese-ai-labs-independently-converge-on-the-same-model-architecture/",
+        "https://alignment.anthropic.com/2026/automated-alignment-researchers/",
+        "https://www.marktechpost.com/2026/08/26/z-ai-releases-glm-5-3-flash-a-320b-a18b-natively-multimodal-moe-with-a-1m-token-context/",
+        "https://www.sitepoint.com/deepseek-v4-released-whats-new-in-the-latest-model-2026/",
+        "https://arxiv.org/abs/2608.28476",
+        "https://arxiv.org/abs/2608.28421",
+        "https://openai.com/index/path-to-astra/",
+        "https://www.anthropic.com/claude-fable-and-mythos-5-1",
+        "https://www.investing.com/news/stock-market-news/google-prepares-gemini-38-flash-to-narrow-ai-coding-gap-wsj-reports-4884683",
+        "https://technode.com/2026/09/02/alibaba-upgrades-qwen38-max-with-new-0902-snapshot/",
+        "https://arxiv.org/abs/2609.01117",
+        "https://arxiv.org/abs/2609.02094",
+        "https://arxiv.org/abs/2609.01867",
+        "https://openai.com/index/gpt-6-astra/",
+        "https://openai.com/index/safety-overview-gpt-6-astra/",
+        "https://blogs.nvidia.com/blog/nvidia-to-acquire-hugging-face/",
+        "https://arxiv.org/abs/2609.02849",
+        "https://arxiv.org/abs/2609.03501"
+      ],
+      "notebook_id": "6a6e5d7f-ecaf-4dc0-b8f1-185aa6b52670",
+      "rss_status": "draft",
+      "rss_episode_id": 3124264
     }
   ]
 }
