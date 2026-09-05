@@ -22,6 +22,7 @@ machine's "maybe worth a permanent note" pile; you still decide what to genuinel
 integrate (§2).
 
 <!-- FRONTIER_LOG_START -->
+- **2026-09-05** · **Anthropic's Claude formalizes Fermat's Last Theorem in Lean** — Many coordinated agents produced a full machine-checked proof of a landmark theorem in 11 days — an unforgeable, verifier-checked demonstration of long-horizon multi-agent autonomy. ([source](https://www.anthropic.com/research/formalizing-fermats-last-theorem)) · _Stage 7_
 - **2025** · **DeepSeek-R1 — open RLVR reasoning** — Open recipe showing RL on verifiable rewards induces reasoning — the test-time-compute paradigm, in the open. ([source](https://arxiv.org/abs/2501.12948)) · _Stage 7_
 - **2022** · **FlashAttention — IO-aware exact attention** — Made long context affordable by never materialising the n×n matrix; baked into every modern training stack. ([source](https://arxiv.org/abs/2205.14135)) · _Stage 4_
 - **2022** · **InstructGPT — RLHF** — Alignment, not size, makes models useful — a 1.3B RLHF model beat 175B GPT-3 on human preference. ([source](https://arxiv.org/abs/2203.02155)) · _Stage 5_

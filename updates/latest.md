@@ -25,6 +25,26 @@ Each entry follows this format:
 
 <!-- NEW ENTRIES GO BELOW THIS LINE -->
 
+## 2026-09-05
+
+### Anthropic's Claude formalizes Fermat's Last Theorem in Lean — largest machine-checked proof ever built
+- **Type:** blog / research
+- **Source:** https://www.anthropic.com/research/formalizing-fermats-last-theorem
+- **Why it matters:** Working largely autonomously over 11 days on the open Prove2Me platform, many coordinated Claude agents produced the first complete, machine-checked proof of Fermat's Last Theorem in Lean 4 — 13M+ lines of code, ~29,500 new theorems, dwarfing Lean's main math library, and closing out the 20-year-old Wiedijk "100 theorems" formalization challenge list. It's a striking, hard-to-fake data point (a proof-checker either accepts the proof or it doesn't) for how far multi-agent orchestration plus an unforgeable verifier can push long-horizon autonomous work, well beyond typical benchmark demonstrations.
+- **Relates to:** Stage 7 — Frontier systems (long-horizon multi-agent orchestration); also Stage 5 — Alignment & post-training (verifiable rewards / RLVR-style evidence at extreme scale).
+
+### Terminal-Universe: turning agent trajectories into reusable, scalable training environments
+- **Type:** paper
+- **Source:** https://arxiv.org/abs/2609.04148
+- **Why it matters:** Terminal-based coding-agent trajectories are plentiful but each is a single frozen demonstration; Terminal-Universe replays recorded file operations and uses agentic completion to reconstruct full, re-queryable executable workspaces from them, then synthesizes new cross-workspace tasks and multi-turn sessions on top. Training Qwen3.5-27B on the resulting 37.3k environments lifts Terminal-Bench 2.1 by 13.8 points — a concrete recipe for turning "exhaust" (old agent logs) into fresh RL training environments rather than needing hand-built ones.
+- **Relates to:** Stage 7 — Frontier systems (agents, tool use); also Stage 4 — Efficiency & building blocks (training-data/environment generation).
+
+### LLaDA-Image: a fully open recipe for a state-of-the-art open image generator
+- **Type:** paper
+- **Source:** https://arxiv.org/abs/2609.03796
+- **Why it matters:** A 6B diffusion transformer paired with a frozen diffusion-LM vision-language backbone (LLaDA2.0-Mini), trained image-only first to build a strong visual prior before adding paired image-text data, sets a new open-source state of the art on Qwen-Image-Bench (both English and Chinese tracks) and distills down to a 2–4-step "Turbo" variant. Notable for releasing weights, training code, and the full recipe — a rarer, fully-open counterpart to the closed frontier image/video models.
+- **Relates to:** Stage 6 — Multimodality (diffusion, vision-language models).
+
 ## 2026-09-04
 
 ### GPT-6 Astra launches: OpenAI's first "Critical"-cyber, computer-use-focused flagship

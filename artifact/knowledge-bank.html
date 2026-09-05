@@ -292,7 +292,7 @@
         (always current at the link above), and your daily email always carries the latest.</p>
       <script type="text/markdown" id="latest-digest">
 <!-- LATEST_DIGEST_START -->
-# Daily GenAI digest — 2026-09-04
+# Daily GenAI digest — 2026-09-05
 
 **Your stage:** Stage 0 — Foundations: before the Transformer
 **Next action:** Read [`knowledge_bank/00_foundations.md`](../knowledge_bank/00_foundations.md),
@@ -305,44 +305,50 @@ like an inevitable next step rather than a leap out of nowhere.
 
 ## Today's highlights
 
-A busier day than yesterday, mixing one very high-profile model launch, one
-industry/infrastructure story, and two solid research papers. All four sit
-well ahead of where you are on the learning plan (Stage 0), but they're worth
-knowing exist — you'll recognize the shape of these ideas once you get to
-Stages 5 and 7.
+A quieter day on the model-release front (no new frontier launches tracked for
+today), but one genuinely striking research milestone plus two solid papers.
+All three sit well ahead of where you are on the learning plan (Stage 0), but
+they're worth knowing exist — you'll recognize the shape of these ideas once
+you get to Stages 5, 6, and 7.
 
-### GPT-6 Astra launches: OpenAI's first "Critical"-cyber, computer-use-focused flagship
-- **Type:** model release
-- **Link:** https://openai.com/index/gpt-6-astra/ (safety overview: https://openai.com/index/safety-overview-gpt-6-astra/)
-- **Why it matters:** Following the Sept 1 announcement that Astra would cross the "Critical" cyber-capability threshold, OpenAI has now actually rolled it out — pitched as "anything you can do on a computer, Astra can do for you," with reported scores of ~98% on FrontierMath Tier 4, 99.9% on ARC-AGI-3, and 100% on ExploitBench. OpenAI frames it as its most aligned model yet, but access is being gated behind its cybersecurity partner program first — a concrete case study in shipping a highly capable agentic model with staged access controls rather than a blanket release.
-- **Relates to:** Stage 7 — Frontier systems (agents, computer use, reasoning models); also Stage 5 — Alignment & post-training (staged capability access).
+### Anthropic's Claude formalizes Fermat's Last Theorem in Lean — largest machine-checked proof ever built
+- **Type:** blog / research
+- **Link:** https://www.anthropic.com/research/formalizing-fermats-last-theorem
+- **Why it matters:** Working largely autonomously over 11 days on the open Prove2Me platform, many coordinated Claude agents produced the first complete, machine-checked proof of Fermat's Last Theorem in Lean 4 — 13M+ lines of code, ~29,500 new theorems, dwarfing Lean's main math library, and closing out the 20-year-old Wiedijk "100 theorems" formalization challenge list. It's a striking, hard-to-fake data point (a proof-checker either accepts the proof or it doesn't) for how far multi-agent orchestration plus an unforgeable verifier can push long-horizon autonomous work, well beyond typical benchmark demonstrations.
+- **Relates to:** Stage 7 — Frontier systems (long-horizon multi-agent orchestration); also Stage 5 — Alignment & post-training (verifiable rewards / RLVR-style evidence at extreme scale).
 
-### NVIDIA to acquire Hugging Face for ~$13B
-- **Type:** blog / industry news
-- **Link:** https://blogs.nvidia.com/blog/nvidia-to-acquire-hugging-face/
-- **Why it matters:** Hugging Face — host to ~3M models and ~500K datasets, and the de facto distribution layer for open-weight GenAI — is being acquired by NVIDIA, which says the platform and its open-source mission will continue independently. Less a research result than an ecosystem shift: a lot of the open-model infrastructure this knowledge bank references now sits inside the biggest AI-hardware company.
-- **Relates to:** Stage 4 — Efficiency & building blocks (open-model ecosystem); also Stage 7 — Frontier systems.
-
-### Post-Training Language Models for Gold-Medal Performance in Coding Competitions
+### Terminal-Universe: turning agent trajectories into reusable, scalable training environments
 - **Type:** paper
-- **Link:** https://arxiv.org/abs/2609.02849
-- **Why it matters:** NVIDIA researchers take a 30B-A3B model through curated-problem SFT + RL, then add GenCorrect — a feedback-driven test-time-compute loop that generates, evaluates, and refines candidate solutions — and clear IOI 2025's gold-medal threshold (468 points vs. a 438.3 bar), up from a 130-point base model. A clean illustration of how far SFT + RL + structured test-time compute (not just raw scale) can push competitive-programming performance.
-- **Relates to:** Stage 5 — Alignment & post-training (RL post-training); also Stage 7 — Frontier systems (reasoning/coding agents).
+- **Link:** https://arxiv.org/abs/2609.04148
+- **Why it matters:** Terminal-based coding-agent trajectories are plentiful but each is a single frozen demonstration; Terminal-Universe replays recorded file operations and uses agentic completion to reconstruct full, re-queryable executable workspaces from them, then synthesizes new cross-workspace tasks and multi-turn sessions on top. Training Qwen3.5-27B on the resulting 37.3k environments lifts Terminal-Bench 2.1 by 13.8 points — a concrete recipe for turning "exhaust" (old agent logs) into fresh RL training environments rather than needing hand-built ones.
+- **Relates to:** Stage 7 — Frontier systems (agents, tool use); also Stage 4 — Efficiency & building blocks (training-data/environment generation).
 
-### Towards a Statistical Understanding of Mixture-of-Experts
+### LLaDA-Image: a fully open recipe for a state-of-the-art open image generator
 - **Type:** paper
-- **Link:** https://arxiv.org/abs/2609.03501
-- **Why it matters:** Most MoE progress has been empirical (routing tricks, load-balancing losses, shared experts); this paper works out oracle risk bounds for dense vs. sparse (Top-K) routing with evolving experts, giving a statistical account of why sparse routing can preserve the benefits of localized aggregation while capping per-input compute — theory underneath a technique that now powers most efficient frontier-class models.
-- **Relates to:** Stage 4 — Efficiency & building blocks (MoE).
+- **Link:** https://arxiv.org/abs/2609.03796
+- **Why it matters:** A 6B diffusion transformer paired with a frozen diffusion-LM vision-language backbone (LLaDA2.0-Mini), trained image-only first to build a strong visual prior before adding paired image-text data, sets a new open-source state of the art on Qwen-Image-Bench (both English and Chinese tracks) and distills down to a 2–4-step "Turbo" variant. Notable for releasing weights, training code, and the full recipe — a rarer, fully-open counterpart to the closed frontier image/video models.
+- **Relates to:** Stage 6 — Multimodality (diffusion, vision-language models).
+
+---
+
+## 🧭 Frontier log update
+
+The Fermat's Last Theorem formalization was added to the Stage 8 Frontier log
+(`knowledge_bank/08_staying_current.md`) — not because it introduces a new
+training method, but because it's an unusually well-evidenced proof point (a
+proof-checker can't be fooled) for multi-agent, long-horizon autonomous work
+holding up on a genuinely hard, previously-unformalized problem. Worth
+recognizing once you reach Stage 7.
 
 ---
 
 ## 📌 If you read one thing today
-Stay with the foundations for now — the GPT-6 Astra launch is loud, but it's
-a Stage 7 story, and you'll get far more out of it once you've built up the
-attention/seq2seq intuition first. If you want one non-foundations read for
-context, skim the GPT-6 Astra announcement just to see where the arc you're
-about to start studying eventually leads.
+Stay with the foundations for now, but if you want one non-foundations read,
+skim the Fermat's Last Theorem announcement — not for the math, but for the
+"11 days, largely autonomous, many coordinated agents" framing. That's the
+kind of long-horizon, verifier-checked agentic workflow you'll be studying in
+Stage 7, and it's a vivid preview of where the arc you're about to start
+eventually leads.
 
 ---
 *This digest was generated automatically. Full rolling log:
@@ -1386,6 +1392,7 @@ about to start studying eventually leads.
         what to truly integrate.</p></div>
       <script type="text/markdown" id="frontier-log">
 <!-- FRONTIER_LOG_START -->
+- **2026-09-05** · **Anthropic's Claude formalizes Fermat's Last Theorem in Lean** — Many coordinated agents produced a full machine-checked proof of a landmark theorem in 11 days — an unforgeable, verifier-checked demonstration of long-horizon multi-agent autonomy. ([source](https://www.anthropic.com/research/formalizing-fermats-last-theorem)) · _Stage 7_
 - **2025** · **DeepSeek-R1 — open RLVR reasoning** — Open recipe showing RL on verifiable rewards induces reasoning — the test-time-compute paradigm, in the open. ([source](https://arxiv.org/abs/2501.12948)) · _Stage 7_
 - **2022** · **FlashAttention — IO-aware exact attention** — Made long context affordable by never materialising the n×n matrix; baked into every modern training stack. ([source](https://arxiv.org/abs/2205.14135)) · _Stage 4_
 - **2022** · **InstructGPT — RLHF** — Alignment, not size, makes models useful — a 1.3B RLHF model beat 175B GPT-3 on human preference. ([source](https://arxiv.org/abs/2203.02155)) · _Stage 5_
