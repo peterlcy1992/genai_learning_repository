@@ -25,6 +25,14 @@ Each entry follows this format:
 
 <!-- NEW ENTRIES GO BELOW THIS LINE -->
 
+## 2026-09-06
+
+### Rethinking On-Policy Distillation of Large Language Models II: One Training Example
+- **Type:** paper
+- **Source:** https://arxiv.org/abs/2609.04172
+- **Why it matters:** Follow-up to the authors' earlier on-policy distillation (OPD) study, this asks how much training data OPD actually needs and finds a single query keeps improving a student model for hundreds of steps, reaching 71.5% of the "state coverage" (fraction of states full-data OPD visits) that the full dataset gets, with most of that in the first 100 steps; 16 semantically distinct queries reach 98.9% coverage and match full-data training. A concrete, quantified case that student-generated rollouts plus dense teacher supervision can make distillation dramatically more data-efficient than expected — useful for anyone building cheaper post-training pipelines.
+- **Relates to:** Stage 4 — Efficiency & building blocks (data-efficient training); also Stage 5 — Alignment & post-training (on-policy distillation as an RL-adjacent post-training method).
+
 ## 2026-09-05
 
 ### Anthropic's Claude formalizes Fermat's Last Theorem in Lean — largest machine-checked proof ever built
