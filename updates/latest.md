@@ -25,6 +25,26 @@ Each entry follows this format:
 
 <!-- NEW ENTRIES GO BELOW THIS LINE -->
 
+## 2026-09-07
+
+### OpenAI hits its "automated research intern" milestone
+- **Type:** blog / research
+- **Source:** https://openai.com/index/research-acceleration-view-inside-openai/
+- **Why it matters:** OpenAI says it has reached the goal it set last October — an "automated research intern" agentic system that can carry out well-defined research tasks under human direction, including work that would take a skilled researcher several days — and that its research org now runs the equivalent of 3.1 agent-workdays of agentic effort per human workday (with its heaviest internal users spending upwards of $7k/day in inference). A rare, dated, inside-the-lab checkpoint on the path OpenAI has publicly staked out toward an "automated AI researcher" by March 2028.
+- **Relates to:** Stage 7 — Frontier systems (agents); also Stage 3 — Scale and emergence (self-reported capability milestones).
+
+### From Language Models to World-Acting Systems: Progress and Limits of Agentic AI
+- **Type:** paper
+- **Source:** https://arxiv.org/abs/2609.04894
+- **Why it matters:** A critical review (evidence current through Aug 31, 2026) that deliberately separates model competence, harness/system integration, temporal persistence, and safe authority — four things "agentic AI" headlines usually blur together — and concludes that expanding what agents can be plugged into (tools, interfaces) is documented far more convincingly than what they can reliably finish, recover from, or be safely authorized to do unsupervised. A useful corrective lens for reading every other agent-progress claim in this log.
+- **Relates to:** Stage 7 — Frontier systems (agents, tool use).
+
+### Compile by Training: Turning Natural-Language Specifications into Local Neural Functions
+- **Type:** paper
+- **Source:** https://arxiv.org/abs/2609.04199
+- **Why it matters:** For recurring text tasks that are easy to describe but awkward to hand-code, this "compiles" a natural-language spec into a small local adapter — teacher LLMs generate task-specific training examples once, at compile time, and the resulting function then runs standalone, without calling the teachers per input — reaching 83.6% semantic accuracy on FuzzyBench-Hard. A concrete recipe for turning one-off prompting into cheap, versionable, offline software rather than a repeated API call.
+- **Relates to:** Stage 4 — Efficiency & building blocks (distillation, inference-cost reduction).
+
 ## 2026-09-06
 
 ### Rethinking On-Policy Distillation of Large Language Models II: One Training Example
