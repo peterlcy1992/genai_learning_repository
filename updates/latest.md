@@ -25,6 +25,26 @@ Each entry follows this format:
 
 <!-- NEW ENTRIES GO BELOW THIS LINE -->
 
+## 2026-09-08
+
+### An Alien Mind: OpenAI's chief scientist on why alignment can't wait
+- **Type:** blog / research
+- **Source:** https://openai.com/index/an-alien-mind/
+- **Why it matters:** In an unusually direct essay, OpenAI chief scientist Jakub Pachocki argues that modern AI is not built but "grown" — the product of one simple training step run over enormous compute until capable behavior emerges — and that this makes it genuinely alien rather than engineered software. He writes plainly that "no lab has solved alignment and monitoring to a sufficient degree to continue responsibly scaling at maximum speed for much longer," framing the real goal of alignment as teaching machines to act with honesty and integrity in situations no one explicitly trained for. A rare, candid statement of concern from a sitting chief scientist at a frontier lab, worth reading alongside the rest of this log's steady drumbeat of capability announcements.
+- **Relates to:** Stage 5 — Alignment & post-training (why alignment matters, framed by a lab insider); also Stage 8 — Staying current (a durability/tone marker for the field).
+
+### Don't Drop Dropout: Optimizing Layer Sparsity for Efficient LLM Training and Inference
+- **Type:** paper
+- **Source:** https://arxiv.org/abs/2609.05275
+- **Why it matters:** Layer dropout (stochastic depth) quietly disappeared from LLM pretraining recipes as models scaled, but this ICML 2026 paper shows that with the right layer distribution, schedule, and optimizer settings, it actually lowers loss at fixed training FLOPs — and can save up to 25% of training compute for the same validation loss, while also making models more robust to post-training layer pruning. A concrete, practical case for reviving an old regularization technique that most modern training recipes dropped without re-testing at scale.
+- **Relates to:** Stage 4 — Efficiency & building blocks (training-efficiency techniques, alongside MoE and FlashAttention).
+
+### CUA-Universe: A Scalable and Dynamic Environment for Hybrid GUI+CLI Agents
+- **Type:** paper
+- **Source:** https://arxiv.org/abs/2609.05374
+- **Why it matters:** Points out that real computer work mixes visual GUI inspection with fast, precise CLI commands, but today's computer-use agents and their benchmarks (OSWorld, AndroidWorld) are almost entirely GUI-only, and existing agents can't use both modalities together. CUA-Universe is an environment-to-data pipeline that turns ordinary desktop applications into hybrid GUI+CLI environments at scale without per-app manual engineering — a building block for training agents that behave more like how people actually operate a computer.
+- **Relates to:** Stage 7 — Frontier systems (agents, tool use, computer-use).
+
 ## 2026-09-07
 
 ### OpenAI hits its "automated research intern" milestone

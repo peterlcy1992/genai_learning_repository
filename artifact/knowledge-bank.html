@@ -292,7 +292,7 @@
         (always current at the link above), and your daily email always carries the latest.</p>
       <script type="text/markdown" id="latest-digest">
 <!-- LATEST_DIGEST_START -->
-# Daily GenAI digest — 2026-09-07
+# Daily GenAI digest — 2026-09-08
 
 **Your stage:** Stage 0 — Foundations: before the Transformer
 **Next action:** Read [`knowledge_bank/00_foundations.md`](../knowledge_bank/00_foundations.md),
@@ -305,36 +305,37 @@ like an inevitable next step rather than a leap out of nowhere.
 
 ## Today's highlights
 
-No new frontier model launches today, but a solid batch on the agents front —
-including a rare inside look at how a frontier lab uses its own agents, and a
-useful corrective on what "agentic AI" progress actually means. All three sit
-well ahead of Stage 0, but they're worth filing away for when you reach Stage 7.
+A quieter day for model releases, but a genuinely notable one on tone: OpenAI's
+chief scientist published an unusually candid essay on why alignment is
+lagging capability. Alongside it, a solid efficiency paper reviving an old
+training trick, and a new agent-training environment for hybrid GUI+CLI
+computer use. All three sit well ahead of Stage 0, but worth filing away.
 
-### OpenAI hits its "automated research intern" milestone
+### An Alien Mind: OpenAI's chief scientist on why alignment can't wait
 - **Type:** blog / research
-- **Link:** https://openai.com/index/research-acceleration-view-inside-openai/
-- **Why it matters:** OpenAI says it has reached the goal it set last October — an "automated research intern" agentic system that can carry out well-defined research tasks under human direction, including work that would take a skilled researcher several days — and that its research org now runs the equivalent of 3.1 agent-workdays of agentic effort per human workday (with its heaviest internal users spending upwards of $7k/day in inference). A rare, dated, inside-the-lab checkpoint on the path OpenAI has publicly staked out toward an "automated AI researcher" by March 2028.
-- **Relates to:** Stage 7 — Frontier systems (agents); also Stage 3 — Scale and emergence (self-reported capability milestones).
+- **Link:** https://openai.com/index/an-alien-mind/
+- **Why it matters:** Jakub Pachocki argues modern AI is "grown," not engineered — the product of one simple training step run over huge compute until capable behavior emerges — and states plainly that "no lab has solved alignment and monitoring to a sufficient degree to continue responsibly scaling at maximum speed for much longer." A rare, candid admission of concern from a sitting chief scientist at a frontier lab.
+- **Relates to:** Stage 5 — Alignment & post-training; also Stage 8 — Staying current.
 
-### From Language Models to World-Acting Systems: Progress and Limits of Agentic AI
+### Don't Drop Dropout: Optimizing Layer Sparsity for Efficient LLM Training and Inference
 - **Type:** paper
-- **Link:** https://arxiv.org/abs/2609.04894
-- **Why it matters:** A critical review (evidence current through Aug 31, 2026) that deliberately separates model competence, harness/system integration, temporal persistence, and safe authority — four things "agentic AI" headlines usually blur together — and concludes that expanding what agents can be plugged into (tools, interfaces) is documented far more convincingly than what they can reliably finish, recover from, or be safely authorized to do unsupervised. A useful corrective lens for reading every other agent-progress claim in this log.
-- **Relates to:** Stage 7 — Frontier systems (agents, tool use).
+- **Link:** https://arxiv.org/abs/2609.05275
+- **Why it matters:** Layer dropout quietly vanished from LLM pretraining recipes as models scaled up, but this ICML 2026 paper shows that, tuned correctly, it lowers loss at fixed training FLOPs and can save up to 25% of training compute for the same validation loss — while also making models more robust to later layer pruning.
+- **Relates to:** Stage 4 — Efficiency & building blocks.
 
-### Compile by Training: Turning Natural-Language Specifications into Local Neural Functions
+### CUA-Universe: A Scalable and Dynamic Environment for Hybrid GUI+CLI Agents
 - **Type:** paper
-- **Link:** https://arxiv.org/abs/2609.04199
-- **Why it matters:** For recurring text tasks that are easy to describe but awkward to hand-code, this "compiles" a natural-language spec into a small local adapter — teacher LLMs generate task-specific training examples once, at compile time, and the resulting function then runs standalone, without calling the teachers per input — reaching 83.6% semantic accuracy on FuzzyBench-Hard. A concrete recipe for turning one-off prompting into cheap, versionable, offline software rather than a repeated API call.
-- **Relates to:** Stage 4 — Efficiency & building blocks (distillation, inference-cost reduction).
+- **Link:** https://arxiv.org/abs/2609.05374
+- **Why it matters:** Real computer work mixes visual GUI inspection with fast CLI commands, but most computer-use agents and benchmarks are GUI-only. This paper introduces a pipeline that turns ordinary desktop apps into hybrid GUI+CLI training environments at scale, without per-app manual engineering.
+- **Relates to:** Stage 7 — Frontier systems (agents, tool use, computer-use).
 
 ---
 
 ## 📌 If you read one thing today
 Stay with the foundations for now, but if you want one non-foundations read,
-skim the "Research acceleration" post — not for the roadmap talk, but for the
-concrete numbers on how much agentic work one lab is actually running
-internally today. It's a preview of the agent-heavy world Stage 7 covers.
+make it "An Alien Mind." It's short, unusually direct for a lab chief
+scientist, and gives useful context for why Stage 5 (alignment) matters
+before you ever get there.
 
 ---
 *This digest was generated automatically. Full rolling log:
