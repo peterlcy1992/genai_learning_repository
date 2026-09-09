@@ -2,7 +2,7 @@
   "show": "The GenAI Evolution Atlas",
   "rss_show_id": 400601,
   "season": 2,
-  "next_episode": 3,
+  "next_episode": 4,
   "notes": "Single shared episode counter across both weekly formats. Each run reads next_episode, uses it, appends a record below, and increments next_episode. rss_show_id holds the RSS.com podcast id for this show (discovered by title via GET /v4/podcasts on first upload, then cached here). rss_status per episode: not_uploaded -> draft -> scheduled/published (the owner publishes manually on RSS.com).",
   "episodes": [
     {
@@ -58,6 +58,24 @@
       "notebook_id": "6a6e5d7f-ecaf-4dc0-b8f1-185aa6b52670",
       "rss_status": "draft",
       "rss_episode_id": 3124264
+    },
+    {
+      "season": 2,
+      "episode": 3,
+      "type": "deep-dive",
+      "date": "2026-09-09",
+      "week_of": "2026-09-03..2026-09-09",
+      "title": "Deep Dive: Claude Agents Formalize Fermat's Last Theorem",
+      "description": "Working largely autonomously over 11 days on the open Prove2Me platform, many coordinated Claude agents produced the first complete, machine-checked proof of Fermat's Last Theorem in Lean 4 \u2014 over 13 million lines of code and roughly 29,500 new theorems, dwarfing Lean's existing main math library and closing out the 20-year-old Wiedijk \"100 theorems\" formalization challenge list. This episode digs into how a proof of that scale gets built and verified by a swarm of AI agents, why a machine-checked result is such a hard-to-fake data point, and what it does and doesn't tell us about the state of long-horizon autonomous AI work. Source: https://www.anthropic.com/research/formalizing-fermats-last-theorem",
+      "audio": "podcasts/S2E03-2026-09-09-deep-dive.m4a",
+      "audio_url": "https://raw.githubusercontent.com/peterlcy1992/genai_learning_repository/main/podcasts/S2E03-2026-09-09-deep-dive.m4a",
+      "cover": "docs/thumbnails/podcast/S2E03-2026-09-09-deep-dive.png",
+      "sources": [
+        "https://www.anthropic.com/research/formalizing-fermats-last-theorem"
+      ],
+      "notebook_id": "f67bb8b2-8990-4d23-951c-e8fece1bc8f1",
+      "rss_status": "draft",
+      "rss_episode_id": 3137711
     }
   ]
 }
