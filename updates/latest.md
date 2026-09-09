@@ -25,6 +25,32 @@ Each entry follows this format:
 
 <!-- NEW ENTRIES GO BELOW THIS LINE -->
 
+## 2026-09-09
+
+### OpenAI says agent swarm solved the Navier–Stokes Millennium Prize Problem — and a credit dispute erupts
+- **Type:** blog / research
+- **Source:** https://openai.com/index/navier-stokes-solution/
+- **Why it matters:** OpenAI reports that roughly 10,000 agents built on an unreleased model (more capable than GPT-6 Astra) produced, in ~88 hours plus 17 hours of Lean formalization, a 166-page proof that 3D Navier–Stokes solutions can blow up in finite time — one of the seven Millennium Prize Problems. The claim is contested: mathematician Tristan Buckmaster alleges OpenAI's system converged on the same route he and a colleague were independently pursuing (which OpenAI denies), and outside peer review of a result this large will take months. A striking, unverified data point on agentic scale applied to research mathematics — read as a claim in progress, not a settled result.
+- **Relates to:** Stage 7 — Frontier systems (agents at scale); also Stage 3 — Scale and emergence (self-reported capability milestones, treated skeptically).
+
+### Fractal basins trap latent reasoning
+- **Type:** paper
+- **Source:** https://arxiv.org/abs/2609.04963
+- **Why it matters:** Proposes a concrete mechanistic explanation for why reasoning models "think longer" on harder problems: it shows reasoning models behave as dynamical systems exhibiting transient chaos, with the fractality of their decision basins increasing with task difficulty across Sudoku, mazes, visual puzzles, and mathematical logic. A physics-flavored lens on chain-of-thought length that goes beyond "harder problems need more tokens" folk explanations.
+- **Relates to:** Stage 7 — Frontier systems (reasoning models, test-time compute).
+
+### Evaluation of Contextual Understanding in Large Language Models
+- **Type:** paper
+- **Source:** https://arxiv.org/abs/2609.09004
+- **Why it matters:** Argues that standard metrics (perplexity, BLEU, surface accuracy) can't tell whether an LLM genuinely integrates context versus pattern-matching on memorized associations, and proposes a knowledge-graph-based evaluation framework (S3KG) plus a diagnostic taxonomy of reasoning errors for question answering. Useful for anyone trying to move beyond leaderboard scores when judging what a model actually understood.
+- **Relates to:** Stage 3 — Scale and emergence (in-context learning, evaluation beyond benchmarks).
+
+### Training-Free Halving of Activated Experts in Fine-Grained Mixture-of-Experts Models
+- **Type:** paper
+- **Source:** https://arxiv.org/abs/2609.04575
+- **Why it matters:** Shows that fine-grained MoE routers implicitly calibrate expert output gain to the training-time top-k, which is why naively cutting the number of active experts at inference degrades quality — and gives a training-free correction that lets you roughly halve activated experts (cheaper inference) while preserving performance. A practical lever for serving MoE models more cheaply without a retraining pass.
+- **Relates to:** Stage 4 — Efficiency & building blocks (MoE).
+
 ## 2026-09-08
 
 ### An Alien Mind: OpenAI's chief scientist on why alignment can't wait

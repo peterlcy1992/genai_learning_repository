@@ -292,7 +292,7 @@
         (always current at the link above), and your daily email always carries the latest.</p>
       <script type="text/markdown" id="latest-digest">
 <!-- LATEST_DIGEST_START -->
-# Daily GenAI digest — 2026-09-08
+# Daily GenAI digest — 2026-09-09
 
 **Your stage:** Stage 0 — Foundations: before the Transformer
 **Next action:** Read [`knowledge_bank/00_foundations.md`](../knowledge_bank/00_foundations.md),
@@ -305,37 +305,45 @@ like an inevitable next step rather than a leap out of nowhere.
 
 ## Today's highlights
 
-A quieter day for model releases, but a genuinely notable one on tone: OpenAI's
-chief scientist published an unusually candid essay on why alignment is
-lagging capability. Alongside it, a solid efficiency paper reviving an old
-training trick, and a new agent-training environment for hybrid GUI+CLI
-computer use. All three sit well ahead of Stage 0, but worth filing away.
+The big story is a contested one: OpenAI claims an agent swarm cracked a
+Millennium Prize Problem, but a credit dispute broke out within a day. Beyond
+that, two solid research papers — one on why reasoning models "think longer"
+on hard problems, one on evaluating whether LLMs really understand context —
+plus a practical efficiency trick for Mixture-of-Experts inference. All of
+this is well ahead of Stage 0, but worth filing away for later.
 
-### An Alien Mind: OpenAI's chief scientist on why alignment can't wait
+### OpenAI says agent swarm solved the Navier–Stokes Millennium Prize Problem — and a credit dispute erupts
 - **Type:** blog / research
-- **Link:** https://openai.com/index/an-alien-mind/
-- **Why it matters:** Jakub Pachocki argues modern AI is "grown," not engineered — the product of one simple training step run over huge compute until capable behavior emerges — and states plainly that "no lab has solved alignment and monitoring to a sufficient degree to continue responsibly scaling at maximum speed for much longer." A rare, candid admission of concern from a sitting chief scientist at a frontier lab.
-- **Relates to:** Stage 5 — Alignment & post-training; also Stage 8 — Staying current.
+- **Link:** https://openai.com/index/navier-stokes-solution/
+- **Why it matters:** ~10,000 agents on an unreleased model reportedly produced, in under four days total, a 166-page proof that 3D Navier–Stokes solutions can blow up in finite time. It's contested — a mathematician alleges OpenAI's system converged on his independent, unpublished approach (OpenAI denies this), and real peer review will take months. Treat this as a dramatic, unverified claim about agentic scale on hard research math, not a confirmed result.
+- **Relates to:** Stage 7 — Frontier systems (agents at scale); also Stage 3 — Scale and emergence (self-reported capability milestones, treated skeptically).
 
-### Don't Drop Dropout: Optimizing Layer Sparsity for Efficient LLM Training and Inference
+### Fractal basins trap latent reasoning
 - **Type:** paper
-- **Link:** https://arxiv.org/abs/2609.05275
-- **Why it matters:** Layer dropout quietly vanished from LLM pretraining recipes as models scaled up, but this ICML 2026 paper shows that, tuned correctly, it lowers loss at fixed training FLOPs and can save up to 25% of training compute for the same validation loss — while also making models more robust to later layer pruning.
-- **Relates to:** Stage 4 — Efficiency & building blocks.
+- **Link:** https://arxiv.org/abs/2609.04963
+- **Why it matters:** Gives a mechanistic, physics-flavored explanation for why reasoning models spend longer on harder problems: they behave as dynamical systems with transient chaos, and the fractality of their decision basins grows with task difficulty across Sudoku, mazes, visual puzzles, and logic tasks.
+- **Relates to:** Stage 7 — Frontier systems (reasoning models, test-time compute).
 
-### CUA-Universe: A Scalable and Dynamic Environment for Hybrid GUI+CLI Agents
+### Evaluation of Contextual Understanding in Large Language Models
 - **Type:** paper
-- **Link:** https://arxiv.org/abs/2609.05374
-- **Why it matters:** Real computer work mixes visual GUI inspection with fast CLI commands, but most computer-use agents and benchmarks are GUI-only. This paper introduces a pipeline that turns ordinary desktop apps into hybrid GUI+CLI training environments at scale, without per-app manual engineering.
-- **Relates to:** Stage 7 — Frontier systems (agents, tool use, computer-use).
+- **Link:** https://arxiv.org/abs/2609.09004
+- **Why it matters:** Standard metrics like perplexity and BLEU can't distinguish genuine context integration from memorized pattern-matching. Proposes a knowledge-graph-based score (S3KG) and an error taxonomy for judging QA answers on whether the model actually used the context it was given.
+- **Relates to:** Stage 3 — Scale and emergence (in-context learning, evaluation beyond benchmarks).
+
+### Training-Free Halving of Activated Experts in Fine-Grained Mixture-of-Experts Models
+- **Type:** paper
+- **Link:** https://arxiv.org/abs/2609.04575
+- **Why it matters:** Fine-grained MoE routers implicitly calibrate expert output strength to the training-time top-k, which is why cutting active experts at inference normally hurts quality. This paper's training-free fix lets you roughly halve activated experts — cheaper serving — without a retraining pass.
+- **Relates to:** Stage 4 — Efficiency & building blocks (MoE).
 
 ---
 
 ## 📌 If you read one thing today
 Stay with the foundations for now, but if you want one non-foundations read,
-make it "An Alien Mind." It's short, unusually direct for a lab chief
-scientist, and gives useful context for why Stage 5 (alignment) matters
-before you ever get there.
+make it the Navier–Stokes story — not for the math, but as a case study in how
+to read big AI capability claims: impressive, unverified, and already
+contested within a day. That skepticism muscle will matter more and more as
+you move through this plan.
 
 ---
 *This digest was generated automatically. Full rolling log:
