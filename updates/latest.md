@@ -25,6 +25,32 @@ Each entry follows this format:
 
 <!-- NEW ENTRIES GO BELOW THIS LINE -->
 
+## 2026-09-10
+
+### Stable Answers, Unfinished Reasoning: Why Self-Consensus Is Not a Safe Early-Exit Signal
+- **Type:** paper
+- **Source:** https://arxiv.org/abs/2609.09989
+- **Why it matters:** A preregistered sweep of 3,520 self-consensus early-exit rules for reasoning models — stop sampling once probes of a partial trajectory agree on an answer — finds none clear safety/token-saving acceptance gates on held-out models and benchmarks, while a boundary-confidence control (DEER) does. The diagnosis: agreement shows an answer persists under a fixed probing procedure, not that reasoning has actually terminated — a "consensus-termination gap" that commits to non-terminal answers. A useful caution for anyone building test-time-compute savings on top of self-consistency heuristics.
+- **Relates to:** Stage 7 — Frontier systems (reasoning models, test-time compute).
+
+### Structural Process Supervision for Latent Chain-of-Thought Reasoning
+- **Type:** paper
+- **Source:** https://arxiv.org/abs/2609.09928
+- **Why it matters:** Latent reasoning (compact continuous embeddings instead of verbose CoT tokens) saves inference cost but lacks direct process supervision, causing representation collapse. This paper's Prototype-Mediated Process Supervision projects latent and explicit CoT embeddings into a shared prototype space for soft many-to-many alignment, with a progressive schedule that relaxes positional priors during training — a concrete recipe for supervising reasoning that never gets rendered as text.
+- **Relates to:** Stage 7 — Frontier systems (reasoning models, efficiency of chain-of-thought).
+
+### Distribution-Consistent Inference for Dynamic Sparse Mixture-of-Experts
+- **Type:** paper
+- **Source:** https://arxiv.org/abs/2609.09241
+- **Why it matters:** Most MoE models use a fixed top-k expert count per token; dynamic top-k routing at inference can cut compute without retraining, but naively doing so shifts the token distribution away from what the router was trained on. The paper proposes a correction that keeps dynamic routing distribution-consistent with training — another entry (alongside yesterday's training-free expert-halving paper) in a fast-moving thread on serving MoE models more cheaply without retraining.
+- **Relates to:** Stage 4 — Efficiency & building blocks (MoE).
+
+### VLX-VR: An Agentic-Aware Video Reasoning Model
+- **Type:** paper
+- **Source:** https://arxiv.org/abs/2609.09985
+- **Why it matters:** Instead of single-pass inference over a fixed video context, VLX-VR runs a Think–Memory–Observation loop, deciding at each step what evidence it still needs and reading/writing an explicit memory before continuing or answering — trained via RL over multimodal data including agent trajectories. State-of-the-art on the MINERVA benchmark (78.79%), and a clear example of agent-style iterative evidence-gathering being applied to video understanding rather than just text/web tasks.
+- **Relates to:** Stage 6 — Multimodality (video-language reasoning); also Stage 7 — Frontier systems (agents, tool/memory use).
+
 ## 2026-09-09
 
 ### OpenAI says agent swarm solved the Navier–Stokes Millennium Prize Problem — and a credit dispute erupts

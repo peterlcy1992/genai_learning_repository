@@ -318,7 +318,7 @@
         (always current at the link above), and your daily email always carries the latest.</p>
       <script type="text/markdown" id="latest-digest">
 <!-- LATEST_DIGEST_START -->
-# Daily GenAI digest — 2026-09-09
+# Daily GenAI digest — 2026-09-10
 
 **Your stage:** Stage 0 — Foundations: before the Transformer
 **Next action:** Read [`knowledge_bank/00_foundations.md`](../knowledge_bank/00_foundations.md),
@@ -331,45 +331,45 @@ like an inevitable next step rather than a leap out of nowhere.
 
 ## Today's highlights
 
-The big story is a contested one: OpenAI claims an agent swarm cracked a
-Millennium Prize Problem, but a credit dispute broke out within a day. Beyond
-that, two solid research papers — one on why reasoning models "think longer"
-on hard problems, one on evaluating whether LLMs really understand context —
-plus a practical efficiency trick for Mixture-of-Experts inference. All of
-this is well ahead of Stage 0, but worth filing away for later.
+A quieter day — no major model releases or lab blog posts in the last day or
+two, just four solid research papers. Two dig into the mechanics of reasoning
+models (when it's safe to stop sampling early, and how to supervise reasoning
+that never gets rendered as text), one continues the MoE-efficiency thread
+from yesterday, and one applies agent-style iterative evidence-gathering to
+video understanding. All well ahead of Stage 0, but worth filing away.
 
-### OpenAI says agent swarm solved the Navier–Stokes Millennium Prize Problem — and a credit dispute erupts
-- **Type:** blog / research
-- **Link:** https://openai.com/index/navier-stokes-solution/
-- **Why it matters:** ~10,000 agents on an unreleased model reportedly produced, in under four days total, a 166-page proof that 3D Navier–Stokes solutions can blow up in finite time. It's contested — a mathematician alleges OpenAI's system converged on his independent, unpublished approach (OpenAI denies this), and real peer review will take months. Treat this as a dramatic, unverified claim about agentic scale on hard research math, not a confirmed result.
-- **Relates to:** Stage 7 — Frontier systems (agents at scale); also Stage 3 — Scale and emergence (self-reported capability milestones, treated skeptically).
-
-### Fractal basins trap latent reasoning
+### Stable Answers, Unfinished Reasoning: Why Self-Consensus Is Not a Safe Early-Exit Signal
 - **Type:** paper
-- **Link:** https://arxiv.org/abs/2609.04963
-- **Why it matters:** Gives a mechanistic, physics-flavored explanation for why reasoning models spend longer on harder problems: they behave as dynamical systems with transient chaos, and the fractality of their decision basins grows with task difficulty across Sudoku, mazes, visual puzzles, and logic tasks.
+- **Link:** https://arxiv.org/abs/2609.09989
+- **Why it matters:** Tests 3,520 rules for stopping a reasoning model early once repeated probes agree on an answer ("self-consensus") — none pass preregistered safety gates on held-out benchmarks, because agreement shows an answer persists under probing, not that reasoning has actually finished. A caution for anyone chasing test-time-compute savings via self-consistency shortcuts.
 - **Relates to:** Stage 7 — Frontier systems (reasoning models, test-time compute).
 
-### Evaluation of Contextual Understanding in Large Language Models
+### Structural Process Supervision for Latent Chain-of-Thought Reasoning
 - **Type:** paper
-- **Link:** https://arxiv.org/abs/2609.09004
-- **Why it matters:** Standard metrics like perplexity and BLEU can't distinguish genuine context integration from memorized pattern-matching. Proposes a knowledge-graph-based score (S3KG) and an error taxonomy for judging QA answers on whether the model actually used the context it was given.
-- **Relates to:** Stage 3 — Scale and emergence (in-context learning, evaluation beyond benchmarks).
+- **Link:** https://arxiv.org/abs/2609.09928
+- **Why it matters:** Latent reasoning (continuous embeddings instead of verbose CoT tokens) is cheaper but hard to supervise directly, which causes representation collapse. This paper aligns latent and explicit-CoT embeddings through a shared "prototype" space — a concrete recipe for supervising reasoning that's never turned into text.
+- **Relates to:** Stage 7 — Frontier systems (reasoning models, CoT efficiency).
 
-### Training-Free Halving of Activated Experts in Fine-Grained Mixture-of-Experts Models
+### Distribution-Consistent Inference for Dynamic Sparse Mixture-of-Experts
 - **Type:** paper
-- **Link:** https://arxiv.org/abs/2609.04575
-- **Why it matters:** Fine-grained MoE routers implicitly calibrate expert output strength to the training-time top-k, which is why cutting active experts at inference normally hurts quality. This paper's training-free fix lets you roughly halve activated experts — cheaper serving — without a retraining pass.
+- **Link:** https://arxiv.org/abs/2609.09241
+- **Why it matters:** Dynamic top-k expert routing at inference can cut MoE compute without retraining, but it shifts the token distribution away from what the router was trained on. This paper's correction keeps dynamic routing consistent with training — the second MoE-inference-efficiency paper in two days, alongside yesterday's training-free expert-halving trick.
 - **Relates to:** Stage 4 — Efficiency & building blocks (MoE).
+
+### VLX-VR: An Agentic-Aware Video Reasoning Model
+- **Type:** paper
+- **Link:** https://arxiv.org/abs/2609.09985
+- **Why it matters:** Instead of single-pass inference over a fixed video window, VLX-VR runs a Think–Memory–Observation loop — deciding what evidence it still needs, reading/writing memory, then continuing or answering — trained with RL over multimodal data and agent trajectories. State-of-the-art on the MINERVA benchmark, and a clean example of agentic iterative reasoning applied to video rather than just text/web tasks.
+- **Relates to:** Stage 6 — Multimodality (video-language reasoning); also Stage 7 — Frontier systems (agents, tool/memory use).
 
 ---
 
 ## 📌 If you read one thing today
-Stay with the foundations for now, but if you want one non-foundations read,
-make it the Navier–Stokes story — not for the math, but as a case study in how
-to read big AI capability claims: impressive, unverified, and already
-contested within a day. That skepticism muscle will matter more and more as
-you move through this plan.
+Skip straight to the foundations reading above — today's papers are all deep
+in Stage 7 territory and will read much better once you've built up through
+Stages 1-6. If you want a taste of where this is headed, skim the abstract of
+the self-consensus paper: it's a nice example of "an intuitive shortcut,
+rigorously tested and found wanting" — a pattern worth recognizing early.
 
 ---
 *This digest was generated automatically. Full rolling log:
