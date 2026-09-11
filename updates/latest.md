@@ -25,6 +25,32 @@ Each entry follows this format:
 
 <!-- NEW ENTRIES GO BELOW THIS LINE -->
 
+## 2026-09-11
+
+### DeepSeek releases V4.1-Flash, claims it beats flagship V4-Pro
+- **Type:** model release
+- **Source:** https://siliconangle.com/2026/09/10/deepseek-releases-v4-1-flash-says-it-outperforms-flagship-v4-pro/
+- **Why it matters:** DeepSeek shipped V4.1-Flash — a 552B-parameter multimodal MoE with a Causal Encoder-Decoder architecture and up to 1M-token context — as open weights, and says independent tests put it ahead of the larger V4-Pro on performance, cost, speed, and total runtime. From Sept 14, V4-Pro API calls get silently routed to V4.1-Flash at the smaller model's price until a V4.1-Pro ships, a concrete case of a smaller, cheaper model displacing a "flagship" in production.
+- **Relates to:** Stage 4 — Efficiency & building blocks (MoE); also Stage 6 — Multimodality.
+
+### Google, Anthropic, and OpenAI unveil cyber-focused models and safeguard programs
+- **Type:** blog / policy
+- **Source:** https://thehackernews.com/2026/09/google-anthropic-and-openai-unveil.html
+- **Why it matters:** In a coordinated wave, Google shipped Gemini 3.8 Flash Cyber plus a "Fairwind" early-access program for defenders, Anthropic paired Claude Mythos 5.1's trusted-access tier with new Enterprise Frontier Safeguards (zero data retention plus misuse detection), and OpenAI confirmed Astra crossed its Preparedness Framework's "Critical" cybersecurity threshold, warning its safeguards may over-flag legitimate activity. A useful snapshot of how three frontier labs are simultaneously productizing offense-capable models and racing to layer defensive access controls around them.
+- **Relates to:** Stage 5 — Alignment & post-training (deployment-time safeguards, dual-use risk).
+
+### OpenAI ships an Agents API and a finance-specific ChatGPT workspace
+- **Type:** blog / product
+- **Source:** https://openai.com/index/introducing-the-agents-api/
+- **Why it matters:** OpenAI split out a dedicated Agents API aimed at building more reliable production agents, alongside a separate ChatGPT for Financial Services workspace (shaped with Morgan Stanley and Evercore) that pairs built-in financial data with Astra's reasoning for research and client materials. Read together, it's a sign that "agents" are moving from demos into vertical, audited enterprise products with their own retention and compliance controls.
+- **Relates to:** Stage 7 — Frontier systems (agents, tool use).
+
+### GPT-6 Astra, Looped Transformers, and Hidden Reasoning
+- **Type:** blog (explainer)
+- **Source:** https://magazine.sebastianraschka.com/p/gpt-6-astra-looped-transformers-and
+- **Why it matters:** Sebastian Raschka debunks the claim that Astra's short visible reasoning traces come from a "looped transformer" (recurrent-depth) architecture, walking through how weight-sharing across reused layers actually works, its memory/cost tradeoffs, and a tour of recent looped-transformer research (e.g. Nanbeige). A clear, skeptical explainer for anyone trying to separate real architectural change from speculation about why reasoning models "think" less visibly.
+- **Relates to:** Stage 4 — Efficiency & building blocks (weight-sharing, architecture); also Stage 7 — Frontier systems (reasoning models).
+
 ## 2026-09-10
 
 ### Stable Answers, Unfinished Reasoning: Why Self-Consensus Is Not a Safe Early-Exit Signal
