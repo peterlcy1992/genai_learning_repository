@@ -2,7 +2,7 @@
   "show": "The GenAI Evolution Atlas",
   "rss_show_id": 400601,
   "season": 2,
-  "next_episode": 4,
+  "next_episode": 5,
   "notes": "Single shared episode counter across both weekly formats. Each run reads next_episode, uses it, appends a record below, and increments next_episode. rss_show_id holds the RSS.com podcast id for this show (discovered by title via GET /v4/podcasts on first upload, then cached here). rss_status per episode: not_uploaded -> draft -> scheduled/published (the owner publishes manually on RSS.com).",
   "episodes": [
     {
@@ -76,6 +76,45 @@
       "notebook_id": "f67bb8b2-8990-4d23-951c-e8fece1bc8f1",
       "rss_status": "draft",
       "rss_episode_id": 3137711
+    },
+    {
+      "season": 2,
+      "episode": 4,
+      "type": "roundup",
+      "date": "2026-09-11",
+      "week_of": "2026-09-05..2026-09-11",
+      "title": "GenAI News Roundup \u2014 week of Sep 5\u201311",
+      "description": "This week: OpenAI's contested claim that an agent swarm cracked the Navier\u2013Stokes Millennium Prize Problem draws a same-day credit dispute, even as Anthropic's Claude agents post a genuinely verified feat \u2014 a machine-checked proof of Fermat's Last Theorem; Google, Anthropic, and OpenAI simultaneously roll out cyber-focused models and safeguard programs; and DeepSeek's smaller V4.1-Flash gets its own larger V4-Pro pulled from production \u2014 plus commentary and what's next. Covers: the Fermat's Last Theorem formalization; Terminal-Universe; LLaDA-Image; on-policy distillation with one training example; OpenAI's automated research intern milestone; a critical review of agentic AI progress; Compile by Training; An Alien Mind; Don't Drop Dropout; CUA-Universe; the Navier\u2013Stokes claim and dispute; fractal basins in latent reasoning; contextual understanding evaluation; MoE expert-halving; self-consensus early-exit risks; structural process supervision for latent CoT; distribution-consistent MoE inference; VLX-VR; DeepSeek V4.1-Flash; the Google/Anthropic/OpenAI cyber safeguards announcement; OpenAI's Agents API and finance workspace; and Sebastian Raschka's looped-transformer explainer.",
+      "audio": "podcasts/S2E04-2026-09-11-roundup.m4a",
+      "audio_url": "https://raw.githubusercontent.com/peterlcy1992/genai_learning_repository/main/podcasts/S2E04-2026-09-11-roundup.m4a",
+      "cover": "docs/thumbnails/podcast/S2E04-2026-09-11-roundup.png",
+      "sources": [
+        "https://www.anthropic.com/research/formalizing-fermats-last-theorem",
+        "https://arxiv.org/abs/2609.04148",
+        "https://arxiv.org/abs/2609.03796",
+        "https://arxiv.org/abs/2609.04172",
+        "https://openai.com/index/research-acceleration-view-inside-openai/",
+        "https://arxiv.org/abs/2609.04894",
+        "https://arxiv.org/abs/2609.04199",
+        "https://openai.com/index/an-alien-mind/",
+        "https://arxiv.org/abs/2609.05275",
+        "https://arxiv.org/abs/2609.05374",
+        "https://openai.com/index/navier-stokes-solution/",
+        "https://arxiv.org/abs/2609.04963",
+        "https://arxiv.org/abs/2609.09004",
+        "https://arxiv.org/abs/2609.04575",
+        "https://arxiv.org/abs/2609.09989",
+        "https://arxiv.org/abs/2609.09928",
+        "https://arxiv.org/abs/2609.09241",
+        "https://arxiv.org/abs/2609.09985",
+        "https://siliconangle.com/2026/09/10/deepseek-releases-v4-1-flash-says-it-outperforms-flagship-v4-pro/",
+        "https://thehackernews.com/2026/09/google-anthropic-and-openai-unveil.html",
+        "https://openai.com/index/introducing-the-agents-api/",
+        "https://magazine.sebastianraschka.com/p/gpt-6-astra-looped-transformers-and"
+      ],
+      "notebook_id": "029ff01d-acc1-4eb2-bbcf-83f7f9ead8ac",
+      "rss_status": "draft",
+      "rss_episode_id": 3143154
     }
   ]
 }
