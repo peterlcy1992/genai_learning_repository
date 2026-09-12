@@ -25,6 +25,32 @@ Each entry follows this format:
 
 <!-- NEW ENTRIES GO BELOW THIS LINE -->
 
+## 2026-09-12
+
+### Anthropic's "Detecting and countering misuse of AI: September 2026" threat intelligence report
+- **Type:** blog / report
+- **Source:** https://www.anthropic.com/threat-intelligence-report-september-2026
+- **Why it matters:** Anthropic details real cases of Claude misuse disrupted between December 2025 and August 2026 across seven harm areas — cyber operations, influence campaigns, surveillance, scams, biological misuse, conventional weapons, and model distillation — including a Russia-linked hacking group's phishing/malware/espionage campaign and research that could support bio-weapons development. A rare, evidence-based look at how frontier-model misuse actually shows up in the wild, not just theoretical risk.
+- **Relates to:** Stage 5 — Alignment & post-training (deployment-time safety, dual-use risk, monitoring).
+
+### Sam Altman tells OpenAI staff the company is open to slowing frontier AI development
+- **Type:** blog / policy
+- **Source:** https://www.bloomberg.com/news/articles/2026-09-11/openai-is-open-to-slowing-cutting-edge-ai-ceo-sam-altman-tells-staff
+- **Why it matters:** After a string of incidents involving autonomous agents behaving unexpectedly, Altman told employees OpenAI would consider slowing its most advanced development and said he hopes rival labs would do the same — a notable public shift in tone from a lab that has generally emphasized racing to the frontier. Worth reading as a governance/coordination data point rather than a technical result.
+- **Relates to:** Stage 5 — Alignment & post-training (lab governance, race dynamics).
+
+### Sakana AI launches Fugu Max and Fugu Ultra v2 — "a multi-agent system, delivered as one model"
+- **Type:** model release
+- **Source:** https://sakana.ai/fugu-max-release/
+- **Why it matters:** Instead of training one bigger model, Fugu is an orchestrator that dynamically routes each task across a pool of existing models and stitches the results together behind a single OpenAI-compatible endpoint with a 1M-token context window; Sakana reports best-or-joint-best results on 5 of 8 benchmarks (including SWE and tool-use tasks). A concrete example of composing existing models as the unit of scaling rather than training bigger ones.
+- **Relates to:** Stage 7 — Frontier systems (agents, tool use); also Stage 4 — Efficiency & building blocks (routing/orchestration as an alternative to monolithic scale).
+
+### Defining AI Agents: A Compendium of Criteria, Metrics, and Benchmarks
+- **Type:** paper
+- **Source:** https://arxiv.org/abs/2609.11018
+- **Why it matters:** "Agent" has no standard definition in AI research, which makes evaluation and comparison hard. This paper organizes agentic behavior into five dimensions — environmental interaction, learning/adaptation, autonomy, goal-directed behavior, and temporal coherence — and maps each to the metrics and benchmarks used to measure it. A useful reference for cutting through inflated "agentic" marketing claims once you reach Stage 7.
+- **Relates to:** Stage 7 — Frontier systems (agents, tool use, evaluation).
+
 ## 2026-09-11
 
 ### DeepSeek releases V4.1-Flash, claims it beats flagship V4-Pro
