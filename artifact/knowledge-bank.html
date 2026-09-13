@@ -292,7 +292,7 @@
         (always current at the link above), and your daily email always carries the latest.</p>
       <script type="text/markdown" id="latest-digest">
 <!-- LATEST_DIGEST_START -->
-# Daily GenAI digest — 2026-09-11
+# Daily GenAI digest — 2026-09-13
 
 **Your stage:** Stage 0 — Foundations: before the Transformer
 **Next action:** Read [`knowledge_bank/00_foundations.md`](../knowledge_bank/00_foundations.md),
@@ -305,44 +305,46 @@ like an inevitable next step rather than a leap out of nowhere.
 
 ## Today's highlights
 
-A busier day than yesterday: a new open-weight flagship from DeepSeek, a
-coordinated safety/policy push from three labs at once around cyber-capable
-models, OpenAI pushing agents into a vertical enterprise product, and a sharp
-explainer debunking architecture speculation around OpenAI's Astra model.
+Covers the last couple of days (the automation missed a day). Four solid
+items: a coding lab scaling RL post-training to a multi-trillion-parameter
+model, Anthropic's most detailed AI-misuse report to date, OpenAI's push of a
+reasoning model into a regulated vertical (life sciences), and a research
+paper that directly follows up on the looped-transformer explainer from two
+digests ago.
 
-### DeepSeek releases V4.1-Flash, claims it beats flagship V4-Pro
-- **Type:** model release
-- **Link:** https://siliconangle.com/2026/09/10/deepseek-releases-v4-1-flash-says-it-outperforms-flagship-v4-pro/
-- **Why it matters:** A 552B-parameter multimodal MoE, open-weighted, with up to 1M-token context — and DeepSeek says it beats their larger V4-Pro on performance, cost, and speed. From Sept 14, V4-Pro API traffic gets quietly rerouted to this smaller model at its lower price, a real-world instance of a cheaper model displacing a "flagship" in production rather than just topping a benchmark.
-- **Relates to:** Stage 4 — Efficiency & building blocks (MoE); also Stage 6 — Multimodality.
+### Cognition scales RL post-training to the multi-trillion-parameter regime with SWE-2
+- **Type:** blog / model release
+- **Link:** https://cognition.com/blog/swe-2
+- **Why it matters:** SWE-2 is post-trained from the 2.8T-parameter Kimi K3, marking (per Cognition) the first time their RL recipe has scaled to a model this large, and the first SWE model to train all three reasoning-effort levels (medium/high/max) in one RL run — landing near frontier coding benchmarks at a fraction of the cost. A concrete signal that RL post-training recipes are scaling past the trillion-parameter mark, not just working on small models.
+- **Relates to:** Stage 5 — Alignment & post-training (RL post-training at scale); also Stage 4 — Efficiency & building blocks.
 
-### Google, Anthropic, and OpenAI unveil cyber-focused models and safeguard programs
+### Anthropic publishes its most detailed AI misuse threat-intelligence report yet
 - **Type:** blog / policy
-- **Link:** https://thehackernews.com/2026/09/google-anthropic-and-openai-unveil.html
-- **Why it matters:** Google's Gemini 3.8 Flash Cyber plus a defenders-only early-access program, Anthropic's Enterprise Frontier Safeguards (zero data retention + misuse detection) alongside its trusted-access Mythos 5.1 tier, and OpenAI confirming Astra crossed its "Critical" cybersecurity threshold under its Preparedness Framework — three labs simultaneously shipping offense-capable models and racing to wrap defensive controls around them. Worth reading as one coordinated data point on how frontier labs are currently handling dual-use capability.
-- **Relates to:** Stage 5 — Alignment & post-training (deployment-time safeguards, dual-use risk).
+- **Link:** https://www.anthropic.com/threat-intelligence-report-september-2026
+- **Why it matters:** 154 pages on operations Anthropic detected and disrupted (Dec 2025–Aug 2026) across seven harm categories — cyber operations, espionage, surveillance, influence operations, weapons development, biological misuse, scams/fraud — including a 130-day state-sponsored espionage campaign and a case involving guided-rocket flight-software analysis. Concrete, dated evidence that agentic-LLM misuse has moved from hypothetical to operational.
+- **Relates to:** Stage 5 — Alignment & post-training (deployment-time safeguards, misuse, dual-use risk).
 
-### OpenAI ships an Agents API and a finance-specific ChatGPT workspace
-- **Type:** blog / product
-- **Link:** https://openai.com/index/introducing-the-agents-api/
-- **Why it matters:** A dedicated Agents API for building more reliable production agents, plus a separate ChatGPT for Financial Services workspace (built with Morgan Stanley and Evercore) pairing proprietary financial data with Astra's reasoning. Agents are visibly moving from demos to audited, vertical enterprise products with their own retention and compliance controls.
-- **Relates to:** Stage 7 — Frontier systems (agents, tool use).
+### OpenAI launches GPT-Rosalind, a frontier reasoning model for life sciences
+- **Type:** model release / blog
+- **Link:** https://openai.com/index/introducing-gpt-rosalind/
+- **Why it matters:** A domain-specialized reasoning model for biology, drug discovery, and translational medicine, bundled with a free Codex "Life Sciences" plugin connecting to 50+ scientific tools/databases, with launch partners including Amgen, Moderna, and the Allen Institute. A clear example of frontier labs repackaging general reasoning models with domain tools and trusted-access gating for regulated verticals, rather than shipping one undifferentiated chat model.
+- **Relates to:** Stage 7 — Frontier systems (tool use, agents, domain-specialized reasoning models).
 
-### GPT-6 Astra, Looped Transformers, and Hidden Reasoning
-- **Type:** blog (explainer)
-- **Link:** https://magazine.sebastianraschka.com/p/gpt-6-astra-looped-transformers-and
-- **Why it matters:** Sebastian Raschka pushes back on the claim that Astra's short visible reasoning comes from a "looped transformer" (recurrent-depth) design, explaining how weight-shared, reused-layer architectures actually trade off memory and compute, with a tour of real looped-transformer work (e.g. Nanbeige) for comparison. A good model of skeptical, mechanism-first reading of capability speculation.
-- **Relates to:** Stage 4 — Efficiency & building blocks (weight-sharing, architecture); also Stage 7 — Frontier systems (reasoning models).
+### Thinking with Looped Flows
+- **Type:** paper
+- **Link:** https://arxiv.org/abs/2609.11801
+- **Why it matters:** Looped (recurrent-depth) models spend more compute on harder inputs by repeating an update at inference, but training normally backprops through only a few repeats, so early iterations never learn to set up later ones. This paper trains the recurrence with local denoising objectives at progressively decreasing noise levels instead, so useful computation carries forward across iterations even with truncated gradients — a direct technical follow-up to the looped-transformer debate from two days ago.
+- **Relates to:** Stage 4 — Efficiency & building blocks (weight-sharing, recurrent-depth architectures); also Stage 7 — Frontier systems (reasoning, test-time compute).
 
 ---
 
 ## 📌 If you read one thing today
-The Sebastian Raschka piece on looped transformers — it's the most durable of
-today's items (an explainer of a real architectural technique, not just
-product news) and a good template for how to evaluate hype claims about
-frontier models once you're further along. For now, though, your actual next
-step is still the Bahdanau et al. attention paper linked above — everything
-in today's log sits many stages ahead of where you are.
+"Thinking with Looped Flows" — it's the most durable item today (a real
+training-method fix for a whole class of architecture, not a product
+announcement), and it closes the loop on the looped-transformer speculation
+from earlier this week. That said, none of today's items are on your actual
+path yet — your real next step is still the Bahdanau et al. attention paper
+linked above.
 
 ---
 *This digest was generated automatically. Full rolling log:

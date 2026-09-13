@@ -25,6 +25,32 @@ Each entry follows this format:
 
 <!-- NEW ENTRIES GO BELOW THIS LINE -->
 
+## 2026-09-13
+
+### Cognition scales RL post-training to the multi-trillion-parameter regime with SWE-2
+- **Type:** blog / model release
+- **Source:** https://cognition.com/blog/swe-2
+- **Why it matters:** SWE-2, post-trained from the 2.8T-parameter Kimi K3, is (per Cognition) the first time their RL recipe has been scaled to a multi-trillion-parameter base model, and the first SWE model to train all three reasoning-effort levels (medium/high/max) in a single RL run — matching or beating pricier frontier coding models on cost-adjusted benchmarks. A concrete data point on RL post-training recipes scaling past the trillion-parameter mark rather than staying a small-model trick.
+- **Relates to:** Stage 5 — Alignment & post-training (RL post-training at scale); also Stage 4 — Efficiency & building blocks.
+
+### Anthropic publishes its most detailed AI misuse threat-intelligence report yet
+- **Type:** blog / policy
+- **Source:** https://www.anthropic.com/threat-intelligence-report-september-2026
+- **Why it matters:** A 154-page report on operations Anthropic detected and disrupted (Dec 2025–Aug 2026) across seven harm categories — cyber operations, espionage, surveillance, influence operations, weapons development, biological misuse, and scams/fraud — including a 130-day state-sponsored espionage campaign and a case involving guided-rocket flight-software analysis. The clearest public evidence yet that agentic LLM misuse is shifting from hypothetical to operational, and a useful primary source for what "AI safety" has to defend against in practice.
+- **Relates to:** Stage 5 — Alignment & post-training (deployment-time safeguards, misuse, dual-use risk).
+
+### OpenAI launches GPT-Rosalind, a frontier reasoning model for life sciences
+- **Type:** model release / blog
+- **Source:** https://openai.com/index/introducing-gpt-rosalind/
+- **Why it matters:** A domain-specialized reasoning model for biology, drug discovery, and translational medicine, paired with a free Codex "Life Sciences" plugin connecting to 50+ scientific tools/databases, and launch partners including Amgen, Moderna, and the Allen Institute. Illustrates the current trend of general-purpose reasoning models being repackaged with domain tool access and trusted-access gating for regulated, high-stakes verticals rather than shipped as one undifferentiated chat model.
+- **Relates to:** Stage 7 — Frontier systems (tool use, agents, domain-specialized reasoning models).
+
+### Thinking with Looped Flows
+- **Type:** paper
+- **Source:** https://arxiv.org/abs/2609.11801
+- **Why it matters:** Looped (recurrent-depth) models let inference spend more compute on harder inputs by repeating an update, but training normally backprops through only a few of those repeats, so early iterations never learn to set up later ones. This paper trains the recurrence instead with local denoising objectives at progressively decreasing noise levels, so useful computation carries forward across iterations even with truncated gradients — a concrete training fix for a class of architecture that came up in Sebastian Raschka's looped-transformer explainer two days ago.
+- **Relates to:** Stage 4 — Efficiency & building blocks (weight-sharing, recurrent-depth architectures); also Stage 7 — Frontier systems (reasoning/test-time compute).
+
 ## 2026-09-11
 
 ### DeepSeek releases V4.1-Flash, claims it beats flagship V4-Pro
