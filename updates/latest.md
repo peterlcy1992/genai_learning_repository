@@ -25,6 +25,26 @@ Each entry follows this format:
 
 <!-- NEW ENTRIES GO BELOW THIS LINE -->
 
+## 2026-09-14
+
+### Dario Amodei: "We Must Pace the Frontier"
+- **Type:** blog (essay)
+- **Source:** https://darioamodei.com/post/we-must-pace-the-frontier
+- **Why it matters:** Anthropic's CEO argues the industry should deliberately slow capability gains so safety work can keep pace, citing two triggers — recursive self-improvement (models now helping build the next generation, including at Anthropic) and the contested OpenAI agent-swarm incident as a warning sign. He commits Anthropic to one unilateral step (permanent, employee-level access for third-party evaluators) and proposes cross-lab and cross-government coordination. A rare public commitment from a lab CEO, not just a warning — worth reading alongside Jakub Pachocki's "Alien Mind" essay logged here on 2026-09-08.
+- **Relates to:** Stage 5 — Alignment & post-training (why alignment matters, race dynamics); also Stage 8 — Staying current (a durability/tone marker for the field).
+
+### Anthropic's Frontier Red Team publishes capability evals for intelligence targeting and conventional weapons
+- **Type:** blog / research
+- **Source:** https://www.anthropic.com/research/intelligence-targeting-conventional-weapons-capabilities
+- **Why it matters:** New evaluations show frontier models can perform tactical intelligence-targeting tasks (geolocating people from fragmentary photos/posts, linking identities across platforms) and conventional-weapons engineering (e.g. drone targeting/payload software) that were previously expert-only — prompting new on-platform classifiers. Notable as the first systematic public evals from a major lab extending the catastrophic-risk framework beyond CBRN into conventional military/intelligence use, distinct from the misuse-operations report logged here on 2026-09-13.
+- **Relates to:** Stage 5 — Alignment & post-training (deployment-time safeguards, dual-use risk).
+
+### NCP-ArchPreview: pretraining with Next Concept Prediction instead of next-token prediction
+- **Type:** paper
+- **Source:** https://arxiv.org/abs/2609.10715
+- **Why it matters:** Scales a latent-space language model to 8.9B parameters / 5.73T tokens (the largest such demonstration yet), adding a "Next Concept Prediction" objective — predicting discrete, multi-token concepts built from a product-quantized vocabulary of the model's own hidden states — on top of standard next-token prediction. It reaches OLMo-3-7B's final pretraining loss using only 51% of the training tokens and beats it by 2.45 points on downstream macro-average (+5.99 on GSM8K). A concrete data point that supervising above the token level can buy real training-efficiency gains, not just a synthetic-benchmark trick.
+- **Relates to:** Stage 1 — The Transformer (what next-token prediction is and why concept-level objectives are a departure); also Stage 4 — Efficiency & building blocks.
+
 ## 2026-09-13
 
 ### Cognition scales RL post-training to the multi-trillion-parameter regime with SWE-2

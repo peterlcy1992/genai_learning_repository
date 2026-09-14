@@ -292,7 +292,7 @@
         (always current at the link above), and your daily email always carries the latest.</p>
       <script type="text/markdown" id="latest-digest">
 <!-- LATEST_DIGEST_START -->
-# Daily GenAI digest — 2026-09-13
+# Daily GenAI digest — 2026-09-14
 
 **Your stage:** Stage 0 — Foundations: before the Transformer
 **Next action:** Read [`knowledge_bank/00_foundations.md`](../knowledge_bank/00_foundations.md),
@@ -305,46 +305,38 @@ like an inevitable next step rather than a leap out of nowhere.
 
 ## Today's highlights
 
-Covers the last couple of days (the automation missed a day). Four solid
-items: a coding lab scaling RL post-training to a multi-trillion-parameter
-model, Anthropic's most detailed AI-misuse report to date, OpenAI's push of a
-reasoning model into a regulated vertical (life sciences), and a research
-paper that directly follows up on the looped-transformer explainer from two
-digests ago.
+Three solid items: a candid slow-down essay from Anthropic's CEO, a first-of-
+its-kind capability-risk report from Anthropic's Frontier Red Team, and a
+pretraining paper that pushes past next-token prediction to a "concept"-level
+objective.
 
-### Cognition scales RL post-training to the multi-trillion-parameter regime with SWE-2
-- **Type:** blog / model release
-- **Link:** https://cognition.com/blog/swe-2
-- **Why it matters:** SWE-2 is post-trained from the 2.8T-parameter Kimi K3, marking (per Cognition) the first time their RL recipe has scaled to a model this large, and the first SWE model to train all three reasoning-effort levels (medium/high/max) in one RL run — landing near frontier coding benchmarks at a fraction of the cost. A concrete signal that RL post-training recipes are scaling past the trillion-parameter mark, not just working on small models.
-- **Relates to:** Stage 5 — Alignment & post-training (RL post-training at scale); also Stage 4 — Efficiency & building blocks.
+### Dario Amodei: "We Must Pace the Frontier"
+- **Type:** blog (essay)
+- **Link:** https://darioamodei.com/post/we-must-pace-the-frontier
+- **Why it matters:** Anthropic's CEO argues the industry should deliberately slow capability gains so safety work can keep pace, citing recursive self-improvement (models now helping build the next generation) and the contested OpenAI agent-swarm incident as triggers. He commits Anthropic to one unilateral step — permanent, employee-level access for third-party evaluators — and proposes cross-lab and cross-government coordination. Worth reading alongside Jakub Pachocki's "Alien Mind" essay from 2026-09-08.
+- **Relates to:** Stage 5 — Alignment & post-training (why alignment matters, race dynamics); also Stage 8 — Staying current.
 
-### Anthropic publishes its most detailed AI misuse threat-intelligence report yet
-- **Type:** blog / policy
-- **Link:** https://www.anthropic.com/threat-intelligence-report-september-2026
-- **Why it matters:** 154 pages on operations Anthropic detected and disrupted (Dec 2025–Aug 2026) across seven harm categories — cyber operations, espionage, surveillance, influence operations, weapons development, biological misuse, scams/fraud — including a 130-day state-sponsored espionage campaign and a case involving guided-rocket flight-software analysis. Concrete, dated evidence that agentic-LLM misuse has moved from hypothetical to operational.
-- **Relates to:** Stage 5 — Alignment & post-training (deployment-time safeguards, misuse, dual-use risk).
+### Anthropic's Frontier Red Team publishes capability evals for intelligence targeting and conventional weapons
+- **Type:** blog / research
+- **Link:** https://www.anthropic.com/research/intelligence-targeting-conventional-weapons-capabilities
+- **Why it matters:** New evals show frontier models can do tactical intelligence-targeting (geolocating people from fragmentary photos/posts, linking identities across platforms) and conventional-weapons engineering (e.g. drone targeting/payload software) that were previously expert-only, prompting new on-platform classifiers. The first systematic public evals extending the catastrophic-risk framework beyond CBRN into conventional military/intelligence use — distinct from the misuse-operations report logged here yesterday.
+- **Relates to:** Stage 5 — Alignment & post-training (deployment-time safeguards, dual-use risk).
 
-### OpenAI launches GPT-Rosalind, a frontier reasoning model for life sciences
-- **Type:** model release / blog
-- **Link:** https://openai.com/index/introducing-gpt-rosalind/
-- **Why it matters:** A domain-specialized reasoning model for biology, drug discovery, and translational medicine, bundled with a free Codex "Life Sciences" plugin connecting to 50+ scientific tools/databases, with launch partners including Amgen, Moderna, and the Allen Institute. A clear example of frontier labs repackaging general reasoning models with domain tools and trusted-access gating for regulated verticals, rather than shipping one undifferentiated chat model.
-- **Relates to:** Stage 7 — Frontier systems (tool use, agents, domain-specialized reasoning models).
-
-### Thinking with Looped Flows
+### NCP-ArchPreview: pretraining with Next Concept Prediction instead of next-token prediction
 - **Type:** paper
-- **Link:** https://arxiv.org/abs/2609.11801
-- **Why it matters:** Looped (recurrent-depth) models spend more compute on harder inputs by repeating an update at inference, but training normally backprops through only a few repeats, so early iterations never learn to set up later ones. This paper trains the recurrence with local denoising objectives at progressively decreasing noise levels instead, so useful computation carries forward across iterations even with truncated gradients — a direct technical follow-up to the looped-transformer debate from two days ago.
-- **Relates to:** Stage 4 — Efficiency & building blocks (weight-sharing, recurrent-depth architectures); also Stage 7 — Frontier systems (reasoning, test-time compute).
+- **Link:** https://arxiv.org/abs/2609.10715
+- **Why it matters:** Scales a latent-space language model to 8.9B parameters / 5.73T tokens (the largest such demonstration yet), adding a "Next Concept Prediction" objective — predicting discrete, multi-token concepts built from a product-quantized vocabulary of the model's own hidden states — on top of standard next-token prediction. It matches OLMo-3-7B's final pretraining loss using only 51% of the tokens and beats it by 2.45 points on downstream macro-average (+5.99 on GSM8K). A concrete sign that supervising above the token level can buy real training-efficiency gains.
+- **Relates to:** Stage 1 — The Transformer (what next-token prediction is, and how a concept-level objective departs from it); also Stage 4 — Efficiency & building blocks.
 
 ---
 
 ## 📌 If you read one thing today
-"Thinking with Looped Flows" — it's the most durable item today (a real
-training-method fix for a whole class of architecture, not a product
-announcement), and it closes the loop on the looped-transformer speculation
-from earlier this week. That said, none of today's items are on your actual
-path yet — your real next step is still the Bahdanau et al. attention paper
-linked above.
+Dario Amodei's "We Must Pace the Frontier" — it's the most durable item today: a
+sitting frontier-lab CEO publicly committing to a concrete, unilateral safety
+step rather than just describing risk in the abstract, and proposing concrete
+coordination mechanisms rather than vague concern. None of today's items are
+on your actual learning path yet, though — your real next step is still the
+Bahdanau et al. attention paper linked above.
 
 ---
 *This digest was generated automatically. Full rolling log:
