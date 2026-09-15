@@ -318,7 +318,7 @@
         (always current at the link above), and your daily email always carries the latest.</p>
       <script type="text/markdown" id="latest-digest">
 <!-- LATEST_DIGEST_START -->
-# Daily GenAI digest — 2026-09-14
+# Daily GenAI digest — 2026-09-15
 
 **Your stage:** Stage 0 — Foundations: before the Transformer
 **Next action:** Read [`knowledge_bank/00_foundations.md`](../knowledge_bank/00_foundations.md),
@@ -331,37 +331,38 @@ like an inevitable next step rather than a leap out of nowhere.
 
 ## Today's highlights
 
-Three solid items: a candid slow-down essay from Anthropic's CEO, a first-of-
-its-kind capability-risk report from Anthropic's Frontier Red Team, and a
-pretraining paper that pushes past next-token prediction to a "concept"-level
-objective.
+A quieter day for hard research, but a notable one for the AI-safety "pacing"
+debate that kicked off with Dario Amodei's essay two days ago: a concrete
+cross-lab standard for independent evaluators landed within days, a large
+openly-licensed agentic model shipped out of China, and a Google DeepMind
+safety researcher added his voice to a growing wave of public resignation
+warnings.
 
-### Dario Amodei: "We Must Pace the Frontier"
-- **Type:** blog (essay)
-- **Link:** https://darioamodei.com/post/we-must-pace-the-frontier
-- **Why it matters:** Anthropic's CEO argues the industry should deliberately slow capability gains so safety work can keep pace, citing recursive self-improvement (models now helping build the next generation) and the contested OpenAI agent-swarm incident as triggers. He commits Anthropic to one unilateral step — permanent, employee-level access for third-party evaluators — and proposes cross-lab and cross-government coordination. Worth reading alongside Jakub Pachocki's "Alien Mind" essay from 2026-09-08.
-- **Relates to:** Stage 5 — Alignment & post-training (why alignment matters, race dynamics); also Stage 8 — Staying current.
+### AEF-1: first cross-lab minimum standard for independent AI evaluators
+- **Type:** blog / policy
+- **Link:** https://aievaluatorforum.org/initiatives/minimum-operating-conditions
+- **Why it matters:** The AI Evaluator Forum published AEF-1, "Minimum Operating Conditions for Independent Third-Party AI Evaluations" — a voluntary baseline for the access, independence, and transparency evaluators need to meaningfully assess frontier models. xAI, OpenAI, and Anthropic all cosigned it within days of Dario Amodei's "We Must Pace the Frontier" essay (logged here yesterday), which had proposed exactly this step. A fast, concrete instance of a lab-CEO safety proposal turning into a cross-lab commitment rather than staying rhetoric.
+- **Relates to:** Stage 5 — Alignment & post-training (external oversight, evaluation infrastructure); also Stage 8 — Staying current.
 
-### Anthropic's Frontier Red Team publishes capability evals for intelligence targeting and conventional weapons
-- **Type:** blog / research
-- **Link:** https://www.anthropic.com/research/intelligence-targeting-conventional-weapons-capabilities
-- **Why it matters:** New evals show frontier models can do tactical intelligence-targeting (geolocating people from fragmentary photos/posts, linking identities across platforms) and conventional-weapons engineering (e.g. drone targeting/payload software) that were previously expert-only, prompting new on-platform classifiers. The first systematic public evals extending the catastrophic-risk framework beyond CBRN into conventional military/intelligence use — distinct from the misuse-operations report logged here yesterday.
-- **Relates to:** Stage 5 — Alignment & post-training (deployment-time safeguards, dual-use risk).
+### Shanghai AI Laboratory ships Atria Dawn Preview, a 744B-parameter agentic MoE
+- **Type:** model release
+- **Link:** https://huggingface.co/internlm/Atria-Dawn-Preview
+- **Why it matters:** An MIT-licensed, 744B-parameter mixture-of-experts model built on the GLM-5.2 base, with a 1M-token context window, trained via a "Verifiable Experience Pipeline": every training task is tied to a real execution environment where the model calls tools, produces artifacts, and only experience with externally-verified outcomes (tests, metrics, file state) is kept, rather than relying on preference judgments alone. A large, openly-licensed demonstration of environment-verified agentic training at scale.
+- **Relates to:** Stage 4 — Efficiency & building blocks (MoE at scale); also Stage 7 — Frontier systems (agents, tool use, long context).
 
-### NCP-ArchPreview: pretraining with Next Concept Prediction instead of next-token prediction
-- **Type:** paper
-- **Link:** https://arxiv.org/abs/2609.10715
-- **Why it matters:** Scales a latent-space language model to 8.9B parameters / 5.73T tokens (the largest such demonstration yet), adding a "Next Concept Prediction" objective — predicting discrete, multi-token concepts built from a product-quantized vocabulary of the model's own hidden states — on top of standard next-token prediction. It matches OLMo-3-7B's final pretraining loss using only 51% of the tokens and beats it by 2.45 points on downstream macro-average (+5.99 on GSM8K). A concrete sign that supervising above the token level can buy real training-efficiency gains.
-- **Relates to:** Stage 1 — The Transformer (what next-token prediction is, and how a concept-level objective departs from it); also Stage 4 — Efficiency & building blocks.
+### A Google DeepMind AGI-safety researcher resigns, warns "AI has the potential to kill us all"
+- **Type:** blog (public statement)
+- **Link:** https://www.bloomberg.com/news/articles/2026-09-15/google-deepmind-staffer-says-ai-may-kill-us-all-in-exit-post
+- **Why it matters:** Bilal Chughtai, who left DeepMind's AGI safety team in July, published his reasons for leaving this week — the first such public resignation warning from inside Google's lab (following similar statements from ex-Anthropic/OpenAI researchers and Geoffrey Hinton), arguing capabilities are outpacing alignment work and calling for coordinated pacing rather than a "manic race" between labs. A further sign of how mainstream the pacing debate has become inside frontier labs, not just at their edges.
+- **Relates to:** Stage 5 — Alignment & post-training; also Stage 8 — Staying current.
 
 ---
 
 ## 📌 If you read one thing today
-Dario Amodei's "We Must Pace the Frontier" — it's the most durable item today: a
-sitting frontier-lab CEO publicly committing to a concrete, unilateral safety
-step rather than just describing risk in the abstract, and proposing concrete
-coordination mechanisms rather than vague concern. None of today's items are
-on your actual learning path yet, though — your real next step is still the
+The AEF-1 standard — it's the most durable item today because it's an actual
+institutional commitment (three rival labs cosigning shared rules for outside
+scrutiny) rather than another essay or warning. None of today's items are on
+your actual learning path yet, though — your real next step is still the
 Bahdanau et al. attention paper linked above.
 
 ---

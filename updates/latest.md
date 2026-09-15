@@ -25,6 +25,26 @@ Each entry follows this format:
 
 <!-- NEW ENTRIES GO BELOW THIS LINE -->
 
+## 2026-09-15
+
+### AEF-1: first cross-lab minimum standard for independent AI evaluators
+- **Type:** blog / policy
+- **Source:** https://aievaluatorforum.org/initiatives/minimum-operating-conditions (also https://www.latent.space/p/ainews-aef-1-standard-emerges-for)
+- **Why it matters:** The AI Evaluator Forum published AEF-1, "Minimum Operating Conditions for Independent Third-Party AI Evaluations" — a voluntary baseline for the access, independence, and transparency evaluators need to meaningfully assess frontier models. xAI, OpenAI, and Anthropic all cosigned it within days of Dario Amodei's "We Must Pace the Frontier" essay (logged here 2026-09-14), which had proposed exactly this step. A fast, concrete instance of a lab-CEO safety proposal turning into a cross-lab commitment rather than staying rhetoric.
+- **Relates to:** Stage 5 — Alignment & post-training (external oversight, evaluation infrastructure); also Stage 8 — Staying current.
+
+### Shanghai AI Laboratory ships Atria Dawn Preview, a 744B-parameter agentic MoE
+- **Type:** model release
+- **Source:** https://huggingface.co/internlm/Atria-Dawn-Preview (also https://github.com/atria-asi/Atria-Dawn-Preview)
+- **Why it matters:** An MIT-licensed, 744B-parameter mixture-of-experts model built on the GLM-5.2 base, with a 1M-token context window, trained via what the authors call a "Verifiable Experience Pipeline": every training task is tied to a real execution environment where the model calls tools, produces artifacts, and only experience with externally-verified outcomes (tests, metrics, file state) is kept for further training, rather than relying on preference judgments alone. A large, openly-licensed demonstration of environment-verified agentic training at scale.
+- **Relates to:** Stage 4 — Efficiency & building blocks (MoE at scale); also Stage 7 — Frontier systems (agents, tool use, long context).
+
+### A Google DeepMind AGI-safety researcher resigns, warns "AI has the potential to kill us all"
+- **Type:** blog (public statement)
+- **Source:** https://www.bloomberg.com/news/articles/2026-09-15/google-deepmind-staffer-says-ai-may-kill-us-all-in-exit-post
+- **Why it matters:** Bilal Chughtai, who left DeepMind's AGI safety team in July, published his reasons for leaving this week — the first such public resignation warning from inside Google's lab (following similar statements from ex-Anthropic/OpenAI researchers and Geoffrey Hinton), arguing capabilities are outpacing alignment work and calling for coordinated pacing rather than a "manic race" between labs. Read alongside the Amodei essay and the AEF-1 standard above, it's a further sign of how mainstream the pacing debate has become inside frontier labs, not just at their edges.
+- **Relates to:** Stage 5 — Alignment & post-training; also Stage 8 — Staying current.
+
 ## 2026-09-14
 
 ### Dario Amodei: "We Must Pace the Frontier"
