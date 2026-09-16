@@ -25,6 +25,20 @@ Each entry follows this format:
 
 <!-- NEW ENTRIES GO BELOW THIS LINE -->
 
+## 2026-09-16
+
+### OpenAI confirms weeks of AI-safety coordination talks with Anthropic and Google DeepMind on an industry standards body
+- **Type:** blog / policy
+- **Source:** https://techcrunch.com/2026/09/15/openai-anthropic-google-have-been-in-talks-on-ai-safety-for-weeks/ (also https://openai.com/index/ai-policy-window/)
+- **Why it matters:** OpenAI's global policy chief Chris Lehane confirmed for the first time that OpenAI, Anthropic, and Google DeepMind have been coordinating on AI safety since July — discussing third-party model evaluation and a possible FINRA-style industry standards body (a proposal Google DeepMind's Demis Hassabis floated in July) — while arguing no antitrust waiver is needed for rivals to collaborate on safety. Coming right after Dario Amodei's "pace the frontier" essay and the AEF-1 evaluator standard both logged here this week, it's the first public confirmation that this cross-lab coordination is an active, ongoing negotiation rather than a one-off gesture.
+- **Relates to:** Stage 5 — Alignment & post-training (external oversight, race dynamics); also Stage 8 — Staying current.
+
+### Spurious Tool Use: When RL Agents Learn the Wrong Reason to Act
+- **Type:** paper
+- **Source:** https://arxiv.org/abs/2609.16268
+- **Why it matters:** RL-trained tool-use agents can learn shortcut policies — invoking a tool because of a superficial prompt cue that was correlated with it during training, rather than because the task actually needs it. In controlled synthetic environments mixing factual QA and math reasoning, injecting cues that are causally irrelevant to tool necessity raised spurious tool invocation by up to 39% under counterfactual evaluation. A concrete diagnosis of a failure mode that matters for anyone building or trusting RL-post-trained agentic systems.
+- **Relates to:** Stage 7 — Frontier systems (agents, tool use); also Stage 5 — Alignment & post-training (RL post-training pitfalls).
+
 ## 2026-09-15
 
 ### AEF-1: first cross-lab minimum standard for independent AI evaluators
