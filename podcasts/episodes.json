@@ -2,7 +2,7 @@
   "show": "The GenAI Evolution Atlas",
   "rss_show_id": 400601,
   "season": 2,
-  "next_episode": 5,
+  "next_episode": 6,
   "notes": "Single shared episode counter across both weekly formats. Each run reads next_episode, uses it, appends a record below, and increments next_episode. rss_show_id holds the RSS.com podcast id for this show (discovered by title via GET /v4/podcasts on first upload, then cached here). rss_status per episode: not_uploaded -> draft -> scheduled/published (the owner publishes manually on RSS.com).",
   "episodes": [
     {
@@ -115,6 +115,26 @@
       "notebook_id": "029ff01d-acc1-4eb2-bbcf-83f7f9ead8ac",
       "rss_status": "draft",
       "rss_episode_id": 3143154
+    },
+    {
+      "season": 2,
+      "episode": 5,
+      "type": "deep-dive",
+      "date": "2026-09-16",
+      "week_of": "2026-09-10..2026-09-16",
+      "title": "Deep Dive: The Week AI Safety \"Pacing\" Became a Real Commitment",
+      "description": "Dario Amodei's essay \"We Must Pace the Frontier\" argued the industry should deliberately slow capability gains so safety work can keep up \u2014 and within days it stopped being just an essay. The AI Evaluator Forum's AEF-1 standard for independent evaluator access was cosigned by xAI, OpenAI, and Anthropic, and OpenAI's policy chief then confirmed the three top labs have been coordinating on AI safety, including a possible FINRA-style standards body, since July. This episode traces how one CEO's proposal turned into a concrete, ongoing cross-lab commitment in under a week. Sources: https://darioamodei.com/post/we-must-pace-the-frontier, https://aievaluatorforum.org/initiatives/minimum-operating-conditions, https://techcrunch.com/2026/09/15/openai-anthropic-google-have-been-in-talks-on-ai-safety-for-weeks/",
+      "audio": "podcasts/S2E05-2026-09-16-deep-dive.m4a",
+      "audio_url": "https://raw.githubusercontent.com/peterlcy1992/genai_learning_repository/main/podcasts/S2E05-2026-09-16-deep-dive.m4a",
+      "cover": "docs/thumbnails/podcast/S2E05-2026-09-16-deep-dive.png",
+      "sources": [
+        "https://darioamodei.com/post/we-must-pace-the-frontier",
+        "https://aievaluatorforum.org/initiatives/minimum-operating-conditions",
+        "https://techcrunch.com/2026/09/15/openai-anthropic-google-have-been-in-talks-on-ai-safety-for-weeks/"
+      ],
+      "notebook_id": "5ffcaa2a-defd-4f0f-98a8-f2620eccd98c",
+      "rss_status": "draft",
+      "rss_episode_id": 3158845
     }
   ]
 }
