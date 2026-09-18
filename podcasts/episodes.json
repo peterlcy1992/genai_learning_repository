@@ -2,7 +2,7 @@
   "show": "The GenAI Evolution Atlas",
   "rss_show_id": 400601,
   "season": 2,
-  "next_episode": 6,
+  "next_episode": 7,
   "notes": "Single shared episode counter across both weekly formats. Each run reads next_episode, uses it, appends a record below, and increments next_episode. rss_show_id holds the RSS.com podcast id for this show (discovered by title via GET /v4/podcasts on first upload, then cached here). rss_status per episode: not_uploaded -> draft -> scheduled/published (the owner publishes manually on RSS.com).",
   "episodes": [
     {
@@ -135,6 +135,39 @@
       "notebook_id": "5ffcaa2a-defd-4f0f-98a8-f2620eccd98c",
       "rss_status": "draft",
       "rss_episode_id": 3158845
+    },
+    {
+      "season": 2,
+      "episode": 6,
+      "type": "roundup",
+      "date": "2026-09-18",
+      "week_of": "2026-09-12..2026-09-18",
+      "title": "GenAI News Roundup \u2014 week of Sep 12\u201318",
+      "description": "This week the AI-safety \"pacing\" debate went from essays to institutions: Anthropic's Frontier Red Team and threat-intelligence report catalog new catastrophic and misuse capabilities, the AEF-1 evaluator standard gets cosigned by xAI, OpenAI, and Anthropic, a Google DeepMind safety researcher resigns warning \"AI has the potential to kill us all,\" OpenAI confirms months of cross-lab safety coordination and ships a formal misalignment-disclosure framework with six new incidents, and Google DeepMind launches its own standing AGI-governance institute \u2014 plus a quieter week of releases (Cognition's SWE-2, OpenAI's GPT-Rosalind, Shanghai AI Lab's Atria Dawn Preview, Claude Cowork merging into chat) and research (looped-flow training, Next Concept Prediction pretraining, spurious tool use in RL agents, and SFT vs. RL for tool-calling) \u2014 plus commentary and what's next. Covers: Cognition's SWE-2; Anthropic's AI misuse threat-intelligence report; OpenAI's GPT-Rosalind; \"Thinking with Looped Flows\"; Dario Amodei's \"We Must Pace the Frontier\"; Anthropic's Frontier Red Team capability evals; NCP-ArchPreview; the AEF-1 evaluator standard; Shanghai AI Laboratory's Atria Dawn Preview; the Google DeepMind safety researcher resignation; OpenAI's confirmation of cross-lab safety talks; \"Spurious Tool Use\" in RL agents; OpenAI's model misalignment reporting framework; Claude Cowork merging into Claude chat; the launch of the DeepMind Institute; and the SFT-vs-RL tool-calling study.",
+      "audio": "podcasts/S2E06-2026-09-18-roundup.m4a",
+      "audio_url": "https://raw.githubusercontent.com/peterlcy1992/genai_learning_repository/main/podcasts/S2E06-2026-09-18-roundup.m4a",
+      "cover": "docs/thumbnails/podcast/S2E06-2026-09-18-roundup.png",
+      "sources": [
+        "https://cognition.com/blog/swe-2",
+        "https://www.anthropic.com/threat-intelligence-report-september-2026",
+        "https://openai.com/index/introducing-gpt-rosalind/",
+        "https://arxiv.org/abs/2609.11801",
+        "https://darioamodei.com/post/we-must-pace-the-frontier",
+        "https://www.anthropic.com/research/intelligence-targeting-conventional-weapons-capabilities",
+        "https://arxiv.org/abs/2609.10715",
+        "https://aievaluatorforum.org/initiatives/minimum-operating-conditions",
+        "https://huggingface.co/internlm/Atria-Dawn-Preview",
+        "https://www.bloomberg.com/news/articles/2026-09-15/google-deepmind-staffer-says-ai-may-kill-us-all-in-exit-post",
+        "https://techcrunch.com/2026/09/15/openai-anthropic-google-have-been-in-talks-on-ai-safety-for-weeks/",
+        "https://arxiv.org/abs/2609.16268",
+        "https://openai.com/index/model-misalignment-reporting-framework/",
+        "https://claude.com/blog/cowork-is-now-claude",
+        "https://techcrunch.com/2026/09/17/google-deepmind-launches-institute-to-widen-the-agi-debate/",
+        "https://arxiv.org/abs/2609.17848"
+      ],
+      "notebook_id": "3118411c-6825-4ebf-915e-b084e88c5fff",
+      "rss_status": "draft",
+      "rss_episode_id": 3164813
     }
   ]
 }
