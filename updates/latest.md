@@ -25,6 +25,20 @@ Each entry follows this format:
 
 <!-- NEW ENTRIES GO BELOW THIS LINE -->
 
+## 2026-09-18
+
+### Google DeepMind launches the DeepMind Institute to widen the AGI debate
+- **Type:** blog / policy (governance)
+- **Source:** https://techcrunch.com/2026/09/17/google-deepmind-launches-institute-to-widen-the-agi-debate/ (also https://thenextweb.com/news/deepmind-institute-legg-hassabis-agi-essays)
+- **Why it matters:** DeepMind co-founder Shane Legg, Google exec James Manyika, and Google DeepMind chair Demis Hassabis have launched a new public institute — Legg as managing editor — meant to host interdisciplinary debate (not just DeepMind's own house view) on how AGI affects science, economics, and society, opening with essays on safety, economic policy, transparency, and human flourishing. Legg used the platform to say his 50%-by-2028 minimal-AGI forecast stands, that GPT-6 Astra doesn't meet OpenAI's own AGI bar, and that Amodei's call to deliberately slow frontier releases is "worth considering" — the third major lab this month (after OpenAI's misalignment-disclosure framework and the AEF-1 evaluator standard) to stand up a standing institutional structure around AGI governance rather than issue a one-off statement.
+- **Relates to:** Stage 5 — Alignment & post-training (governance, external oversight); also Stage 8 — Staying current.
+
+### SFT or RL for Tool-Calling Agents? A Controlled Study Across Data, Method, and Scale
+- **Type:** paper
+- **Source:** https://arxiv.org/abs/2609.17848
+- **Why it matters:** A controlled comparison — SFT with LoRA vs. RL via GRPO vs. SFT-then-GRPO — across six Qwen3 models from 0.6B to 32B finds SFT+LoRA is the strongest in-distribution method at every scale tested (winning 15/18 settings), while GRPO's edge shows up only on cross-dataset transfer, and even there its average margin is under one point. A useful, unglamorous data point against the reflexive "RL is what makes tool-use agents good" assumption — dataset mixing turns out to matter more than method choice for generalization.
+- **Relates to:** Stage 5 — Alignment & post-training (RL vs. SFT post-training); also Stage 7 — Frontier systems (tool-use agents).
+
 ## 2026-09-17
 
 ### OpenAI publishes a formal framework for reporting model misalignment, discloses six new incidents
