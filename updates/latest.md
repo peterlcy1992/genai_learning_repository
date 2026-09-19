@@ -25,6 +25,38 @@ Each entry follows this format:
 
 <!-- NEW ENTRIES GO BELOW THIS LINE -->
 
+## 2026-09-19
+
+### Anthropic publishes its first R&D Automation Index: Claude now "leads" 26% of the company's own AI research and development
+- **Type:** blog / research (measurement methodology + data)
+- **Source:** https://www.anthropic.com/institute/measuring-pace-of-ai-development
+- **Why it matters:** Anthropic sampled ~15,000 real internal R&D tasks (20% of relevant staff, weekly through July 2026), organized them into a 542-category hierarchy, and scored them on Epoch AI's AL0–AL5 automation scale. Claude "leads" (AL4 — completes most of a task end-to-end from a high-level prompt under human supervision) 26% of the work as of August, up from under 1% in February, 12% in May, and 22% in July — with over 90% of work now at "collaborates" (AL3) or above, though never fully autonomous (AL5) anywhere measured. This is the first time a frontier lab has published a quantified, methodologically-transparent trend line for the exact "AI helping build the next AI" dynamic Dario Amodei cited as a trigger for deliberate pacing in the essay logged here on 2026-09-14.
+- **Relates to:** Stage 5 — Alignment & post-training (recursive self-improvement, pacing); also Stage 8 — Staying current.
+
+### Compositional Reasoning in Language Models under Reinforcement Learning Post-Training
+- **Type:** paper
+- **Source:** https://arxiv.org/abs/2609.19465
+- **Why it matters:** Using a dependency-graph framework with three levels of task compositionality, this finds a consistent asymmetry in RL post-training: training on isolated, atomic skills does not reliably transfer to tasks that require composing those skills, while training directly on composed tasks improves both composed *and* atomic performance. A concrete, falsifiable data point for anyone designing RL curricula — skill decomposition alone is not a shortcut to compositional generalization.
+- **Relates to:** Stage 5 — Alignment & post-training (RL post-training, generalization).
+
+### Alibaba's Qwen ships Qwen3.8-Omni-Flash: a 1M-context omni-modal model built for agentic audio/video work
+- **Type:** model release
+- **Source:** https://technode.com/2026/09/18/alibabas-qwen-releases-qwen3-8-omni-flash-with-1m-token-context/
+- **Why it matters:** A native omni-modal model (text, image, audio, video in one workflow) with a 1M-token context window, tool-calling for editing/rendering pipelines, and steep price cuts versus its predecessor Qwen3.5-Omni-Plus (98% cheaper per hour of audio, 93% cheaper for combined audio+video). Another concrete example of the "cheap, tool-using, long-context multimodal model" tier iterating fast, continuing the pattern this log has tracked all month.
+- **Relates to:** Stage 6 — Multimodality; also Stage 7 — Frontier systems (agents, tool use, long context).
+
+### Z.ai says it now serves GLM-5.3-Flash inference entirely on 100,000+ Chinese-made AI accelerators at Nvidia-comparable cost
+- **Type:** blog / infrastructure disclosure
+- **Source:** https://www.implicator.ai/zai-glm-5-3-flash-chinese-chips-nvidia-cost/
+- **Why it matters:** Z.ai describes building a production-grade inference stack on what it says is the largest disclosed cluster of domestic Chinese accelerators to date, tripling end-to-end throughput in under two weeks with per-token cost and hardware efficiency it claims are comparable to mainstream Nvidia GPUs. The disclosure is thin on specifics (no chip name, exact cluster size, utilization figures, or a named Nvidia baseline), so treat the comparison as directional — but it's a real data point on non-Nvidia inference stacks closing the gap at scale, not just in isolated benchmarks, and it concerns serving only, not the training run.
+- **Relates to:** Stage 4 — Efficiency & building blocks (inference infrastructure, serving cost).
+
+### Cohere's CEO calls the OpenAI/Anthropic/Google FINRA-style AI standards body a "cartel"
+- **Type:** blog / policy
+- **Source:** https://www.shopifreaks.com/anthropic-google-and-openai-have-discussed-creating-their-own-ai-standards-body-modeled-on-finra-to-test-frontier-models/
+- **Why it matters:** The first sharp public pushback on the cross-lab safety-coordination effort this log has tracked since 2026-09-15/16: Cohere CEO Aidan Gomez argues the proposed self-regulatory body lets the three largest labs write their own rules, Senator Sanders calls instead for binding international rules, and Sam Altman reportedly endorsed the body on Sept 15 — turning what had looked like unanimous lab convergence into an actual policy fight over who gets to set frontier-AI standards.
+- **Relates to:** Stage 5 — Alignment & post-training (governance, external oversight); also Stage 8 — Staying current.
+
 ## 2026-09-18
 
 ### Google DeepMind launches the DeepMind Institute to widen the AGI debate
