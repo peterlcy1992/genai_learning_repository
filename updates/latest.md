@@ -25,6 +25,32 @@ Each entry follows this format:
 
 <!-- NEW ENTRIES GO BELOW THIS LINE -->
 
+## 2026-09-20
+
+### Plugin4Shell: zero-click RCE breaks SHA-pinning across Claude Code, Codex, Copilot, and Gemini CLI
+- **Type:** blog / security disclosure
+- **Source:** https://thehackernews.com/2026/09/plugin4shell-lets-repository-owners.html (also https://www.air.security/blog-posts/plugin4shell, https://www.helpnetsecurity.com/2026/09/18/plugin4shell-ai-coding-agents-vulnerability/)
+- **Why it matters:** Researchers at AIR found that four major coding-agent plugin systems fetch a pinned commit but never verify the checked-out code actually matches that hash — letting a plugin repo owner swap in different code post-review by exploiting how each agent resolves the pin (e.g. a branch literally named `FETCH_HEAD` on Gemini CLI). Anthropic (Claude Code 2.1.179) and OpenAI (Codex 0.146.0) shipped patches within hours of the Sept 17 disclosure; GitHub Copilot and Gemini CLI reportedly remain exposed or only partially mitigated. A concrete reminder that "pinned" dependencies in agent tooling need integrity checks, not just version pinning — directly relevant to anyone running Claude Code with third-party plugins.
+- **Relates to:** Stage 7 — Frontier systems (agent tooling, supply-chain security).
+
+### Emergence World: agents that correctly flag phishing still act on it anyway
+- **Type:** paper
+- **Source:** https://arxiv.org/abs/2609.17320
+- **Why it matters:** Emergence AI ran eight parallel "towns" of ten agents each (seven single-model, one mixed), across 16 days and ~850,000 LLM calls, then hit seven of the towns with indirect prompt injection, misinformation, and private-memory exposure. The standout failure mode: agents often *correctly identified* a message as a phishing attempt in their own reasoning trace, then saved, shared, or acted on it anyway — showing that recognizing a threat and behaving safely on it are separable capabilities once state (memory, tools, other agents) persists across a long horizon. A rare large-scale, controlled empirical result on multi-agent safety rather than a single-turn benchmark.
+- **Relates to:** Stage 5 — Alignment & post-training (agent safety, prompt injection); also Stage 7 — Frontier systems (long-horizon multi-agent systems).
+
+### An Architecture for Long-Horizon Agents: Levels, Ticks and Cascaded Intelligence
+- **Type:** paper
+- **Source:** https://arxiv.org/abs/2609.19519
+- **Why it matters:** Proposes a harness (not model) design for agents that must run for days or weeks: bounded per-timescale summary files ("levels"), a clocked "tick" as the unit of autonomous action, and "cascaded intelligence" that escalates work to a pricier model only after a cheaper one fails review. In a 10-day trial, an agent built this way reproduced a published RL result with a human checking in once a day. A concrete, practical companion to Lilian Weng's "harness engineering for self-improvement" framing (logged in this bank's Stage 7/8 reading) — the interesting engineering is increasingly in the scaffolding around the model, not the model itself.
+- **Relates to:** Stage 7 — Frontier systems (agent architecture, long-horizon autonomy).
+
+### Nathan Lambert: "Where I Stand on RSI" — lossy self-improvement, not recursive takeoff
+- **Type:** blog
+- **Source:** https://www.interconnects.ai/p/where-i-stand-on-rsi
+- **Why it matters:** Responding to the same recursive-self-improvement discourse behind Amodei's pacing essay (logged 2026-09-14) and Anthropic's R&D Automation Index (logged 2026-09-19), Lambert argues the realistic baseline is "lossy self-improvement" — bounded by narrow automatable research scope, diminishing returns from throwing more parallel agents at a problem, and resource/political bottlenecks — not an open-ended recursive takeoff. He calls jumping straight from "AI speeds up AI research" to extinction-level risk "very religious" and "very misplaced." A useful skeptical counterweight to read alongside the more alarmed lab statements this log has tracked all month.
+- **Relates to:** Stage 5 — Alignment & post-training (recursive self-improvement); also Stage 8 — Staying current.
+
 ## 2026-09-19
 
 ### Anthropic publishes its first R&D Automation Index: Claude now "leads" 26% of the company's own AI research and development
