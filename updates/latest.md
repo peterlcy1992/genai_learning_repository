@@ -25,6 +25,20 @@ Each entry follows this format:
 
 <!-- NEW ENTRIES GO BELOW THIS LINE -->
 
+## 2026-09-21
+
+### Hacktron researchers use Claude Opus 5 to breach OpenAI staff accounts and an internal repo in under 72 hours
+- **Type:** blog / security disclosure
+- **Source:** https://thehackernews.com/2026/09/claude-opus-5-helped-researchers-take.html (also https://venturebeat.com/security/openai-hacked-by-small-team-of-white-hat-security-researchers-using-anthropics-claude-opus-5, https://www.techradar.com/pro/security/white-hat-hackers-just-breached-openai-using-anthropics-claude-in-less-than-72-hours-and-it-is-a-case-study-in-just-how-fast-ai-is-advancing)
+- **Why it matters:** Three researchers at security startup Hacktron AI chained a heap-buffer-overflow RCE in the Discourse software behind OpenAI's community forum (CVE-2026-32882 — HEIC/HEIF image uploads bypassed the usual format checks) with an SSO token-theft flaw to reach OpenAI staff ChatGPT/Codex sessions and an internal code repository. The notable detail: the team could not get a working exploit on Claude Opus 4.8, but the same attempt worked within hours once Opus 5 shipped — a concrete before/after capability jump on real offensive-security work, not an abstract benchmark score. OpenAI patched in ~14 hours and paid a $6,500 bounty.
+- **Relates to:** Stage 5 — Alignment & post-training (dual-use capability jumps, cyber-misuse potential); also Stage 7 — Frontier systems (agentic tool use for exploit development).
+
+### Dream-RSI: agents that "dream" against their own search history cut recursive self-improvement costs up to 162x
+- **Type:** paper
+- **Source:** https://arxiv.org/abs/2609.14858
+- **Why it matters:** Researchers from Google, Google DeepMind, and academic collaborators show a coding agent's own discovery tree — built for free while it explores — can be replayed as a simulator: instead of testing thousands of candidate exploration policies against expensive real rollouts, the agent "dreams" them against that free simulator and only deploys the winner. Across eight tasks (algorithmic engineering, math optimization, GPU kernel engineering) this cut real agent calls from up to 51,200 down to a few hundred — up to 162x — while matching or beating prior discovery performance, with no change to model weights. A concrete instance of harness-level recursive self-improvement (reusing rollout compute) rather than a new model release.
+- **Relates to:** Stage 4 — Efficiency & building blocks (reuse of rollout compute); also Stage 7 — Frontier systems (agent self-improvement loops).
+
 ## 2026-09-20
 
 ### Plugin4Shell: zero-click RCE breaks SHA-pinning across Claude Code, Codex, Copilot, and Gemini CLI

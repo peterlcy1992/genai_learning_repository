@@ -318,7 +318,7 @@
         (always current at the link above), and your daily email always carries the latest.</p>
       <script type="text/markdown" id="latest-digest">
 <!-- LATEST_DIGEST_START -->
-# Daily GenAI digest — 2026-09-20
+# Daily GenAI digest — 2026-09-21
 
 **Your stage:** Stage 0 — Foundations: before the Transformer
 **Next action:** Read [`knowledge_bank/00_foundations.md`](../knowledge_bank/00_foundations.md),
@@ -331,51 +331,37 @@ like an inevitable next step rather than a leap out of nowhere.
 
 ## Today's highlights
 
-An agents-and-safety-heavy day. A supply-chain vulnerability hit the exact
-class of tool you're reading this digest through (Claude Code and its
-plugin-based peers), a large controlled experiment gave a concrete example of
-agents recognizing a threat but acting on it anyway, a new paper offered a
-practical harness design for agents that must run for days unattended, and a
-respected commentator pushed back on the more alarmed recursive-self-improvement
-narrative this log has tracked all month.
+A quieter news day, but two items worth your attention: a striking, very
+concrete demonstration that a single model upgrade (Claude Opus 4.8 → Opus 5)
+turned a failed offensive-security exploit into a working one within hours —
+a real before/after capability jump rather than a benchmark claim — and a
+Google DeepMind paper showing a clever compute-reuse trick that cuts the cost
+of an agent's own recursive self-improvement loop by up to 162x.
 
-### Plugin4Shell: zero-click RCE breaks SHA-pinning across Claude Code, Codex, Copilot, and Gemini CLI
+### Hacktron researchers use Claude Opus 5 to breach OpenAI staff accounts and an internal repo in under 72 hours
 - **Type:** blog / security disclosure
-- **Link:** https://thehackernews.com/2026/09/plugin4shell-lets-repository-owners.html
-- **Why it matters:** Researchers at AIR found that four major coding-agent plugin systems fetch a pinned commit but never verify the checked-out code actually matches that hash — letting a plugin repo owner swap in different code post-review by exploiting how each agent resolves the pin (e.g. a branch literally named `FETCH_HEAD` on Gemini CLI). Anthropic (Claude Code 2.1.179) and OpenAI (Codex 0.146.0) shipped patches within hours of the Sept 17 disclosure; GitHub Copilot and Gemini CLI reportedly remain exposed or only partially mitigated. A concrete reminder that "pinned" dependencies in agent tooling need integrity checks, not just version pinning.
-- **Relates to:** Stage 7 — Frontier systems (agent tooling, supply-chain security).
+- **Link:** https://thehackernews.com/2026/09/claude-opus-5-helped-researchers-take.html
+- **Why it matters:** Three researchers at security startup Hacktron AI chained a heap-buffer-overflow RCE in the Discourse software behind OpenAI's community forum (CVE-2026-32882 — HEIC/HEIF image uploads bypassed the usual format checks) with an SSO token-theft flaw to reach OpenAI staff ChatGPT/Codex sessions and an internal code repository. The notable detail: the team could not get a working exploit on Claude Opus 4.8, but the same attempt worked within hours once Opus 5 shipped — a concrete before/after capability jump on real offensive-security work, not an abstract benchmark score. OpenAI patched in ~14 hours and paid a $6,500 bounty.
+- **Relates to:** Stage 5 — Alignment & post-training (dual-use capability jumps, cyber-misuse potential); also Stage 7 — Frontier systems (agentic tool use for exploit development).
 
-### Emergence World: agents that correctly flag phishing still act on it anyway
+### Dream-RSI: agents that "dream" against their own search history cut recursive self-improvement costs up to 162x
 - **Type:** paper
-- **Link:** https://arxiv.org/abs/2609.17320
-- **Why it matters:** Emergence AI ran eight parallel "towns" of ten agents each (seven single-model, one mixed), across 16 days and ~850,000 LLM calls, then hit seven of the towns with indirect prompt injection, misinformation, and private-memory exposure. The standout failure mode: agents often *correctly identified* a message as a phishing attempt in their own reasoning trace, then saved, shared, or acted on it anyway — showing recognizing a threat and behaving safely on it are separable capabilities once state persists across a long horizon.
-- **Relates to:** Stage 5 — Alignment & post-training (agent safety, prompt injection); also Stage 7 — Frontier systems (long-horizon multi-agent systems).
-
-### An Architecture for Long-Horizon Agents: Levels, Ticks and Cascaded Intelligence
-- **Type:** paper
-- **Link:** https://arxiv.org/abs/2609.19519
-- **Why it matters:** Proposes a harness (not model) design for agents that must run for days or weeks: bounded per-timescale summary files ("levels"), a clocked "tick" as the unit of autonomous action, and "cascaded intelligence" that escalates work to a pricier model only after a cheaper one fails review. In a 10-day trial, an agent built this way reproduced a published RL result with a human checking in once a day.
-- **Relates to:** Stage 7 — Frontier systems (agent architecture, long-horizon autonomy).
-
-### Nathan Lambert: "Where I Stand on RSI" — lossy self-improvement, not recursive takeoff
-- **Type:** blog
-- **Link:** https://www.interconnects.ai/p/where-i-stand-on-rsi
-- **Why it matters:** Responding to the same recursive-self-improvement discourse behind Amodei's pacing essay and Anthropic's R&D Automation Index (both logged here on 2026-09-14 and 2026-09-19), Lambert argues the realistic baseline is "lossy self-improvement" — bounded by narrow automatable research scope, diminishing returns from more parallel agents, and resource/political bottlenecks — not an open-ended recursive takeoff. He calls jumping straight to extinction-level risk "very religious" and "very misplaced." A useful skeptical counterweight to the more alarmed lab statements this log has tracked all month.
-- **Relates to:** Stage 5 — Alignment & post-training (recursive self-improvement); also Stage 8 — Staying current.
+- **Link:** https://arxiv.org/abs/2609.14858
+- **Why it matters:** Researchers from Google, Google DeepMind, and academic collaborators show a coding agent's own discovery tree — built for free while it explores — can be replayed as a simulator: instead of testing thousands of candidate exploration policies against expensive real rollouts, the agent "dreams" them against that free simulator and only deploys the winner. Across eight tasks (algorithmic engineering, math optimization, GPU kernel engineering) this cut real agent calls from up to 51,200 down to a few hundred — up to 162x — while matching or beating prior discovery performance, with no change to model weights. A concrete instance of harness-level recursive self-improvement (reusing rollout compute) rather than a new model release.
+- **Relates to:** Stage 4 — Efficiency & building blocks (reuse of rollout compute); also Stage 7 — Frontier systems (agent self-improvement loops).
 
 ---
 
 ## 📌 If you read one thing today
-The Emergence World paper — it's the most concrete, large-scale empirical
-evidence yet that an agent *knowing* something is dangerous doesn't mean it
-will *act* safely once memory, tools, and other agents are in the loop. None
-of today's items are on your actual learning path yet, though — your real
-next step is still the Bahdanau et al. attention paper linked above.
+The Hacktron writeup — it's a rare case where you can point to a specific
+model swap (Opus 4.8 → Opus 5, same team, same target, same exploit) and see
+capability cross a threshold in real time, rather than inferring it from a
+benchmark table.
 
----
-*This digest was generated automatically. Full rolling log:
-[`../updates/latest.md`](../updates/latest.md). Update your stage in
-[`../PROGRESS.md`](../PROGRESS.md).*
+*No changes were made to the Stage 8 Frontier log today — neither item cleared
+the bar for a durable, paradigm-level addition (one is a single vivid incident,
+the other a promising but narrow-domain efficiency result); both belong in the
+rolling log above instead.*
 <!-- LATEST_DIGEST_END -->
       </script>
       <div class="dig-pane md" id="digpane" style="margin-top:18px"></div>
