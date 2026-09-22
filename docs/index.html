@@ -318,7 +318,7 @@
         (always current at the link above), and your daily email always carries the latest.</p>
       <script type="text/markdown" id="latest-digest">
 <!-- LATEST_DIGEST_START -->
-# Daily GenAI digest — 2026-09-21
+# Daily GenAI digest — 2026-09-22
 
 **Your stage:** Stage 0 — Foundations: before the Transformer
 **Next action:** Read [`knowledge_bank/00_foundations.md`](../knowledge_bank/00_foundations.md),
@@ -331,37 +331,49 @@ like an inevitable next step rather than a leap out of nowhere.
 
 ## Today's highlights
 
-A quieter news day, but two items worth your attention: a striking, very
-concrete demonstration that a single model upgrade (Claude Opus 4.8 → Opus 5)
-turned a failed offensive-security exploit into a working one within hours —
-a real before/after capability jump rather than a benchmark claim — and a
-Google DeepMind paper showing a clever compute-reuse trick that cuts the cost
-of an agent's own recursive self-improvement loop by up to 162x.
+A solid infrastructure-and-efficiency day: Google open-sourced its production
+agent runtime, and three papers push on the unglamorous but high-leverage
+plumbing of post-training — squeezing more signal out of fewer tokens, more
+context out of less cache, and cleaner correctness signal out of
+self-distillation.
 
-### Hacktron researchers use Claude Opus 5 to breach OpenAI staff accounts and an internal repo in under 72 hours
-- **Type:** blog / security disclosure
-- **Link:** https://thehackernews.com/2026/09/claude-opus-5-helped-researchers-take.html
-- **Why it matters:** Three researchers at security startup Hacktron AI chained a heap-buffer-overflow RCE in the Discourse software behind OpenAI's community forum (CVE-2026-32882 — HEIC/HEIF image uploads bypassed the usual format checks) with an SSO token-theft flaw to reach OpenAI staff ChatGPT/Codex sessions and an internal code repository. The notable detail: the team could not get a working exploit on Claude Opus 4.8, but the same attempt worked within hours once Opus 5 shipped — a concrete before/after capability jump on real offensive-security work, not an abstract benchmark score. OpenAI patched in ~14 hours and paid a $6,500 bounty.
-- **Relates to:** Stage 5 — Alignment & post-training (dual-use capability jumps, cyber-misuse potential); also Stage 7 — Frontier systems (agentic tool use for exploit development).
+### Google open-sources AX (Agent Executor), a distributed runtime for long-running agents
+- **Type:** tool/framework
+- **Link:** https://cloud.google.com/blog/products/ai-machine-learning/agent-executor-googles-distributed-agent-runtime
+- **Why it matters:** AX is an Apache-2.0 orchestrator, built on Google's "Agent Substrate," for executing, suspending, resuming, and auditing agent workloads that can run for minutes to days on Kubernetes — durable state, human-input handling, and recovery from interruptions are first-class. v0.3.0 splits the runtime into an API frontend, reconciler, and sandboxed task runner, and moves task state from Kubernetes CRDs into Redis Streams because etcd couldn't handle the churn of millions of short-lived agent tasks. A concrete look at what production-grade agent infrastructure (not the model) looks like once agents run unattended for a long time.
+- **Relates to:** Stage 7 — Frontier systems (agent harnesses, tool use, long-horizon orchestration).
 
-### Dream-RSI: agents that "dream" against their own search history cut recursive self-improvement costs up to 162x
+### On Repulsive and Attractive Teachers: separating correctness from behavior in self-distillation
 - **Type:** paper
-- **Link:** https://arxiv.org/abs/2609.14858
-- **Why it matters:** Researchers from Google, Google DeepMind, and academic collaborators show a coding agent's own discovery tree — built for free while it explores — can be replayed as a simulator: instead of testing thousands of candidate exploration policies against expensive real rollouts, the agent "dreams" them against that free simulator and only deploys the winner. Across eight tasks (algorithmic engineering, math optimization, GPU kernel engineering) this cut real agent calls from up to 51,200 down to a few hundred — up to 162x — while matching or beating prior discovery performance, with no change to model weights. A concrete instance of harness-level recursive self-improvement (reusing rollout compute) rather than a new model release.
-- **Relates to:** Stage 4 — Efficiency & building blocks (reuse of rollout compute); also Stage 7 — Frontier systems (agent self-improvement loops).
+- **Link:** https://arxiv.org/abs/2609.21561
+- **Why it matters:** On-policy self-distillation conditions a teacher on privileged information (e.g. the correct answer) and distills its output distribution back into the student — but NVIDIA researchers show this entangles two different signals: "attraction" toward a correct-solution teacher suppresses exploratory reasoning and shortens responses, while "repulsion" from an incorrect-solution teacher lengthens responses and can trigger unwanted switches into the model's latent thinking mode, eventually going unstable. Disentangling the two lets a contrastive objective keep the correctness gains without the unintended behavioral drift.
+- **Relates to:** Stage 5 — Alignment & post-training (RL post-training, distillation side effects).
+
+### 1% of Tokens Can Be Enough: reliable gradient estimation makes sparse on-policy distillation nearly free
+- **Type:** paper
+- **Link:** https://arxiv.org/abs/2609.24432
+- **Why it matters:** On-policy distillation normally supervises every token in a student's generated trajectory with a teacher's distribution; this paper shows that scoring tokens by how *reliably estimable* their teacher-gradient is (not just how "useful" they look) lets a tiny fraction of tokens carry almost all the signal. On math and medical reasoning tasks, supervising just 1% of tokens matches or beats full-token distillation, and picking one token per response (~0.1%) still gets close.
+- **Relates to:** Stage 4 — Efficiency & building blocks (training-time compute efficiency); also Stage 5 — Alignment & post-training (distillation methods).
+
+### DeepSeek-V4.1-Flash technical report: pushing KV-cache compression to ~890 bytes/token
+- **Type:** paper
+- **Link:** https://arxiv.org/abs/2609.19969
+- **Why it matters:** The technical report behind DeepSeek's MIT-licensed 552B-parameter MoE model (16B active on decode, 8B on prefill, 1M-token context) details how it combines cross-layer KV-cache reuse (CSA2) with FP4 KV caching to cut the always-in-HBM cache footprint to ~890 bytes/token — about 1/4 of its predecessor — plus a deployment trick that shrinks the persistent (SSD/host-memory) footprint to roughly 1/8. A concrete, quantified example of how far KV-cache engineering can stretch long-context serving costs.
+- **Relates to:** Stage 4 — Efficiency & building blocks (MoE, KV-cache / long-context efficiency).
 
 ---
 
 ## 📌 If you read one thing today
-The Hacktron writeup — it's a rare case where you can point to a specific
-model swap (Opus 4.8 → Opus 5, same team, same target, same exploit) and see
-capability cross a threshold in real time, rather than inferring it from a
-benchmark table.
+The AX (Agent Executor) release — it's a rare public look at the production
+infrastructure a frontier lab actually runs agents on (durable state,
+suspend/resume, sandboxing, Redis-backed task queues at billions-of-tasks
+scale), which is a useful preview of Stage 7 territory once you get there.
 
-*No changes were made to the Stage 8 Frontier log today — neither item cleared
-the bar for a durable, paradigm-level addition (one is a single vivid incident,
-the other a promising but narrow-domain efficiency result); both belong in the
-rolling log above instead.*
+*No changes were made to the Stage 8 Frontier log today — all four items are
+solid, well-evidenced engineering advances (an infra release and three
+training-efficiency papers), but none is a paradigm shift or a result general
+enough yet to clear the bar for a permanent, durable addition; they belong in
+the rolling log above instead.*
 <!-- LATEST_DIGEST_END -->
       </script>
       <div class="dig-pane md" id="digpane" style="margin-top:18px"></div>

@@ -25,6 +25,32 @@ Each entry follows this format:
 
 <!-- NEW ENTRIES GO BELOW THIS LINE -->
 
+## 2026-09-22
+
+### Google open-sources AX (Agent Executor), a distributed runtime for long-running agents
+- **Type:** tool/framework
+- **Source:** https://cloud.google.com/blog/products/ai-machine-learning/agent-executor-googles-distributed-agent-runtime (also https://github.com/google/ax/releases/tag/v0.3.0)
+- **Why it matters:** AX is an Apache-2.0 orchestrator, built on Google's "Agent Substrate," for executing, suspending, resuming, and auditing agent workloads that can run for minutes to days on Kubernetes — durable state, human-input handling, and recovery from interruptions are first-class. v0.3.0 splits the runtime into an API frontend, reconciler, and sandboxed task runner, and moves task state from Kubernetes CRDs into Redis Streams because etcd couldn't handle the churn of millions of short-lived agent tasks. A concrete look at what production-grade agent infrastructure (not the model) looks like once agents run unattended for a long time.
+- **Relates to:** Stage 7 — Frontier systems (agent harnesses, tool use, long-horizon orchestration).
+
+### On Repulsive and Attractive Teachers: separating correctness from behavior in self-distillation
+- **Type:** paper
+- **Source:** https://arxiv.org/abs/2609.21561
+- **Why it matters:** On-policy self-distillation conditions a teacher on privileged information (e.g. the correct answer) and distills its output distribution back into the student — but NVIDIA researchers show this entangles two different signals: "attraction" toward a correct-solution teacher suppresses exploratory reasoning and shortens responses, while "repulsion" from an incorrect-solution teacher lengthens responses and can trigger unwanted switches into the model's latent thinking mode, eventually going unstable. Disentangling the two lets a contrastive objective keep the correctness gains without the unintended behavioral drift — a useful diagnostic for anyone doing RL/distillation-based post-training on reasoning models.
+- **Relates to:** Stage 5 — Alignment & post-training (RL post-training, distillation side effects).
+
+### 1% of Tokens Can Be Enough: reliable gradient estimation makes sparse on-policy distillation nearly free
+- **Type:** paper
+- **Source:** https://arxiv.org/abs/2609.24432
+- **Why it matters:** On-policy distillation normally supervises every token in a student's generated trajectory with a teacher's distribution; this paper shows that scoring tokens by how *reliably estimable* their teacher-gradient is (not just how "useful" they look) lets a tiny fraction of tokens carry almost all the signal. On math and medical reasoning tasks, supervising just 1% of tokens matches or beats full-token distillation, and picking one token per response (~0.1%) still gets close — a large compute-efficiency lever for anyone doing on-policy distillation at scale.
+- **Relates to:** Stage 4 — Efficiency & building blocks (training-time compute efficiency); also Stage 5 — Alignment & post-training (distillation methods).
+
+### DeepSeek-V4.1-Flash technical report: pushing KV-cache compression to ~890 bytes/token
+- **Type:** paper
+- **Source:** https://arxiv.org/abs/2609.19969 (model card: https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash)
+- **Why it matters:** The technical report behind DeepSeek's MIT-licensed 552B-parameter MoE model (16B active on decode, 8B on prefill, 1M-token context) details how it combines cross-layer KV-cache reuse (CSA2) with FP4 KV caching to cut the always-in-HBM cache footprint to ~890 bytes/token — about 1/4 of its predecessor — and a deployment trick ("SWA Bounded Replay") that shrinks the persistent (SSD/host-memory) cache footprint to roughly 1/8. It's a concrete, quantified example of how far KV-cache engineering can stretch long-context serving costs, distinct from the (already-covered) model release itself.
+- **Relates to:** Stage 4 — Efficiency & building blocks (MoE, KV-cache / long-context efficiency).
+
 ## 2026-09-21
 
 ### Hacktron researchers use Claude Opus 5 to breach OpenAI staff accounts and an internal repo in under 72 hours
