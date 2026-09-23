@@ -2,7 +2,7 @@
   "show": "The GenAI Evolution Atlas",
   "rss_show_id": 400601,
   "season": 2,
-  "next_episode": 7,
+  "next_episode": 8,
   "notes": "Single shared episode counter across both weekly formats. Each run reads next_episode, uses it, appends a record below, and increments next_episode. rss_show_id holds the RSS.com podcast id for this show (discovered by title via GET /v4/podcasts on first upload, then cached here). rss_status per episode: not_uploaded -> draft -> scheduled/published (the owner publishes manually on RSS.com).",
   "episodes": [
     {
@@ -168,6 +168,24 @@
       "notebook_id": "3118411c-6825-4ebf-915e-b084e88c5fff",
       "rss_status": "draft",
       "rss_episode_id": 3164813
+    },
+    {
+      "season": 2,
+      "episode": 7,
+      "type": "deep-dive",
+      "date": "2026-09-23",
+      "week_of": "2026-09-17..2026-09-23",
+      "title": "Deep Dive: The Model Swap That Broke Into OpenAI",
+      "description": "Security researchers at Hacktron AI chained a Discourse heap-buffer-overflow RCE (CVE-2026-32882) with an SSO token-theft flaw to reach OpenAI staff accounts and an internal code repository \u2014 and the attempt only worked once they swapped their agent from Claude Opus 4.8 to Claude Opus 5. This episode digs into the exploit chain itself, what changed between the two models to cross that threshold, and what a same-team, same-target, same-exploit before/after test tells us about frontier models and dual-use offensive-security capability. Source: https://thehackernews.com/2026/09/claude-opus-5-helped-researchers-take.html",
+      "audio": "podcasts/S2E07-2026-09-23-deep-dive.m4a",
+      "audio_url": "https://raw.githubusercontent.com/peterlcy1992/genai_learning_repository/main/podcasts/S2E07-2026-09-23-deep-dive.m4a",
+      "cover": "docs/thumbnails/podcast/S2E07-2026-09-23-deep-dive.png",
+      "sources": [
+        "https://thehackernews.com/2026/09/claude-opus-5-helped-researchers-take.html"
+      ],
+      "notebook_id": "40d7544e-f491-471d-858f-10c854caedd9",
+      "rss_status": "draft",
+      "rss_episode_id": 3176398
     }
   ]
 }
