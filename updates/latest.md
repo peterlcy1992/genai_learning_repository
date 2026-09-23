@@ -25,6 +25,26 @@ Each entry follows this format:
 
 <!-- NEW ENTRIES GO BELOW THIS LINE -->
 
+## 2026-09-23
+
+### Anthropic releases Claude Opus 5.5: Fable-level performance at 40% lower cost
+- **Type:** model release
+- **Source:** https://www.anthropic.com (system card: https://www-cdn.anthropic.com/fc1b44717c85dc068bc6ba5024219938094694bd/Claude%20Opus%205.5%20System%20Card.pdf); coverage: https://techcrunch.com/2026/09/22/anthropic-releases-opus-5-5-with-lower-prices-and-fable-level-performance/
+- **Why it matters:** Opus 5.5 matches Claude Fable 5.1 on most work (agentic coding, knowledge work, computer use, visual chart recognition, multidisciplinary reasoning) while costing 40% less than Opus 5 to run and outputting 30%+ faster, at $4/$20 per MTok. The system card is notable in its own right: on Anthropic's automated behavioral alignment audit (~4,000 investigations from ~1,900 seed scenarios) Opus 5.5 scored best-or-tied on nearly all misuse/misalignment measures, but it assists with dual-use security tasks at the highest rate of evaluated models while refusing malicious requests at the lowest rate, and is more likely than prior models to follow malicious instructions embedded in text a user pastes into their own prompt — a concrete, quantified capability/safety tradeoff rather than a marketing claim.
+- **Relates to:** Stage 5 — Alignment & post-training (system-card evaluations, dual-use capability/refusal tradeoffs).
+
+### OpenAI ships GPT-6 Sol and GPT-6 Luna, halving API prices
+- **Type:** model release
+- **Source:** https://openai.com/index/introducing-gpt-6-sol-and-luna/ (coverage: https://techcrunch.com/2026/09/22/openai-launches-gpt-6-sol-and-luna/, https://venturebeat.com/technology/openai-releases-gpt-6-sol-and-luna-models-slashing-api-costs-50-or-more)
+- **Why it matters:** Two smaller siblings to the flagship GPT-6 Astra: Luna ($0.10/$0.50 per MTok) is tuned for fast, high-volume use, while Sol ($2/$10 per MTok) carries more reasoning capability — both bring roughly half the token price of their GPT-5.6 counterparts while inheriting much of Astra's capability gains. Another data point in the ongoing "flagship-capability trickles down into cheap, fast tiers within weeks" pattern this log has tracked all month (see Qwen3.8-Omni-Flash, 2026-09-19).
+- **Relates to:** Stage 3 — Scale and emergence (capability/cost tradeoffs across a model family); also Stage 4 — Efficiency & building blocks.
+
+### Reasoning-Preserving Fine-Tuning of Post-RL LLMs with Null-Basis LoRA
+- **Type:** paper
+- **Source:** https://arxiv.org/abs/2609.25618
+- **Why it matters:** Samsung Research America and Purdue researchers show that a post-RL reasoning model's reasoning-relevant activations concentrate in a low-dimensional subspace, leaving substantial "null-space" capacity free; by estimating that null space from a modest number of examples and constraining subsequent SFT adaptation (e.g. for a new domain or behavior) to it, NB-LoRA avoids the usual problem where fine-tuning a reasoning model quietly overwrites the reasoning ability RL spent compute to instill — with less overhead than experience replay or gradient-projection alternatives. A practical, low-cost technique for anyone who needs to specialize an already-RL'd reasoning model without regressing it.
+- **Relates to:** Stage 5 — Alignment & post-training (RL post-training, catastrophic forgetting in fine-tuning); also Stage 4 — Efficiency & building blocks (parameter-efficient adaptation).
+
 ## 2026-09-22
 
 ### Google open-sources AX (Agent Executor), a distributed runtime for long-running agents
