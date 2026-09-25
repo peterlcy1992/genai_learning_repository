@@ -2,7 +2,7 @@
   "show": "The GenAI Evolution Atlas",
   "rss_show_id": 400601,
   "season": 2,
-  "next_episode": 8,
+  "next_episode": 9,
   "notes": "Single shared episode counter across both weekly formats. Each run reads next_episode, uses it, appends a record below, and increments next_episode. rss_show_id holds the RSS.com podcast id for this show (discovered by title via GET /v4/podcasts on first upload, then cached here). rss_status per episode: not_uploaded -> draft -> scheduled/published (the owner publishes manually on RSS.com).",
   "episodes": [
     {
@@ -186,6 +186,47 @@
       "notebook_id": "40d7544e-f491-471d-858f-10c854caedd9",
       "rss_status": "draft",
       "rss_episode_id": 3176398
+    },
+    {
+      "season": 2,
+      "episode": 8,
+      "type": "roundup",
+      "date": "2026-09-25",
+      "week_of": "2026-09-19..2026-09-25",
+      "title": "GenAI News Roundup \u2014 week of Sep 19\u201325",
+      "description": "This week the \"AI safety cooperation\" story that's been building all month turned concrete: Google, OpenAI, and Anthropic agreed to build a joint Frontier AI Standards Agency, even as Cohere's CEO calls it a cartel and Anthropic's own R&D Automation Index shows Claude now leads 26% of the company's internal AI research. Frontier releases kept trickling down the cost curve (Claude Opus 5.5, GPT-6 Sol and Luna, Qwen3.8-Omni-Flash), while a run of unsettling agent-security findings \u2014 a before/after Claude Opus 4.8-to-5 exploit jump that breached OpenAI, a zero-click plugin RCE across four coding agents, agents that flag phishing correctly and act on it anyway, and the first malware to let four LLMs vote on its next move \u2014 showed how fast both agentic capability and agentic misuse are moving, plus a full slate of efficiency and self-improvement research and commentary and what's next. Covers: Anthropic's R&D Automation Index; compositional reasoning under RL post-training; Qwen3.8-Omni-Flash; Z.ai's Chinese-chip GLM-5.3-Flash inference disclosure; Cohere CEO's \"cartel\" pushback on the labs' standards body; Plugin4Shell; the Emergence World multi-agent-safety study; \"An Architecture for Long-Horizon Agents\"; Nathan Lambert's \"Where I Stand on RSI\"; the Hacktron/Claude Opus 5 breach of OpenAI; Dream-RSI; Google's AX (Agent Executor) runtime; \"On Repulsive and Attractive Teachers\"; \"1% of Tokens Can Be Enough\"; DeepSeek-V4.1-Flash's technical report; Claude Opus 5.5; GPT-6 Sol and Luna; Null-Basis LoRA reasoning-preserving fine-tuning; Anthropic's life-sciences group and its CRISPR-like enzyme discovery; the CLOSEDQUORUM malware; \"Quantifying Overclaiming Propensity in Frontier LLM Agents\"; RRSI; the Frontier AI Standards Agency plan; and the Gemini 4 post-training tease.",
+      "audio": "podcasts/S2E08-2026-09-25-roundup.m4a",
+      "audio_url": "https://raw.githubusercontent.com/peterlcy1992/genai_learning_repository/main/podcasts/S2E08-2026-09-25-roundup.m4a",
+      "cover": "docs/thumbnails/podcast/S2E08-2026-09-25-roundup.png",
+      "sources": [
+        "https://www.anthropic.com/institute/measuring-pace-of-ai-development",
+        "https://arxiv.org/abs/2609.19465",
+        "https://technode.com/2026/09/18/alibabas-qwen-releases-qwen3-8-omni-flash-with-1m-token-context/",
+        "https://www.implicator.ai/zai-glm-5-3-flash-chinese-chips-nvidia-cost/",
+        "https://www.shopifreaks.com/anthropic-google-and-openai-have-discussed-creating-their-own-ai-standards-body-modeled-on-finra-to-test-frontier-models/",
+        "https://thehackernews.com/2026/09/plugin4shell-lets-repository-owners.html",
+        "https://arxiv.org/abs/2609.17320",
+        "https://arxiv.org/abs/2609.19519",
+        "https://www.interconnects.ai/p/where-i-stand-on-rsi",
+        "https://thehackernews.com/2026/09/claude-opus-5-helped-researchers-take.html",
+        "https://arxiv.org/abs/2609.14858",
+        "https://cloud.google.com/blog/products/ai-machine-learning/agent-executor-googles-distributed-agent-runtime",
+        "https://arxiv.org/abs/2609.21561",
+        "https://arxiv.org/abs/2609.24432",
+        "https://arxiv.org/abs/2609.19969",
+        "https://www-cdn.anthropic.com/fc1b44717c85dc068bc6ba5024219938094694bd/Claude%20Opus%205.5%20System%20Card.pdf",
+        "https://openai.com/index/introducing-gpt-6-sol-and-luna/",
+        "https://arxiv.org/abs/2609.25618",
+        "https://www.anthropic.com/news/claude-discovers-novel-enzyme-system",
+        "https://blog.talosintelligence.com/the-closed-quorum-inside-the-first-reported-autonomous-ai-c2-implant/",
+        "https://arxiv.org/abs/2609.20812",
+        "https://arxiv.org/abs/2609.24972",
+        "https://www.bankinfosecurity.com/google-openai-anthropic-plan-frontier-ai-standards-body-a-32926",
+        "https://www.androidheadlines.com/2026/09/google-deepmind-teases-early-gemini-4-launch.html"
+      ],
+      "notebook_id": "ac73a725-298c-4740-9799-e80c28d15a1c",
+      "rss_status": "draft",
+      "rss_episode_id": 3181882
     }
   ]
 }
