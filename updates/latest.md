@@ -25,6 +25,26 @@ Each entry follows this format:
 
 <!-- NEW ENTRIES GO BELOW THIS LINE -->
 
+## 2026-09-25
+
+### RRSI: Regularized Recursive Self-Improvement of Agent Harnesses
+- **Type:** paper
+- **Source:** https://arxiv.org/abs/2609.24972
+- **Why it matters:** An agent's capability is largely set by its harness (prompts, control flow, tools, memory, context management) around a frozen backbone model. Recent methods automate harness evolution by iteratively proposing and selecting edits — a form of recursive self-improvement at the agent-system level — but this can overfit, with big in-distribution gains vanishing out-of-distribution. RRSI regularizes the process with a temporally annealed edit budget and novelty-seeking exploration over evolution history to curb that overfitting. Today's most-upvoted paper on Hugging Face Daily Papers (176 upvotes), and a direct technical follow-on to the "harness engineering" framing Lilian Weng laid out in July 2026.
+- **Relates to:** Stage 7 — Frontier systems (agents, tool use, harness design).
+
+### Google, OpenAI, and Anthropic plan a joint "Frontier AI Standards Agency"
+- **Type:** blog / news (industry governance)
+- **Source:** https://www.bankinfosecurity.com/google-openai-anthropic-plan-frontier-ai-standards-body-a-32926 (also https://www.pymnts.com/news/artificial-intelligence/2026/openai-google-and-anthropic-join-forces-to-set-ai-safety-standards/)
+- **Why it matters:** The three largest frontier labs have agreed to stand up a FINRA-style self-regulator (tentatively the "Standards Authority for Frontier AI"), covering shared technical evaluations, pre-release audits, third-party pre-deployment security assessments, and incident reporting — with no government oversight, targeting a launch by year-end 2026 or early 2027. Notable both for rival labs cooperating on self-regulation and for the leadership/advisors being courted (Sriram Krishnan, Arati Prabhakar, Condoleezza Rice; technical advisors including METR's Beth Barnes and Paul Christiano).
+- **Relates to:** Stage 5 — Alignment & post-training (safety evaluation and audit infrastructure for frontier releases).
+
+### Gemini 4 enters post-training; new DeepMind chief signals an earlier-than-planned release
+- **Type:** news / blog
+- **Source:** https://www.androidheadlines.com/2026/09/google-deepmind-teases-early-gemini-4-launch.html (also https://techbriefly.com/2026/09/25/gemini-4-enters-post-training-as-google-prepares-early-release/)
+- **Why it matters:** In his first public appearance since succeeding Demis Hassabis as Google DeepMind's chief, Koray Kavukcuoglu said Gemini 4 has entered post-training and that DeepMind wants to ship an early post-training checkpoint "as soon as possible" rather than wait for a fully polished release — a notable shift toward faster, more iterative frontier releases. No firm date, but expectations are pulled well ahead of year-end.
+- **Relates to:** Stage 3 — Scale and emergence (the pretrain → post-train → release lifecycle of a frontier model); also Stage 7 — Frontier systems.
+
 ## 2026-09-24
 
 ### Anthropic launches a life-sciences research group; Claude autonomously flags a novel CRISPR-like enzyme system
