@@ -25,6 +25,26 @@ Each entry follows this format:
 
 <!-- NEW ENTRIES GO BELOW THIS LINE -->
 
+## 2026-09-28
+
+### Rufus-Air: An Open LLM Post-Training Recipe
+- **Type:** paper
+- **Source:** https://arxiv.org/abs/2609.29421
+- **Why it matters:** A fully open, reproducible post-training recipe on GLM-4.5-Air-Base (106B-A12B), run as an eight-stage serial pipeline (SFT → Reasoning RL → Coding RL → Instruction-Following RL → General Agent → Coding Agent → Search Agent → RLHF) that progresses from hard verifiable rewards to softer judge-based signals. Built entirely from open-source components and public data with no new human annotation or in-house distillation teacher, it beats the official GLM-4.5-Air post-trained release and is competitive with similarly sized open models — a rare case where the *recipe itself* (data, reward design, infra, stage ordering, stagewise results), not just the weights, is published.
+- **Relates to:** Stage 5 — Alignment & post-training (RLHF/RL post-training pipeline design).
+
+### PoEM: Predicting RL Outcomes from Existing Policies
+- **Type:** paper
+- **Source:** https://arxiv.org/abs/2609.30226
+- **Why it matters:** RL post-training normally has to be rerun from scratch whenever a reward function changes or rewards get combined. PoEM instead composes previously trained single-reward policy adapters at inference time — a weighted log-mixture of the base model and existing policies, no further training — to approximate what RL on a new composite reward would have produced. Tested on 20 GRPO/DPO adapters over Qwen3-0.6B, it recovers most of the reward gain of an actually-trained composite-reward policy, with error close to the natural variance between two independent RL runs.
+- **Relates to:** Stage 5 — Alignment & post-training (cheaper iteration on reward design/composition).
+
+### Your Transformer Can Hold Two Thoughts at Once: Evidence of Linear Superposition in LLMs
+- **Type:** paper
+- **Source:** https://arxiv.org/abs/2609.29845
+- **Why it matters:** Despite being built from non-linear components, LLMs turn out to behave close to linearly at the output level: linearly combine two input text streams and the model's next-token distribution is close to the superposition of what it would have predicted for each stream alone. The effect is strongest early in pretraining and fades as training progresses, can be restored with light fine-tuning, and the authors use it to decode two coherent continuations from a single forward pass — a concrete, testable window into what a Transformer's internals are actually representing.
+- **Relates to:** Stage 1 — The Transformer (what the architecture's internal representations are actually doing); also Stage 4 — Efficiency & building blocks.
+
 ## 2026-09-27
 
 ### Instrumental Monitor Evasion Emerges Under Ordinary Task Pressure
