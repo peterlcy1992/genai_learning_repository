@@ -318,55 +318,32 @@
         (always current at the link above), and your daily email always carries the latest.</p>
       <script type="text/markdown" id="latest-digest">
 <!-- LATEST_DIGEST_START -->
-# Daily GenAI digest — 2026-09-28
+# Daily GenAI digest — 2026-09-29
 
 **Your stage:** Stage 0 — Foundations: before the Transformer
 **Next action:** Read [`knowledge_bank/00_foundations.md`](../knowledge_bank/00_foundations.md),
-then the primary paper — Bahdanau et al. (2014), *Neural Machine Translation by
-Jointly Learning to Align and Translate* (arXiv:1409.0473). That's the paper
-where "attention" was born, and it's what makes the Transformer (Stage 1) feel
-like an inevitable next step rather than a leap out of nowhere.
+then Bahdanau et al. (2014), *Neural Machine Translation by Jointly Learning to
+Align and Translate* (arXiv:1409.0473) — the origin of attention.
 
 ---
 
 ## Today's highlights
 
-A quieter day — no major model releases, three solid papers instead, all
-squarely in the "how post-training and the Transformer itself actually work"
-territory rather than news.
+A quiet day — one new item worth logging. (Web search was thin and arXiv was
+unreachable from the runner, so only what could be confirmed is listed.)
 
-### Rufus-Air: An Open LLM Post-Training Recipe
-- **Type:** paper
-- **Link:** https://arxiv.org/abs/2609.29421
-- **Why it matters:** A fully open, reproducible post-training recipe on GLM-4.5-Air-Base (106B-A12B): eight serial stages (SFT → Reasoning RL → Coding RL → Instruction-Following RL → General Agent → Coding Agent → Search Agent → RLHF), moving from hard verifiable rewards toward softer judge-based signals. Built only from open components and public data — no new human annotation, no in-house distillation teacher — and it beats the official GLM-4.5-Air post-trained release. What's published here is the *recipe* (data, reward design, infra, stage order, stagewise results), which is rarer than published weights.
+### Rollout Efficiency in RL for Reasoning LLMs: A Taxonomy and Future Directions
+- **Type:** paper (survey)
+- **Link:** https://arxiv.org/abs/2609.25463
+- **Why it matters:** Maps the techniques for cheaper rollouts in RL for reasoning models, the dominant cost in RLVR/GRPO-style post-training.
 - **Relates to:** Stage 5 — Alignment & post-training.
-
-### PoEM: Predicting RL Outcomes from Existing Policies
-- **Type:** paper
-- **Link:** https://arxiv.org/abs/2609.30226
-- **Why it matters:** Normally, changing or combining reward functions means rerunning RL post-training from scratch. PoEM instead mixes previously-trained single-reward policy adapters at inference time (a weighted log-mixture, no further training) to predict what RL on a new composite reward would have produced. Across 20 GRPO/DPO adapters on Qwen3-0.6B, it recovers most of the reward gain of a directly-trained composite policy — cheap iteration on reward design without a full RL run each time.
-- **Relates to:** Stage 5 — Alignment & post-training.
-
-### Your Transformer Can Hold Two Thoughts at Once: Evidence of Linear Superposition in LLMs
-- **Type:** paper
-- **Link:** https://arxiv.org/abs/2609.29845
-- **Why it matters:** Linearly combine two input text streams and a Transformer's next-token prediction turns out to be close to the superposition of what it would have predicted for each stream separately — evidence that, despite all the non-linear machinery, the model's outputs behave close to linearly. The effect is strongest early in pretraining and fades with more training, can be restored with light fine-tuning, and lets the authors decode two coherent continuations out of a single forward pass. A concrete probe into what the architecture you'll meet at Stage 1 is actually doing internally.
-- **Relates to:** Stage 1 — The Transformer; also Stage 4 — Efficiency & building blocks.
 
 ---
 
 ## 📌 If you read one thing today
-The linear superposition paper — it's the one most directly about the
-Transformer architecture itself (Stage 1), rather than about the layer of
-process built on top of it (post-training, RL). Seeing that a Transformer's
-output behaves close to *linear* despite being built from non-linear parts
-is a nice, concrete thing to have in the back of your mind once you get to
-self-attention.
+Skip the news — your Stage 0 next action (Bahdanau attention) is the best use of your time.
 
-*No changes were made to the Stage 8 Frontier log today — three solid,
-single-contribution papers, but none is a broadly-applicable method or
-paradigm shift with durable, reproduced evidence; they belong in the
-rolling log above instead.*
+*No Stage 8 Frontier log additions today.*
 <!-- LATEST_DIGEST_END -->
       </script>
       <div class="dig-pane md" id="digpane" style="margin-top:18px"></div>

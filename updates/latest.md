@@ -25,6 +25,14 @@ Each entry follows this format:
 
 <!-- NEW ENTRIES GO BELOW THIS LINE -->
 
+## 2026-09-29
+
+### Rollout Efficiency in RL for Reasoning LLMs: A Taxonomy and Future Directions
+- **Type:** paper (survey)
+- **Source:** https://arxiv.org/abs/2609.25463
+- **Why it matters:** A survey organizing techniques for making the rollout (sampling) phase of RL for reasoning models cheaper — usually the dominant cost in RLVR/GRPO-style post-training. Useful as a map of the efficiency levers before reading individual papers. (Only title/topic confirmed today; the arXiv host was unreachable for a full read.)
+- **Relates to:** Stage 5 — Alignment & post-training (RL post-training cost and design).
+
 ## 2026-09-28
 
 ### Rufus-Air: An Open LLM Post-Training Recipe
