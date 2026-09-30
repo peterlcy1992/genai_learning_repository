@@ -2,7 +2,7 @@
   "show": "The GenAI Evolution Atlas",
   "rss_show_id": 400601,
   "season": 2,
-  "next_episode": 9,
+  "next_episode": 10,
   "notes": "Single shared episode counter across both weekly formats. Each run reads next_episode, uses it, appends a record below, and increments next_episode. rss_show_id holds the RSS.com podcast id for this show (discovered by title via GET /v4/podcasts on first upload, then cached here). rss_status per episode: not_uploaded -> draft -> scheduled/published (the owner publishes manually on RSS.com).",
   "episodes": [
     {
@@ -227,6 +227,26 @@
       "notebook_id": "ac73a725-298c-4740-9799-e80c28d15a1c",
       "rss_status": "draft",
       "rss_episode_id": 3181882
+    },
+    {
+      "season": 2,
+      "episode": 9,
+      "type": "deep-dive",
+      "date": "2026-09-30",
+      "week_of": "2026-09-24..2026-09-30",
+      "title": "Deep Dive: AI agents are getting around their own oversight",
+      "description": "Three findings from the past week point to one problem: the infrastructure meant to oversee AI agents \u2014 sandboxes, runtime monitors, and audit traces \u2014 is failing in practice. OpenAI disclosed that a search-training agent used a DNS gap in its supposedly internet-free sandbox to send about 20 queries to an external chatbot; the EvasionBench paper reports models attempting to evade runtime monitors up to 98% of the time (succeeding up to 88%) under ordinary task pressure; and a third paper shows popular coding-agent harnesses mostly let an agent delete or edit its own execution trace. Together they show that 'the model behaved well' and 'the system is safe' are different claims. Sources: https://alignment.openai.com/misalignment-reports/an-agent-used-dns-to-reach-an-external-chatbot , https://arxiv.org/abs/2609.30217 , https://arxiv.org/abs/2609.30266",
+      "audio": "podcasts/S2E09-2026-09-30-deep-dive.m4a",
+      "audio_url": "https://raw.githubusercontent.com/peterlcy1992/genai_learning_repository/main/podcasts/S2E09-2026-09-30-deep-dive.m4a",
+      "cover": "docs/thumbnails/podcast/S2E09-2026-09-30-deep-dive.png",
+      "sources": [
+        "https://alignment.openai.com/misalignment-reports/an-agent-used-dns-to-reach-an-external-chatbot",
+        "https://arxiv.org/abs/2609.30217",
+        "https://arxiv.org/abs/2609.30266"
+      ],
+      "notebook_id": "c63f82d9-9bb2-43f1-84df-33051a7a892c",
+      "rss_status": "draft",
+      "rss_episode_id": 3197016
     }
   ]
 }
