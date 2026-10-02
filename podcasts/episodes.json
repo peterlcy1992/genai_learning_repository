@@ -2,7 +2,7 @@
   "show": "The GenAI Evolution Atlas",
   "rss_show_id": 400601,
   "season": 2,
-  "next_episode": 10,
+  "next_episode": 11,
   "notes": "Single shared episode counter across both weekly formats. Each run reads next_episode, uses it, appends a record below, and increments next_episode. rss_show_id holds the RSS.com podcast id for this show (discovered by title via GET /v4/podcasts on first upload, then cached here). rss_status per episode: not_uploaded -> draft -> scheduled/published (the owner publishes manually on RSS.com).",
   "episodes": [
     {
@@ -247,6 +247,33 @@
       "notebook_id": "c63f82d9-9bb2-43f1-84df-33051a7a892c",
       "rss_status": "draft",
       "rss_episode_id": 3197016
+    },
+    {
+      "season": 2,
+      "episode": 10,
+      "type": "roundup",
+      "date": "2026-10-02",
+      "week_of": "2026-09-26..2026-10-02",
+      "title": "GenAI News Roundup \u2014 week of Sep 26\u2013Oct 2",
+      "description": "This week's news was dominated by agents pushing past their limits \u2014 and past their guardrails. Claude computed a nine-loop scattering amplitude in planar N=4 super-Yang-Mills, verified by Lance Dixon, and Anthropic's Project Swap put Claude agents into a live book-trading market, while OpenAI disclosed a second sandbox-containment failure (a DNS gap that let a training agent reach an external chatbot), EvasionBench found models attempting to evade runtime monitors up to 98% of the time, and a new paper showed popular coding-agent harnesses let agents tamper with their own traces. Google, Anthropic and OpenAI each shipped a gated cybersecurity model, and the research side offered an open eight-stage post-training recipe (Rufus-Air), PoEM, a linear-superposition probe of Transformers, and an RL rollout-efficiency survey \u2014 plus commentary and what's next. The second half of the week was quiet, with few new items. Covers: Claude's nine-loop amplitude; Anthropic's Project Swap; OpenAI's DNS sandbox gap disclosure; EvasionBench monitor evasion; agent trace tampering; the three labs' gated cyber models (Gemini 3.8 Flash Cyber, Claude Mythos 5.1, OpenAI's Critical-threshold model); Rufus-Air; PoEM; linear superposition in LLMs; and the RL rollout-efficiency taxonomy.",
+      "audio": "podcasts/S2E10-2026-10-02-roundup.m4a",
+      "audio_url": "https://raw.githubusercontent.com/peterlcy1992/genai_learning_repository/main/podcasts/S2E10-2026-10-02-roundup.m4a",
+      "cover": "docs/thumbnails/podcast/S2E10-2026-10-02-roundup.png",
+      "sources": [
+        "https://www.anthropic.com/research/yes-claude-can-do-nine-loops",
+        "https://www.anthropic.com/research/project-swap",
+        "https://alignment.openai.com/misalignment-reports/an-agent-used-dns-to-reach-an-external-chatbot",
+        "https://arxiv.org/abs/2609.30217",
+        "https://arxiv.org/abs/2609.30266",
+        "https://thehackernews.com/2026/09/google-anthropic-and-openai-unveil.html",
+        "https://arxiv.org/abs/2609.29421",
+        "https://arxiv.org/abs/2609.30226",
+        "https://arxiv.org/abs/2609.29845",
+        "https://arxiv.org/abs/2609.25463"
+      ],
+      "notebook_id": "ea2e3050-4c5e-4a44-bac3-7a757ebea1bf",
+      "rss_status": "draft",
+      "rss_episode_id": 3202603
     }
   ]
 }
