@@ -24,16 +24,25 @@ take effect, also update the live Routine's prompt (see
 >    Stage 8, frame the brief as "anything here worth a permanent change to the
 >    knowledge bank?" rather than "what to study next."
 >
-> 2. **Find what's new.** Use web search to find the most notable Generative AI
->    developments from roughly the last 1–2 days: new arXiv papers (cs.CL,
->    cs.LG, cs.AI), major model releases, and substantive technical blog posts
->    from labs (OpenAI, Anthropic, Google DeepMind, Meta, Mistral, DeepSeek,
->    Qwen) and respected explainers (Lilian Weng, Sebastian Raschka / Ahead of
->    AI, Interconnects, Import AI, The Batch, Hugging Face Daily Papers).
->    Prioritize: reasoning models, agents, RL post-training, efficiency/MoE,
->    long context, multimodality, and safety/alignment. Prefer primary sources
->    and include links. Quality over quantity — aim for the 3–7 most notable
->    items; fewer on a quiet day, and it's fine to report "nothing major today."
+> 2. **Find what's new.** **WebSearch is the primary, authoritative channel** —
+>    it returns titles, URLs and snippets; treat it as the source of truth. Run
+>    several targeted queries covering the last 1–2 days across: new arXiv papers
+>    (cs.CL, cs.LG, cs.AI), major model releases, and lab/explainer posts
+>    (OpenAI, Anthropic, Google DeepMind, Meta, Mistral, DeepSeek, Qwen; Lilian
+>    Weng, Sebastian Raschka / Ahead of AI, Interconnects, Import AI, The Batch,
+>    Hugging Face Daily Papers). Prioritize reasoning models, agents, RL
+>    post-training, efficiency/MoE, long context, multimodality, safety/alignment.
+>    Prefer the primary-source URLs the search returns; ignore generic "best LLM"
+>    marketing pages.
+>
+>    **Egress note (important):** this environment's proxy **blocks WebFetch** to
+>    most sites (arxiv.org and others return `EGRESS_BLOCKED`). WebFetch is
+>    therefore **optional and must not gate logging** — when it fails, fall back
+>    to the WebSearch title + snippet + URL and log the item anyway (append
+>    "(via web search)" to its why-line). Never drop an otherwise-notable item
+>    just because its page couldn't be fetched, and never fabricate URLs or
+>    details beyond what search surfaced. A genuinely quiet day is rare —
+>    aim for the 3–7 most notable items.
 >
 > 3. **De-duplicate.** Read `updates/latest.md` and skip anything already logged
 >    (match on title, arXiv id, or URL).
