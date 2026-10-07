@@ -27,7 +27,29 @@ Each entry follows this format:
 
 ## 2026-10-07
 
-Quiet day — search surfaced nothing new that could be verified against a primary source, so nothing is logged.
+### Anthropic releases Claude Opus 5.5
+- **Type:** model release
+- **Source:** https://inc42.com/buzz/anthropic-launches-claude-opus-5-5-touts-40-lower-running-costs/
+- **Why it matters:** Released 2026-09-22 as the first of the Claude 5.5 family; Anthropic claims Fable 5.1-level performance on most tasks at ~40% lower cost than Opus 5 and >30% faster output, aimed at agentic coding and computer use. Figures are vendor-reported. (via web search; page not fetched)
+- **Relates to:** Stage 7 — frontier systems (agents, reasoning models)
+
+### DeepSeek "shrinks caches" (The Batch, Oct 2 issue)
+- **Type:** blog / newsletter item
+- **Source:** https://www.deeplearning.ai/the-batch
+- **Why it matters:** The Batch's 2 Oct issue headlines DeepSeek reducing KV-cache memory, an efficiency direction for long-context inference; details not verified beyond the headline. (via web search; page not fetched)
+- **Relates to:** Stage 4 — efficiency & building blocks
+
+### Mistral Large 4 public preview
+- **Type:** model release
+- **Source:** https://aiweekly.co/ai-news-today/edition/2026-10-01
+- **Why it matters:** Reported as a natively multimodal MoE model with ~1T total / 49B active parameters, in public preview; single-roundup report, treat as uncertain. (via web search; page not fetched)
+- **Relates to:** Stage 4 — MoE; Stage 6 — multimodality
+
+### Google DeepMind SynthID Bio
+- **Type:** tool/framework
+- **Source:** https://matthewwilliamson657973.substack.com/p/the-brief-october-6-2026
+- **Why it matters:** Watermarking that embeds verifiable signatures in AI-designed protein sequences and predicted structures, extending provenance ideas beyond text and images; reported via a newsletter roundup. (via web search; page not fetched)
+- **Relates to:** Stage 8 — staying current
 
 ## 2026-10-06
 
