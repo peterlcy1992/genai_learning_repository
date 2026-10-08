@@ -25,6 +25,20 @@ Each entry follows this format:
 
 <!-- NEW ENTRIES GO BELOW THIS LINE -->
 
+## 2026-10-08
+
+### Google launches Gemini 4 Argon, gated to vetted cyber defenders first
+- **Type:** model release
+- **Source:** https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-4-argon/?hl=en (coverage: https://www.techrepublic.com/article/news-google-gemini-4-argon-cyber-defenders/)
+- **Why it matters:** Announced ~2026-09-30; first access goes to trusted defenders (Fairwind Program) rather than the public, with a no-cyber-guardrails variant for them. Google reports 68% on CWE-bench v1 and 77.9% on DeepSWE v1.1 (vendor-reported; Bloomberg relays internal doubts about real-world coding). Broader API/Ultra access to follow. Continues the "gated frontier cyber model" pattern. (via web search; blog page not fetched)
+- **Relates to:** Stage 7 — frontier systems (agents, reasoning models)
+
+### Mistral Large 4: API preview details (update to 10-07 entry)
+- **Type:** model release
+- **Source:** https://aiweekly.co/ai-news-today
+- **Why it matters:** A roundup reports an API preview from Oct 6 with ~1.05T total / 49B active parameters and a 1M-token context; open weights reportedly promised for end of October, not yet published. Single-aggregator claim, treat as uncertain. (via web search; page not fetched)
+- **Relates to:** Stage 4 — MoE
+
 ## 2026-10-07
 
 ### Anthropic releases Claude Opus 5.5
