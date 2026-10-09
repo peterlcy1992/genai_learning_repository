@@ -25,6 +25,32 @@ Each entry follows this format:
 
 <!-- NEW ENTRIES GO BELOW THIS LINE -->
 
+## 2026-10-09
+
+### Anthropic releases Claude Haiku 5.5 (speed tier of the Claude 5.5 family)
+- **Type:** model release
+- **Source:** https://aidapted.ro/en/articles/ai-news-for-october-8-2026/
+- **Why it matters:** An Oct 8 roundup reports Haiku 5.5 as the speed-focused member of the Claude 5.5 family, with a context window of up to one million tokens. Another instance of the "flagship capability trickles into fast, cheap tiers" pattern. Single-aggregator report; verify against Anthropic's own announcement. (via web search; page not fetched)
+- **Relates to:** Stage 7 — frontier systems
+
+### Reflection AI's "Beam": 501B-total / 23B-active open MoE announced, weights due this month
+- **Type:** model release
+- **Source:** https://lastweekin.ai/p/last-week-in-ai-346-719-math-manuscripts
+- **Why it matters:** Reported as a text-only mixture-of-experts model that Reflection says matches Z.ai's GLM-5.2 on advanced reasoning benchmarks, but not top open models like Kimi K3 or GLM-5.3. Weights and technical details are promised for October; claims are vendor-reported. (via web search; page not fetched)
+- **Relates to:** Stage 4 — MoE
+
+### Independent tests place Mistral Large 4 best outside the US/China, behind Chinese open-weights
+- **Type:** blog / evaluation coverage
+- **Source:** https://tomshardware.com/tech-industry/artificial-intelligence/independent-tests-rank-mistrals-new-trillion-parameter-large-4-the-best-ai-model-outside-the-u-s-and-china-but-chinese-open-weights-still-overcome-europes-best-efforts
+- **Why it matters:** Per the search snippet/summary, Artificial Analysis ranks Large 4 (preview API since Oct 6; open weights expected by end of October) as the best model from outside the US and China, yet it scores below open models from Xiaomi, Z.ai, Moonshot and DeepSeek. Useful independent calibration of vendor-reported numbers. (via web search; page not fetched)
+- **Relates to:** Stage 4 — MoE
+
+### Scott Aaronson's "Mathocalypse" on OpenAI's batch of AI-produced math results
+- **Type:** blog
+- **Source:** https://lastweekin.ai/p/last-week-in-ai-346-719-math-manuscripts
+- **Why it matters:** Reported (single blog account, uncertain) that OpenAI's 372-result math drop includes a Lean-verified proof related to the Unique Games Conjecture; Last Week in AI #346 headlines "719 math manuscripts". Treat as claims in progress pending expert review. (via web search; page not fetched)
+- **Relates to:** Stage 7 — reasoning models
+
 ## 2026-10-08
 
 ### Google launches Gemini 4 Argon, gated to vetted cyber defenders first
