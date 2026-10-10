@@ -25,6 +25,14 @@ Each entry follows this format:
 
 <!-- NEW ENTRIES GO BELOW THIS LINE -->
 
+## 2026-10-10
+
+### Google DeepMind releases EmbeddingGemma 2 (740M multimodal open embedding model)
+- **Type:** model release
+- **Source:** https://letsdatascience.com/news/deepmind-releases-embeddinggemma-2-for-edge-search-fbcc7c51
+- **Why it matters:** Announced Oct 6 as an Apache-2.0 model that maps text, code, images, video and audio into a single 768-dim embedding space, with modular encoders so on-device apps load only what they need. Reports cite roughly 191MB (text-only) to 567MB (full multimodal) memory; figures differ across sources, so check the official model card. (via web search; page not fetched)
+- **Relates to:** Stage 7 — RAG and retrieval (embeddings; see also Stage 0 embeddings)
+
 ## 2026-10-09
 
 ### Anthropic releases Claude Haiku 5.5 (speed tier of the Claude 5.5 family)
