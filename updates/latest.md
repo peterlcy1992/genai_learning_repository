@@ -25,6 +25,20 @@ Each entry follows this format:
 
 <!-- NEW ENTRIES GO BELOW THIS LINE -->
 
+## 2026-10-11
+
+### OpenAI safety researcher David Robinson resigns, publishes Atlantic essay
+- **Type:** blog / industry news
+- **Source:** https://lastweekin.ai/p/last-week-in-ai-346-719-math-manuscripts
+- **Why it matters:** Per Last Week in AI #346, Robinson resigned on ~Oct 3 and argued in The Atlantic that the company is not careful enough with increasingly capable systems. Single newsletter account; a useful reminder that alignment practice is contested, not settled. (via web search; page not fetched)
+- **Relates to:** Stage 5 — Alignment & post-training
+
+### Claude Haiku 5.5: pricing detail (update to 10-09 entry)
+- **Type:** model release
+- **Source:** https://lastweekin.ai/p/last-week-in-ai-346-719-math-manuscripts
+- **Why it matters:** The same newsletter reports Haiku 5.5 (released Oct 7) cuts prices ~90% versus Haiku 4.5 for prompts up to 100K tokens, showing how fast capability-per-dollar is falling. Verify against Anthropic's pricing page. (via web search; page not fetched)
+- **Relates to:** Stage 7 — frontier systems
+
 ## 2026-10-10
 
 ### Google DeepMind releases EmbeddingGemma 2 (740M multimodal open embedding model)
