@@ -25,6 +25,26 @@ Each entry follows this format:
 
 <!-- NEW ENTRIES GO BELOW THIS LINE -->
 
+## 2026-10-12
+
+### Nous Research raises $90M Series B to build enterprise product around open-source agent Hermes
+- **Type:** industry news
+- **Source:** https://riorundown.substack.com/p/trending-ai-news-oct-11-2026
+- **Why it matters:** Reported $90M at a $1.5B valuation, a signal that open-source agent frameworks are attracting serious commercial backing. Single newsletter account. (via web search; page not fetched)
+- **Relates to:** Stage 7 — frontier systems and the engineered stack
+
+### Nvidia reportedly in talks to acquire or invest further in open-weights startup Reflection AI
+- **Type:** industry news
+- **Source:** https://riorundown.substack.com/p/trending-ai-news-oct-11-2026
+- **Why it matters:** The newsletter cites the Financial Times: a possible acquihire of a US open-weights lab, showing how hardware vendors are moving up into models. Unconfirmed report. (via web search; page not fetched)
+- **Relates to:** Stage 7 — frontier systems and the engineered stack
+
+### Upstage Solar-Open2 250B appears on Hugging Face (date uncertain)
+- **Type:** model release
+- **Source:** https://digg.com/tech/x74jp7e3
+- **Why it matters:** A roundup reports a 70.4 SWE-Bench Verified score for a 250B open model; vendor/community claim, not independently verified, and the release date was not stated. (via web search; page not fetched)
+- **Relates to:** Stage 7 — frontier systems and the engineered stack
+
 ## 2026-10-11
 
 ### OpenAI safety researcher David Robinson resigns, publishes Atlantic essay
