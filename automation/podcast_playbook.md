@@ -93,8 +93,17 @@ week — never more than three, and only when they form one connected story.
 Prefer primary sources; use the article's own URL (the digest's `Link:`), not
 the digest file.
 
-**Friday (News Roundup):** collect **every** notable item from the in-range
-digests — the whole week worth calling out. Use each item's primary URL.
+**Friday (News Roundup):** collect the notable items from the in-range digests
+— the whole week worth calling out. Use each item's primary URL. Constraints:
+- **Window only.** Include only items **dated inside this episode's week**. Do
+  not pull in earlier newsletter/digest editions or items you covered before.
+- **No repeats.** Exclude anything already covered in the **last two roundup
+  episodes**. Build an `ALREADY COVERED` list from those two episodes' chapter /
+  item lists (from their `podcasts/S*E*-*-roundup.md` and the `sources` in
+  `episodes.json`) and pass it into the prompt (Step 5) so the host skips them.
+- **Date every line.** When you assemble `THIS WEEK'S ITEMS`, put the item's
+  date on every line (`YYYY-MM-DD — Title — one-line hook`).
+- Don't pre-judge a slow stretch as "quiet"; let the sources decide.
 
 ## Step 4 — Build the notebook and add the sources
 
@@ -120,13 +129,26 @@ file and substitute the placeholder with this run's items:
   `{{FEATURED_ARTICLES}}` with a bullet list of the 1–3 featured articles
   (exact title + one-line why-it's-the-week's-biggest).
 - **Roundup** — copy `automation/podcast_roundup_prompt.md`, replace
-  `{{WEEKLY_ITEMS}}` with a bullet list of every weekly item (title + one-line
-  hook, grouped by theme where natural).
+  `{{WEEKLY_ITEMS}}` with the dated item list (`YYYY-MM-DD — Title — one-line
+  hook`, grouped by theme where natural), and replace `{{ALREADY_COVERED}}` with
+  the last two roundups' chapter/item list (titles are enough) so the host skips
+  repeats. If no prior roundups exist, put `(none)`.
+
+**Keep the filled prompt under NotebookLM's 5,000-character box.** When you
+build the scratch prompt, send **only the instruction body** — drop the doc
+header (every line above the first `---` separator); it's maintainer notes, not
+instructions for the host. After substitution, check the size (`wc -c`). The
+body is ~2.9 KB, so with the items it should land around ~4,500; if it tops
+~4,500, trim the **item list** (drop the lowest-signal items or shorten the
+hooks) — never the instructions — so a corrections block still fits if the
+episode has to be regenerated.
 
 ```sh
 mkdir -p /tmp/pod
-sed 's/{{FEATURED_ARTICLES}}/.../' automation/podcast_deepdive_prompt.md > /tmp/pod/prompt.md
-# (do the substitution in-session; sed shown only to indicate the scratch copy)
+# take only the body (below the first '---'), then substitute the placeholders:
+awk 'f{print} /^---$/{f=1}' automation/podcast_roundup_prompt.md > /tmp/pod/prompt.md
+# ...replace {{WEEKLY_ITEMS}} and {{ALREADY_COVERED}} in /tmp/pod/prompt.md...
+wc -c /tmp/pod/prompt.md    # must stay well under 5000
 ```
 
 ## Step 6 — Generate the audio (Deep Dive · Long)
