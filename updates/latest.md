@@ -25,6 +25,20 @@ Each entry follows this format:
 
 <!-- NEW ENTRIES GO BELOW THIS LINE -->
 
+## 2026-10-13
+
+### Reflection AI (Nvidia-backed) reportedly preparing its first open-weight model
+- **Type:** industry news / upcoming model release
+- **Source:** https://app.dealroom.co/news/note/nvidia-backed-reflection-ai-prepares-first-open-weight-model-launch
+- **Why it matters:** Reported (Axios, Oct 4) as a US answer to DeepSeek/Qwen in open weights; as of early October no name, weights, license or benchmarks were published, so treat it as unconfirmed. (via web search; page not fetched)
+- **Relates to:** Stage 7 — frontier systems and the engineered stack
+
+### Fireship: "the open-weight race" — Mistral, Reflection AI and Moonshot all make moves (Oct 7)
+- **Type:** blog / video roundup
+- **Source:** https://ai-tldr.dev/releases/fireship-open-weight-race-oct07/
+- **Why it matters:** Snippet says three labs made big open-weight moves in one week, underscoring competition in open models; specifics were not visible in the search result. (via web search; page not fetched)
+- **Relates to:** Stage 7 — frontier systems and the engineered stack
+
 ## 2026-10-12
 
 ### Nous Research raises $90M Series B to build enterprise product around open-source agent Hermes
