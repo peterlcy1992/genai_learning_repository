@@ -2,7 +2,7 @@
   "show": "The GenAI Evolution Atlas",
   "rss_show_id": 400601,
   "season": 2,
-  "next_episode": 12,
+  "next_episode": 13,
   "notes": "Single shared episode counter across both weekly formats. Each run reads next_episode, uses it, appends a record below, and increments next_episode. rss_show_id holds the RSS.com podcast id for this show (discovered by title via GET /v4/podcasts on first upload, then cached here). rss_status per episode: not_uploaded -> draft -> scheduled/published (the owner publishes manually on RSS.com).",
   "episodes": [
     {
@@ -300,6 +300,24 @@
       "notebook_id": "31abe69b-9a86-4855-8c21-c65abe2385ec",
       "rss_status": "draft",
       "rss_episode_id": 3220542
+    },
+    {
+      "season": 2,
+      "episode": 12,
+      "type": "deep-dive",
+      "date": "2026-10-14",
+      "week_of": "2026-10-08..2026-10-14",
+      "title": "Deep Dive: Anthropic's red team warns AI worms could soon spread across home devices",
+      "description": "Anthropic's Frontier Red Team, as reported by Al Jazeera on Oct 13, warns that small AI models may be only months from being able to copy themselves onto connected consumer devices such as smart TVs and appliances, with no central host to shut down. This is the week's biggest development because it moves self-replication from abstract risk to a concrete, near-term IoT threat model. The report also stresses a caveat: in testing, no current model was both capable and small enough to replicate reliably on a smart TV. Note the source is secondary press coverage of Anthropic's findings. Source: https://www.aljazeera.com/economy/2026/10/13/ai-could-self-replicate-on-home-devices-within-months-anthropic-says",
+      "audio": "podcasts/S2E12-2026-10-14-deep-dive.m4a",
+      "audio_url": "https://raw.githubusercontent.com/peterlcy1992/genai_learning_repository/main/podcasts/S2E12-2026-10-14-deep-dive.m4a",
+      "cover": "docs/thumbnails/podcast/S2E12-2026-10-14-deep-dive.png",
+      "sources": [
+        "https://www.aljazeera.com/economy/2026/10/13/ai-could-self-replicate-on-home-devices-within-months-anthropic-says"
+      ],
+      "notebook_id": "1d1afbdb-1249-4193-b1cf-dc0058d23b77",
+      "rss_status": "draft",
+      "rss_episode_id": 3234998
     }
   ]
 }
