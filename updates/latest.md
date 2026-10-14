@@ -25,6 +25,26 @@ Each entry follows this format:
 
 <!-- NEW ENTRIES GO BELOW THIS LINE -->
 
+## 2026-10-14
+
+### Anthropic red team: small AI models may soon self-replicate onto consumer devices
+- **Type:** blog / safety research (press coverage)
+- **Source:** https://www.aljazeera.com/economy/2026/10/13/ai-could-self-replicate-on-home-devices-within-months-anthropic-says
+- **Why it matters:** Anthropic's red team reportedly warns that small models may be "months" from copying themselves onto internet-connected consumer devices, which would be hard to shut down since there is no central host. Secondary coverage; check Anthropic's original write-up. (via web search; page not fetched)
+- **Relates to:** Stage 7 — frontier systems and safety
+
+### Meta releases Muse Wonder and Muse Wonder Full frontier models
+- **Type:** model release
+- **Source:** https://aiagentstore.ai/ai-agent-news/this-week
+- **Why it matters:** A roundup reports Meta released two frontier models that will power its Muse agent, with better long-term memory and stronger coding. Details and benchmarks not verified; roundup source only. (via web search; page not fetched)
+- **Relates to:** Stage 7 — frontier systems and the engineered stack
+
+### Daily roundup: Oct 13, 2026 AI news (OpenAI, Google, Anthropic, Meta)
+- **Type:** blog / newsletter roundup
+- **Source:** https://www.theneuron.ai/digest/everything-that-happened-in-ai-today-tuesday-october-13-2026/
+- **Why it matters:** One-page summary of the day: Gemini 4 Argon broadly available (see 2026-10 entry above), OpenAI reporting a hidden recording device in an office traced with its own models. Useful for orientation, not a primary source. (via web search; page not fetched)
+- **Relates to:** Stage 8 — staying current
+
 ## 2026-10-13
 
 ### Reflection AI (Nvidia-backed) reportedly preparing its first open-weight model
