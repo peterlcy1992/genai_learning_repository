@@ -25,6 +25,38 @@ Each entry follows this format:
 
 <!-- NEW ENTRIES GO BELOW THIS LINE -->
 
+## 2026-10-15
+
+### Liquid AI LFM2.5-24B-A2B: open-weight MoE for on-device agents
+- **Type:** model release
+- **Source:** https://aitoolly.com/ai-news/2026-10-14
+- **Why it matters:** Reported open-weight model with 24B total / 2B active parameters aimed at on-device agents, with one source citing 184 tokens/s on an Apple M5 Max. Speed figure is from a secondary aggregator and unverified. (via web search; page not fetched)
+- **Relates to:** Stage 7 — frontier systems and the engineered stack (sparse MoE, efficiency)
+
+### TasteVal (arXiv 2610.06824): measuring frontier models' research taste
+- **Type:** paper / benchmark
+- **Source:** https://aitoolly.com/ai-news/2026-10-14 (arXiv id as reported by newsletter)
+- **Why it matters:** Reportedly evaluates the experimental research "taste" of frontier models across eight tasks, relevant to AI-assisted research. Details unverified. (via web search; page not fetched)
+- **Relates to:** Stage 8 — staying current / evaluation
+
+### Humanity's Sixth Sense (arXiv 2610.08966): hard visual-reasoning benchmark
+- **Type:** paper / benchmark
+- **Source:** https://aitoolly.com/ai-news/2026-10-14 (arXiv id as reported by newsletter)
+- **Why it matters:** Newsletter reports humans scored 93.1% versus 53.6% for the strongest model, indicating a large remaining visual-reasoning gap; model name unconfirmed. (via web search; page not fetched)
+- **Relates to:** Stage 7 — multimodal frontier and evaluation
+
+### Microsoft bitnet.cpp: open-source inference framework for 1-bit LLMs
+- **Type:** tool/framework
+- **Source:** https://aitoolly.com/ai-news/2026-10-14
+- **Why it matters:** Reported open-source release for running 1-bit-weight LLMs efficiently on CPUs, relevant to quantization and cheap inference. Release details unverified. (via web search; page not fetched)
+- **Relates to:** Stage 7 — efficiency and inference stack
+
+### Open letter from 400+ scientists urges stronger containment of cyber-capable AI
+- **Type:** policy / safety
+- **Source:** https://aitoolly.com/ai-news/2026-10-14
+- **Why it matters:** Signatories reportedly include Geoffrey Hinton and Yoshua Bengio; ties into the ongoing gated-release debate (e.g. Gemini 4 Argon). Secondary coverage. (via web search; page not fetched)
+- **Relates to:** Stage 7 — frontier systems and safety
+
 ## 2026-10-14
 
 ### Anthropic red team: small AI models may soon self-replicate onto consumer devices
