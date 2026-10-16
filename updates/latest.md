@@ -25,6 +25,38 @@ Each entry follows this format:
 
 <!-- NEW ENTRIES GO BELOW THIS LINE -->
 
+## 2026-10-16
+
+### Meta releases open weights for Muse Spark Open (816B, 1M-token context)
+- **Type:** model release
+- **Source:** https://techcrunch.com/2026/10/15/meta-launches-an-open-weight-model-that-runs-on-macs/
+- **Why it matters:** Meta reportedly released open weights for a coding/agent-focused model, pitched as the most capable US open-weight model and designed to run locally on a pair of Mac Studios; Bloomberg and TechCrunch report 816B parameters and a 1M-token context. Closed sibling Muse Wonder was announced Oct 12. (via web search; page not fetched)
+- **Relates to:** Stage 7 — frontier systems and the open-weight landscape
+
+### Meta Muse Wonder: closed frontier model behind a subscription
+- **Type:** model release
+- **Source:** https://www.cnbc.com/2026/10/12/meta-muse-wonder-ai-model-agent.html
+- **Why it matters:** Announced Oct 12 as a closed frontier model, available via $20/$100 monthly plans and Meta's paid Model API; contrasts with the open Muse Spark release. (via web search; page not fetched)
+- **Relates to:** Stage 7 — frontier systems (open vs. closed strategy)
+
+### Google Gemini 4 Argon pitched for deep-work tasks
+- **Type:** model release
+- **Source:** https://www.foxnews.com/live-news/ai-news-anthropic-frontier-models-safety-10-13
+- **Why it matters:** Covered Oct 13 as a model for legal analysis and engineering problems, with early testers reportedly including Deloitte and LexisNexis. Secondary coverage; details unverified. (via web search; page not fetched)
+- **Relates to:** Stage 7 — frontier systems
+
+### Anthropic warns self-replicating AI could spread across home devices
+- **Type:** blog / safety
+- **Source:** https://www.foxnews.com/live-news/ai-news-anthropic-frontier-models-safety-10-13
+- **Why it matters:** News coverage of an Anthropic safety warning about self-replicating frontier-model behavior; relevant context for evaluation and containment debates. Details unverified. (via web search; page not fetched)
+- **Relates to:** Stage 7 — frontier systems and safety
+
+### Intern Lumina U2: masked-diffusion LLM across text, image, video, 3D
+- **Type:** paper
+- **Source:** https://pricepertoken.com/news/model-releases
+- **Why it matters:** Reported arXiv research model (Oct 16) using masked diffusion to handle multiple modalities; single aggregator source, arXiv id not surfaced. (via web search; page not fetched)
+- **Relates to:** Stage 7 — alternatives to autoregressive generation
+
 ## 2026-10-15
 
 ### Liquid AI LFM2.5-24B-A2B: open-weight MoE for on-device agents
