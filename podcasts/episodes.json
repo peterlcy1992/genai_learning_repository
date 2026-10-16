@@ -2,7 +2,7 @@
   "show": "The GenAI Evolution Atlas",
   "rss_show_id": 400601,
   "season": 2,
-  "next_episode": 13,
+  "next_episode": 14,
   "notes": "Single shared episode counter across both weekly formats. Each run reads next_episode, uses it, appends a record below, and increments next_episode. rss_show_id holds the RSS.com podcast id for this show (discovered by title via GET /v4/podcasts on first upload, then cached here). rss_status per episode: not_uploaded -> draft -> scheduled/published (the owner publishes manually on RSS.com).",
   "episodes": [
     {
@@ -318,6 +318,37 @@
       "notebook_id": "1d1afbdb-1249-4193-b1cf-dc0058d23b77",
       "rss_status": "draft",
       "rss_episode_id": 3234998
+    },
+    {
+      "season": 2,
+      "episode": 13,
+      "type": "roundup",
+      "date": "2026-10-16",
+      "week_of": "2026-10-10..2026-10-16",
+      "title": "GenAI News Roundup \u2014 week of Oct 10\u201316",
+      "description": "This week: Meta splits its bets with the closed Muse Wonder and the open-weight Muse Spark Open (reportedly 816B parameters, 1M-token context), Google pitches Gemini 4 Argon for deep-work tasks, and Reflection AI, Nvidia, Mistral and Moonshot keep the open-weight race hot \u2014 alongside Anthropic's red-team warning on self-replicating AI, an open letter from 400+ scientists on cyber-capable models, and a run of on-device efficiency releases. Plus commentary and what's next. Covers: Meta Muse Spark Open and Muse Wonder; Gemini 4 Argon; Reflection AI and Nvidia reports; Upstage Solar-Open2; Claude Haiku 5.5 pricing; EmbeddingGemma 2; Liquid AI LFM2.5-24B-A2B; Microsoft bitnet.cpp; Intern Lumina U2; TasteVal and Humanity's Sixth Sense benchmarks; Anthropic's self-replication warning; the scientists' open letter; David Robinson's OpenAI resignation; Nous Research's $90M raise; and the OpenAI office-device incident. Many items come from secondary or single-source reports and are flagged as such.",
+      "audio": "podcasts/S2E13-2026-10-16-roundup.m4a",
+      "audio_url": "https://raw.githubusercontent.com/peterlcy1992/genai_learning_repository/main/podcasts/S2E13-2026-10-16-roundup.m4a",
+      "cover": "docs/thumbnails/podcast/S2E13-2026-10-16-roundup.png",
+      "sources": [
+        "https://letsdatascience.com/news/deepmind-releases-embeddinggemma-2-for-edge-search-fbcc7c51",
+        "https://lastweekin.ai/p/last-week-in-ai-346-719-math-manuscripts",
+        "https://riorundown.substack.com/p/trending-ai-news-oct-11-2026",
+        "https://digg.com/tech/x74jp7e3",
+        "https://app.dealroom.co/news/note/nvidia-backed-reflection-ai-prepares-first-open-weight-model-launch",
+        "https://ai-tldr.dev/releases/fireship-open-weight-race-oct07/",
+        "https://www.aljazeera.com/economy/2026/10/13/ai-could-self-replicate-on-home-devices-within-months-anthropic-says",
+        "https://aiagentstore.ai/ai-agent-news/this-week",
+        "https://www.theneuron.ai/digest/everything-that-happened-in-ai-today-tuesday-october-13-2026/",
+        "https://aitoolly.com/ai-news/2026-10-14",
+        "https://techcrunch.com/2026/10/15/meta-launches-an-open-weight-model-that-runs-on-macs/",
+        "https://www.cnbc.com/2026/10/12/meta-muse-wonder-ai-model-agent.html",
+        "https://www.foxnews.com/live-news/ai-news-anthropic-frontier-models-safety-10-13",
+        "https://pricepertoken.com/news/model-releases"
+      ],
+      "notebook_id": "8ad09077-dbdf-4d27-a6f4-a58c5bb2bb16",
+      "rss_status": "draft",
+      "rss_episode_id": 3240471
     }
   ]
 }
