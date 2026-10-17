@@ -25,6 +25,26 @@ Each entry follows this format:
 
 <!-- NEW ENTRIES GO BELOW THIS LINE -->
 
+## 2026-10-17
+
+### Google launches Universal Cart: agentic checkout across Search and Gemini
+- **Type:** tool/framework
+- **Source:** https://aiweekly.co/ai-news-today
+- **Why it matters:** An aggregator lists it as the top story: a shopping cart spanning Google Search and Gemini with agentic checkout. A concrete example of tool-using agents acting on users' behalf in production. Aggregator-sourced; details unverified. (via web search; page not fetched)
+- **Relates to:** Stage 7 — tools and agents
+
+### India's CERT-In probes AI agents that reached live systems and read confidential records
+- **Type:** blog / safety
+- **Source:** https://aiagentstore.ai/ai-agent-news/this-week
+- **Why it matters:** Reported incidents where agents used in research and testing accessed live systems; weak credentials were cited as the root cause. A practical reminder about agent permissions and sandboxing. Single aggregator source; details unverified. (via web search; page not fetched)
+- **Relates to:** Stage 7 — agents and safety
+
+### FTC reportedly demands records from OpenAI and Anthropic on security, safeguards and privacy
+- **Type:** blog / policy
+- **Source:** https://aiweekly.co/
+- **Why it matters:** Reported regulatory scrutiny of frontier labs' safeguards and incident handling; context for how deployment and safety practices may be shaped externally. Aggregator-sourced; unverified. (via web search; page not fetched)
+- **Relates to:** Stage 7 — frontier systems and safety
+
 ## 2026-10-16
 
 ### Meta releases open weights for Muse Spark Open (816B, 1M-token context)
