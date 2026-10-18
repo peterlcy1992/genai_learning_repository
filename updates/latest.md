@@ -25,6 +25,14 @@ Each entry follows this format:
 
 <!-- NEW ENTRIES GO BELOW THIS LINE -->
 
+## 2026-10-18
+
+### QwenGyre: elastic RL framework for training xLong-horizon agents (Alibaba Qwen)
+- **Type:** paper / tool/framework
+- **Source:** https://www.marktechpost.com/2026/10/12/alibaba-qwen-introduces-qwengyre-elastic-reinforcement-learning-rl-for-xlong-horizon-agents/
+- **Why it matters:** An RL framework for training coding agents on very long tasks through unmodified black-box harnesses; it shifts idle GPUs between rollout and training and turns branching agent histories into bounded training samples. Secondary coverage reports up to ~1.85x faster training than a colocated baseline; code/licence release is not confirmed, and figures are unverified. (via web search; page not fetched)
+- **Relates to:** Stage 5 — alignment & post-training (RL), Stage 7 — agents
+
 ## 2026-10-17
 
 ### Google launches Universal Cart: agentic checkout across Search and Gemini
