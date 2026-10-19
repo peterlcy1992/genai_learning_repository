@@ -25,6 +25,20 @@ Each entry follows this format:
 
 <!-- NEW ENTRIES GO BELOW THIS LINE -->
 
+## 2026-10-19
+
+### Infinite-Parameter LLMs: Generating and Adapting Weights from Live Data (arXiv:2609.18842)
+- **Type:** paper
+- **Source:** https://huggingface.co/papers/2609.18842
+- **Why it matters:** A small hypernetwork turns run-time data into a low-rank modulation of a shared base network (MoE-inspired), keeping a Bayesian belief over a latent code that is updated online so weights are re-derived as a session goes on. Aims to save context window and persist knowledge across turns; reported results are from secondary summaries and unverified. (via web search; page not fetched)
+- **Relates to:** Stage 4 — efficiency & building blocks (MoE), Stage 3 — in-context learning
+
+### AI/ML daily papers roundup, October 12, 2026 (Lilys)
+- **Type:** blog
+- **Source:** https://lilys.ai/en/notes/daily-papers-20261012/
+- **Why it matters:** Third-party daily digest covering generative models, multimodal reasoning and clinical LLM evaluation; a handy index for scanning a day's papers. (via web search; page not fetched)
+- **Relates to:** Stage 8 — staying current
+
 ## 2026-10-18
 
 ### QwenGyre: elastic RL framework for training xLong-horizon agents (Alibaba Qwen)
