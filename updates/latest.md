@@ -25,6 +25,14 @@ Each entry follows this format:
 
 <!-- NEW ENTRIES GO BELOW THIS LINE -->
 
+## 2026-10-20
+
+### NVIDIA Nemotron 3.5 Super VL 120B-A12B
+- **Type:** model release
+- **Source:** https://catalog.ngc.nvidia.com/orgs/nim/nvidia/models/nemotron-3.5-super-vl-120b-a12b/-/version-history
+- **Why it matters:** Open-weight vision-language MoE (120B total, ~12B active) taking image, video and text input, with NVFP4 (~70 GB) and BF16 builds listed on NVIDIA's NGC catalog on 2026-10-15; a secondary source lists a 1M-token context and a speculative-decoding draft model. No independent benchmarks seen. (via web search; page not fetched)
+- **Relates to:** Stage 4 — efficiency & building blocks (MoE, quantization)
+
 ## 2026-10-19
 
 ### Infinite-Parameter LLMs: Generating and Adapting Weights from Live Data (arXiv:2609.18842)
