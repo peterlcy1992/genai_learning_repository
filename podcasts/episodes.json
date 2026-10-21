@@ -2,7 +2,7 @@
   "show": "The GenAI Evolution Atlas",
   "rss_show_id": 400601,
   "season": 2,
-  "next_episode": 14,
+  "next_episode": 15,
   "notes": "Single shared episode counter across both weekly formats. Each run reads next_episode, uses it, appends a record below, and increments next_episode. rss_show_id holds the RSS.com podcast id for this show (discovered by title via GET /v4/podcasts on first upload, then cached here). rss_status per episode: not_uploaded -> draft -> scheduled/published (the owner publishes manually on RSS.com).",
   "episodes": [
     {
@@ -349,6 +349,24 @@
       "notebook_id": "8ad09077-dbdf-4d27-a6f4-a58c5bb2bb16",
       "rss_status": "draft",
       "rss_episode_id": 3240471
+    },
+    {
+      "season": 2,
+      "episode": 14,
+      "type": "deep-dive",
+      "date": "2026-10-21",
+      "week_of": "2026-10-15..2026-10-21",
+      "title": "Deep Dive: Meta's Muse Spark Open \u2014 an 816B open-weight model built to run on a Mac",
+      "description": "Meta released Muse Spark Open on Oct 15, an 816-billion-parameter, natively multimodal, 1M-token-context open-weight model aimed at coding and agentic work, which Meta calls the most capable open-weight model in the United States. This episode digs into what it takes to run it locally (TechCrunch reports roughly 1 TB of RAM, best on an M5 Ultra Mac Studio), the agentic demos Meta showed with its Muse Code terminal, and why it is the week's biggest development for the open-vs-closed frontier debate. Note: Meta's closed sibling Muse Wonder was not covered in this episode's sources. Source: https://techcrunch.com/2026/10/15/meta-launches-an-open-weight-model-that-runs-on-macs/",
+      "audio": "podcasts/S2E14-2026-10-21-deep-dive.m4a",
+      "audio_url": "https://raw.githubusercontent.com/peterlcy1992/genai_learning_repository/main/podcasts/S2E14-2026-10-21-deep-dive.m4a",
+      "cover": "docs/thumbnails/podcast/S2E14-2026-10-21-deep-dive.png",
+      "sources": [
+        "https://techcrunch.com/2026/10/15/meta-launches-an-open-weight-model-that-runs-on-macs/"
+      ],
+      "notebook_id": "ca0b2e39-277e-48dc-8d9c-4dd499baec61",
+      "rss_status": "draft",
+      "rss_episode_id": 3253440
     }
   ]
 }
