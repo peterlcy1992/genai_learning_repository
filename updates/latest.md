@@ -25,6 +25,26 @@ Each entry follows this format:
 
 <!-- NEW ENTRIES GO BELOW THIS LINE -->
 
+## 2026-10-23
+
+### Canva releases its first image generation model (Canva Craft)
+- **Type:** model release
+- **Source:** https://techcrunch.com/2026/10/22/canva-releases-its-first-image-generation-model
+- **Why it matters:** Canva's first in-house image-generation model reportedly outputs up to 2K resolution across ~30 aspect ratios, with smaller versions planned — another sign that application companies are training their own generative models. (via web search; page not fetched)
+- **Relates to:** Stage 8 — staying current (generative model landscape)
+
+### Anthropic opens waitlist for "Claude Duet" agent
+- **Type:** tool/framework
+- **Source:** https://aiweekly.co/ai-news-today/edition/2026-10-22
+- **Why it matters:** An aggregator reports Anthropic opened a waitlist for a Claude Duet agent to US Pro and Max subscribers; details and the underlying model are unconfirmed — verify on Anthropic's site. (via web search; page not fetched)
+- **Relates to:** Stage 8 — staying current (agents)
+
+### Recursive "Flint" 40B open coding model (unverified claim)
+- **Type:** model release
+- **Source:** https://aiweekly.co/ai-news-today/edition/2026-10-22
+- **Why it matters:** A roundup reports a 40B-parameter Apache-2.0 coding model with a claimed 89.7% on SWE-bench Pro v2; the benchmark claim is unverified and from a single aggregator. (via web search; page not fetched)
+- **Relates to:** Stage 4 — efficiency & building blocks (open-weight models)
+
 ## 2026-10-20
 
 ### NVIDIA Nemotron 3.5 Super VL 120B-A12B
