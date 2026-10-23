@@ -2,7 +2,7 @@
   "show": "The GenAI Evolution Atlas",
   "rss_show_id": 400601,
   "season": 2,
-  "next_episode": 15,
+  "next_episode": 16,
   "notes": "Single shared episode counter across both weekly formats. Each run reads next_episode, uses it, appends a record below, and increments next_episode. rss_show_id holds the RSS.com podcast id for this show (discovered by title via GET /v4/podcasts on first upload, then cached here). rss_status per episode: not_uploaded -> draft -> scheduled/published (the owner publishes manually on RSS.com).",
   "episodes": [
     {
@@ -367,6 +367,31 @@
       "notebook_id": "ca0b2e39-277e-48dc-8d9c-4dd499baec61",
       "rss_status": "draft",
       "rss_episode_id": 3253440
+    },
+    {
+      "season": 2,
+      "episode": 15,
+      "type": "roundup",
+      "date": "2026-10-23",
+      "week_of": "2026-10-17..2026-10-23",
+      "title": "GenAI News Roundup \u2014 week of Oct 17\u201323",
+      "description": "This week: agents moving into production and into trouble \u2014 Google's Universal Cart, India's CERT-In probing agents that reached live systems, and reported FTC scrutiny of OpenAI and Anthropic \u2014 alongside open-weight releases like NVIDIA's Nemotron 3.5 Super VL and Meta's Muse Spark Open, and research on long-horizon agent RL and live-adapting weights \u2014 plus commentary and what's next. Covers: Google Universal Cart; the CERT-In agent-access probe; the reported FTC records demand; Alibaba's QwenGyre; Infinite-Parameter LLMs (arXiv:2609.18842); NVIDIA Nemotron 3.5 Super VL 120B-A12B; Canva's first image model; Anthropic's Claude Duet waitlist; the unverified Recursive Flint 40B coding model; and a recap of Meta's Muse Spark Open. Several items rest on secondary or aggregator reporting and are flagged as unverified.",
+      "audio": "podcasts/S2E15-2026-10-23-roundup.m4a",
+      "audio_url": "https://raw.githubusercontent.com/peterlcy1992/genai_learning_repository/main/podcasts/S2E15-2026-10-23-roundup.m4a",
+      "cover": "docs/thumbnails/podcast/S2E15-2026-10-23-roundup.png",
+      "sources": [
+        "https://aiweekly.co/ai-news-today",
+        "https://aiagentstore.ai/ai-agent-news/this-week",
+        "https://www.marktechpost.com/2026/10/12/alibaba-qwen-introduces-qwengyre-elastic-reinforcement-learning-rl-for-xlong-horizon-agents/",
+        "https://huggingface.co/papers/2609.18842",
+        "https://catalog.ngc.nvidia.com/orgs/nim/nvidia/models/nemotron-3.5-super-vl-120b-a12b/-/version-history",
+        "https://techcrunch.com/2026/10/22/canva-releases-its-first-image-generation-model",
+        "https://aiweekly.co/ai-news-today/edition/2026-10-22",
+        "https://techcrunch.com/2026/10/15/meta-launches-an-open-weight-model-that-runs-on-macs/"
+      ],
+      "notebook_id": "41e79625-14e7-4621-8956-a2f5a1623f65",
+      "rss_status": "draft",
+      "rss_episode_id": 3259833
     }
   ]
 }
