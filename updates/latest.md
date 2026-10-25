@@ -25,6 +25,32 @@ Each entry follows this format:
 
 <!-- NEW ENTRIES GO BELOW THIS LINE -->
 
+## 2026-10-25
+
+### Moonshot AI Kimi K3.1 Pro (and Highspeed)
+- **Type:** model release
+- **Source:** https://llmgateway.io/timeline
+- **Why it matters:** Reported as a post-trained upgrade of Kimi K3 (3T-class, 1M-token context) aimed at coding, 3D and finance; an open-weight frontier-scale model, dated Oct 23 by a release tracker. Details are tracker-reported, not vendor-verified. (via web search; page not fetched)
+- **Relates to:** Stage 4 — post-training / Stage 8 — staying current
+
+### Block "Dessa" speech-to-speech research preview
+- **Type:** model release
+- **Source:** https://llmgateway.io/timeline
+- **Why it matters:** Reportedly a full-duplex speech-to-speech model that listens and talks at the same time and runs locally on a MacBook Pro M4 Max — a data point on on-device, real-time voice models. (via web search; page not fetched)
+- **Relates to:** Stage 8 — staying current (multimodal/voice)
+
+### Qwen3.6 27B (Alibaba) and MiniMax M3.1 Flash
+- **Type:** model release
+- **Source:** https://llmgateway.io/timeline
+- **Why it matters:** Tracker lists Qwen3.6 27B (Oct 21) and MiniMax M3.1 Flash (Oct 19) among the week's open releases, continuing the steady cadence of Chinese open-weight models; no benchmark details were verified. (via web search; page not fetched)
+- **Relates to:** Stage 8 — staying current (open-weight landscape)
+
+### NVIDIA Nemotron 3.5 Bolt E4B and Tencent WeVisOne-VL
+- **Type:** model release
+- **Source:** https://llmgateway.io/timeline
+- **Why it matters:** Small open-weight releases: NVIDIA's compact Nemotron 3.5 Bolt E4B (Oct 23) and Tencent's WeVisOne-VL vision-language model for detection/segmentation (Oct 22) — signs of the push toward small, task-capable models. (via web search; page not fetched)
+- **Relates to:** Stage 8 — staying current (efficiency / vision-language)
+
 ## 2026-10-24
 
 _Quiet day: searches surfaced only items already logged (Meta Muse Spark Open, Mistral Large 4) or undated/unverifiable results. Nothing new added._
