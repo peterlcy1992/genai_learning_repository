@@ -25,6 +25,20 @@ Each entry follows this format:
 
 <!-- NEW ENTRIES GO BELOW THIS LINE -->
 
+## 2026-10-26
+
+### Language Models as AI Research World Models
+- **Type:** paper
+- **Source:** https://arxiv.org/abs/2610.12235
+- **Why it matters:** Tests whether language models can predict the outcomes of proposed research experiments, with ablations across 13 LMs used as "research world models" — a step toward LLMs judging which ideas are worth running. (via web search; page not fetched)
+- **Relates to:** Stage 7 — agents and reasoning / Stage 8 — staying current
+
+### Import AI 454: automating alignment research; safety study of a Chinese model; HiFloat4
+- **Type:** blog
+- **Source:** https://importai.substack.com
+- **Why it matters:** Recent issue of Jack Clark's weekly newsletter covering automated alignment research, a safety study of a Chinese model and the HiFloat4 low-precision number format. Issue date not confirmed by the search. (via web search; page not fetched)
+- **Relates to:** Stage 5 — alignment / Stage 8 — staying current
+
 ## 2026-10-25
 
 ### Moonshot AI Kimi K3.1 Pro (and Highspeed)
