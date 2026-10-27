@@ -25,6 +25,38 @@ Each entry follows this format:
 
 <!-- NEW ENTRIES GO BELOW THIS LINE -->
 
+## 2026-10-27
+
+### What RL Brings to Reasoning: A Few Decisions the Base Model Would Not Make
+- **Type:** paper
+- **Source:** https://arxiv.org/abs/2610.24663
+- **Why it matters:** Analyzes what RLVR actually adds to math reasoning; finds a few sparse decision replacements recover much of the RL gain while keeping base-model diversity. (via web search; page not fetched)
+- **Relates to:** Stage 5 — post-training / RL for reasoning
+
+### The Thinking Leakage in Reinforcement Learning for LLMs
+- **Type:** paper
+- **Source:** https://arxiv.org/abs/2610.14270
+- **Why it matters:** Questions the common recipe of RL-training hybrid reasoning models (e.g. Qwen3) in NO-THINK mode and reporting reasoning gains. (via web search; page not fetched)
+- **Relates to:** Stage 5 — post-training / RL for reasoning
+
+### LoGRA: Scaling LLM Reinforcement Learning with Low-Rank Gradient Sketches
+- **Type:** paper
+- **Source:** https://arxiv.org/abs/2610.06647
+- **Why it matters:** Cuts RL training memory by up to 45.7% and reports a 27B-parameter run on a single eight-GPU node. (via web search; page not fetched)
+- **Relates to:** Stage 4 — efficiency
+
+### Flat-RLVR: Sharpness-Aware Reinforcement Learning with Verifiable Rewards
+- **Type:** paper
+- **Source:** https://arxiv.org/abs/2610.29281
+- **Why it matters:** Applies sharpness-aware minimization to RLVR to trade off sampling efficiency and reasoning capacity. (via web search; page not fetched)
+- **Relates to:** Stage 5 — post-training / RL for reasoning
+
+### Preserving Reasoning Diversity in RLVR via Adaptive Replay
+- **Type:** paper
+- **Source:** https://arxiv.org/abs/2610.24236
+- **Why it matters:** Counters the loss of reasoning diversity under RLVR by replaying stored diverse base-model solutions when they get suppressed. (via web search; page not fetched)
+- **Relates to:** Stage 5 — post-training / RL for reasoning
+
 ## 2026-10-26
 
 ### Language Models as AI Research World Models
