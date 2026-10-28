@@ -25,6 +25,26 @@ Each entry follows this format:
 
 <!-- NEW ENTRIES GO BELOW THIS LINE -->
 
+## 2026-10-28
+
+### MiMo-V2.6: Scaling Reinforcement Learning Towards Self-Improvement
+- **Type:** paper
+- **Source:** https://arxiv.org/abs/2610.11959
+- **Why it matters:** Xiaomi LLM-Core technical report on scaling RL toward self-improvement; the authors say they are open-sourcing it along with training dynamics and RL environments. (via web search; page not fetched)
+- **Relates to:** Stage 5 — post-training / RL for reasoning
+
+### Training Language Models to Fail Gracefully
+- **Type:** paper
+- **Source:** https://arxiv.org/abs/2610.20401
+- **Why it matters:** Argues success-only RL rewards encourage guessing, and studies how to get models to choose safe fallbacks when success is out of reach. (via web search; page not fetched)
+- **Relates to:** Stage 5 — post-training / alignment
+
+### Growing and Transferring Pathways for LLM Reinforcement Learning
+- **Type:** paper
+- **Source:** https://arxiv.org/abs/2610.16489
+- **Why it matters:** Studies reusing RL-learned computational pathways across models, reporting immediate gains from transferred pathways. (via web search; page not fetched)
+- **Relates to:** Stage 5 — post-training / RL for reasoning
+
 ## 2026-10-27
 
 ### What RL Brings to Reasoning: A Few Decisions the Base Model Would Not Make
