@@ -2,7 +2,7 @@
   "show": "The GenAI Evolution Atlas",
   "rss_show_id": 400601,
   "season": 2,
-  "next_episode": 16,
+  "next_episode": 17,
   "notes": "Single shared episode counter across both weekly formats. Each run reads next_episode, uses it, appends a record below, and increments next_episode. rss_show_id holds the RSS.com podcast id for this show (discovered by title via GET /v4/podcasts on first upload, then cached here). rss_status per episode: not_uploaded -> draft -> scheduled/published (the owner publishes manually on RSS.com).",
   "episodes": [
     {
@@ -392,6 +392,24 @@
       "notebook_id": "41e79625-14e7-4621-8956-a2f5a1623f65",
       "rss_status": "draft",
       "rss_episode_id": 3259833
+    },
+    {
+      "season": 2,
+      "episode": 16,
+      "type": "deep-dive",
+      "date": "2026-10-28",
+      "week_of": "2026-10-22..2026-10-28",
+      "title": "Deep Dive: Xiaomi's MiMo-V2.6 and scaling RL toward self-improvement",
+      "description": "This week's deep dive covers Xiaomi LLM-Core's technical report MiMo-V2.6: Scaling Reinforcement Learning Towards Self-Improvement (arXiv:2610.11959). It's the week's biggest development because the authors say they are open-sourcing the model along with its training dynamics and RL environments, a rare look at how RL is scaled toward self-improvement. We cover the background, the mechanism, why it matters, how novel it is, and caveats. Source: https://arxiv.org/abs/2610.11959",
+      "audio": "podcasts/S2E16-2026-10-28-deep-dive.m4a",
+      "audio_url": "https://raw.githubusercontent.com/peterlcy1992/genai_learning_repository/main/podcasts/S2E16-2026-10-28-deep-dive.m4a",
+      "cover": "docs/thumbnails/podcast/S2E16-2026-10-28-deep-dive.png",
+      "sources": [
+        "https://arxiv.org/abs/2610.11959"
+      ],
+      "notebook_id": "2065a606-3bbc-483d-97b2-364e80dba05b",
+      "rss_status": "draft",
+      "rss_episode_id": 3274459
     }
   ]
 }
