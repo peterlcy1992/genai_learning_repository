@@ -25,6 +25,32 @@ Each entry follows this format:
 
 <!-- NEW ENTRIES GO BELOW THIS LINE -->
 
+## 2026-10-29
+
+### Language Models Learn to Improve Language Models
+- **Type:** paper
+- **Source:** https://arxiv.org/abs/2610.23344
+- **Why it matters:** Reports LLMs automating parts of language-model development; the snippet says a Qwen3.8-27B model trained this way beats GPT-6-sol on held-out tasks at lower data-generation cost. (via web search; page not fetched)
+- **Relates to:** Stage 5 — post-training / self-improvement
+
+### How To Build A Modern Diffusion Language Model
+- **Type:** paper
+- **Source:** https://arxiv.org/abs/2610.33391
+- **Why it matters:** An October 24 guide/survey on how modern discrete-diffusion language models are built, a useful map of the non-autoregressive alternative. (via web search; page not fetched)
+- **Relates to:** Stage 4 — efficiency and better building blocks
+
+### Byte Language Models: Scaling, Emergent Abstractions, and Information Allocation
+- **Type:** paper
+- **Source:** https://arxiv.org/abs/2610.05978
+- **Why it matters:** Studies how tokenizer-free byte-level models scale and what abstractions they form, revisiting the tokenization assumption from Stage 0-1. (via web search; page not fetched)
+- **Relates to:** Stage 2 — the pretraining era (tokenization)
+
+### Language Models Have Interpretable Narrative Mechanisms
+- **Type:** paper
+- **Source:** https://arxiv.org/abs/2610.12989
+- **Why it matters:** Locates attention heads, neurons and SAE features in GPT-2-Small, Gemma-2-2B and Llama-3.1-8B that track narrative-ness; ablating them changes outputs. (via web search; page not fetched)
+- **Relates to:** Stage 7 — interpretability / frontier systems
+
 ## 2026-10-28
 
 ### MiMo-V2.6: Scaling Reinforcement Learning Towards Self-Improvement
