@@ -2,7 +2,7 @@
   "show": "The GenAI Evolution Atlas",
   "rss_show_id": 400601,
   "season": 2,
-  "next_episode": 17,
+  "next_episode": 18,
   "notes": "Single shared episode counter across both weekly formats. Each run reads next_episode, uses it, appends a record below, and increments next_episode. rss_show_id holds the RSS.com podcast id for this show (discovered by title via GET /v4/podcasts on first upload, then cached here). rss_status per episode: not_uploaded -> draft -> scheduled/published (the owner publishes manually on RSS.com).",
   "episodes": [
     {
@@ -410,6 +410,42 @@
       "notebook_id": "2065a606-3bbc-483d-97b2-364e80dba05b",
       "rss_status": "draft",
       "rss_episode_id": 3274459
+    },
+    {
+      "season": 2,
+      "episode": 17,
+      "type": "roundup",
+      "date": "2026-10-30",
+      "week_of": "2026-10-24..2026-10-30",
+      "title": "GenAI News Roundup \u2014 week of Oct 24\u201330",
+      "description": "This week: a heavy run of RL-for-reasoning research (what RLVR really adds, thinking leakage, memory-lean RL, diversity preservation), models that help improve models, a steady flow of open-weight and small-model releases, and agent-safety signals from Alphabet's 10-Q and an OpenAI incident write-up \u2014 plus commentary and what's next. Covers: Kimi K3.1 Pro; Block's Dessa speech model; Qwen3.6 27B and MiniMax M3.1 Flash; NVIDIA Nemotron 3.5 Bolt E4B; Tencent WeVisOne-VL; Gemini 4 Carbon; ChatGPT's GPT-5.6 Sol/Luna unification; Xiaomi MiMo-V2.6; LoGRA; Flat-RLVR; adaptive replay for RLVR; research world models; Language Models Learn to Improve Language Models; diffusion LMs; byte-level LMs; narrative-mechanism interpretability; Rice's S\u00b2 robot metric; Import AI 454. Several items rest on tracker or aggregator reporting and are flagged as unverified.",
+      "audio": "podcasts/S2E17-2026-10-30-roundup.m4a",
+      "audio_url": "https://raw.githubusercontent.com/peterlcy1992/genai_learning_repository/main/podcasts/S2E17-2026-10-30-roundup.m4a",
+      "cover": "docs/thumbnails/podcast/S2E17-2026-10-30-roundup.png",
+      "sources": [
+        "https://llmgateway.io/timeline",
+        "https://arxiv.org/abs/2610.12235",
+        "https://importai.substack.com",
+        "https://arxiv.org/abs/2610.24663",
+        "https://arxiv.org/abs/2610.14270",
+        "https://arxiv.org/abs/2610.06647",
+        "https://arxiv.org/abs/2610.29281",
+        "https://arxiv.org/abs/2610.24236",
+        "https://arxiv.org/abs/2610.11959",
+        "https://arxiv.org/abs/2610.20401",
+        "https://arxiv.org/abs/2610.16489",
+        "https://arxiv.org/abs/2610.23344",
+        "https://arxiv.org/abs/2610.33391",
+        "https://arxiv.org/abs/2610.05978",
+        "https://arxiv.org/abs/2610.12989",
+        "https://aiweekly.co/ai-news-today",
+        "https://aiweekly.co/alerts/rice-researchers-predict-robot-model-success-without-rollouts",
+        "https://aiweekly.co/alerts/alphabet-10-q-reveals-1t-ai-commitments-and-autonomous-agents-taking-actions",
+        "https://www.theneuron.ai/digest/everything-that-happened-in-ai-today-thursday-october-29-2026/"
+      ],
+      "notebook_id": "8fa629e6-6bbe-4968-96cf-5b4012afb100",
+      "rss_status": "draft",
+      "rss_episode_id": 3280485
     }
   ]
 }
