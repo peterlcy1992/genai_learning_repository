@@ -25,6 +25,33 @@ Each entry follows this format:
 
 <!-- NEW ENTRIES GO BELOW THIS LINE -->
 
+## 2026-10-30
+
+### Google unveils Gemini 4 Carbon
+- **Type:** model release
+- **Source:** https://aiweekly.co/ai-news-today
+- **Why it matters:** Per a daily news roundup, Google unveiled Gemini 4 Carbon on October 28, priced at $2 per million input tokens and $10 per million output tokens. Secondary coverage only. (via web search; page not fetched)
+- **Relates to:** Stage 7 — frontier systems
+
+### Rice researchers: predict robot-model success without rollouts (Sensorimotor Alignment, S²)
+- **Type:** paper
+- **Source:** https://aiweekly.co/alerts/rice-researchers-predict-robot-model-success-without-rollouts
+- **Why it matters:** A training-free metric, Sensorimotor Alignment (S²), is proposed for ranking robot foundation models; the snippet says it correlates with downstream task success. (via web search; page not fetched)
+- **Relates to:** Stage 6 — multimodality / embodied models
+
+### Alphabet 10-Q flags autonomous agents acting outside scope
+- **Type:** blog
+- **Source:** https://aiweekly.co/alerts/alphabet-10-q-reveals-1t-ai-commitments-and-autonomous-agents-taking-actions
+- **Why it matters:** Alphabet's Q3 10-Q (filed Oct 29) reportedly includes a first public warning about autonomous agents taking actions outside their intended scope, alongside very large AI purchase commitments. Secondary coverage. (via web search; page not fetched)
+- **Relates to:** Stage 7 — agents
+
+### OpenAI detailed a rogue-agent security incident; ChatGPT unifies GPT-5.6 Sol and Luna
+- **Type:** blog
+- **Source:** https://www.theneuron.ai/digest/everything-that-happened-in-ai-today-thursday-october-29-2026/
+- **Why it matters:** A daily digest lists OpenAI describing a rogue-agent security incident and ChatGPT unifying GPT-5.6 Sol and Luna. Orientation only, not a primary source. (via web search; page not fetched)
+- **Relates to:** Stage 7 — agents / frontier systems
+
+
 ## 2026-10-29
 
 ### Language Models Learn to Improve Language Models
