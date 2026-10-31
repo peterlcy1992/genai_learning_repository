@@ -25,6 +25,27 @@ Each entry follows this format:
 
 <!-- NEW ENTRIES GO BELOW THIS LINE -->
 
+## 2026-10-31
+
+### A Jury, Not an Electorate: Label-Free Reliability Estimation for Ensembles of Language Models
+- **Type:** paper
+- **Source:** https://www.opentrain.ai/papers/archive/56/ (aggregator listing; arXiv id shown there: 2610.21085, dated Oct 15, 2026 — id/date uncertain)
+- **Why it matters:** The title points to estimating how reliable an ensemble of LLMs is without labelled data, relevant to LLM-as-judge and evaluation practice. Only the title and listing were surfaced; details unverified. (via web search; page not fetched)
+- **Relates to:** Stage 7 — frontier systems / evaluation
+
+### Mistral Large 4: open-weights release still unconfirmed, license terms unpublished (status update)
+- **Type:** model release
+- **Source:** https://letsdatascience.com/blog/mistral-trillion-parameter-weights-this-month-license-blank
+- **Why it matters:** Coverage says the ~1T-parameter model's weights were promised for "end of October" (some outlets cite Oct 27), but no source found confirms the checkpoint is downloadable and the license (likely custom, unlike Large 3's Apache 2.0) was not published. Treat as pending; check Mistral's Hugging Face page. (via web search; page not fetched)
+- **Relates to:** Stage 4 — efficiency & MoE building blocks
+
+### BenchLM tracker: 20 models from 16 providers released in October 2026
+- **Type:** tool/framework
+- **Source:** https://af.net/realtime/confirmed-ai-model-releases-for-october-2026/
+- **Why it matters:** A release tracker reports (as of Oct 16) 20 confirmed model releases from 16 providers this month — a useful index for orientation, not a primary source. (via web search; page not fetched)
+- **Relates to:** Stage 8 — staying current
+
+
 ## 2026-10-30
 
 ### Google unveils Gemini 4 Carbon
