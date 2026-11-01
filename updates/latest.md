@@ -25,6 +25,32 @@ Each entry follows this format:
 
 <!-- NEW ENTRIES GO BELOW THIS LINE -->
 
+## 2026-11-01
+
+### Mistral Large 4 open-weights release reported live (Oct 29) — update to prior "pending" note
+- **Type:** model release
+- **Source:** https://github.com/diclogic/ai-daily-digest/issues/199
+- **Why it matters:** A daily digest reports Mistral Large 4's open-weights release as the top AI item on Hacker News on Oct 31 (release dated Oct 29, ~1.7k points), which resolves yesterday's "unconfirmed" status. License terms and the model card were not verified — check Mistral's Hugging Face page. (via web search; page not fetched)
+- **Relates to:** Stage 4 — efficiency & MoE building blocks
+
+### Trojanized Claude Code extension shipped an SSH backdoor via an editor marketplace
+- **Type:** blog
+- **Source:** https://aiagentsdirectory.com/news/ai-agents-news-brief-october-31-2026
+- **Why it matters:** A news brief/digest reports a malicious extension impersonating a Claude Code tool distributed through Cursor's marketplace with an SSH backdoor; a reminder that agent-tooling supply chains are an attack surface. Single secondary source, details unverified. (via web search; page not fetched)
+- **Relates to:** Stage 7 — frontier systems / agents and safety
+
+### AI-generated scientific results formalized in Lean released for audit
+- **Type:** blog
+- **Source:** https://guruchahal.substack.com/p/weekly-technology-digest-october-aef
+- **Why it matters:** A weekly digest says AI-produced science results were formalized in Lean and released for independent audit, with a physics result to be explained independently before the model output is released. Pairing model outputs with machine-checkable proofs is a notable verification pattern; specifics unverified. (via web search; page not fetched)
+- **Relates to:** Stage 7 — frontier systems / reasoning and verification
+
+### Alphabet Q3: negative free cash flow, stock down ~13% on AI cost fears
+- **Type:** blog
+- **Source:** https://github.com/diclogic/ai-daily-digest/issues/199
+- **Why it matters:** A digest cites reports of Alphabet's biggest one-day drop since its IPO on Oct 29 amid AI capex concerns — context on the economics driving efficiency work, not a technical development. Unverified secondary source. (via web search; page not fetched)
+- **Relates to:** Stage 8 — staying current
+
 ## 2026-10-31
 
 ### A Jury, Not an Electorate: Label-Free Reliability Estimation for Ensembles of Language Models
