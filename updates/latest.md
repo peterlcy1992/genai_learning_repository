@@ -25,6 +25,33 @@ Each entry follows this format:
 
 <!-- NEW ENTRIES GO BELOW THIS LINE -->
 
+## 2026-11-02
+
+### SemiAnalysis launches GDPx agentic benchmark; best frontier model scores ~12%
+- **Type:** tool/framework
+- **Source:** https://aiweekly.co/alerts/semianalysis-launches-gdpx-best-frontier-model-hits-12
+- **Why it matters:** SemiAnalysis published GDPx, an agentic benchmark spanning eleven domains, where the top model (reported as Claude Opus 5.5) reaches only ~12% overall, with safety classifiers reportedly suppressing its score. Shows how far real-economy agentic tasks remain from saturated. Single aggregator summary; details unverified. (via web search; page not fetched)
+- **Relates to:** Stage 7 — frontier systems / agent evaluation
+
+### Sakana AI: Multi-Agent Self-Supervision (MASS) training methodology
+- **Type:** paper
+- **Source:** https://aialvin.substack.com/p/ai-news-roundup-10-developments-to-141
+- **Why it matters:** A roundup for Nov 1 lists Sakana AI's MASS as a training method using multiple agents for self-supervision. No details beyond the headline surfaced; find the primary paper before relying on it. (via web search; page not fetched)
+- **Relates to:** Stage 5 — post-training / self-improvement
+
+### OpenAI details a four-layer system for detecting frontier-model misalignment
+- **Type:** blog
+- **Source:** https://aialvin.substack.com/p/ai-news-roundup-10-developments-to-141
+- **Why it matters:** The same roundup says OpenAI described a layered monitoring approach for catching misalignment in frontier models, following its September reporting framework. Specifics unverified. (via web search; page not fetched)
+- **Relates to:** Stage 5 — alignment; Stage 7 — frontier safety
+
+### Conflicting reports of Gemini 4 "Carbon" and GPT-6.1 "Terra" launches (unconfirmed)
+- **Type:** model release
+- **Source:** https://mindandmachineweekly.substack.com/p/mind-and-machine-weekly-1-november
+- **Why it matters:** A weekly roundup lists a Google cybersecurity-focused Gemini 4 Carbon and OpenAI's GPT-6.1 Terra, but a daily digest for the same date saw no new model posts. Treat as unverified until confirmed on official lab blogs. (via web search; page not fetched)
+- **Relates to:** Stage 8 — staying current
+
+
 ## 2026-11-01
 
 ### Mistral Large 4 open-weights release reported live (Oct 29) — update to prior "pending" note
