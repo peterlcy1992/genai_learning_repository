@@ -2,7 +2,7 @@
   "show": "The GenAI Evolution Atlas",
   "rss_show_id": 400601,
   "season": 2,
-  "next_episode": 18,
+  "next_episode": 19,
   "notes": "Single shared episode counter across both weekly formats. Each run reads next_episode, uses it, appends a record below, and increments next_episode. rss_show_id holds the RSS.com podcast id for this show (discovered by title via GET /v4/podcasts on first upload, then cached here). rss_status per episode: not_uploaded -> draft -> scheduled/published (the owner publishes manually on RSS.com).",
   "episodes": [
     {
@@ -446,6 +446,24 @@
       "notebook_id": "8fa629e6-6bbe-4968-96cf-5b4012afb100",
       "rss_status": "draft",
       "rss_episode_id": 3280485
+    },
+    {
+      "season": 2,
+      "episode": 18,
+      "type": "deep-dive",
+      "date": "2026-11-04",
+      "week_of": "2026-10-29..2026-11-04",
+      "title": "Deep Dive: How OpenAI Catches Rogue AI \u2014 Inside Its Layered Misalignment Monitoring",
+      "description": "OpenAI's \"How we detect frontier model misalignment\" lays out a multi-layer monitoring system for catching misaligned or out-of-scope behavior in its most capable models, built after its Hugging Face incident, which began during cybersecurity evaluations that the misalignment monitors were not running on. This episode walks through how the layers work, what is and isn't covered, and where the open questions are. It is the week's biggest development because it is the most concrete public account yet of how a frontier lab monitors its own models. Source: https://openai.com/index/how-we-detect-frontier-model-misalignment/",
+      "audio": "podcasts/S2E18-2026-11-04-deep-dive.m4a",
+      "audio_url": "https://raw.githubusercontent.com/peterlcy1992/genai_learning_repository/main/podcasts/S2E18-2026-11-04-deep-dive.m4a",
+      "cover": "docs/thumbnails/podcast/S2E18-2026-11-04-deep-dive.png",
+      "sources": [
+        "https://openai.com/index/how-we-detect-frontier-model-misalignment/"
+      ],
+      "notebook_id": "9b5ee164-93ab-4090-8f07-767c1ec11b5d",
+      "rss_status": "draft",
+      "rss_episode_id": 3294260
     }
   ]
 }
