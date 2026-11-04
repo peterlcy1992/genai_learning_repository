@@ -25,6 +25,38 @@ Each entry follows this format:
 
 <!-- NEW ENTRIES GO BELOW THIS LINE -->
 
+## 2026-11-04
+
+### Anthropic open-sources FlashProve: verify a response came from given model weights without seeing them
+- **Type:** tool/framework
+- **Source:** https://p3humansonai.substack.com/p/humans-on-ai-67-november-3-2026
+- **Why it matters:** A prototype proof system that lets anyone check a response was produced by a specific set of model weights, without access to the weights. Relevant to model provenance and trust. Single newsletter report; details unverified. (via web search; page not fetched)
+- **Relates to:** Stage 8 — staying current / model provenance
+
+### Paper: simulated control evaluations (LM stands in for tool responses in training environments)
+- **Type:** paper
+- **Source:** https://p3humansonai.substack.com/p/humans-on-ai-67-november-3-2026
+- **Why it matters:** Proposes using a language model to simulate tool responses so safeguard-breach risk can be tested where real training environments fall short. Primary paper not located. (via web search; page not fetched)
+- **Relates to:** Stage 7 — agents / safety evaluation
+
+### Paper: context compaction reportedly does not hurt performance on hard benchmarks
+- **Type:** paper
+- **Source:** https://p3humansonai.substack.com/p/humans-on-ai-67-november-3-2026
+- **Why it matters:** A newsletter reports a new paper arguing that compacting long context/history does not degrade results on hard benchmarks — relevant to long-running agents. Primary paper not located; claim unverified. (via web search; page not fetched)
+- **Relates to:** Stage 7 — agents / long context
+
+### Moonshot Kimi K3.1 Pro open weights due Nov 4 (release not confirmed)
+- **Type:** model release
+- **Source:** https://www.theneuron.ai/digest/everything-that-happened-in-ai-today-wednesday-november-4-2026/
+- **Why it matters:** Moonshot reportedly committed to publishing full K3.1 Pro open weights by today; one digest says posting was not yet confirmed. Check Hugging Face before relying on it. (via web search; page not fetched)
+- **Relates to:** Stage 4 — open-weight model building blocks
+
+### DeepSeek reportedly orders 160,000 Huawei Ascend chips for a 1GW site
+- **Type:** news
+- **Source:** https://www.theneuron.ai/digest/everything-that-happened-in-ai-today-wednesday-november-4-2026/
+- **Why it matters:** Per Digitimes via a daily digest, DeepSeek ordered large Ascend capacity for an Inner Mongolia site — a signal on compute independence for open-weight labs. Secondary report; unverified. (via web search; page not fetched)
+- **Relates to:** Stage 8 — staying current
+
 ## 2026-11-03
 
 ### Google's October 2026 AI recap: Gemini 4 Argon and Carbon, Genie 4 world model
