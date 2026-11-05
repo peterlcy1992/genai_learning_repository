@@ -318,7 +318,7 @@
         (always current at the link above), and your daily email always carries the latest.</p>
       <script type="text/markdown" id="latest-digest">
 <!-- LATEST_DIGEST_START -->
-# Daily GenAI digest — 2026-11-04
+# Daily GenAI digest — 2026-11-05
 
 **Your stage:** Stage 0 — Foundations: before the Transformer
 **Next action:** Finish Bahdanau et al. (2014), *Neural Machine Translation by Jointly Learning to Align and Translate* (arXiv:1409.0473) in [`knowledge_bank/00_foundations.md`](../knowledge_bank/00_foundations.md).
@@ -327,41 +327,34 @@
 
 ## Today's highlights
 
-### Anthropic open-sources FlashProve: verify a response came from given model weights without seeing them
-- **Type:** tool/framework
-- **Source:** https://p3humansonai.substack.com/p/humans-on-ai-67-november-3-2026
-- **Why it matters:** A prototype proof system that lets anyone check a response was produced by a specific set of model weights, without access to the weights. Relevant to model provenance and trust. Single newsletter report; details unverified. (via web search; page not fetched)
-- **Relates to:** Stage 8 — staying current / model provenance
-
-### Paper: simulated control evaluations (LM stands in for tool responses in training environments)
+### Controlling Sharpening in LLM Post-Training
 - **Type:** paper
-- **Source:** https://p3humansonai.substack.com/p/humans-on-ai-67-november-3-2026
-- **Why it matters:** Proposes using a language model to simulate tool responses so safeguard-breach risk can be tested where real training environments fall short. Primary paper not located. (via web search; page not fetched)
-- **Relates to:** Stage 7 — agents / safety evaluation
+- **Source:** https://arxiv.org/abs/2611.03146
+- **Why it matters:** Derives closed-form optimal policies for KL-regularized pass@k and max@k objectives, aiming to reduce loss of behavioral coverage during RL post-training. (via web search; page not fetched)
+- **Relates to:** Stage 5 — alignment & post-training
 
-### Paper: context compaction reportedly does not hurt performance on hard benchmarks
+### Prospective Memory for Proactive LLM Agents
 - **Type:** paper
-- **Source:** https://p3humansonai.substack.com/p/humans-on-ai-67-november-3-2026
-- **Why it matters:** A newsletter reports a new paper arguing that compacting long context/history does not degrade results on hard benchmarks — relevant to long-running agents. Primary paper not located; claim unverified. (via web search; page not fetched)
-- **Relates to:** Stage 7 — agents / long context
+- **Source:** https://arxiv.org/abs/2611.05731
+- **Why it matters:** Proposes Pro-Memory, tracking pending objectives and their supporting evidence; reports consistent gains on proactive tasks over existing memory approaches. (via web search; page not fetched)
+- **Relates to:** Stage 7 — agents
 
-### Moonshot Kimi K3.1 Pro open weights due Nov 4 (release not confirmed)
-- **Type:** model release
-- **Source:** https://www.theneuron.ai/digest/everything-that-happened-in-ai-today-wednesday-november-4-2026/
-- **Why it matters:** Moonshot reportedly committed to publishing full K3.1 Pro open weights by today; one digest says posting was not yet confirmed. Check Hugging Face before relying on it. (via web search; page not fetched)
-- **Relates to:** Stage 4 — open-weight model building blocks
+### Route to Remember: Adaptive Memory Selection for LLM Agents
+- **Type:** paper
+- **Source:** https://arxiv.org/abs/2611.05636
+- **Why it matters:** Argues each new query's cost grows with accumulated history in production agents and studies adaptive memory selection to contain it. (via web search; page not fetched)
+- **Relates to:** Stage 7 — agents
 
-### DeepSeek reportedly orders 160,000 Huawei Ascend chips for a 1GW site
-- **Type:** news
-- **Source:** https://www.theneuron.ai/digest/everything-that-happened-in-ai-today-wednesday-november-4-2026/
-- **Why it matters:** Per Digitimes via a daily digest, DeepSeek ordered large Ascend capacity for an Inner Mongolia site — a signal on compute independence for open-weight labs. Secondary report; unverified. (via web search; page not fetched)
-- **Relates to:** Stage 8 — staying current
+### FlyHash for LLM Agent Memory: An Empirical Validation and a New Application
+- **Type:** paper
+- **Source:** https://arxiv.org/abs/2611.05791
+- **Why it matters:** Compares FlyHash-based agent-memory retrieval to HNSW; authors report the quality advantage does not translate into memory/latency savings at equal settings. (via web search; page not fetched)
+- **Relates to:** Stage 7 — agents
 
 ---
 
 ## If you read one thing today
-
-Stick with your Stage 0 reading (Bahdanau attention) — it's the seed of everything above. If you want a frontier peek, skim the FlashProve item to see how model provenance may be verified.
+*Controlling Sharpening in LLM Post-Training* (https://arxiv.org/abs/2611.03146) — a preview of Stage 5 ideas (RL post-training and its tradeoffs). Stay on Bahdanau attention for now.
 <!-- LATEST_DIGEST_END -->
       </script>
       <div class="dig-pane md" id="digpane" style="margin-top:18px"></div>

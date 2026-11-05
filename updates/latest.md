@@ -25,6 +25,32 @@ Each entry follows this format:
 
 <!-- NEW ENTRIES GO BELOW THIS LINE -->
 
+## 2026-11-05
+
+### Controlling Sharpening in LLM Post-Training
+- **Type:** paper
+- **Source:** https://arxiv.org/abs/2611.03146
+- **Why it matters:** Derives closed-form optimal policies for KL-regularized pass@k and max@k objectives, aiming to reduce loss of behavioral coverage during RL post-training. (via web search; page not fetched)
+- **Relates to:** Stage 5 — alignment & post-training
+
+### Prospective Memory for Proactive LLM Agents
+- **Type:** paper
+- **Source:** https://arxiv.org/abs/2611.05731
+- **Why it matters:** Proposes Pro-Memory, tracking pending objectives and their supporting evidence; reports consistent gains on proactive tasks over existing memory approaches. (via web search; page not fetched)
+- **Relates to:** Stage 7 — agents
+
+### Route to Remember: Adaptive Memory Selection for LLM Agents
+- **Type:** paper
+- **Source:** https://arxiv.org/abs/2611.05636
+- **Why it matters:** Argues each new query's cost grows with accumulated history in production agents and studies adaptive memory selection to contain it. (via web search; page not fetched)
+- **Relates to:** Stage 7 — agents
+
+### FlyHash for LLM Agent Memory: An Empirical Validation and a New Application
+- **Type:** paper
+- **Source:** https://arxiv.org/abs/2611.05791
+- **Why it matters:** Compares FlyHash-based agent-memory retrieval to HNSW; authors report the quality advantage does not translate into memory/latency savings at equal settings. (via web search; page not fetched)
+- **Relates to:** Stage 7 — agents
+
 ## 2026-11-04
 
 ### Anthropic open-sources FlashProve: verify a response came from given model weights without seeing them
