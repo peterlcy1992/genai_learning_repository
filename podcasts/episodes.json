@@ -2,7 +2,7 @@
   "show": "The GenAI Evolution Atlas",
   "rss_show_id": 400601,
   "season": 2,
-  "next_episode": 19,
+  "next_episode": 20,
   "notes": "Single shared episode counter across both weekly formats. Each run reads next_episode, uses it, appends a record below, and increments next_episode. rss_show_id holds the RSS.com podcast id for this show (discovered by title via GET /v4/podcasts on first upload, then cached here). rss_status per episode: not_uploaded -> draft -> scheduled/published (the owner publishes manually on RSS.com).",
   "episodes": [
     {
@@ -464,6 +464,44 @@
       "notebook_id": "9b5ee164-93ab-4090-8f07-767c1ec11b5d",
       "rss_status": "draft",
       "rss_episode_id": 3294260
+    },
+    {
+      "season": 2,
+      "episode": 19,
+      "type": "roundup",
+      "date": "2026-11-06",
+      "week_of": "2026-10-31..2026-11-06",
+      "title": "GenAI News Roundup \u2014 week of Oct 31\u2013Nov 6",
+      "description": "This week: open-weight releases and the compute behind them (Mistral Large 4, Moonshot's Kimi K3.1 Pro, DeepSeek's reported Huawei Ascend order, China's accelerating AI law), a sobering agentic benchmark in SemiAnalysis's GDPx, a wave of agent-memory papers, and a cluster of alignment and post-training work \u2014 plus commentary and what's next. Covers: Mistral Large 4; Kimi K3.1 Pro; Google's Gemini 4 Argon/Carbon and Genie 4 recap; DeepSeek's Ascend order; China's NDRC AI law; Alphabet's Q3 AI-cost fears; Anthropic's amended IPO filing; GDPx; the trojanized Claude Code extension; agent-memory papers (Pro-Memory, Route to Remember, FlyHash); context compaction; OpenAI's layered misalignment detection; Anthropic's FlashProve; PEARL durable misalignment suppression; sparse internal control; controlling sharpening in post-training; quantizing recurrent LMs; domain-specific inductive biases; and the LeCun\u2013Balestriero JEPA paper. Many items come from secondary reports and are flagged as unverified.",
+      "audio": "podcasts/S2E19-2026-11-06-roundup.m4a",
+      "audio_url": "https://raw.githubusercontent.com/peterlcy1992/genai_learning_repository/main/podcasts/S2E19-2026-11-06-roundup.m4a",
+      "cover": "docs/thumbnails/podcast/S2E19-2026-11-06-roundup.png",
+      "sources": [
+        "https://www.opentrain.ai/papers/archive/56/",
+        "https://letsdatascience.com/blog/mistral-trillion-parameter-weights-this-month-license-blank",
+        "https://github.com/diclogic/ai-daily-digest/issues/199",
+        "https://aiagentsdirectory.com/news/ai-agents-news-brief-october-31-2026",
+        "https://aiweekly.co/alerts/semianalysis-launches-gdpx-best-frontier-model-hits-12",
+        "https://aialvin.substack.com/p/ai-news-roundup-10-developments-to-141",
+        "https://blog.google/innovation-and-ai/technology/ai/google-ai-updates-october-2026/",
+        "https://www.theneuron.ai/digest/everything-that-happened-in-ai-today-tuesday-november-3-2026/",
+        "https://www.theneuron.ai/digest/everything-that-happened-in-ai-today-monday-november-2-2026/",
+        "https://aiweekly.co/alerts/chinas-ndrc-speeds-ai-law-covering-deepseek-alibaba-moonshot",
+        "https://p3humansonai.substack.com/p/humans-on-ai-67-november-3-2026",
+        "https://www.theneuron.ai/digest/everything-that-happened-in-ai-today-wednesday-november-4-2026/",
+        "https://arxiv.org/abs/2611.03146",
+        "https://arxiv.org/abs/2611.05731",
+        "https://arxiv.org/abs/2611.05636",
+        "https://arxiv.org/abs/2611.05791",
+        "https://arxiv.org/abs/2611.05358",
+        "https://arxiv.org/abs/2611.01864",
+        "https://arxiv.org/abs/2611.04349",
+        "https://arxiv.org/abs/2611.03756",
+        "https://arxiv.org/pdf/2611.05306"
+      ],
+      "notebook_id": "46bcd9e3-d758-4014-bdd0-b35368efadf9",
+      "rss_status": "draft",
+      "rss_episode_id": 3299708
     }
   ]
 }
