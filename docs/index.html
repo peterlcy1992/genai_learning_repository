@@ -318,7 +318,7 @@
         (always current at the link above), and your daily email always carries the latest.</p>
       <script type="text/markdown" id="latest-digest">
 <!-- LATEST_DIGEST_START -->
-# Daily GenAI digest — 2026-11-05
+# Daily GenAI digest — 2026-11-06
 
 **Your stage:** Stage 0 — Foundations: before the Transformer
 **Next action:** Finish Bahdanau et al. (2014), *Neural Machine Translation by Jointly Learning to Align and Translate* (arXiv:1409.0473) in [`knowledge_bank/00_foundations.md`](../knowledge_bank/00_foundations.md).
@@ -327,34 +327,40 @@
 
 ## Today's highlights
 
-### Controlling Sharpening in LLM Post-Training
+### Suppressing Misaligned Behaviors in Language Models, Durably
 - **Type:** paper
-- **Source:** https://arxiv.org/abs/2611.03146
-- **Why it matters:** Derives closed-form optimal policies for KL-regularized pass@k and max@k objectives, aiming to reduce loss of behavioral coverage during RL post-training. (via web search; page not fetched)
+- **Source:** https://arxiv.org/abs/2611.05358
+- **Why it matters:** Compares methods for suppressing misaligned behavior and proposes PEARL, which the authors say stays durable under further fine-tuning. (via web search; page not fetched)
 - **Relates to:** Stage 5 — alignment & post-training
 
-### Prospective Memory for Proactive LLM Agents
+### Quantizing Recurrent Language Models Is Easier Than You Think
 - **Type:** paper
-- **Source:** https://arxiv.org/abs/2611.05731
-- **Why it matters:** Proposes Pro-Memory, tracking pending objectives and their supporting evidence; reports consistent gains on proactive tasks over existing memory approaches. (via web search; page not fetched)
-- **Relates to:** Stage 7 — agents
+- **Source:** https://arxiv.org/abs/2611.01864
+- **Why it matters:** Studies quantization of recurrent (non-softmax-Transformer) LMs; authors implement LoReS in vLLM and report end-to-end decode speedups. (via web search; page not fetched)
+- **Relates to:** Stage 4 — efficiency & building blocks
 
-### Route to Remember: Adaptive Memory Selection for LLM Agents
+### Sparse Internal Control of Language Models
 - **Type:** paper
-- **Source:** https://arxiv.org/abs/2611.05636
-- **Why it matters:** Argues each new query's cost grows with accumulated history in production agents and studies adaptive memory selection to contain it. (via web search; page not fetched)
-- **Relates to:** Stage 7 — agents
+- **Source:** https://arxiv.org/abs/2611.04349
+- **Why it matters:** Proposes steering model behavior at inference time by intervening on a small set of internal nodes; noted as NeurIPS 2026. (via web search; page not fetched)
+- **Relates to:** Stage 5 — alignment & post-training
 
-### FlyHash for LLM Agent Memory: An Empirical Validation and a New Application
+### Language Models Can Benefit from Domain-Specific Inductive Biases
 - **Type:** paper
-- **Source:** https://arxiv.org/abs/2611.05791
-- **Why it matters:** Compares FlyHash-based agent-memory retrieval to HNSW; authors report the quality advantage does not translate into memory/latency savings at equal settings. (via web search; page not fetched)
-- **Relates to:** Stage 7 — agents
+- **Source:** https://arxiv.org/abs/2611.03756
+- **Why it matters:** Position paper training small models from scratch on subsets (web, code, math) to test whether architectures transfer across domains. (via web search; page not fetched)
+- **Relates to:** Stage 4 — efficiency & building blocks
+
+### You don't need long context
+- **Type:** paper
+- **Source:** https://arxiv.org/pdf/2611.05306
+- **Why it matters:** Questions whether long-context LMs are needed and sketches a Semantic State Space Model concept; speculative. (via web search; page not fetched)
+- **Relates to:** Stage 7 — agents / long context
 
 ---
 
 ## If you read one thing today
-*Controlling Sharpening in LLM Post-Training* (https://arxiv.org/abs/2611.03146) — a preview of Stage 5 ideas (RL post-training and its tradeoffs). Stay on Bahdanau attention for now.
+*Suppressing Misaligned Behaviors in Language Models, Durably* (https://arxiv.org/abs/2611.05358) — a preview of Stage 5 alignment ideas. Stay on Bahdanau attention for now.
 <!-- LATEST_DIGEST_END -->
       </script>
       <div class="dig-pane md" id="digpane" style="margin-top:18px"></div>

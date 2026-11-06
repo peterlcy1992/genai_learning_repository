@@ -25,6 +25,38 @@ Each entry follows this format:
 
 <!-- NEW ENTRIES GO BELOW THIS LINE -->
 
+## 2026-11-06
+
+### Suppressing Misaligned Behaviors in Language Models, Durably
+- **Type:** paper
+- **Source:** https://arxiv.org/abs/2611.05358
+- **Why it matters:** Compares methods for suppressing misaligned behavior and proposes PEARL, which the authors say stays durable under further fine-tuning. (via web search; page not fetched)
+- **Relates to:** Stage 5 — alignment & post-training
+
+### Quantizing Recurrent Language Models Is Easier Than You Think
+- **Type:** paper
+- **Source:** https://arxiv.org/abs/2611.01864
+- **Why it matters:** Studies quantization of recurrent (non-softmax-Transformer) LMs; authors implement LoReS in vLLM and report end-to-end decode speedups. (via web search; page not fetched)
+- **Relates to:** Stage 4 — efficiency & building blocks
+
+### Sparse Internal Control of Language Models
+- **Type:** paper
+- **Source:** https://arxiv.org/abs/2611.04349
+- **Why it matters:** Proposes steering model behavior at inference time by intervening on a small set of internal nodes; noted as NeurIPS 2026. (via web search; page not fetched)
+- **Relates to:** Stage 5 — alignment & post-training
+
+### Language Models Can Benefit from Domain-Specific Inductive Biases
+- **Type:** paper
+- **Source:** https://arxiv.org/abs/2611.03756
+- **Why it matters:** Position paper training small models from scratch on subsets (web, code, math) to test whether architectures transfer across domains. (via web search; page not fetched)
+- **Relates to:** Stage 4 — efficiency & building blocks
+
+### You don't need long context
+- **Type:** paper
+- **Source:** https://arxiv.org/pdf/2611.05306
+- **Why it matters:** Questions whether long-context LMs are needed and sketches a Semantic State Space Model concept; speculative. (via web search; page not fetched)
+- **Relates to:** Stage 7 — agents / long context
+
 ## 2026-11-05
 
 ### Controlling Sharpening in LLM Post-Training
