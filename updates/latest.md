@@ -25,6 +25,38 @@ Each entry follows this format:
 
 <!-- NEW ENTRIES GO BELOW THIS LINE -->
 
+## 2026-11-07
+
+### OpenAI GPT-6 Cyber (gated cybersecurity model)
+- **Type:** model release
+- **Source:** https://itdaily.com/news/security/openai-gpt-6-cyber/
+- **Why it matters:** Reported at 48.5% on ExploitGym vs 32.1% for GPT-5.6 Cyber, with access limited to approved customers and added identity verification and misalignment monitoring. Vendor-reported figures. (via web search; page not fetched)
+- **Relates to:** Stage 5 — alignment & post-training
+
+### Thinking Machines Inkling 2 Small (594B MoE)
+- **Type:** model release
+- **Source:** https://pricepertoken.com/news/model-releases
+- **Why it matters:** Launched Nov 5 as a 594B-parameter Mixture-of-Experts model, with open weights reportedly coming next week (unconfirmed aggregator report). (via web search; page not fetched)
+- **Relates to:** Stage 4 — efficiency & building blocks (MoE)
+
+### Tencent Hy4 (770B, adds vision and computer use)
+- **Type:** model release
+- **Source:** https://gurufocus.com/news/9181483/tencent-stocks-slip-246-after-hunyuan-ai-rally-as-hong-kong-tech-cools
+- **Why it matters:** Reportedly a 770B-parameter model adding visual understanding and computer-use features to the Hunyuan line; details come from market coverage, not a lab post. (via web search; page not fetched)
+- **Relates to:** Stage 7 — agents
+
+### OpenAI BioBasicsBench
+- **Type:** paper / benchmark
+- **Source:** https://openai.com/research/index/publication/
+- **Why it matters:** A 100-task benchmark for how well AI agents interpret raw experimental data and handle everyday wet-lab science, listed Nov 6. (via web search; page not fetched)
+- **Relates to:** Stage 7 — agents / evaluation
+
+### Scientist World: Grow a Research World for AI-Scientists
+- **Type:** paper
+- **Source:** https://arxiv.org/list/cs.AI/recent
+- **Why it matters:** Title seen in the arXiv cs.AI listing for 6 Nov 2026 (arXiv:2611.08478); content not verified. (via web search; page not fetched)
+- **Relates to:** Stage 7 — agents
+
 ## 2026-11-06
 
 ### Suppressing Misaligned Behaviors in Language Models, Durably
