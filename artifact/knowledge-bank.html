@@ -292,7 +292,7 @@
         (always current at the link above), and your daily email always carries the latest.</p>
       <script type="text/markdown" id="latest-digest">
 <!-- LATEST_DIGEST_START -->
-# Daily GenAI digest — 2026-11-07
+# Daily GenAI digest — 2026-11-08
 
 **Your stage:** Stage 0 — Foundations: before the Transformer
 **Next action:** Finish Bahdanau et al. (2014), *Neural Machine Translation by Jointly Learning to Align and Translate* (arXiv:1409.0473) in [`knowledge_bank/00_foundations.md`](../knowledge_bank/00_foundations.md).
@@ -301,41 +301,35 @@
 
 ## Today's highlights
 
-### OpenAI GPT-6 Cyber (gated cybersecurity model)
-- **Type:** model release
-- **Source:** https://itdaily.com/news/security/openai-gpt-6-cyber/
-- **Why it matters:** Reported at 48.5% on ExploitGym vs 32.1% for GPT-5.6 Cyber, with access limited to approved customers and added identity verification and misalignment monitoring. Vendor-reported figures. (via web search; page not fetched)
-- **Relates to:** Stage 5 — alignment & post-training
-
-### Thinking Machines Inkling 2 Small (594B MoE)
-- **Type:** model release
-- **Source:** https://pricepertoken.com/news/model-releases
-- **Why it matters:** Launched Nov 5 as a 594B-parameter Mixture-of-Experts model, with open weights reportedly coming next week (unconfirmed aggregator report). (via web search; page not fetched)
-- **Relates to:** Stage 4 — efficiency & building blocks (MoE)
-
-### Tencent Hy4 (770B, adds vision and computer use)
-- **Type:** model release
-- **Source:** https://gurufocus.com/news/9181483/tencent-stocks-slip-246-after-hunyuan-ai-rally-as-hong-kong-tech-cools
-- **Why it matters:** Reportedly a 770B-parameter model adding visual understanding and computer-use features to the Hunyuan line; details come from market coverage, not a lab post. (via web search; page not fetched)
-- **Relates to:** Stage 7 — agents
-
-### OpenAI BioBasicsBench
-- **Type:** paper / benchmark
-- **Source:** https://openai.com/research/index/publication/
-- **Why it matters:** A 100-task benchmark for how well AI agents interpret raw experimental data and handle everyday wet-lab science, listed Nov 6. (via web search; page not fetched)
-- **Relates to:** Stage 7 — agents / evaluation
-
-### Scientist World: Grow a Research World for AI-Scientists
+### Reward Budgeting Reduces Premature Convergence in RL for LLM Reasoning
 - **Type:** paper
-- **Source:** https://arxiv.org/list/cs.AI/recent
-- **Why it matters:** Title seen in the arXiv cs.AI listing for 6 Nov 2026 (arXiv:2611.08478); content not verified. (via web search; page not fetched)
+- **Source:** https://arxiv.org/abs/2611.05942
+- **Why it matters:** Studies why RL for reasoning plateaus early as the policy sharpens; reports that raising entropy alone does not reliably move the plateau, and introduces a sharpness factor to describe it. Accepted to NeurIPS 2026 per the listing. (via web search; page not fetched)
+- **Relates to:** Stage 5 — alignment & post-training (RL)
+
+### DeepSeek deepseek-v4-flash-0731 and "Creator Mode" for DeepSeek Harness
+- **Type:** model release
+- **Source:** https://amdatalakehouse.substack.com/p/ai-weekly-gemini-4-carbon-open-mistral
+- **Why it matters:** Newsletter roundup reports a new DeepSeek V4 Flash checkpoint released Nov 5 and a demo of Creator Mode letting users request plugins in natural language; aggregator-sourced, unverified. (via web search; page not fetched)
 - **Relates to:** Stage 7 — agents
+
+### Anthropic launches Claude Personal Finance (beta)
+- **Type:** tool/framework
+- **Source:** https://patmcguinness.substack.com/p/ai-week-in-review-261107
+- **Why it matters:** Reported as connecting Claude to bank and card accounts via Plaid for US paid users; an example of agents acting on sensitive personal data. Newsletter-sourced. (via web search; page not fetched)
+- **Relates to:** Stage 7 — agents
+
+### Google Gemini Omni 1.2 Flash generally available
+- **Type:** model release
+- **Source:** https://amdatalakehouse.substack.com/p/ai-weekly-gemini-4-carbon-open-mistral
+- **Why it matters:** Reported GA with video generation up to 15 seconds and a 30% price cut; newsletter-sourced. (via web search; page not fetched)
+- **Relates to:** Stage 6 — multimodal / deployment
 
 ---
 
 ## If you read one thing today
 
-The GPT-6 Cyber coverage — a useful case study in gated release plus misalignment monitoring (Stage 5 themes). Then return to Bahdanau et al. for Stage 0.
+The Reward Budgeting paper's abstract (arXiv:2611.05942) — a taste of why RL post-training plateaus (Stage 5 theme). Then return to Bahdanau et al. for Stage 0.
 <!-- LATEST_DIGEST_END -->
       </script>
       <div class="dig-pane md" id="digpane" style="margin-top:18px"></div>
