@@ -25,6 +25,33 @@ Each entry follows this format:
 
 <!-- NEW ENTRIES GO BELOW THIS LINE -->
 
+## 2026-11-09
+
+### RPEG: Training Reasoning Language Models Scalably and Cost-Effectively
+- **Type:** paper
+- **Source:** https://arxiv.org/abs/2611.09207
+- **Why it matters:** Targets the cost and scaling problems of RL training for reasoning models, using an analytical performance model of the training pipeline. Relevant to why reasoning-model post-training is expensive. (via web search; page not fetched)
+- **Relates to:** Stage 5 — alignment & post-training (RL)
+
+### Energy-Efficient Reinforcement Learning for Large Language Models
+- **Type:** paper
+- **Source:** https://arxiv.org/abs/2611.05748
+- **Why it matters:** Proposes a controller that sets GPU clock frequencies separately for the generation and training phases of LLM RL, aiming to cut energy use. (via web search; page not fetched)
+- **Relates to:** Stage 5 — alignment & post-training (RL)
+
+### RLiD: Reinforcement Learning in the Decision Plane for Language Agents and LLMs
+- **Type:** paper
+- **Source:** https://arxiv.org/abs/2611.02455
+- **Why it matters:** Optimizes probabilities over a menu of executable action options, with a decision model choosing an action in one forward pass, as an RL approach for language agents. (via web search; page not fetched)
+- **Relates to:** Stage 7 — agents
+
+### Mistral reportedly opens weights for a trillion-parameter model ("Le Chonk")
+- **Type:** model release
+- **Source:** https://dev.to/hiroki-ii-ai/ai-daily-digest-november-9-2026-mistral-opens-le-chonk-weights-grok-api-watermarks-by-default-2gdm
+- **Why it matters:** A community digest reports open weights for a ~1T-parameter Mistral model under a modified MIT-style license; aggregator-sourced and unverified. (via web search; page not fetched)
+- **Relates to:** Stage 4 — efficiency & building blocks (MoE/scale)
+
+
 ## 2026-11-08
 
 ### Reward Budgeting Reduces Premature Convergence in RL for LLM Reasoning
