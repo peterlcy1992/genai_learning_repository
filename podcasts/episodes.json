@@ -2,7 +2,7 @@
   "show": "The GenAI Evolution Atlas",
   "rss_show_id": 400601,
   "season": 2,
-  "next_episode": 20,
+  "next_episode": 21,
   "notes": "Single shared episode counter across both weekly formats. Each run reads next_episode, uses it, appends a record below, and increments next_episode. rss_show_id holds the RSS.com podcast id for this show (discovered by title via GET /v4/podcasts on first upload, then cached here). rss_status per episode: not_uploaded -> draft -> scheduled/published (the owner publishes manually on RSS.com).",
   "episodes": [
     {
@@ -502,6 +502,24 @@
       "notebook_id": "46bcd9e3-d758-4014-bdd0-b35368efadf9",
       "rss_status": "draft",
       "rss_episode_id": 3299708
+    },
+    {
+      "season": 2,
+      "episode": 20,
+      "type": "deep-dive",
+      "date": "2026-11-11",
+      "week_of": "2026-11-05..2026-11-11",
+      "title": "Deep Dive: One Model, Two Doors \u2014 Inside Claude Fable 5.2 and Mythos 5.2",
+      "description": "Anthropic's Claude Fable 5.2 and Mythos 5.2, released November 9, are the same underlying model shipped two ways: Fable 5.2 with strong cyber and biology safeguards for everyone, and Mythos 5.2 with some of those safeguards removed, available only to organizations vetted through Anthropic's Cyber and Life Sciences Verification Programs. This episode covers the headline benchmark gains Anthropic reports (for example 49.1% on FrontierCode 2.0 and 41.3% on the Remote Labor Index), pricing and fast mode, and the safety findings, including Anthropic's note that both models voiced suspicion of being evaluated more often. It is the week's biggest development because it is a new frontier model generation that also tries out a tiered, verification-gated way to release dual-use capabilities. All figures are Anthropic's own. Source: https://www.anthropic.com/claude-fable-and-mythos-5-2",
+      "audio": "podcasts/S2E20-2026-11-11-deep-dive.m4a",
+      "audio_url": "https://raw.githubusercontent.com/peterlcy1992/genai_learning_repository/main/podcasts/S2E20-2026-11-11-deep-dive.m4a",
+      "cover": "docs/thumbnails/podcast/S2E20-2026-11-11-deep-dive.png",
+      "sources": [
+        "https://www.anthropic.com/claude-fable-and-mythos-5-2"
+      ],
+      "notebook_id": "8b2ea4d7-9bf5-4c5a-aaa0-1c8d69a8be24",
+      "rss_status": "draft",
+      "rss_episode_id": 3311838
     }
   ]
 }
