@@ -292,22 +292,56 @@
         (always current at the link above), and your daily email always carries the latest.</p>
       <script type="text/markdown" id="latest-digest">
 <!-- LATEST_DIGEST_START -->
-# Daily GenAI digest — 2026-11-10
+# Daily GenAI digest — 2026-11-11
 
 **Your stage:** Stage 0 — Foundations: before the Transformer
-**Next action:** Finish Bahdanau et al. (2014), *Neural Machine Translation by Jointly Learning to Align and Translate* (arXiv:1409.0473) in [`knowledge_bank/00_foundations.md`](../knowledge_bank/00_foundations.md).
+**Next action:** Finish Bahdanau et al. (2014), *Neural Machine Translation by Jointly Learning to Align and Translate* (arXiv:1409.0473), in [`knowledge_bank/00_foundations.md`](../knowledge_bank/00_foundations.md). It's where attention comes from.
 
 ---
 
 ## Today's highlights
 
-**Quiet day.** Searches (arXiv cs.CL, lab announcements, Hugging Face daily papers, newsletters, open-weight releases) did not surface any reputable, verifiable, new items dated today that were not already logged. The search index looked thin for this date, and nothing was logged rather than guessing.
+### Anthropic launches office productivity tools; Fortune reports new Fable 5.2 and Mythos 5.2 models
+- **Type:** model release
+- **Link:** https://fortune.com/2026/11/10/anthropic-launches-office-knowledge-worker-product-launch-ahead-of-ipo
+- **Why it matters:** Fortune reports a suite of Anthropic office tools for knowledge workers, launched alongside new frontier models (Fable 5.2, Mythos 5.2) that are priced lower and claimed to be stronger than OpenAI's latest. These are press-reported claims and haven't been checked against an official post. (via web search; page not fetched)
+- **Relates to:** Stage 7 — agents & applications
+
+### AI Daily Digest, Nov 11: Claude as an office suite, ChatGPT business agents, two more Google TPUs
+- **Type:** blog (aggregator)
+- **Link:** https://dev.to/hiroki-ii-ai/ai-daily-digest-november-11-2026-claude-becomes-an-office-suite-chatgpt-gets-business-agents-3bg8
+- **Why it matters:** One-page roundup: Claude Sheets beta (describe what you need, get a working workbook), business agents in ChatGPT, and new Google TPUs. Read it for orientation only; it isn't a primary source. (via web search; page not fetched)
+- **Relates to:** Stage 7 — agents & applications; Stage 4 — efficiency (hardware)
+
+### Depth as a Candidate Source: Portfolio Allocation for Recurrent Test-Time Scaling in LLMs
+- **Type:** paper
+- **Link:** https://arxiv.org/abs/2611.12293
+- **Why it matters:** In recurrent-depth models, different numbers of loops reach different correct answers. That suggests spreading test-time compute across several depths rather than picking a single one. (via web search; page not fetched)
+- **Relates to:** Stage 6 — reasoning & test-time compute
+
+### Addition by Subtraction: Toward Mitigating Fragile Safety Alignment in LLMs
+- **Type:** paper
+- **Link:** https://arxiv.org/abs/2611.06553v1
+- **Why it matters:** Safety behavior tends to sit in a few sparse components, which is why jailbreaks and pruning can remove it. Spreading it out makes it sturdier, with up to ~90% lower attack success reported for some attacks. (via web search; page not fetched)
+- **Relates to:** Stage 5 — alignment & post-training (safety)
+
+### Feeling of Knowing in Large Language Models
+- **Type:** paper
+- **Link:** https://arxiv.org/abs/2611.04834
+- **Why it matters:** Asks whether a model can tell if it knows something after post-training has updated its knowledge. Explicit alignment improves these self-judgments, which ties into calibration and hallucination. (via web search; page not fetched)
+- **Relates to:** Stage 5 — alignment & post-training
+
+### Large Language Models as a Universal Searcher for Open-World Automated Machine Learning
+- **Type:** paper
+- **Link:** https://arxiv.org/abs/2611.12791
+- **Why it matters:** An LLM agent tunes architecture, hyperparameters and data mix together. It reports a ~1B-parameter Diffusion Transformer reaching GenEval 0.91 after 896 GPU-days. An example of LLMs automating ML research itself. (via web search; page not fetched)
+- **Relates to:** Stage 7 — agents
 
 ---
 
 ## If you read one thing today
 
-Stay on Stage 0: finish the Bahdanau attention paper — it is the origin of the attention mechanism that the Transformer (Stage 1) builds on.
+Keep going with **Bahdanau et al. (2014)** for Stage 0. If you have 10 spare minutes, skim the abstract of *Depth as a Candidate Source* (arXiv:2611.12293). It shows how "spend more compute at inference" ideas build on the plain recurrent networks you're studying now.
 <!-- LATEST_DIGEST_END -->
       </script>
       <div class="dig-pane md" id="digpane" style="margin-top:18px"></div>

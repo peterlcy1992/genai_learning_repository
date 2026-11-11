@@ -25,6 +25,45 @@ Each entry follows this format:
 
 <!-- NEW ENTRIES GO BELOW THIS LINE -->
 
+## 2026-11-11
+
+### Anthropic launches office productivity tools; Fortune reports new Fable 5.2 and Mythos 5.2 models
+- **Type:** model release
+- **Source:** https://fortune.com/2026/11/10/anthropic-launches-office-knowledge-worker-product-launch-ahead-of-ipo
+- **Why it matters:** Fortune reports Anthropic debuting a suite of knowledge-worker office tools alongside new frontier models, Fable 5.2 and Mythos 5.2, priced lower than before and claimed to be stronger than OpenAI's latest. Model names and claims are as reported by the press and not yet checked against an official Anthropic post. (via web search; page not fetched)
+- **Relates to:** Stage 7 — agents & applications
+
+### AI Daily Digest, Nov 11: Claude as an office suite, ChatGPT business agents, two more Google TPUs
+- **Type:** blog
+- **Source:** https://dev.to/hiroki-ii-ai/ai-daily-digest-november-11-2026-claude-becomes-an-office-suite-chatgpt-gets-business-agents-3bg8
+- **Why it matters:** Community roundup of the day. It mentions a Claude Sheets spreadsheet product in beta (describe what you need, Claude builds the workbook), business agents in ChatGPT, and new Google TPUs. Good for getting your bearings, but it is an aggregator and not a primary source. (via web search; page not fetched)
+- **Relates to:** Stage 7 — agents & applications; Stage 4 — efficiency (hardware)
+
+### Depth as a Candidate Source: Portfolio Allocation for Recurrent Test-Time Scaling in LLMs
+- **Type:** paper
+- **Source:** https://arxiv.org/abs/2611.12293
+- **Why it matters:** For looped/recurrent-depth models, it reports that different recurrence depths reach *different* correct solutions. So instead of choosing one "best" depth, you can spread test-time compute across a portfolio of depths. (via web search; page not fetched)
+- **Relates to:** Stage 6 — reasoning & test-time compute
+
+### Addition by Subtraction: Toward Mitigating Fragile Safety Alignment in LLMs
+- **Type:** paper
+- **Source:** https://arxiv.org/abs/2611.06553v1
+- **Why it matters:** Argues that safety alignment is fragile because it sits in a few sparse components. It spreads that behavior out so it holds up better against jailbreaks and pruning, and reports up to ~90% lower attack success for some attacks. (via web search; page not fetched)
+- **Relates to:** Stage 5 — alignment & post-training (safety)
+
+### Feeling of Knowing in Large Language Models
+- **Type:** paper
+- **Source:** https://arxiv.org/abs/2611.04834
+- **Why it matters:** Tests whether LLMs can judge if they know something (metacognition) after their knowledge has been updated by post-training. It finds that explicit alignment makes these judgments better on the updated knowledge, which matters for calibration and hallucination. (via web search; page not fetched)
+- **Relates to:** Stage 5 — alignment & post-training
+
+### Large Language Models as a Universal Searcher for Open-World Automated Machine Learning
+- **Type:** paper
+- **Source:** https://arxiv.org/abs/2611.12791
+- **Why it matters:** Uses an LLM agent to tune architecture, training hyperparameters and data mix together. It reports a billion-parameter Diffusion Transformer that reaches GenEval 0.91 at a cost of 896 GPU-days. An example of LLMs automating ML research itself. (via web search; page not fetched)
+- **Relates to:** Stage 7 — agents
+
+
 ## 2026-11-09
 
 ### RPEG: Training Reasoning Language Models Scalably and Cost-Effectively
