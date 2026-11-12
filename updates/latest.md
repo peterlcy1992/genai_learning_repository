@@ -25,6 +25,32 @@ Each entry follows this format:
 
 <!-- NEW ENTRIES GO BELOW THIS LINE -->
 
+## 2026-11-12
+
+### Language model capabilities fail in a shared, predictable order under compression and perturbation
+- **Type:** paper
+- **Source:** https://arxiv.org/abs/2611.11695
+- **Why it matters:** The authors test seven compression and perturbation methods on eight instruction-tuned models. Short-answer capabilities break down in nearly the same order under four different random perturbations. If that holds up, you could predict which skills a quantized or pruned model will lose first. (via web search; page not fetched)
+- **Relates to:** Stage 4 — efficiency (quantization/compression)
+
+### When Should Diffusion Language Models Reconsider Their Commitments?
+- **Type:** paper
+- **Source:** https://arxiv.org/abs/2611.11551
+- **Why it matters:** Diffusion language models generate many tokens in parallel. This paper asks when such a model should revise tokens it has already committed to, which is a central design choice for these alternatives to autoregressive generation. Only the title and metadata were surfaced, so the specifics are unknown. (via web search; page not fetched)
+- **Relates to:** Stage 1 — Transformer & LM objectives (non-autoregressive generation)
+
+### Archetypal contexts in the neurons of language models: an architecture for intelligence?
+- **Type:** paper
+- **Source:** https://arxiv.org/abs/2611.07234
+- **Why it matters:** An interpretability study, tested on Qwen3.8-27B. It argues that neurons store relational patterns separately from the subject domains those patterns show up in. This is a single-author, single-model claim, so treat it as a hypothesis. (via web search; page not fetched)
+- **Relates to:** Stage 5 — alignment & interpretability
+
+### The Neuron: Everything that happened in AI today, Thursday Nov 12
+- **Type:** blog (aggregator)
+- **Source:** https://www.theneuron.ai/digest/everything-that-happened-in-ai-today-thursday-november-12-2026/
+- **Why it matters:** Same-day roundups (this one and others) report a proposed Anthropic IPO price range, an AWS local emulator for 200+ services that is said to be written entirely by autonomous AI agents, OpenAI's ~$10B Q3 revenue, and a new AI regulator in Australia. Use it to get your bearings. These are press reports and I didn't verify them against primary sources. (via web search; page not fetched)
+- **Relates to:** Stage 7 — agents & applications; Stage 8 — staying current
+
 ## 2026-11-11
 
 ### Anthropic launches office productivity tools; Fortune reports new Fable 5.2 and Mythos 5.2 models
