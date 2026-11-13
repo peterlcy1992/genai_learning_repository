@@ -2,7 +2,7 @@
   "show": "The GenAI Evolution Atlas",
   "rss_show_id": 400601,
   "season": 2,
-  "next_episode": 21,
+  "next_episode": 22,
   "notes": "Single shared episode counter across both weekly formats. Each run reads next_episode, uses it, appends a record below, and increments next_episode. rss_show_id holds the RSS.com podcast id for this show (discovered by title via GET /v4/podcasts on first upload, then cached here). rss_status per episode: not_uploaded -> draft -> scheduled/published (the owner publishes manually on RSS.com).",
   "episodes": [
     {
@@ -520,6 +520,50 @@
       "notebook_id": "8b2ea4d7-9bf5-4c5a-aaa0-1c8d69a8be24",
       "rss_status": "draft",
       "rss_episode_id": 3311838
+    },
+    {
+      "season": 2,
+      "episode": 21,
+      "type": "roundup",
+      "date": "2026-11-13",
+      "week_of": "2026-11-07..2026-11-13",
+      "title": "GenAI News Roundup \u2014 week of Nov 7\u201313",
+      "description": "This week: gated frontier releases for dual-use capabilities (Anthropic's Claude Fable 5.2 and Mythos 5.2, OpenAI's GPT-6 Cyber), a wave of very large open-weight and MoE models, a cluster of papers on making RL post-training cheaper and less plateau-prone, and agent, safety and interpretability research \u2014 plus commentary and what's next. Covers: Claude Fable 5.2 / Mythos 5.2; Anthropic's office tools and Claude Sheets beta; GPT-6 Cyber; Claude Personal Finance beta; Thinking Machines Inkling 2 Small; Mistral's reported ~1T open-weight model; Tencent Hy4; DeepSeek V4 Flash and Creator Mode; Gemini Omni 1.2 Flash GA; MNN-Pocket-0.3B; Reward Budgeting; RPEG; energy-efficient RL; RLiD; recurrent-depth test-time scaling; diffusion LM commitments; OpenAI BioBasicsBench; Scientist World; LLM-driven AutoML; multi-agent judgment failures; agents that forget user corrections; Addition by Subtraction; Feeling of Knowing; predictable capability loss under compression; archetypal neuron contexts; and end-of-week industry reports (Anthropic IPO pricing, OpenAI Q3 revenue, a reported Nvidia CEO change, a lawsuit seeking to freeze frontier development, Hermes agent misuse). Many items come from secondary reports and are flagged as unverified.",
+      "audio": "podcasts/S2E21-2026-11-13-roundup.m4a",
+      "audio_url": "https://raw.githubusercontent.com/peterlcy1992/genai_learning_repository/main/podcasts/S2E21-2026-11-13-roundup.m4a",
+      "cover": "docs/thumbnails/podcast/S2E21-2026-11-13-roundup.png",
+      "sources": [
+        "https://www.anthropic.com/claude-fable-and-mythos-5-2",
+        "https://fortune.com/2026/11/10/anthropic-launches-office-knowledge-worker-product-launch-ahead-of-ipo",
+        "https://itdaily.com/news/security/openai-gpt-6-cyber/",
+        "https://pricepertoken.com/news/model-releases",
+        "https://gurufocus.com/news/9181483/tencent-stocks-slip-246-after-hunyuan-ai-rally-as-hong-kong-tech-cools",
+        "https://openai.com/research/index/publication/",
+        "https://arxiv.org/abs/2611.08478",
+        "https://arxiv.org/abs/2611.05942",
+        "https://amdatalakehouse.substack.com/p/ai-weekly-gemini-4-carbon-open-mistral",
+        "https://patmcguinness.substack.com/p/ai-week-in-review-261107",
+        "https://arxiv.org/abs/2611.09207",
+        "https://arxiv.org/abs/2611.05748",
+        "https://arxiv.org/abs/2611.02455",
+        "https://dev.to/hiroki-ii-ai/ai-daily-digest-november-9-2026-mistral-opens-le-chonk-weights-grok-api-watermarks-by-default-2gdm",
+        "https://dev.to/hiroki-ii-ai/ai-daily-digest-november-11-2026-claude-becomes-an-office-suite-chatgpt-gets-business-agents-3bg8",
+        "https://arxiv.org/abs/2611.12293",
+        "https://arxiv.org/abs/2611.06553v1",
+        "https://arxiv.org/abs/2611.04834",
+        "https://arxiv.org/abs/2611.12791",
+        "https://arxiv.org/abs/2611.11695",
+        "https://arxiv.org/abs/2611.11551",
+        "https://arxiv.org/abs/2611.07234",
+        "https://www.theneuron.ai/digest/everything-that-happened-in-ai-today-thursday-november-12-2026/",
+        "https://arxiv.org/abs/2611.12311",
+        "https://arxiv.org/abs/2611.08971",
+        "https://arxiv.org/abs/2611.08644",
+        "https://www.theneuron.ai/digest/everything-that-happened-in-ai-today-friday-november-13-2026/"
+      ],
+      "notebook_id": "214a868e-589a-43fb-93cd-aa2350584d79",
+      "rss_status": "draft",
+      "rss_episode_id": 3318305
     }
   ]
 }
