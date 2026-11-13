@@ -25,6 +25,32 @@ Each entry follows this format:
 
 <!-- NEW ENTRIES GO BELOW THIS LINE -->
 
+## 2026-11-13
+
+### MNN-Pocket-0.3B Technical Report
+- **Type:** paper / model release
+- **Source:** https://arxiv.org/abs/2611.12311
+- **Why it matters:** A compact model of about 300M parameters with open weights, built to run on-device with context windows of up to 32K tokens. The report says it reaches up to 466 tokens/s on an iPad Pro M5. It is a concrete data point on how far small, edge-deployed language models have come. (via web search; page not fetched)
+- **Relates to:** Stage 4 — efficiency (small models, on-device inference)
+
+### Multi-agent LLM systems: when reasoning about other agents makes aggregated judgments worse
+- **Type:** paper
+- **Source:** https://arxiv.org/abs/2611.08971
+- **Why it matters:** This paper studies multi-agent LLM setups that combine several agents' judgments. It reports that having agents reason about each other can introduce failures rather than improve the group's answer. Only an aggregator snippet surfaced, so the exact title and methods are unverified. (via web search; page not fetched)
+- **Relates to:** Stage 7 — agents & applications (multi-agent systems)
+
+### Agents that fail to learn from user corrections across sessions
+- **Type:** paper
+- **Source:** https://arxiv.org/abs/2611.08644
+- **Why it matters:** This paper addresses a common agent failure: a user corrects the agent in one session and the agent repeats the mistake in the next. That ties directly to current work on agent memory. Only an aggregator snippet surfaced, so the title and approach are unverified. (via web search; page not fetched)
+- **Relates to:** Stage 7 — agents & applications (memory)
+
+### The Neuron: Everything that happened in AI today, Friday Nov 13
+- **Type:** blog (aggregator)
+- **Source:** https://www.theneuron.ai/digest/everything-that-happened-in-ai-today-friday-november-13-2026/
+- **Why it matters:** Several same-day roundups report the following: Jensen Huang stepped down as Nvidia CEO; a reported "Gemini 4 Hydrogen" release (Google's blog has no post on it, and earlier coverage treated the name as a community codename for Gemini 4 Flash); Anthropic's IPO reportedly pricing Nov 18; four nonprofits suing five AI labs to freeze frontier development; and attackers reportedly using the open-source Hermes agent to plan and run intrusions. These are press reports I haven't checked against primary sources. (via web search; page not fetched)
+- **Relates to:** Stage 5 — safety & misuse; Stage 7 — agents; Stage 8 — staying current
+
 ## 2026-11-12
 
 ### Language model capabilities fail in a shared, predictable order under compression and perturbation

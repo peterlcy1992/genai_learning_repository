@@ -318,44 +318,51 @@
         (always current at the link above), and your daily email always carries the latest.</p>
       <script type="text/markdown" id="latest-digest">
 <!-- LATEST_DIGEST_START -->
-# Daily GenAI digest — 2026-11-12
+# Daily GenAI digest — 2026-11-13
 
 **Your stage:** Stage 0 — Foundations: before the Transformer
-**Next action:** If you've finished Bahdanau et al. (2014), go on to Luong et al. (2015), *Effective Approaches to Attention-based Neural Machine Translation*, or work through the attention section of [`knowledge_bank/00_foundations.md`](../knowledge_bank/00_foundations.md). Try to explain in two sentences why attention fixes the "fixed-length bottleneck" of seq2seq.
+**Next action:** Finish Luong et al. (2015), *Effective Approaches to Attention-based Neural Machine Translation*. Then, in your own words, write down the difference between Bahdanau's additive attention and Luong's multiplicative (dot-product) attention. That dot-product form is the one the Transformer builds on in Stage 1. See [`knowledge_bank/00_foundations.md`](../knowledge_bank/00_foundations.md).
 
 ---
 
 ## Today's highlights
 
-### Language model capabilities fail in a shared, predictable order under compression and perturbation
-- **Type:** paper
-- **Link:** https://arxiv.org/abs/2611.11695
-- **Why it matters:** The authors tested seven compression and perturbation methods on eight instruction-tuned models. Short-answer capabilities broke down in nearly the same order under four different random perturbations. If that holds up, you could predict which skills a quantized or pruned model loses first. (via web search; page not fetched)
-- **Relates to:** Stage 4 — efficiency (quantization/compression)
+### MNN-Pocket-0.3B Technical Report
+- **Type:** paper / model release
+- **Link:** https://arxiv.org/abs/2611.12311
+- **Why it matters:** A compact model of about 300M parameters with open weights, built for on-device use with context windows of up to 32K tokens. The report says it reaches up to 466 tokens/s on an iPad Pro M5. It shows how capable tiny edge models have become. (via web search; page not fetched)
+- **Relates to:** Stage 4 — efficiency (small models, on-device inference)
 
-### When Should Diffusion Language Models Reconsider Their Commitments?
+### Multi-agent LLM systems: when reasoning about other agents makes aggregated judgments worse
 - **Type:** paper
-- **Link:** https://arxiv.org/abs/2611.11551
-- **Why it matters:** Diffusion language models generate many tokens in parallel. This paper asks when the model should revise tokens it has already committed to, a central design choice for these alternatives to left-to-right generation. Only the title surfaced, so the specifics are unknown. (via web search; page not fetched)
-- **Relates to:** Stage 1 — Transformer & LM objectives (non-autoregressive generation)
+- **Link:** https://arxiv.org/abs/2611.08971
+- **Why it matters:** This paper studies multi-agent LLM setups that combine several agents' judgments. It finds that having agents reason about each other can introduce failures instead of helping. Only an aggregator snippet surfaced, so the exact title and method are unverified. (via web search; page not fetched)
+- **Relates to:** Stage 7 — agents & applications (multi-agent systems)
 
-### Archetypal contexts in the neurons of language models: an architecture for intelligence?
+### Agents that fail to learn from user corrections across sessions
 - **Type:** paper
-- **Link:** https://arxiv.org/abs/2611.07234
-- **Why it matters:** An interpretability study on Qwen3.8-27B. It argues that neurons store relational patterns separately from the subject domains those patterns appear in. It comes from a single author and was tested on a single model, so read it as a hypothesis. (via web search; page not fetched)
-- **Relates to:** Stage 5 — alignment & interpretability
+- **Link:** https://arxiv.org/abs/2611.08644
+- **Why it matters:** This paper targets a familiar agent failure: you correct the agent once and it repeats the mistake in the next session. That makes it a good companion to the recent agent-memory papers in the log. Only an aggregator snippet surfaced, so the title and approach are unverified. (via web search; page not fetched)
+- **Relates to:** Stage 7 — agents & applications (memory)
 
-### The Neuron: Everything that happened in AI today, Thursday Nov 12
+### The Neuron: Everything that happened in AI today, Friday Nov 13
 - **Type:** blog (aggregator)
-- **Link:** https://www.theneuron.ai/digest/everything-that-happened-in-ai-today-thursday-november-12-2026/
-- **Why it matters:** Same-day roundups (this one and others) report a proposed Anthropic IPO price range, an AWS local emulator for 200+ services said to be written entirely by AI agents, OpenAI's ~$10B Q3 revenue, and a new AI regulator in Australia. Read it for orientation; these are press reports I haven't checked against primary sources. (via web search; page not fetched)
-- **Relates to:** Stage 7 — agents & applications; Stage 8 — staying current
+- **Link:** https://www.theneuron.ai/digest/everything-that-happened-in-ai-today-friday-november-13-2026/
+- **Why it matters:** Several same-day roundups report these stories:
+  - Jensen Huang stepped down as Nvidia CEO.
+  - A reported "Gemini 4 Hydrogen" release, with no Google blog post (earlier coverage treated the name as a community codename for Gemini 4 Flash).
+  - Anthropic's IPO is reportedly pricing on Nov 18.
+  - Four nonprofits sued five AI labs to freeze frontier development.
+  - Attackers reportedly used the open-source Hermes agent to plan and run intrusions.
+
+  Use it for orientation only; I haven't checked these against primary sources. (via web search; page not fetched)
+- **Relates to:** Stage 5 — safety & misuse; Stage 7 — agents; Stage 8 — staying current
 
 ---
 
 ## If you read one thing today
 
-Stick with Stage 0 attention reading. If you have 10 spare minutes, read the abstract of *Language model capabilities fail in a shared, predictable order* (arXiv:2611.11695). It's an approachable empirical paper, and it previews a question you'll meet in Stage 4: what does a model lose when you shrink it?
+Stay with Stage 0: Luong et al. (2015) is the best use of your time. If you have 5 spare minutes, skim the abstract of *MNN-Pocket-0.3B* (arXiv:2611.12311). A 300M-parameter model generating hundreds of tokens per second on a tablet shows how much the architecture you're about to learn has been optimized.
 <!-- LATEST_DIGEST_END -->
       </script>
       <div class="dig-pane md" id="digpane" style="margin-top:18px"></div>
