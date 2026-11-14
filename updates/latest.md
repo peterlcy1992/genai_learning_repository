@@ -25,6 +25,32 @@ Each entry follows this format:
 
 <!-- NEW ENTRIES GO BELOW THIS LINE -->
 
+## 2026-11-14
+
+### Can open-weight models shorten their reasoning by compacting their own earlier thoughts?
+- **Type:** paper
+- **Source:** https://papers.cool/arxiv/2611.03852
+- **Why it matters:** This paper asks whether open-weight reasoning models can produce shorter traces by rewriting ("compacting") their own earlier thoughts, with no retraining. Long reasoning traces make test-time gains expensive. The exact title is unverified because only an aggregator snippet surfaced. (via web search; page not fetched)
+- **Relates to:** Stage 6 — reasoning models (test-time compute cost)
+
+### LoCo: local preference learning for reasoning compression
+- **Type:** paper
+- **Source:** https://papers.cool/arxiv/2611.04814
+- **Why it matters:** LoCo uses preference learning at each reasoning step to decide whether more thinking is needed, so the model can stop early when it is already right. Code and models are promised. This is another entry in the "overthinking" line of work. (via web search; page not fetched)
+- **Relates to:** Stage 6 — reasoning models; Stage 3 — preference optimization
+
+### LLM routing when strong reasoning models join the pool
+- **Type:** paper
+- **Source:** https://papers.cool/arxiv/2611.04098
+- **Why it matters:** Routers send each query to a cheap or an expensive model. This paper looks at what changes when reasoning models join the pool, including the cost of runaway generations. It is a practical question for anyone building on several models. (via web search; page not fetched)
+- **Relates to:** Stage 4 — efficiency (inference cost); Stage 7 — applications
+
+### The Neuron: Everything that happened in AI today, Wednesday Nov 11
+- **Type:** blog (aggregator)
+- **Source:** https://www.theneuron.ai/digest/everything-that-happened-in-ai-today-wednesday-november-11-2026/
+- **Why it matters:** This is a mid-week roundup. Same-week coverage reports Anthropic taking its IPO on the road, OpenAI reportedly reaching about $10B in quarterly revenue while still losing money, and Meta pausing a terms change that would have let it scrape Business-account sites. It is for orientation only, and none of these claims were checked against primary sources. (via web search; page not fetched)
+- **Relates to:** Stage 8 — staying current
+
 ## 2026-11-13
 
 ### MNN-Pocket-0.3B Technical Report

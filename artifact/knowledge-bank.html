@@ -292,51 +292,46 @@
         (always current at the link above), and your daily email always carries the latest.</p>
       <script type="text/markdown" id="latest-digest">
 <!-- LATEST_DIGEST_START -->
-# Daily GenAI digest — 2026-11-13
+# Daily GenAI digest — 2026-11-14
 
 **Your stage:** Stage 0 — Foundations: before the Transformer
-**Next action:** Finish Luong et al. (2015), *Effective Approaches to Attention-based Neural Machine Translation*. Then, in your own words, write down the difference between Bahdanau's additive attention and Luong's multiplicative (dot-product) attention. That dot-product form is the one the Transformer builds on in Stage 1. See [`knowledge_bank/00_foundations.md`](../knowledge_bank/00_foundations.md).
+**Next action:** If you haven't yet, finish Luong et al. (2015) and write a few lines comparing Bahdanau's additive attention with Luong's dot-product attention. Then sketch, on paper, how an encoder–decoder RNN with attention produces one output token: query, scores, softmax, weighted sum. That loop is the seed of the Transformer in Stage 1. See [`knowledge_bank/00_foundations.md`](../knowledge_bank/00_foundations.md).
 
 ---
 
 ## Today's highlights
 
-### MNN-Pocket-0.3B Technical Report
-- **Type:** paper / model release
-- **Link:** https://arxiv.org/abs/2611.12311
-- **Why it matters:** A compact model of about 300M parameters with open weights, built for on-device use with context windows of up to 32K tokens. The report says it reaches up to 466 tokens/s on an iPad Pro M5. It shows how capable tiny edge models have become. (via web search; page not fetched)
-- **Relates to:** Stage 4 — efficiency (small models, on-device inference)
+A lighter day. Today's top items are a cluster of early-November papers on making reasoning models cheaper. They come from the first days of the month but hadn't been logged until now.
 
-### Multi-agent LLM systems: when reasoning about other agents makes aggregated judgments worse
+### Can open-weight models shorten their reasoning by compacting their own earlier thoughts?
 - **Type:** paper
-- **Link:** https://arxiv.org/abs/2611.08971
-- **Why it matters:** This paper studies multi-agent LLM setups that combine several agents' judgments. It finds that having agents reason about each other can introduce failures instead of helping. Only an aggregator snippet surfaced, so the exact title and method are unverified. (via web search; page not fetched)
-- **Relates to:** Stage 7 — agents & applications (multi-agent systems)
+- **Link:** https://papers.cool/arxiv/2611.03852
+- **Why it matters:** This paper tests whether open-weight reasoning models can shorten their traces by rewriting ("compacting") their own earlier thoughts, without any retraining. Long traces are what make reasoning gains expensive. The exact title is unverified because only an aggregator snippet surfaced. (via web search; page not fetched)
+- **Relates to:** Stage 6 — reasoning models (test-time compute cost)
 
-### Agents that fail to learn from user corrections across sessions
+### LoCo: local preference learning for reasoning compression
 - **Type:** paper
-- **Link:** https://arxiv.org/abs/2611.08644
-- **Why it matters:** This paper targets a familiar agent failure: you correct the agent once and it repeats the mistake in the next session. That makes it a good companion to the recent agent-memory papers in the log. Only an aggregator snippet surfaced, so the title and approach are unverified. (via web search; page not fetched)
-- **Relates to:** Stage 7 — agents & applications (memory)
+- **Link:** https://papers.cool/arxiv/2611.04814
+- **Why it matters:** LoCo uses preference learning at each step to decide whether more reasoning is needed, which aims to curb "overthinking." Code and models are promised. (via web search; page not fetched)
+- **Relates to:** Stage 6 — reasoning models; Stage 3 — preference optimization
 
-### The Neuron: Everything that happened in AI today, Friday Nov 13
+### LLM routing when strong reasoning models join the pool
+- **Type:** paper
+- **Link:** https://papers.cool/arxiv/2611.04098
+- **Why it matters:** This paper studies how routers that pick between cheap and expensive models behave once reasoning models are added, including the cost of runaway generations. It is a practical concern for multi-model systems. (via web search; page not fetched)
+- **Relates to:** Stage 4 — efficiency; Stage 7 — applications
+
+### The Neuron: Everything that happened in AI today, Wednesday Nov 11
 - **Type:** blog (aggregator)
-- **Link:** https://www.theneuron.ai/digest/everything-that-happened-in-ai-today-friday-november-13-2026/
-- **Why it matters:** Several same-day roundups report these stories:
-  - Jensen Huang stepped down as Nvidia CEO.
-  - A reported "Gemini 4 Hydrogen" release, with no Google blog post (earlier coverage treated the name as a community codename for Gemini 4 Flash).
-  - Anthropic's IPO is reportedly pricing on Nov 18.
-  - Four nonprofits sued five AI labs to freeze frontier development.
-  - Attackers reportedly used the open-source Hermes agent to plan and run intrusions.
-
-  Use it for orientation only; I haven't checked these against primary sources. (via web search; page not fetched)
-- **Relates to:** Stage 5 — safety & misuse; Stage 7 — agents; Stage 8 — staying current
+- **Link:** https://www.theneuron.ai/digest/everything-that-happened-in-ai-today-wednesday-november-11-2026/
+- **Why it matters:** This is a mid-week roundup. Same-week coverage reports Anthropic taking its IPO on the road, OpenAI reportedly reaching about $10B in quarterly revenue while still losing money, and Meta pausing a planned terms change on scraping. It is for orientation only, and I didn't check these claims against primary sources. (via web search; page not fetched)
+- **Relates to:** Stage 8 — staying current
 
 ---
 
 ## If you read one thing today
 
-Stay with Stage 0: Luong et al. (2015) is the best use of your time. If you have 5 spare minutes, skim the abstract of *MNN-Pocket-0.3B* (arXiv:2611.12311). A 300M-parameter model generating hundreds of tokens per second on a tablet shows how much the architecture you're about to learn has been optimized.
+Stay with Stage 0: drawing the attention loop by hand is today's best investment. For a 2-minute look ahead, read the abstract of the reasoning-compaction paper (arXiv:2611.03852). It shows that "how much a model thinks" has become a cost to engineer. That idea will mean much more once you reach Stage 6.
 <!-- LATEST_DIGEST_END -->
       </script>
       <div class="dig-pane md" id="digpane" style="margin-top:18px"></div>
