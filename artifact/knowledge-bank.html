@@ -292,46 +292,46 @@
         (always current at the link above), and your daily email always carries the latest.</p>
       <script type="text/markdown" id="latest-digest">
 <!-- LATEST_DIGEST_START -->
-# Daily GenAI digest — 2026-11-15
+# Daily GenAI digest — 2026-11-16
 
 **Your stage:** Stage 0 — Foundations: before the Transformer
-**Next action:** Move on to section 4 of the Stage 0 note, word embeddings. Read the abstract and Section 1 of Mikolov et al. (2013), *word2vec* (arXiv:1301.3781). Then explain in 3–4 sentences, in your own words, why a dense vector beats a one-hot symbol. Bonus: why does "king − man + woman ≈ queen" work at all? This connects directly to the token embeddings every Transformer starts with in Stage 1. See [`knowledge_bank/00_foundations.md`](../knowledge_bank/00_foundations.md).
+**Next action:** Do a self-check on Stage 0. Go through the "Checkpoints" list in [`knowledge_bank/00_foundations.md`](../knowledge_bank/00_foundations.md) and, without notes, explain each item out loud or in 2–3 written sentences: why RNNs can't parallelize across the sequence, the seq2seq information bottleneck, the query/score/softmax/weighted-sum pattern, and why dense embeddings beat one-hot. Any item you can't explain cleanly is the one to re-read before you move to Stage 1 and the Transformer.
 
 ---
 
 ## Today's highlights
 
-A moderate day. There is one fresh paper on how mixture-of-experts models are organized internally, and a preview of Alibaba's Qwen4-Max. Two items confirm releases we had flagged earlier as unverified: the Kimi K3.1 Pro open weights and Claude Fable 5.2.
+A paper-heavy day. There are three new arXiv papers: one on what model "introspection" really shows, one on compressing a model into a smaller one built from its own weights, and one that adds RNN-style persistent state to a Transformer, which fits neatly with Stage 0. There is also one model release, Meta's low-cost Muse Ember.
 
-### Understanding Mixture-of-Experts Language Models Beyond Expert Boundaries
+### A Closer Look at Language Model Introspection: Probing Information and Reporting
 - **Type:** paper
-- **Link:** https://arxiv.org/abs/2611.13975
-- **Why it matters:** This paper looks inside MoE language models at the level of individual neurons rather than whole experts, and asks how specialization is actually organized. It also introduces a pruning method, RAMPr. The abstract says it keeps about 91–98% of full performance across six models while retaining 75% of neurons. That is useful evidence that MoE "experts" are not as cleanly separated as the name suggests. (Submitted 10 Nov 2026; via web search; page not fetched)
-- **Relates to:** Stage 4 — efficiency / mixture-of-experts
+- **Link:** https://arxiv.org/abs/2611.15267
+- **Why it matters:** Rubin et al. test whether language models can report where their own activations were perturbed. They conclude that a model reporting such a perturbation correctly does not show it has broader access to its own internal computation. That is a useful caution against reading "the model can introspect" into narrow experiments. (via web search; page not fetched)
+- **Relates to:** Stage 5 — interpretability & safety
 
-### Alibaba opens a time-limited Qwen4-Max preview with 1M-token context
-- **Type:** model release
-- **Link:** https://alphasignal.ai/news/alibaba-launches-qwen4-max-with-agent-first-coding-and-1m-token-support
-- **Why it matters:** Alibaba released `qwen4-max-preview` on Nov 11. It is aimed at agentic coding and long-running agent workflows, with a 1M-token context and image and video input. The preview is available only through Alibaba's subscription products and ends on Nov 25. No benchmark table, model card, parameter count or weights have been published, so this is a first look at Qwen4 rather than something you can evaluate yet. (via web search; page not fetched)
-- **Relates to:** Stage 7 — agents & applications; Stage 8 — staying current
+### Folding Language Models into Themselves (Concertina)
+- **Type:** paper
+- **Link:** https://arxiv.org/abs/2611.18113
+- **Why it matters:** The paper proposes Concertina, which builds a compact student model directly from a teacher's own weights instead of training a student from scratch. The authors report that a 2.27B student keeps about 90% of the teacher's performance on commonsense and math reasoning. It adds a data point to the "make big models small" toolbox, alongside distillation and pruning. (via web search; page not fetched)
+- **Relates to:** Stage 4 — efficiency / compression & distillation
 
-### Kimi K3.1 Pro weights now confirmed on Hugging Face (follow-up)
-- **Type:** model release
-- **Link:** https://technode.com/2026/11/05/moonshot-ai-releases-kimi-k3-1-pro-model-weights/
-- **Why it matters:** This follows up our Nov 4 entry, which flagged the release as "not confirmed." TechNode and other outlets now report that Moonshot published the K3.1 Pro weights on Hugging Face under a Kimi-specific license. Reports describe a 2.8T-parameter MoE with about 104B active parameters and a roughly 1M-token context. Moonshot also says it removed hacking-related training data before the open release. It is one of the largest open-weight models available. (via web search; page not fetched)
-- **Relates to:** Stage 4 — open-weight models / MoE
+### Recursive State-Augmented Language Models: Persistent Latent-State Adaptation of Pretrained Language Models
+- **Type:** paper
+- **Link:** https://arxiv.org/abs/2611.16375
+- **Why it matters:** This single-author paper adds a persistent latent state to a pretrained language model. The state updates with each new observation, which brings back something like an RNN's running memory on top of a Transformer. It ties directly to the recurrence-vs-attention trade-off you are studying in Stage 0. Early-stage work; claims are not yet independently checked. (via web search; page not fetched)
+- **Relates to:** Stage 0 — foundations (recurrence & hidden state); Stage 2 — architectures
 
-### Claude Fable 5.2 and Mythos 5.2 confirmed by trade press (follow-up)
+### Meta launches Muse Ember: small, cheap, 1M-token-context agent model
 - **Type:** model release
-- **Link:** https://sdtimes.com/ai/anthropic-introduces-claude-fable-5-2-mythos-5-2/
-- **Why it matters:** This follows up our Nov 11 entry, which relied on Fortune alone. Several outlets now carry the same details. Fable 5.2 (announced Nov 9) replaces Fable 5.1 and is reported as up to 30% faster, at $8/$40 per million input/output tokens (down from $10/$50). Mythos 5.2 runs on the same model with different safeguards and is limited to vetted organizations. Anthropic still recommends Opus 5.5 as the default for most coding and knowledge work. (via web search; page not fetched)
-- **Relates to:** Stage 7 — agents & applications; Stage 5 — safety (tiered access)
+- **Link:** https://www.technobezz.com/news/meta-launches-muse-ember-context-window
+- **Why it matters:** Meta's Muse Ember (Nov 9) is its "smallest and most efficient" model. It targets tool calls, coding subtasks, routing, extraction and long-document parsing. Reports give a 1M-token context and pricing of $0.10/$0.50 per million input/output tokens below 200K tokens. It accepts text, image, audio and video input. It is closed-weight, and Meta has not published a parameter count or benchmark scores. It fits the trend of very cheap "worker" models that sit under a frontier planner in agent systems. (via web search; page not fetched)
+- **Relates to:** Stage 7 — agents & applications
 
 ---
 
 ## If you read one thing today
 
-Stay with Stage 0. The word2vec abstract is short, and dense embeddings are the idea every later stage builds on. If you have 5 more minutes, skim the abstract of *Understanding Mixture-of-Experts Language Models Beyond Expert Boundaries* (arXiv:2611.13975). It is a good preview of the idea that model components don't always do what their names suggest, and you'll meet MoE properly in Stage 4.
+Read the abstract of *Recursive State-Augmented Language Models* (arXiv:2611.16375). It is the most relevant to where you are. Stage 0 is about why the field moved from RNN hidden states to attention, and this paper asks whether a running hidden state is worth bringing back on top of a Transformer. As you read, ask yourself what a persistent state gives you that attention over the full context doesn't, and what it costs.
 <!-- LATEST_DIGEST_END -->
       </script>
       <div class="dig-pane md" id="digpane" style="margin-top:18px"></div>

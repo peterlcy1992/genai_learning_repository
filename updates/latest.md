@@ -25,6 +25,33 @@ Each entry follows this format:
 
 <!-- NEW ENTRIES GO BELOW THIS LINE -->
 
+## 2026-11-16
+
+### A Closer Look at Language Model Introspection: Probing Information and Reporting
+- **Type:** paper
+- **Source:** https://arxiv.org/abs/2611.15267
+- **Why it matters:** Rubin et al. test whether language models can report where their own activations were perturbed. They conclude that a model reporting such a perturbation correctly does not show it has broader access to its own internal computation. That is a useful caution against reading "the model can introspect" into narrow experiments. (via web search; page not fetched)
+- **Relates to:** Stage 5 — interpretability & safety
+
+### Folding Language Models into Themselves (Concertina)
+- **Type:** paper
+- **Source:** https://arxiv.org/abs/2611.18113
+- **Why it matters:** The paper proposes Concertina, which builds a compact student model directly from a teacher's own weights instead of training a student from scratch. The authors report that a 2.27B student keeps about 90% of the teacher's performance on commonsense and math reasoning. It adds a data point to the "make big models small" toolbox, alongside distillation and pruning. (via web search; page not fetched)
+- **Relates to:** Stage 4 — efficiency / compression & distillation
+
+### Recursive State-Augmented Language Models: Persistent Latent-State Adaptation of Pretrained Language Models
+- **Type:** paper
+- **Source:** https://arxiv.org/abs/2611.16375
+- **Why it matters:** This single-author paper adds a persistent latent state to a pretrained language model. The state updates with each new observation, which brings back something like an RNN's running memory on top of a Transformer. It ties directly to the recurrence-vs-attention trade-off you are studying in Stage 0. Early-stage work; claims are not yet independently checked. (via web search; page not fetched)
+- **Relates to:** Stage 0 — foundations (recurrence & hidden state); Stage 2 — architectures
+
+### Meta launches Muse Ember: small, cheap, 1M-token-context agent model
+- **Type:** model release
+- **Source:** https://www.technobezz.com/news/meta-launches-muse-ember-context-window
+- **Why it matters:** Meta's Muse Ember (Nov 9) is its "smallest and most efficient" model. It targets tool calls, coding subtasks, routing, extraction and long-document parsing. Reports give a 1M-token context and pricing of $0.10/$0.50 per million input/output tokens below 200K tokens. It accepts text, image, audio and video input. It is closed-weight, and Meta has not published a parameter count or benchmark scores. It fits the trend of very cheap "worker" models that sit under a frontier planner in agent systems. (via web search; page not fetched)
+- **Relates to:** Stage 7 — agents & applications
+
+
 ## 2026-11-15
 
 ### Understanding Mixture-of-Experts Language Models Beyond Expert Boundaries
