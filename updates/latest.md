@@ -25,6 +25,39 @@ Each entry follows this format:
 
 <!-- NEW ENTRIES GO BELOW THIS LINE -->
 
+## 2026-11-18
+
+### OpenAI releases GPT-6.2 Astra and GPT-6.2 Sol
+- **Type:** model release
+- **Source:** https://community.openai.com/t/gpt-6-2-astra-and-sol-are-now-available/1417531
+- **Why it matters:** OpenAI released two models on Nov 17. Astra is aimed at demanding professional work such as documents, slides and coding, and Sol is the cheaper everyday model. Both are in ChatGPT Work, Codex and the API as `gpt-6.2-astra` and `gpt-6.2-sol`. Astra's API price drops about 20% to $8/$40 per million input/output tokens, while Sol stays at $2/$10. Trade press reports that the system card puts both models at OpenAI's Critical cybersecurity threshold and calls Astra the first externally released model rated High for AI self-improvement. We could not check that against OpenAI's own system card, so treat it as reported, not confirmed. Coverage frames the launch as OpenAI's answer to Claude Fable 5.2 a week earlier. (via web search; page not fetched)
+- **Relates to:** Stage 7 — frontier systems; Stage 5 — alignment & safety (preparedness ratings)
+
+### US tightens AI-chip export rules: remote-access curbs and licences for five more countries
+- **Type:** blog
+- **Source:** https://www.scmp.com/tech/article/3374639/us-tightens-ai-chip-export-curbs-close-chinas-overseas-data-centre-loophole
+- **Why it matters:** On Nov 16 the US Commerce Department issued an interim final rule. It requires licences to ship advanced AI chips to Singapore, Indonesia, Brazil, Malaysia and Thailand. It also limits remote access to compute in overseas data centres, which closes the route Chinese firms used to rent Nvidia capacity abroad. Reports say the rule also removes the earlier Diffusion-rule controls on AI model weights (ECCN 4E091). Compute is the main lever governments have over frontier AI, so this changes who can train and serve large models, and where. (via web search; page not fetched)
+- **Relates to:** Stage 3 — scale & compute; Stage 8 — governance context
+
+### FBI flash alert: the ARTEX agentic hacking framework breaches networks in under three hours
+- **Type:** blog
+- **Source:** https://techcrunch.com/2026/11/16/fbi-says-artex-ai-open-source-hacking-tool-used-to-breach-networks-in-under-three-hours/
+- **Why it matters:** The FBI warns (FLASH-20261113-001) that ARTEX, an open-source AI penetration-testing framework, has been repurposed to automate intrusions from reconnaissance to data exfiltration. ARTEX has no model of its own; it calls external LLMs, both frontier and open-weight. Press reports cite compromises reaching admin access in under three hours. This is a concrete, real-world example of the agentic cyber-misuse risk that the labs' preparedness frameworks and California's lawsuit against OpenAI are about. (via web search; page not fetched)
+- **Relates to:** Stage 5 — safety & misuse; Stage 7 — agents
+
+### Adversarial Speculative Reasoning Improves Long Horizon Agents
+- **Type:** paper
+- **Source:** https://papers.cool/arxiv/2611.05345
+- **Why it matters:** Speculative decoding normally just speeds up generation: a small model drafts tokens and a larger one checks them. This paper uses it instead to control how precise an agent's context is over long tasks, and reports better long-horizon agent accuracy while training only 0.06–0.28% of the hosted model's parameters. Only the listing snippet was available. (via web search; page not fetched)
+- **Relates to:** Stage 4 — efficiency (speculative decoding); Stage 7 — agents
+
+### Where and Why is Grounded Reasoning Useful?
+- **Type:** paper
+- **Source:** https://papers.cool/arxiv/2611.08485
+- **Why it matters:** The paper tests chain-of-thought reasoning that writes out image coordinates ("grounded" reasoning) in vision-language models. Grounding helps with counting but gives no significant gain over ungrounded baselines across a range of spatial-reasoning and perception benchmarks. The authors also introduce a benchmark called BrickVision. It is a useful counterweight to the assumption that more structured reasoning traces always help. (via web search; page not fetched)
+- **Relates to:** Stage 6 — multimodality; Stage 5 — reasoning post-training
+
+
 ## 2026-11-17
 
 ### California sues OpenAI over AI-model cyber incidents, including the Hugging Face breach
