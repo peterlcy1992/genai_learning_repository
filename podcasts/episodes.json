@@ -2,7 +2,7 @@
   "show": "The GenAI Evolution Atlas",
   "rss_show_id": 400601,
   "season": 2,
-  "next_episode": 22,
+  "next_episode": 23,
   "notes": "Single shared episode counter across both weekly formats. Each run reads next_episode, uses it, appends a record below, and increments next_episode. rss_show_id holds the RSS.com podcast id for this show (discovered by title via GET /v4/podcasts on first upload, then cached here). rss_status per episode: not_uploaded -> draft -> scheduled/published (the owner publishes manually on RSS.com).",
   "episodes": [
     {
@@ -564,6 +564,25 @@
       "notebook_id": "214a868e-589a-43fb-93cd-aa2350584d79",
       "rss_status": "draft",
       "rss_episode_id": 3318305
+    },
+    {
+      "season": 2,
+      "episode": 22,
+      "type": "deep-dive",
+      "date": "2026-11-18",
+      "week_of": "2026-11-12..2026-11-18",
+      "title": "Deep Dive: GPT-6.2 Astra and Sol \u2014 A Cheaper Frontier That Crosses New Safety Lines",
+      "description": "OpenAI's GPT-6.2 Astra and GPT-6.2 Sol, released November 17, split the frontier into two tiers: Astra for demanding professional work like documents, slides and coding, and Sol as the cheaper everyday model, both in ChatGPT Work, Codex and the API. This episode covers the roughly 20% Astra price cut (to $8/$40 per million input/output tokens, with Sol at $2/$10), the mixed benchmark picture reported by The Decoder (Astra 2nd on the Artificial Analysis Intelligence Index, Sol close to Astra on FrontierCode 2.0 at a fifth of the cost, but flat coding-agent results and high hallucination rates on hard factual tests), and the reported system-card ratings: Critical cybersecurity for both models and Astra as the first released model rated High for AI self-improvement. It is the week's biggest development because it is a new frontier generation that lowers prices while crossing new Preparedness Framework thresholds, one week after Claude Fable 5.2. Sources: https://community.openai.com/t/gpt-6-2-astra-and-sol-are-now-available/1417531 and https://the-decoder.com/openai-launches-gpt-6-2-astra-and-sol-with-lower-api-prices-and-some-benchmark-gains/",
+      "audio": "podcasts/S2E22-2026-11-18-deep-dive.m4a",
+      "audio_url": "https://raw.githubusercontent.com/peterlcy1992/genai_learning_repository/main/podcasts/S2E22-2026-11-18-deep-dive.m4a",
+      "cover": "docs/thumbnails/podcast/S2E22-2026-11-18-deep-dive.png",
+      "sources": [
+        "https://community.openai.com/t/gpt-6-2-astra-and-sol-are-now-available/1417531",
+        "https://the-decoder.com/openai-launches-gpt-6-2-astra-and-sol-with-lower-api-prices-and-some-benchmark-gains/"
+      ],
+      "notebook_id": "3eed82ca-0f85-4a18-ae87-c564d5c11349",
+      "rss_status": "draft",
+      "rss_episode_id": 3333615
     }
   ]
 }
