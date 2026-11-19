@@ -25,6 +25,45 @@ Each entry follows this format:
 
 <!-- NEW ENTRIES GO BELOW THIS LINE -->
 
+## 2026-11-19
+
+### Anthropic prices its IPO ahead of its Nasdaq debut as ANT
+- **Type:** blog
+- **Source:** https://cnn.com/2026/11/18/investing/anthropic-ipo-wall-street-ai
+- **Why it matters:** Anthropic priced its IPO on the evening of Nov 18, with Nasdaq trading under the ticker ANT set to start Nov 19. The marketed range was $70–$78 for 825 million shares, plus a separate $26B private placement. Same-day roundups report a final price of $83 and proceeds of about $107B, which would make it the largest IPO ever, but the sources disagree on the exact figures, so treat them as reported. It is not a technical result. It matters because it shows how much capital now flows into training frontier models and running them for customers. (via web search; page not fetched)
+- **Relates to:** Stage 3 — scale & compute (the economics of scaling); Stage 8 — industry context
+
+### Microsoft launches MAI Code 2 and MAI Code 2 Flash at Ignite 2026
+- **Type:** model release
+- **Source:** https://thenewstack.io/microsoft-mai-code-2/
+- **Why it matters:** At Ignite (Nov 17) Microsoft announced seven in-house MAI models. They are led by MAI Code 2, a cheaper coding model now in GitHub Copilot, with a Flash variant in limited preview on Foundry. Microsoft's own benchmarks put it at about 98% of GPT-6.1 Sol's coding quality for about 40% of the price, but those numbers are self-reported. Microsoft also says the models are not tuned for the hardest long-running agent work. It is another sign that coding is now the main ground where labs compete on price and performance. (via web search; page not fetched)
+- **Relates to:** Stage 7 — frontier systems & agents; Stage 4 — efficiency (cost/quality trade-offs)
+
+### Tencent releases Hy4 flash: a cheaper, multimodal, 1M-context sibling of Hy4
+- **Type:** model release
+- **Source:** https://macaubusiness.com/tencent-launches-hy4-flash-to-power-high-speed-cost-efficient-ai-deployment-for-everyday-workflows/
+- **Why it matters:** Tencent launched Hy4 flash on Nov 16–17. One report says it is a mixture-of-experts model with about 224B total and 12B active parameters, a 1M-token context, native multimodal input and much lower API prices than the full Hy4. Tencent says it is meant for routine work and recommends the full Hy4 for long-horizon software engineering. No date has been given for open weights. The benchmarks are mostly Tencent's own, and one independent human evaluation reportedly ranks it below DeepSeek V4.1 Flash and Claude Haiku 5.5. (via web search; page not fetched)
+- **Relates to:** Stage 4 — efficiency (MoE, sparse activation); Stage 7 — frontier systems
+
+### Xing4.0-29B-A4B: China Telecom's TeleChat successor, trained on Ascend chips
+- **Type:** model release
+- **Source:** https://raw.githubusercontent.com/XingChen-AGI/Xing4.0-29B-A4B/main/README.md
+- **Why it matters:** This is an open agent-focused MoE model with 29B total and 4B active parameters, and it is the next generation of China Telecom's TeleChat line. It was trained entirely on Huawei Ascend NPUs with the MindSpore/MindFormers stack, not Nvidia GPUs and CUDA. It has a 256K context window and works with vLLM and SGLang. It was the top-voted Hugging Face Daily Paper on Nov 18. The developers report Terminal-Bench 2.1 at 57.5, a figure that has not been checked independently. It shows that competitive agent models can now be trained on non-Nvidia hardware, which matters given this week's chip-export tightening. (via web search; page not fetched)
+- **Relates to:** Stage 3 — scale & compute (hardware); Stage 4 — MoE
+
+### Not All Reasoning Generalizes: Learning Generalizable Reasoning Strategies in RLVR
+- **Type:** paper
+- **Source:** https://arxiv.org/abs/2611.03627
+- **Why it matters:** Reinforcement learning with verifiable rewards (RLVR) is the main recipe behind today's reasoning models. This case study finds that some of the reasoning strategies it teaches do not generalize. The authors argue the cause is neither a limit of the base model nor reward hacking. It is a useful caution against assuming that more RL automatically gives broader reasoning. (via web search; page not fetched)
+- **Relates to:** Stage 5 — reasoning post-training (RLVR)
+
+### Enhancing Language Model Reasoning with Structured Multi-Level Modeling
+- **Type:** paper
+- **Source:** https://arxiv.org/abs/2611.00616
+- **Why it matters:** The paper splits chain-of-thought into two levels. A LoRA "planner" module writes structured step descriptors, and the base model acts as the "executor" that reasons from them. The aim is to stop small models' plans from drifting during long reasoning. It is a cheap, parameter-efficient way to add planning to a small model. (via web search; page not fetched)
+- **Relates to:** Stage 5 — reasoning; Stage 4 — parameter-efficient fine-tuning (LoRA)
+
+
 ## 2026-11-18
 
 ### OpenAI releases GPT-6.2 Astra and GPT-6.2 Sol
