@@ -25,6 +25,45 @@ Each entry follows this format:
 
 <!-- NEW ENTRIES GO BELOW THIS LINE -->
 
+## 2026-11-20
+
+### Anthropic closes its first trading day valued at about $1.8 trillion (follow-up)
+- **Type:** blog
+- **Source:** https://www.cnbc.com/2026/11/19/anthropic-ipo-ant-live-updates.html
+- **Why it matters:** This follows up yesterday's IPO-pricing entry. Anthropic began trading on Nasdaq as ANT on Nov 19. It sold 980 million shares at $83, and CNN reports a close of $97.17, up about 17%. CNBC puts the fully diluted market cap at about $1.8T and CNN at $1.76T. Some outlets tie Friday's sharp falls in Asian markets to worries about an AI bubble. It is not a technical result. It does show what investors are paying for frontier-model companies. (via web search; page not fetched)
+- **Relates to:** Stage 3 — scale & compute (the economics of scaling); Stage 8 — industry context
+
+### Anthropic: Claude Fable 5.2 works through two open problems in black hole physics
+- **Type:** blog
+- **Source:** https://anthropic.com/research/claude-black-hole-physics
+- **Why it matters:** Anthropic says Fable 5.2 finished a calculation first proposed in 2003, which finds that black holes in very small universes form through a first-order phase transition. It says the model also found the exact limit of the simplest version of the "modular bootstrap" bound used in quantum gravity. Anthropic calls the results peer-review-ready, but they have not been peer reviewed, and the second check also came from a Claude model. It is a concrete test of whether frontier models can do real research-level science. (via web search; page not fetched)
+- **Relates to:** Stage 7 — frontier systems & agents (AI for science); Stage 5 — reasoning
+
+### The Surprising Effectiveness of Deleting Weights in LLM Post-Training (Deletion Tuning)
+- **Type:** paper
+- **Source:** https://alphaxiv.org/abs/2611.10866
+- **Why it matters:** The paper learns a binary mask that zeroes out fewer than 0.05% of the weights in the gate projections. It reports that this matches full fine-tuning across RL, SFT and on-policy distillation. It also reports less forgetting than full fine-tuning or LoRA, and a mask hundreds to thousands of times smaller than a checkpoint. One summary says it was accepted at NeurIPS 2026. If the result holds, post-training may mostly be *selecting* abilities the model already has rather than adding new ones. (via web search; page not fetched)
+- **Relates to:** Stage 4 — efficiency & parameter-efficient fine-tuning; Stage 5 — post-training
+
+### Can an LLM Fix a Language Model Without Training It?
+- **Type:** paper
+- **Source:** https://arxiv.org/abs/2611.25613
+- **Why it matters:** Submitted on Nov 19, this paper tests whether an outside LLM can pick fixed numerical edits that repair another model's damaged weights. On a compound fault, LLM-guided and scripted selection both raise recovery from 24.89% to 71.25%. That suggests the edit toolkit, not the LLM's choices, does most of the work. It is a small, early study of models repairing models. (via web search; page not fetched)
+- **Relates to:** Stage 6 — interpretability & model editing; Stage 7 — agents
+
+### Large Language Models Have Not Yet Transformed Science
+- **Type:** paper
+- **Source:** https://arxiv.org/abs/2611.22975
+- **Why it matters:** The authors analyze 2.5 million full-text papers from 2015 to 2025. They find that most trends from before 2023 continued, with few detectable breaks after ChatGPT. It is a sober data point to set against company claims about AI-driven discovery, including the Fable 5.2 physics result above. (via web search; page not fetched)
+- **Relates to:** Stage 8 — staying current (separating hype from evidence)
+
+### Google DeepMind AlphaGenome 2: better prediction of causal DNA variants
+- **Type:** model release
+- **Source:** https://interestingengineering.com/ai-robotics/deepmind-alphagenome-2-causal-dna-variants
+- **Why it matters:** AlphaGenome 2 is a DNA sequence model that predicts how genetic variants affect different human cell types, and it now also covers DNA methylation. On a single-cell immune benchmark it reportedly found 30% of causal variants, against 16% for the fine-tuned original. It is free through the AlphaGenome API for non-commercial research. Reports place the announcement around Nov 11, alongside a new Gemini Robotics model, but the dates and naming differ between outlets. It shows sequence modeling being applied outside language. (via web search; page not fetched)
+- **Relates to:** Stage 1 — sequence modeling beyond text; Stage 7 — frontier systems (AI for science)
+
+
 ## 2026-11-19
 
 ### Anthropic prices its IPO ahead of its Nasdaq debut as ANT
