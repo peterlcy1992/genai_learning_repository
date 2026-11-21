@@ -25,6 +25,38 @@ Each entry follows this format:
 
 <!-- NEW ENTRIES GO BELOW THIS LINE -->
 
+## 2026-11-21
+
+### Google releases Gemini 4 Neon, a mid-tier model in the Gemini 4 lineup
+- **Type:** model release
+- **Source:** https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-neon/
+- **Why it matters:** Google's blog and 9to5Google date the release to Nov 18. Neon sits between Gemini 4 Carbon, for the hardest long-horizon work, and the faster Hydrogen, and Google aims it at software engineering, knowledge work and science. Reported pricing is $3 per million input tokens and $15 per million output tokens, with a 1M-token context window reported by one outlet. Most benchmark claims are Google's own. It shows labs now shipping a range of model tiers that trade cost against capability. (via web search; page not fetched)
+- **Relates to:** Stage 3 — scale & compute (cost/capability trade-offs); Stage 7 — frontier systems
+
+### Primitives and Paths: Predicting What Post-Training Can Do from What the Base Model Already Has
+- **Type:** paper
+- **Source:** https://arxiv.org/abs/2611.11260
+- **Why it matters:** The paper takes up an open question: does RL post-training teach new skills, or only bring out what pre-training already put there? The abstract says the answer depends on the base model. It proposes measuring that along two axes, one of which is whether full correct solutions can be sampled from the base model at a realistic budget. Together the axes separate three regimes: amplification, composition-limited and acquisition-limited. It also proposes a measurement protocol to run before post-training. It is listed on the NeurIPS 2026 site, and it pairs well with yesterday's Deletion Tuning paper. (via web search; page not fetched)
+- **Relates to:** Stage 5 — reasoning & RL post-training; Stage 3 — what pre-training buys you
+
+### GAO covert test: Claude, ChatGPT, Gemini and Grok produced viable attack plans
+- **Type:** blog
+- **Source:** https://gao.gov/products/gao-27-108814
+- **Why it matters:** The report (GAO-27-108814) was made public on Nov 18. It says investigators used common jailbreak techniques in spring 2026 to get past the four platforms' safeguards. Each platform produced detailed attack plans in under 12 hours, and outside experts judged the plans viable. GAO did not say which model received which scenario, or which techniques it used. Anthropic disputed the comparison, and Google said older models were tested. It is government evidence that refusals can be bypassed, and Senator Hassan says it will feed into legislation. (via web search; page not fetched)
+- **Relates to:** Stage 6 — alignment & safety (jailbreaks, misuse evaluation)
+
+### Genie 4 world model opens to developers in the Gemini API
+- **Type:** tool/framework
+- **Source:** https://blog.google/innovation-and-ai/technology/developers-tools/genie-4-in-gemini-api/
+- **Why it matters:** Coverage says that since Nov 19, developers can stream 720p worlds with audio from a text prompt or an image, steered live from the keyboard or with text prompts. Access needs a paid-tier key, and sessions reportedly cap at 120 seconds because of a rolling render window. Pricing comes from secondary sources, about $0.10 per second of streamed video. It is the first time a large interactive world model is available as an API, and its main use is likely training agents and robots in simulation. (via web search; page not fetched)
+- **Relates to:** Stage 7 — frontier systems (world models, multimodality)
+
+### OpenAI GPT-Live-1.1: full-duplex voice model in the API
+- **Type:** model release
+- **Source:** https://developers.openai.com/api/docs/models/gpt-live-1.1
+- **Why it matters:** The model docs describe a full-duplex voice model, meaning it can listen and speak at the same time. It has more accurate transcription and a more consistent voice across languages than GPT-Live-1. It costs $0.05 per minute while active and $0.02 in a new standby mode. It can also hand reasoning and tool calls to a developer's backend when instructions in plain language say to. It is a practical example of real-time speech-to-speech agent design. The exact release date is unconfirmed. (via web search; page not fetched)
+- **Relates to:** Stage 7 — agents & multimodality
+
 ## 2026-11-20
 
 ### Anthropic closes its first trading day valued at about $1.8 trillion (follow-up)
