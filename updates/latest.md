@@ -25,6 +25,45 @@ Each entry follows this format:
 
 <!-- NEW ENTRIES GO BELOW THIS LINE -->
 
+## 2026-11-22
+
+### Anthropic mathematician claims a Lean-checked proof of the Riemann Hypothesis, found with Claude
+- **Type:** blog
+- **Source:** https://thenextweb.com/news/anthropic-researcher-claims-claude-helped-him-prove-the-riemann-hypothesis
+- **Why it matters:** Coverage says that on Nov 20 Levent Alpöge, a mathematician at Anthropic, posted a four-page note saying that he and Claude found a proof of the Riemann Hypothesis, and that the method also covers the Generalized RH for Dirichlet L-functions. The argument comes as Lean code, not a paper. MIT's Andrew Sutherland reports that it compiles and that a separate proof checker accepts it, but some checks are still listed as in progress. The Clay Institute still lists the problem as unsolved. If it holds, it would be the strongest case yet of AI plus formal verification doing frontier mathematics. Treat it as an unverified claim for now. (via web search; page not fetched)
+- **Relates to:** Stage 5 — reasoning (verifiable reasoning, formal proof); Stage 7 — frontier systems
+
+### Language Models Can Rewrite Their Own Weights
+- **Type:** paper
+- **Source:** https://arxiv.org/abs/2611.21885
+- **Why it matters:** Fan et al. report a model that edits its own weights by reasoning about them, with no gradients and no training step. The edits improve accuracy on unseen problems by 6.6 points. The authors say the ability shows up only in the largest model they tested. It is an early, unreplicated signal that models could take part in their own updates without gradient descent, which is relevant to both continual learning and self-improvement safety. (via web search; page not fetched)
+- **Relates to:** Stage 5 — post-training; Stage 6 — alignment & safety (self-improvement)
+
+### WeightBench: Evaluating Language Models as Weight-Space Programmers
+- **Type:** paper
+- **Source:** https://arxiv.org/abs/2611.18553
+- **Why it matters:** The benchmark has 42 tasks in which an agent works directly on a network's weights. Search snippets say frontier agents handle small networks well but struggle to patch or compress language models. It pairs with the self-rewriting-weights paper above and gives a way to measure how far "models editing models" has really come. (via web search; page not fetched)
+- **Relates to:** Stage 7 — agents & evaluation; Stage 1 — what weights actually are
+
+### K2-Horizon: A Frontier Fleet of Open Source Language Models
+- **Type:** paper
+- **Source:** https://arxiv.org/abs/2611.21003
+- **Why it matters:** MBZUAI's Institute of Foundation Models released six fully open models, from 0.9B dense up to a 375B-A23B MoE. Under the LLM360 definition they come with checkpoints, pre-training data and training code. Coverage says the flagship uses 192 routed experts plus one shared expert, with 8 active per token, and a 512K context. A new "Mixture-of-Value Attention" lets a 36B-A4B MoE nearly match a 32B dense model with about a seventh of the active parameters. Performance figures are mostly self-reported, and the license and release date vary across sources. (via web search; page not fetched)
+- **Relates to:** Stage 3 — scale & MoE; Stage 2 — attention variants
+
+### Large-scale Neuron Community Discovery Reveals Neuron-Sparse Behaviors in Language Models
+- **Type:** paper
+- **Source:** https://arxiv.org/abs/2611.23112
+- **Why it matters:** Shilov et al. propose an unsupervised method that finds groups of neurons which recur across prompts and are causally necessary for common computations in Llama-3.1-8B. It is a scalable alternative or complement to SAE features, and it suggests some behaviors depend on surprisingly few neurons. (via web search; page not fetched)
+- **Relates to:** Stage 6 — interpretability
+
+### Canary-token study: bait secrets in ~2M prompts show leaks from at least three AI providers
+- **Type:** blog
+- **Source:** https://www.dragos.com/blog/ai-supply-chain-security-canary-tokens
+- **Why it matters:** Researchers put unique, trackable bait secrets into nearly two million prompts sent to AI providers, then watched where the secrets turned up. Activity indicated data exposed from at least three providers, some prompts reaching Chinese AI organizations, and the bait AWS keys used for tens of thousands of API calls. Roundups attribute related reporting to Ars Technica, but I could not confirm the researcher attribution. The lesson: treat anything sent to an inference API, especially via third-party routers, as potentially exposed. (via web search; page not fetched)
+- **Relates to:** Stage 6 — safety & security (deployment risk); Stage 7 — LLM systems in production
+
+
 ## 2026-11-21
 
 ### Google releases Gemini 4 Neon, a mid-tier model in the Gemini 4 lineup

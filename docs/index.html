@@ -318,52 +318,58 @@
         (always current at the link above), and your daily email always carries the latest.</p>
       <script type="text/markdown" id="latest-digest">
 <!-- LATEST_DIGEST_START -->
-# Daily GenAI digest — 2026-11-21
+# Daily GenAI digest — 2026-11-22
 
 **Your stage:** Stage 0 — Foundations: before the Transformer
-**Next action:** Close out Stage 0 with a 20-minute self-test. Without notes, sketch the seq2seq encoder-decoder and mark where the fixed-size context vector becomes the information bottleneck. Then explain in two sentences how Bahdanau attention removes it. Check your answer against sections 2–3 of [`knowledge_bank/00_foundations.md`](../knowledge_bank/00_foundations.md). If it holds up and yesterday's Checkpoints came easily, set `current_stage: 1` in `PROGRESS.md` and read the [Bridge to Stage 1](../knowledge_bank/00_foundations.md#bridge-to-stage-1).
+**Next action:** Spend 30 minutes making weights concrete. In NumPy, train a 2-layer MLP on XOR: 2 inputs, 2 hidden units, sigmoid, plain gradient descent. Print the weight matrices before and after training, and explain in one sentence what each hidden unit learned to detect. That is exactly the object today's "models rewrite their own weights" papers are editing. Check your backprop steps against [`knowledge_bank/00_foundations.md`](../knowledge_bank/00_foundations.md). If it goes smoothly, set `current_stage: 1` in `PROGRESS.md`.
 
 ---
 
 ## Today's highlights
 
-Google had a busy week: Gemini 4 Neon, a cheaper mid-tier model, came out on Nov 18, and the Genie 4 world model became available to developers. On the research side, "Primitives and Paths" asks a central post-training question: can RL teach a model new skills, or only bring out ones it already has? On safety, a US GAO covert test found that the four major chatbots' safeguards could be bypassed to produce viable attack plans.
+The big story is a claim, not yet a result: an Anthropic mathematician says he and Claude produced a Lean-checked proof of the Riemann Hypothesis. Independent checks have started, but nothing is settled. On the research side, two papers explore a new direction, models editing neural-network weights directly by reasoning rather than gradient descent: one model edits its own weights, and a new benchmark measures how well agents do it. MBZUAI also published K2-Horizon, a fully open model family up to a 375B MoE, and a canary-token study found data leaking from AI inference providers.
 
-### Google releases Gemini 4 Neon, a mid-tier model in the Gemini 4 lineup
-- **Type:** model release
-- **Link:** https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-neon/
-- **Why it matters:** Google's blog and 9to5Google date the release to Nov 18. Neon sits between Gemini 4 Carbon, for the hardest long-horizon work, and the faster Hydrogen, and Google aims it at software engineering, knowledge work and science. Reported pricing is $3 per million input tokens and $15 per million output tokens, with a 1M-token context window reported by one outlet. Most benchmark claims are Google's own. It shows labs now shipping a range of model tiers that trade cost against capability. (via web search; page not fetched)
-- **Relates to:** Stage 3 — scale & compute (cost/capability trade-offs); Stage 7 — frontier systems
-
-### Primitives and Paths: Predicting What Post-Training Can Do from What the Base Model Already Has
-- **Type:** paper
-- **Link:** https://arxiv.org/abs/2611.11260
-- **Why it matters:** The paper takes up an open question: does RL post-training teach new skills, or only bring out what pre-training already put there? The abstract says the answer depends on the base model. It proposes measuring that along two axes, one of which is whether full correct solutions can be sampled from the base model at a realistic budget. Together the axes separate three regimes: amplification, composition-limited and acquisition-limited. It also proposes a measurement protocol to run before post-training. It is listed on the NeurIPS 2026 site, and it pairs well with yesterday's Deletion Tuning paper. (via web search; page not fetched)
-- **Relates to:** Stage 5 — reasoning & RL post-training; Stage 3 — what pre-training buys you
-
-### GAO covert test: Claude, ChatGPT, Gemini and Grok produced viable attack plans
+### Anthropic mathematician claims a Lean-checked proof of the Riemann Hypothesis, found with Claude
 - **Type:** blog
-- **Link:** https://gao.gov/products/gao-27-108814
-- **Why it matters:** The report (GAO-27-108814) was made public on Nov 18. It says investigators used common jailbreak techniques in spring 2026 to get past the four platforms' safeguards. Each platform produced detailed attack plans in under 12 hours, and outside experts judged the plans viable. GAO did not say which model received which scenario, or which techniques it used. Anthropic disputed the comparison, and Google said older models were tested. It is government evidence that refusals can be bypassed, and Senator Hassan says it will feed into legislation. (via web search; page not fetched)
-- **Relates to:** Stage 6 — alignment & safety (jailbreaks, misuse evaluation)
+- **Link:** https://thenextweb.com/news/anthropic-researcher-claims-claude-helped-him-prove-the-riemann-hypothesis
+- **Why it matters:** Coverage says that on Nov 20 Levent Alpöge, a mathematician at Anthropic, posted a four-page note saying that he and Claude found a proof of the Riemann Hypothesis, and that the method also covers the Generalized RH for Dirichlet L-functions. The argument comes as Lean code, not a paper. MIT's Andrew Sutherland reports that it compiles and that a separate proof checker accepts it, but some checks are still listed as in progress. The Clay Institute still lists the problem as unsolved. If it holds, it would be the strongest case yet of AI plus formal verification doing frontier mathematics. Treat it as an unverified claim for now. (via web search; page not fetched)
+- **Relates to:** Stage 5 — reasoning (verifiable reasoning, formal proof); Stage 7 — frontier systems
 
-### Genie 4 world model opens to developers in the Gemini API
-- **Type:** tool/framework
-- **Link:** https://blog.google/innovation-and-ai/technology/developers-tools/genie-4-in-gemini-api/
-- **Why it matters:** Coverage says that since Nov 19, developers can stream 720p worlds with audio from a text prompt or an image, steered live from the keyboard or with text prompts. Access needs a paid-tier key, and sessions reportedly cap at 120 seconds because of a rolling render window. Pricing comes from secondary sources, about $0.10 per second of streamed video. It is the first time a large interactive world model is available as an API, and its main use is likely training agents and robots in simulation. (via web search; page not fetched)
-- **Relates to:** Stage 7 — frontier systems (world models, multimodality)
+### Language Models Can Rewrite Their Own Weights
+- **Type:** paper
+- **Link:** https://arxiv.org/abs/2611.21885
+- **Why it matters:** Fan et al. report a model that edits its own weights by reasoning about them, with no gradients and no training step. The edits improve accuracy on unseen problems by 6.6 points. The authors say the ability shows up only in the largest model they tested. It is an early, unreplicated signal that models could take part in their own updates without gradient descent, which is relevant to both continual learning and self-improvement safety. (via web search; page not fetched)
+- **Relates to:** Stage 5 — post-training; Stage 6 — alignment & safety (self-improvement)
 
-### OpenAI GPT-Live-1.1: full-duplex voice model in the API
-- **Type:** model release
-- **Link:** https://developers.openai.com/api/docs/models/gpt-live-1.1
-- **Why it matters:** The model docs describe a full-duplex voice model, meaning it can listen and speak at the same time. It has more accurate transcription and a more consistent voice across languages than GPT-Live-1. It costs $0.05 per minute while active and $0.02 in a new standby mode. It can also hand reasoning and tool calls to a developer's backend when instructions in plain language say to. It is a practical example of real-time speech-to-speech agent design. The exact release date is unconfirmed. (via web search; page not fetched)
-- **Relates to:** Stage 7 — agents & multimodality
+### WeightBench: Evaluating Language Models as Weight-Space Programmers
+- **Type:** paper
+- **Link:** https://arxiv.org/abs/2611.18553
+- **Why it matters:** The benchmark has 42 tasks in which an agent works directly on a network's weights. Search snippets say frontier agents handle small networks well but struggle to patch or compress language models. It pairs with the self-rewriting-weights paper above and gives a way to measure how far "models editing models" has really come. (via web search; page not fetched)
+- **Relates to:** Stage 7 — agents & evaluation; Stage 1 — what weights actually are
+
+### K2-Horizon: A Frontier Fleet of Open Source Language Models
+- **Type:** paper
+- **Link:** https://arxiv.org/abs/2611.21003
+- **Why it matters:** MBZUAI's Institute of Foundation Models released six fully open models, from 0.9B dense up to a 375B-A23B MoE. Under the LLM360 definition they come with checkpoints, pre-training data and training code. Coverage says the flagship uses 192 routed experts plus one shared expert, with 8 active per token, and a 512K context. A new "Mixture-of-Value Attention" lets a 36B-A4B MoE nearly match a 32B dense model with about a seventh of the active parameters. Performance figures are mostly self-reported, and the license and release date vary across sources. (via web search; page not fetched)
+- **Relates to:** Stage 3 — scale & MoE; Stage 2 — attention variants
+
+### Large-scale Neuron Community Discovery Reveals Neuron-Sparse Behaviors in Language Models
+- **Type:** paper
+- **Link:** https://arxiv.org/abs/2611.23112
+- **Why it matters:** Shilov et al. propose an unsupervised method that finds groups of neurons which recur across prompts and are causally necessary for common computations in Llama-3.1-8B. It is a scalable alternative or complement to SAE features, and it suggests some behaviors depend on surprisingly few neurons. (via web search; page not fetched)
+- **Relates to:** Stage 6 — interpretability
+
+### Canary-token study: bait secrets in ~2M prompts show leaks from at least three AI providers
+- **Type:** blog
+- **Link:** https://www.dragos.com/blog/ai-supply-chain-security-canary-tokens
+- **Why it matters:** Researchers put unique, trackable bait secrets into nearly two million prompts sent to AI providers, then watched where the secrets turned up. Activity indicated data exposed from at least three providers, some prompts reaching Chinese AI organizations, and the bait AWS keys used for tens of thousands of API calls. Roundups attribute related reporting to Ars Technica, but I could not confirm the researcher attribution. The lesson: treat anything sent to an inference API, especially via third-party routers, as potentially exposed. (via web search; page not fetched)
+- **Relates to:** Stage 6 — safety & security (deployment risk); Stage 7 — LLM systems in production
 
 ---
 
 ## If you read one thing today
 
-Read the abstract of **"Primitives and Paths"** (https://arxiv.org/abs/2611.11260). Its question, whether training *adds* a skill or only *brings out* one the model already has, recurs throughout this curriculum. It connects to Stage 0's section on representations: what a model can do depends on what its internal representations already encode. Keep the paper's three regimes in mind, amplification, composition-limited and acquisition-limited, until you reach Stage 5.
+Read the abstract of **"Language Models Can Rewrite Their Own Weights"** (https://arxiv.org/abs/2611.21885). At Stage 0 you are learning that a network is just matrices tuned by gradient descent. This paper asks what happens when the model itself, rather than an optimizer, decides how to change those matrices. Keep your XOR exercise in mind as you read: every "skill" in the paper is ultimately a pattern of numbers like the ones you just printed. Treat the Riemann story as one to follow over the next few weeks, not to take as fact yet.
 <!-- LATEST_DIGEST_END -->
       </script>
       <div class="dig-pane md" id="digpane" style="margin-top:18px"></div>
