@@ -25,6 +25,39 @@ Each entry follows this format:
 
 <!-- NEW ENTRIES GO BELOW THIS LINE -->
 
+## 2026-11-23
+
+### OpenAI says its models found up to 14% PPA gains in AMD's flagship GPU design
+- **Type:** blog
+- **Source:** https://thenextweb.com/news/openai-models-amd-gpu-chip-design-14-percent
+- **Why it matters:** On Nov 18 OpenAI reported that its models proposed circuit rewrites giving up to 14% better power, performance and area on AMD GPU blocks that AMD had already optimized heavily. Synopsys tools checked that each rewrite still behaved correctly before it was scored, and AMD has put some of the changes into a design sent for manufacturing. AMD also confirmed single-digit gains on blocks of its next CPU. The figures are OpenAI's own and measured per block, not for the whole GPU, and OpenAI holds warrants for AMD shares. The pattern to notice: a model generates candidates and a formal checker accepts or rejects them. (via web search; page not fetched)
+- **Relates to:** Stage 7 — agents & real-world systems; Stage 5 — verifiable reasoning
+
+### Latent Lattice Language Models
+- **Type:** paper
+- **Source:** https://arxiv.org/abs/2611.21608v1
+- **Why it matters:** The paper adds a recurrent "horizontal" latent stream at each layer, running across time beside the usual residual stream. On a 406M-parameter model trained on 20B FineWeb-Edu tokens, validation perplexity drops from 15.41 to 14.40 against a Transformer with the same parameter count. It is a small-scale test of putting recurrence back into Transformers. (via web search; page not fetched)
+- **Relates to:** Stage 2 — Transformer architecture; Stage 0 — RNNs and recurrence
+
+### ParGLU: Partial Gating Improves Language Modeling in MoE Transformers
+- **Type:** paper
+- **Source:** https://arxiv.org/abs/2611.20663
+- **Why it matters:** ParGLU is a feed-forward layer that applies gating to only part of its hidden units, offered as an alternative to SwiGLU inside MoE experts. It beats SwiGLU at 75M and 152M parameters, with mixed results at 30M. The scale is very small, but it is a clear example of how researchers adjust the FFN block. (via web search; page not fetched)
+- **Relates to:** Stage 2 — FFN/activation design; Stage 3 — MoE
+
+### Structure–Residual Inductive Biases for Language Model Pretraining
+- **Type:** paper
+- **Source:** https://arxiv.org/abs/2611.23197
+- **Why it matters:** The authors build an explicit split between "structure" and "residual" into pretraining. Combining their methods improves NLL by 1.44% on GPT-2 Medium trained on 300M tokens. It is an early-stage result, useful mainly as an example of testing inductive biases in a cheap pretraining setup. (via web search; page not fetched)
+- **Relates to:** Stage 3 — pretraining
+
+### The Neuron: Everything that happened in AI today, Monday Nov 23
+- **Type:** blog
+- **Source:** https://www.theneuron.ai/digest/everything-that-happened-in-ai-today-monday-november-23-2026/
+- **Why it matters:** The daily roundup reports that Anthropic closed its IPO, selling about 1.13B Class A shares at $83, and that Trump and Xi discussed keeping humans in military AI decisions. It also lists OpenAI's ChatGPT for Sales plugin, US governors asking Congress for a federal AI baseline, and South Korea's education minister resigning over AI cheating on the national entrance exam. All of this comes from an aggregator and is unverified. (via web search; page not fetched)
+- **Relates to:** Stage 6 — AI governance & safety; Stage 8 — staying current
+
+
 ## 2026-11-22
 
 ### Anthropic mathematician claims a Lean-checked proof of the Riemann Hypothesis, found with Claude
