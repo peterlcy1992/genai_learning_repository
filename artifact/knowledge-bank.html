@@ -292,54 +292,48 @@
         (always current at the link above), and your daily email always carries the latest.</p>
       <script type="text/markdown" id="latest-digest">
 <!-- LATEST_DIGEST_START -->
-# Daily GenAI digest — 2026-11-23
+# Daily GenAI digest — 2026-11-24
 
 **Your stage:** Stage 0 — Foundations: before the Transformer
-**Next action:** Spend 30 minutes on recurrence, the idea at the heart of today's "Latent Lattice" paper. In NumPy, write a vanilla RNN cell, `h_t = tanh(W_h h_{t-1} + W_x x_t + b)`. Run it over a sequence of 10 random vectors and print the norm of `h_t` at each step. Then scale `W_h` up (×3) and down (×0.3) and watch the hidden state saturate or fade. In one sentence, explain why that makes long-range memory hard, which is the problem attention was invented to sidestep. Check yourself against [`knowledge_bank/00_foundations.md`](../knowledge_bank/00_foundations.md). If it clicks, set `current_stage: 1` in `PROGRESS.md`.
+**Next action:** Spend 20 minutes on the "propose, then verify" loop behind today's top story, using nothing but Stage 0 tools. In plain Python, write a loop that proposes random weights for a single neuron, `y = sigmoid(w·x + b)`, on a 4-point AND dataset. A separate `check()` function accepts a candidate only if it classifies all four points correctly. Count how many proposals it takes to find one. Then replace random proposals with gradient descent and compare the counts. In one sentence, write down why a strict checker makes even a dumb proposer trustworthy. See [`knowledge_bank/00_foundations.md`](../knowledge_bank/00_foundations.md). When the perceptron and gradient-descent material feels solid, set `current_stage: 1` in `PROGRESS.md`.
 
 ---
 
 ## Today's highlights
 
-The applied story of the day: OpenAI says its models proposed circuit rewrites that gave up to 14% power, performance and area gains on AMD GPU blocks, with every rewrite checked by formal verification tools before it was scored. On the research side, three small-scale architecture papers bring back recurrence (Latent Lattice LMs), adjust the MoE feed-forward block (ParGLU), and test inductive biases for pretraining. The Neuron's Monday roundup covers the policy and business news, including the close of Anthropic's IPO.
+The research story of the day comes from Google DeepMind and Google Quantum AI: agents that write quantum programs in Lean and must prove each one correct and cheap before it counts. It is the second day running of "model proposes, formal checker disposes," after yesterday's AMD chip result. Two new arXiv papers look at the gap between what models represent and what they can report: one on self-monitoring under uncertainty, one on prosodic emphasis. A news roundup covers Jensen Huang's return to Nvidia and a busy day of deals.
 
 
-### OpenAI says its models found up to 14% PPA gains in AMD's flagship GPU design
+
+### Lean-QuantumAlg: AI agents that write quantum algorithms and prove them correct in Lean (Google DeepMind + Google Quantum AI)
+- **Type:** paper
+- **Link:** https://arxiv.org/pdf/2610.30216
+- **Why it matters:** Researchers write a Lean specification of what a quantum program must compute and how much it may cost. Teams of Gemini-based agents then search for programs, and every candidate has to come with machine-checked proofs of both correctness and cost. When a proof fails, the agents use the error messages to revise. Reported gains include a more than 290× resource reduction for computing arcsine and 2.5–10.9× on simulations relevant to fusion, photochemistry and drug metabolism, all measured against published baselines. The Lean code is not yet public. This is the same pattern as yesterday's AMD chip story: a model proposes, a formal checker accepts or rejects. Coverage: https://thequantuminsider.com/2026/11/10/google-researchers-use-ai-and-mathematical-proofs-to-cut-quantum-computing-requirements/ (via web search; page not fetched)
+- **Relates to:** Stage 5 — verifiable reasoning; Stage 7 — agents & real-world systems
+
+### Language Models Steer on Injected Uncertainty Tokens, but Fail to Self-Monitor In Situ
+- **Type:** paper
+- **Link:** https://arxiv.org/abs/2611.31228v1
+- **Why it matters:** When the author inserts low-confidence tags into a model's reasoning, models respond to them and self-correct more often. Left alone, though, none of the four models tested catches its own errors while generating. Injecting doubt into steps that were already correct makes models throw away valid reasoning. The takeaway is that models can act on uncertainty signals but cannot reliably produce them, which bears on how far to trust self-correction loops. (via web search; page not fetched)
+- **Relates to:** Stage 5 — reasoning & self-correction; Stage 6 — evaluation/reliability
+
+### Language models represent more about emphasis than they can tell you
+- **Type:** paper
+- **Link:** https://arxiv.org/abs/2611.25808
+- **Why it matters:** The authors test how much prosodic emphasis (which word a speaker would stress) LLMs can recover from text. When prompted, the models do no better than a simple word-majority baseline, even with 500 examples. The title suggests their internal representations hold more of this information than their outputs show. It is a clear example of the gap between what probes find inside a model and what the model can say. (via web search; page not fetched)
+- **Relates to:** Stage 6 — interpretability/probing; Stage 1 — representations
+
+### Daily Circuit, Nov 24: Jensen Huang reinstated as Nvidia CEO, plus OpenAI, Anthropic and M&A headlines
 - **Type:** blog
-- **Link:** https://thenextweb.com/news/openai-models-amd-gpu-chip-design-14-percent
-- **Why it matters:** On Nov 18 OpenAI reported that its models proposed circuit rewrites giving up to 14% better power, performance and area on AMD GPU blocks that AMD had already optimized heavily. Synopsys tools checked that each rewrite still behaved correctly before it was scored, and AMD has put some of the changes into a design sent for manufacturing. AMD also confirmed single-digit gains on blocks of its next CPU. The figures are OpenAI's own and measured per block, not for the whole GPU, and OpenAI holds warrants for AMD shares. The pattern to notice: a model generates candidates and a formal checker accepts or rejects them. (via web search; page not fetched)
-- **Relates to:** Stage 7 — agents & real-world systems; Stage 5 — verifiable reasoning
-
-### Latent Lattice Language Models
-- **Type:** paper
-- **Link:** https://arxiv.org/abs/2611.21608v1
-- **Why it matters:** The paper adds a recurrent "horizontal" latent stream at each layer, running across time beside the usual residual stream. On a 406M-parameter model trained on 20B FineWeb-Edu tokens, validation perplexity drops from 15.41 to 14.40 against a Transformer with the same parameter count. It is a small-scale test of putting recurrence back into Transformers. (via web search; page not fetched)
-- **Relates to:** Stage 2 — Transformer architecture; Stage 0 — RNNs and recurrence
-
-### ParGLU: Partial Gating Improves Language Modeling in MoE Transformers
-- **Type:** paper
-- **Link:** https://arxiv.org/abs/2611.20663
-- **Why it matters:** ParGLU is a feed-forward layer that applies gating to only part of its hidden units, offered as an alternative to SwiGLU inside MoE experts. It beats SwiGLU at 75M and 152M parameters, with mixed results at 30M. The scale is very small, but it is a clear example of how researchers adjust the FFN block. (via web search; page not fetched)
-- **Relates to:** Stage 2 — FFN/activation design; Stage 3 — MoE
-
-### Structure–Residual Inductive Biases for Language Model Pretraining
-- **Type:** paper
-- **Link:** https://arxiv.org/abs/2611.23197
-- **Why it matters:** The authors build an explicit split between "structure" and "residual" into pretraining. Combining their methods improves NLL by 1.44% on GPT-2 Medium trained on 300M tokens. It is an early-stage result, useful mainly as an example of testing inductive biases in a cheap pretraining setup. (via web search; page not fetched)
-- **Relates to:** Stage 3 — pretraining
-
-### The Neuron: Everything that happened in AI today, Monday Nov 23
-- **Type:** blog
-- **Link:** https://www.theneuron.ai/digest/everything-that-happened-in-ai-today-monday-november-23-2026/
-- **Why it matters:** The daily roundup reports that Anthropic closed its IPO, selling about 1.13B Class A shares at $83, and that Trump and Xi discussed keeping humans in military AI decisions. It also lists OpenAI's ChatGPT for Sales plugin, US governors asking Congress for a federal AI baseline, and South Korea's education minister resigning over AI cheating on the national entrance exam. All of this comes from an aggregator and is unverified. (via web search; page not fetched)
-- **Relates to:** Stage 6 — AI governance & safety; Stage 8 — staying current
-
+- **Link:** https://clearintelligence.substack.com/p/daily-circuit-november-24-2026
+- **Why it matters:** The roundup reports that Nvidia's board unanimously reinstated Jensen Huang as CEO eleven days after he resigned, and that the shares rose sharply. It also reports that OpenAI is moving GPT-6.2 Sol into the ChatGPT chat tab and retiring GPT-5.6 Sol and Terra on Dec 23, that Anthropic launched "Claude Ship" agents that review and approve PRs under a team policy, that CrowdStrike is buying Zscaler for $43.9B, and that Amazon is buying Decart's optimization technology for $7.5B. I could not confirm the OpenAI and "Claude Ship" items in other sources, so treat everything here as unverified aggregator reporting. (via web search; page not fetched)
+- **Relates to:** Stage 8 — staying current (industry context)
 
 ---
 
 ## If you read one thing today
 
-Read the abstract of **"Latent Lattice Language Models"** (https://arxiv.org/abs/2611.21608v1). At Stage 0 you are learning why RNNs gave way to attention. This paper asks whether some recurrence is worth adding back alongside attention, and the result is a perplexity gain at the same parameter count. Do the RNN exercise above first, and the abstract will read like a sequel to what you just built.
+Read the abstract of **Lean-QuantumAlg** (https://arxiv.org/pdf/2610.30216). You don't need any quantum computing to follow it. The idea is that a search process is only as trustworthy as the checker behind it, which is today's exercise in miniature. Once you've built the random-proposer-plus-checker loop above, the paper reads as the same loop scaled up: an LLM agent as the proposer and a Lean proof as the checker.
 <!-- LATEST_DIGEST_END -->
       </script>
       <div class="dig-pane md" id="digpane" style="margin-top:18px"></div>

@@ -25,6 +25,32 @@ Each entry follows this format:
 
 <!-- NEW ENTRIES GO BELOW THIS LINE -->
 
+## 2026-11-24
+
+### Lean-QuantumAlg: AI agents that write quantum algorithms and prove them correct in Lean (Google DeepMind + Google Quantum AI)
+- **Type:** paper
+- **Source:** https://arxiv.org/pdf/2610.30216
+- **Why it matters:** Researchers write a Lean specification of what a quantum program must compute and how much it may cost. Teams of Gemini-based agents then search for programs, and every candidate has to come with machine-checked proofs of both correctness and cost. When a proof fails, the agents use the error messages to revise. Reported gains include a more than 290× resource reduction for computing arcsine and 2.5–10.9× on simulations relevant to fusion, photochemistry and drug metabolism, all measured against published baselines. The Lean code is not yet public. This is the same pattern as yesterday's AMD chip story: a model proposes, a formal checker accepts or rejects. Coverage: https://thequantuminsider.com/2026/11/10/google-researchers-use-ai-and-mathematical-proofs-to-cut-quantum-computing-requirements/ (via web search; page not fetched)
+- **Relates to:** Stage 5 — verifiable reasoning; Stage 7 — agents & real-world systems
+
+### Language Models Steer on Injected Uncertainty Tokens, but Fail to Self-Monitor In Situ
+- **Type:** paper
+- **Source:** https://arxiv.org/abs/2611.31228v1
+- **Why it matters:** When the author inserts low-confidence tags into a model's reasoning, models respond to them and self-correct more often. Left alone, though, none of the four models tested catches its own errors while generating. Injecting doubt into steps that were already correct makes models throw away valid reasoning. The takeaway is that models can act on uncertainty signals but cannot reliably produce them, which bears on how far to trust self-correction loops. (via web search; page not fetched)
+- **Relates to:** Stage 5 — reasoning & self-correction; Stage 6 — evaluation/reliability
+
+### Language models represent more about emphasis than they can tell you
+- **Type:** paper
+- **Source:** https://arxiv.org/abs/2611.25808
+- **Why it matters:** The authors test how much prosodic emphasis (which word a speaker would stress) LLMs can recover from text. When prompted, the models do no better than a simple word-majority baseline, even with 500 examples. The title suggests their internal representations hold more of this information than their outputs show. It is a clear example of the gap between what probes find inside a model and what the model can say. (via web search; page not fetched)
+- **Relates to:** Stage 6 — interpretability/probing; Stage 1 — representations
+
+### Daily Circuit, Nov 24: Jensen Huang reinstated as Nvidia CEO, plus OpenAI, Anthropic and M&A headlines
+- **Type:** blog
+- **Source:** https://clearintelligence.substack.com/p/daily-circuit-november-24-2026
+- **Why it matters:** The roundup reports that Nvidia's board unanimously reinstated Jensen Huang as CEO eleven days after he resigned, and that the shares rose sharply. It also reports that OpenAI is moving GPT-6.2 Sol into the ChatGPT chat tab and retiring GPT-5.6 Sol and Terra on Dec 23, that Anthropic launched "Claude Ship" agents that review and approve PRs under a team policy, that CrowdStrike is buying Zscaler for $43.9B, and that Amazon is buying Decart's optimization technology for $7.5B. I could not confirm the OpenAI and "Claude Ship" items in other sources, so treat everything here as unverified aggregator reporting. (via web search; page not fetched)
+- **Relates to:** Stage 8 — staying current (industry context)
+
 ## 2026-11-23
 
 ### OpenAI says its models found up to 14% PPA gains in AMD's flagship GPU design
