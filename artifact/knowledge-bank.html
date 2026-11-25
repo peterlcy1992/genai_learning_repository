@@ -292,48 +292,52 @@
         (always current at the link above), and your daily email always carries the latest.</p>
       <script type="text/markdown" id="latest-digest">
 <!-- LATEST_DIGEST_START -->
-# Daily GenAI digest — 2026-11-24
+# Daily GenAI digest — 2026-11-25
 
 **Your stage:** Stage 0 — Foundations: before the Transformer
-**Next action:** Spend 20 minutes on the "propose, then verify" loop behind today's top story, using nothing but Stage 0 tools. In plain Python, write a loop that proposes random weights for a single neuron, `y = sigmoid(w·x + b)`, on a 4-point AND dataset. A separate `check()` function accepts a candidate only if it classifies all four points correctly. Count how many proposals it takes to find one. Then replace random proposals with gradient descent and compare the counts. In one sentence, write down why a strict checker makes even a dumb proposer trustworthy. See [`knowledge_bank/00_foundations.md`](../knowledge_bank/00_foundations.md). When the perceptron and gradient-descent material feels solid, set `current_stage: 1` in `PROGRESS.md`.
+**Next action:** Spend 25 minutes reproducing today's top paper at toy scale. Train a small NumPy MLP on task A (say, classify 0 vs 1 on a 2-D blob dataset), then keep training it on task B (2 vs 3). Measure task-A accuracy twice: once through the original output head, and once by fitting a fresh logistic-regression "probe" on the hidden layer. If the probe recovers far more than the head, the forgetting was mostly in the readout rather than the representation. Write that down in one sentence. See [`knowledge_bank/00_foundations.md`](../knowledge_bank/00_foundations.md). When MLPs and gradient descent feel solid, set `current_stage: 1` in `PROGRESS.md`.
 
 ---
 
 ## Today's highlights
 
-The research story of the day comes from Google DeepMind and Google Quantum AI: agents that write quantum programs in Lean and must prove each one correct and cheap before it counts. It is the second day running of "model proposes, formal checker disposes," after yesterday's AMD chip result. Two new arXiv papers look at the gap between what models represent and what they can report: one on self-monitoring under uncertainty, one on prosodic emphasis. A news roundup covers Jensen Huang's return to Nvidia and a busy day of deals.
+Today was a research-heavy, product-light day. The lead paper shows that "catastrophic forgetting" can look severe or nearly absent depending on whether you test the original task head or a fresh linear probe. A second paper uses cheap, imperfect LLM demonstrations to speed up RL. Two papers edit a small fraction of a model's weights: one to bring out hidden behaviours for auditing, the other to stop reasoning loops. Zhang and Khattab argue that agent harnesses, not just models, drive generalization. No major lab model release cleared the bar today.
 
-
-
-### Lean-QuantumAlg: AI agents that write quantum algorithms and prove them correct in Lean (Google DeepMind + Google Quantum AI)
+### Revisiting Continual Learning in Language Models: A Three-Interface Diagnosis of Stability and Plasticity
 - **Type:** paper
-- **Link:** https://arxiv.org/pdf/2610.30216
-- **Why it matters:** Researchers write a Lean specification of what a quantum program must compute and how much it may cost. Teams of Gemini-based agents then search for programs, and every candidate has to come with machine-checked proofs of both correctness and cost. When a proof fails, the agents use the error messages to revise. Reported gains include a more than 290× resource reduction for computing arcsine and 2.5–10.9× on simulations relevant to fusion, photochemistry and drug metabolism, all measured against published baselines. The Lean code is not yet public. This is the same pattern as yesterday's AMD chip story: a model proposes, a formal checker accepts or rejects. Coverage: https://thequantuminsider.com/2026/11/10/google-researchers-use-ai-and-mathematical-proofs-to-cut-quantum-computing-requirements/ (via web search; page not fetched)
-- **Relates to:** Stage 5 — verifiable reasoning; Stage 7 — agents & real-world systems
+- **Link:** https://arxiv.org/abs/2611.30151
+- **Why it matters:** How much a model "forgets" when trained on tasks in sequence depends on how you measure it. The authors compare three readouts: the original task head, a freshly trained probe on top of the frozen backbone, and a classifier-free clustering test of the backbone's representations. Measured through the head, forgetting looks severe. Measured with a probe, it looks almost fully recoverable. The clustering test lands in between. The takeaway is that catastrophic forgetting is often a readout problem as much as a representation problem. A NeurIPS 2026 poster with the same framing appears to be the same work, but the match is unconfirmed. (via web search; page not fetched)
+- **Relates to:** Stage 0 — foundations (training dynamics, linear probes); Stage 5 — post-training/continual learning
 
-### Language Models Steer on Injected Uncertainty Tokens, but Fail to Self-Monitor In Situ
+### Reinforcement Learning from LLM-Generated (Suboptimal) Demonstrations
 - **Type:** paper
-- **Link:** https://arxiv.org/abs/2611.31228v1
-- **Why it matters:** When the author inserts low-confidence tags into a model's reasoning, models respond to them and self-correct more often. Left alone, though, none of the four models tested catches its own errors while generating. Injecting doubt into steps that were already correct makes models throw away valid reasoning. The takeaway is that models can act on uncertainty signals but cannot reliably produce them, which bears on how far to trust self-correction loops. (via web search; page not fetched)
-- **Relates to:** Stage 5 — reasoning & self-correction; Stage 6 — evaluation/reliability
+- **Link:** https://arxiv.org/abs/2611.29732
+- **Why it matters:** The authors use an LLM to generate demonstrations for RL agents at essentially no human cost, and add a "value warmstart" step that seeds learning from them. According to the abstract, even deliberately degraded LLM advice still speeds learning meaningfully over unaided baselines. The broader point is that LLMs can be cheap, imperfect teachers, with RL correcting their mistakes rather than inheriting them. Submitted 22 Nov 2026. (via web search; page not fetched)
+- **Relates to:** Stage 5 — RL post-training; Stage 7 — agents
 
-### Language models represent more about emphasis than they can tell you
+### Uncovering Hidden Behaviours in Language Models via Limited-Parameter Finetuning
 - **Type:** paper
-- **Link:** https://arxiv.org/abs/2611.25808
-- **Why it matters:** The authors test how much prosodic emphasis (which word a speaker would stress) LLMs can recover from text. When prompted, the models do no better than a simple word-majority baseline, even with 500 examples. The title suggests their internal representations hold more of this information than their outputs show. It is a clear example of the gap between what probes find inside a model and what the model can say. (via web search; page not fetched)
-- **Relates to:** Stage 6 — interpretability/probing; Stage 1 — representations
+- **Link:** https://arxiv.org/abs/2611.30672
+- **Why it matters:** The method fine-tunes only a small slice of a model's weights on a few examples of a target behaviour. If the behaviour is already latent in the model, this nudge brings it out, so it works as a probe for hidden propensities that standard evaluations miss. A matching NeurIPS 2026 poster reports results on deliberately planted "model organisms" at 8B–14B parameters and on naturally occurring propensities in 27–32B open-weight models. It is a practical auditing tool for open-weight models. (via web search; page not fetched)
+- **Relates to:** Stage 6 — safety, evaluation & interpretability
 
-### Daily Circuit, Nov 24: Jensen Huang reinstated as Nvidia CEO, plus OpenAI, Anthropic and M&A headlines
-- **Type:** blog
-- **Link:** https://clearintelligence.substack.com/p/daily-circuit-november-24-2026
-- **Why it matters:** The roundup reports that Nvidia's board unanimously reinstated Jensen Huang as CEO eleven days after he resigned, and that the shares rose sharply. It also reports that OpenAI is moving GPT-6.2 Sol into the ChatGPT chat tab and retiring GPT-5.6 Sol and Terra on Dec 23, that Anthropic launched "Claude Ship" agents that review and approve PRs under a team policy, that CrowdStrike is buying Zscaler for $43.9B, and that Amazon is buying Decart's optimization technology for $7.5B. I could not confirm the OpenAI and "Claude Ship" items in other sources, so treat everything here as unverified aggregator reporting. (via web search; page not fetched)
-- **Relates to:** Stage 8 — staying current (industry context)
+### A Bias in Disguise: Tiny Gradient Edits Stop a Small Language Model's Thinking Loops and Complement a Frontier Model's Weight Edit
+- **Type:** paper
+- **Link:** https://arxiv.org/abs/2611.33133
+- **Why it matters:** The authors fine-tune only a small set of the largest-gradient weights in a small Qwen model to stop it getting stuck in repetitive "thinking loops." The edit improves thinking-mode accuracy on MATH-500. The title says the edit also complements a weight edit proposed by a frontier model, which ties it to the recent line of work on models editing weights directly (see WeightBench and "Language Models Can Rewrite Their Own Weights" earlier in this log). Details beyond the title and listing are thin. (via web search; page not fetched)
+- **Relates to:** Stage 5 — reasoning models; Stage 4 — efficient fine-tuning
+
+### Language Model Harnesses can be Compositional Generalizers (Alex L. Zhang, Omar Khattab)
+- **Type:** paper
+- **Link:** https://github.com/AkihikoWatanabe/paper_notes/issues/7238 (discussion: https://shashikant86.substack.com/p/rlm-code-designing-rlm-harnesses)
+- **Why it matters:** The argument, from the authors of recursive language models and DSPy, is that a large share of generalization comes from the harness (the code that decides what the model sees and when) and not only from the model. If the harness hides domain-specific details from the root model, the model's trajectories look alike across very different tasks, so a skill learned on one task carries over to another. Generalization becomes something you design into the system. I found the paper only through a paper-notes tracker and a Substack discussion, not on arXiv directly. (via web search; page not fetched)
+- **Relates to:** Stage 7 — agents & harnesses; Stage 3 — prompting/in-context learning
 
 ---
 
 ## If you read one thing today
 
-Read the abstract of **Lean-QuantumAlg** (https://arxiv.org/pdf/2610.30216). You don't need any quantum computing to follow it. The idea is that a search process is only as trustworthy as the checker behind it, which is today's exercise in miniature. Once you've built the random-proposer-plus-checker loop above, the paper reads as the same loop scaled up: an LLM agent as the proposer and a Lean proof as the checker.
+Read the abstract of **Revisiting Continual Learning in Language Models** (https://arxiv.org/abs/2611.30151). It is the most Stage-0-friendly item today. It needs only two ideas you already have, a trained classifier head and a linear probe, and it shows that the way you measure a model shapes what you conclude about it. Run the toy experiment above first, then compare your result with the paper's three-interface picture.
 <!-- LATEST_DIGEST_END -->
       </script>
       <div class="dig-pane md" id="digpane" style="margin-top:18px"></div>

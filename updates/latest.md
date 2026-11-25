@@ -25,6 +25,39 @@ Each entry follows this format:
 
 <!-- NEW ENTRIES GO BELOW THIS LINE -->
 
+## 2026-11-25
+
+### Revisiting Continual Learning in Language Models: A Three-Interface Diagnosis of Stability and Plasticity
+- **Type:** paper
+- **Source:** https://arxiv.org/abs/2611.30151
+- **Why it matters:** How much a model "forgets" when trained on tasks in sequence depends on how you measure it. The authors compare three readouts: the original task head, a freshly trained probe on top of the frozen backbone, and a classifier-free clustering test of the backbone's representations. Measured through the head, forgetting looks severe. Measured with a probe, it looks almost fully recoverable. The clustering test lands in between. The takeaway is that catastrophic forgetting is often a readout problem as much as a representation problem. A NeurIPS 2026 poster with the same framing appears to be the same work, but the match is unconfirmed. (via web search; page not fetched)
+- **Relates to:** Stage 0 — foundations (training dynamics, linear probes); Stage 5 — post-training/continual learning
+
+### Reinforcement Learning from LLM-Generated (Suboptimal) Demonstrations
+- **Type:** paper
+- **Source:** https://arxiv.org/abs/2611.29732
+- **Why it matters:** The authors use an LLM to generate demonstrations for RL agents at essentially no human cost, and add a "value warmstart" step that seeds learning from them. According to the abstract, even deliberately degraded LLM advice still speeds learning meaningfully over unaided baselines. The broader point is that LLMs can be cheap, imperfect teachers, with RL correcting their mistakes rather than inheriting them. Submitted 22 Nov 2026. (via web search; page not fetched)
+- **Relates to:** Stage 5 — RL post-training; Stage 7 — agents
+
+### Uncovering Hidden Behaviours in Language Models via Limited-Parameter Finetuning
+- **Type:** paper
+- **Source:** https://arxiv.org/abs/2611.30672
+- **Why it matters:** The method fine-tunes only a small slice of a model's weights on a few examples of a target behaviour. If the behaviour is already latent in the model, this nudge brings it out, so it works as a probe for hidden propensities that standard evaluations miss. A matching NeurIPS 2026 poster reports results on deliberately planted "model organisms" at 8B–14B parameters and on naturally occurring propensities in 27–32B open-weight models. It is a practical auditing tool for open-weight models. (via web search; page not fetched)
+- **Relates to:** Stage 6 — safety, evaluation & interpretability
+
+### A Bias in Disguise: Tiny Gradient Edits Stop a Small Language Model's Thinking Loops and Complement a Frontier Model's Weight Edit
+- **Type:** paper
+- **Source:** https://arxiv.org/abs/2611.33133
+- **Why it matters:** The authors fine-tune only a small set of the largest-gradient weights in a small Qwen model to stop it getting stuck in repetitive "thinking loops." The edit improves thinking-mode accuracy on MATH-500. The title says the edit also complements a weight edit proposed by a frontier model, which ties it to the recent line of work on models editing weights directly (see WeightBench and "Language Models Can Rewrite Their Own Weights" earlier in this log). Details beyond the title and listing are thin. (via web search; page not fetched)
+- **Relates to:** Stage 5 — reasoning models; Stage 4 — efficient fine-tuning
+
+### Language Model Harnesses can be Compositional Generalizers (Alex L. Zhang, Omar Khattab)
+- **Type:** paper
+- **Source:** https://github.com/AkihikoWatanabe/paper_notes/issues/7238 (discussion: https://shashikant86.substack.com/p/rlm-code-designing-rlm-harnesses)
+- **Why it matters:** The argument, from the authors of recursive language models and DSPy, is that a large share of generalization comes from the harness (the code that decides what the model sees and when) and not only from the model. If the harness hides domain-specific details from the root model, the model's trajectories look alike across very different tasks, so a skill learned on one task carries over to another. Generalization becomes something you design into the system. I found the paper only through a paper-notes tracker and a Substack discussion, not on arXiv directly. (via web search; page not fetched)
+- **Relates to:** Stage 7 — agents & harnesses; Stage 3 — prompting/in-context learning
+
+
 ## 2026-11-24
 
 ### Lean-QuantumAlg: AI agents that write quantum algorithms and prove them correct in Lean (Google DeepMind + Google Quantum AI)
