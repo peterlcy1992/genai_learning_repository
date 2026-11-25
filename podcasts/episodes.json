@@ -2,7 +2,7 @@
   "show": "The GenAI Evolution Atlas",
   "rss_show_id": 400601,
   "season": 2,
-  "next_episode": 24,
+  "next_episode": 25,
   "notes": "Single shared episode counter across both weekly formats. Each run reads next_episode, uses it, appends a record below, and increments next_episode. rss_show_id holds the RSS.com podcast id for this show (discovered by title via GET /v4/podcasts on first upload, then cached here). rss_status per episode: not_uploaded -> draft -> scheduled/published (the owner publishes manually on RSS.com).",
   "episodes": [
     {
@@ -634,6 +634,26 @@
       "notebook_id": "f45970a3-8fbe-451e-b642-2e24100aef9e",
       "rss_status": "draft",
       "rss_episode_id": 3339119
+    },
+    {
+      "season": 2,
+      "episode": 24,
+      "type": "deep-dive",
+      "date": "2026-11-25",
+      "week_of": "2026-11-19..2026-11-25",
+      "title": "Deep Dive: Model Proposes, Checker Disposes \u2014 The Riemann Claim and the Rise of Verified AI Discovery",
+      "description": "Anthropic mathematician Levent Alp\u00f6ge says he and Claude found a proof of the Riemann Hypothesis, delivered as roughly 17 million lines of Lean code that MIT's Andrew Sutherland and other mathematicians report compiles cleanly; whether the code correctly states the problem is still being checked, and the proof has not been accepted. This episode uses that unverified but extraordinary claim to examine the week's defining pattern, AI systems paired with formal verifiers, alongside two more instances: OpenAI's report of up to 14% power, performance and area gains on formally verified rewrites of AMD GPU blocks (OpenAI's own per-block figures), and Google DeepMind and Google Quantum AI agents that must prove quantum programs correct and cheap in Lean, reporting reductions such as more than 290x for arcsine state preparation and about 10.9x for a fusion simulation. Sources: https://thenextweb.com/news/anthropic-researcher-claims-claude-helped-him-prove-the-riemann-hypothesis, https://thenextweb.com/news/openai-models-amd-gpu-chip-design-14-percent and https://thequantuminsider.com/2026/11/10/google-researchers-use-ai-and-mathematical-proofs-to-cut-quantum-computing-requirements/",
+      "audio": "podcasts/S2E24-2026-11-25-deep-dive.m4a",
+      "audio_url": "https://raw.githubusercontent.com/peterlcy1992/genai_learning_repository/main/podcasts/S2E24-2026-11-25-deep-dive.m4a",
+      "cover": "docs/thumbnails/podcast/S2E24-2026-11-25-deep-dive.png",
+      "sources": [
+        "https://thenextweb.com/news/anthropic-researcher-claims-claude-helped-him-prove-the-riemann-hypothesis",
+        "https://thenextweb.com/news/openai-models-amd-gpu-chip-design-14-percent",
+        "https://thequantuminsider.com/2026/11/10/google-researchers-use-ai-and-mathematical-proofs-to-cut-quantum-computing-requirements/"
+      ],
+      "notebook_id": "e1a51ab9-f175-4f50-9cab-fae060ca7050",
+      "rss_status": "draft",
+      "rss_episode_id": 3355866
     }
   ]
 }
