@@ -25,6 +25,45 @@ Each entry follows this format:
 
 <!-- NEW ENTRIES GO BELOW THIS LINE -->
 
+## 2026-11-26
+
+### From Rewarding What Models Say to How They Think: Attention Process Reward Model for LLM Reinforcement Learning
+- **Type:** paper
+- **Source:** https://arxiv.org/abs/2611.30627
+- **Why it matters:** Most process reward models score the text of each reasoning step. APRM instead computes rewards from the policy's own hidden states and attention maps, aiming to reward good reasoning patterns directly rather than plausible-looking text. If it holds up, it gives RL a denser and harder-to-game training signal than outcome-only rewards. (via web search; page not fetched)
+- **Relates to:** Stage 5 — Alignment and post-training (RL, reward models); Stage 0 — attention foundations
+
+### Fisher-R1: an open-weight LLM agent trained with RL for statistical hypothesis testing (EVA)
+- **Type:** paper
+- **Source:** arXiv:2611.33513 (surfaced via https://arxiv.org/list/cs.AI/new)
+- **Why it matters:** The paper targets agents that must reason correctly *and* on time. It trains an open-weight agent, Fisher-R1, with reinforcement learning on tasks whose rewards are verified statistically, and reports that this substantially improves reliability. It is another data point that verifiable rewards transfer beyond maths and code into scientific workflows. Exact title and details beyond the listing snippet are uncertain. (via web search; page not fetched)
+- **Relates to:** Stage 5 — RL with verifiable rewards; Stage 7 — agents
+
+### Silent Arbitration: How Large Language Models Resolve Co-Authoritative Conflicting Instructions
+- **Type:** paper
+- **Source:** https://arxiv.org/abs/2611.27444
+- **Why it matters:** The paper studies what models do when two equally authoritative sources give conflicting instructions, a case that the usual system-over-user instruction hierarchy doesn't settle. The title suggests models pick a winner without flagging the conflict, which matters for agent reliability and prompt-injection defence. First posted 20 Nov 2026, revised 24 Nov. Details beyond the title are thin. (via web search; page not fetched)
+- **Relates to:** Stage 5 — Alignment and post-training (instruction hierarchy); Stage 7 — agents
+
+### TAP: Policy Interfaces for Diffusion Language Models
+- **Type:** paper
+- **Source:** https://arxiv.org/abs/2611.30406v1
+- **Why it matters:** Diffusion language models generate by iteratively unmasking tokens rather than left to right. A growing line of work (TIPS, TraceLock, learned unmasking policies) trains small controllers that decide which tokens to commit. Judging by the title, TAP proposes a common "policy interface" for plugging such controllers in. Only the title and arXiv ID were surfaced, so treat the description as uncertain. (via web search; page not fetched)
+- **Relates to:** Stage 4 — Efficiency and better building blocks (alternative decoding); Stage 6 — generation beyond autoregression
+
+### Social Bias Neurons in Multilingual Language Models: A Mechanistic Interpretability Analysis
+- **Type:** paper
+- **Source:** https://arxiv.org/abs/2611.32685
+- **Why it matters:** The authors locate social bias at the level of individual neurons in multilingual models and compare across languages. Neuron-level localisation is what makes targeted bias edits possible. Accepted to Findings of EACL 2027; submitted 24 Nov 2026. (via web search; page not fetched)
+- **Relates to:** Stage 5 — Alignment (bias, interpretability); Stage 0 — embeddings and hidden representations
+
+### The Neuron: Everything that happened in AI today, Wednesday Nov 25
+- **Type:** blog (news roundup)
+- **Source:** https://www.theneuron.ai/digest/everything-that-happened-in-ai-today-november-25-2026/
+- **Why it matters:** The day's roundup, which aggregators broadly agree on. Google DeepMind's Koray Kavukcuoglu reportedly said agents now control some of the compute for experiments on the next Gemini model, an early step towards AI-run AI research. OpenAI is reportedly rolling GPT-6.2 Sol into paid ChatGPT tiers and claims GPT-6 models show protein-design ability from reasoning and code alone. The protein claim is unconfirmed by a primary source. Anthropic opened new ways for Claude to work autonomously. These are reported claims; check primary sources before relying on them. (via web search; page not fetched)
+- **Relates to:** Stage 7 — Frontier systems and the engineered stack; Stage 8 — staying current
+
+
 ## 2026-11-25
 
 ### Revisiting Continual Learning in Language Models: A Three-Interface Diagnosis of Stability and Plasticity
