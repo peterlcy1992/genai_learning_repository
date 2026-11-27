@@ -25,6 +25,32 @@ Each entry follows this format:
 
 <!-- NEW ENTRIES GO BELOW THIS LINE -->
 
+## 2026-11-27
+
+### Rethinking Reasoning Effort Training in Large Language Models: On-Policy Distillation or Reinforcement Learning?
+- **Type:** paper
+- **Source:** https://arxiv.org/abs/2611.32131
+- **Why it matters:** Reasoning models increasingly let users choose an effort level (low/medium/high), and this paper asks how best to train that control. It compares on-policy distillation with reinforcement learning. Its main finding is that a single token-level KL anchor on the high-effort tier is enough to learn distinct effort tiers within one RL stage. That is a simpler recipe for budget-controllable reasoning. Submitted 24 Nov 2026. (via web search; page not fetched)
+- **Relates to:** Stage 5 — Alignment and post-training (RL, distillation); Stage 7 — reasoning models and test-time compute
+
+### Interactive Structured Environment Scaling for Large Language Model Agentic Reasoning (RISE)
+- **Type:** paper
+- **Source:** https://arxiv.org/abs/2611.19871v1
+- **Why it matters:** RISE is an RL method that scales up structured, interactive training environments for agents, instead of relying only on static datasets. It reports gains across 19 benchmarks and three model backbones. It adds to the evidence that environment diversity, not just more data, drives agentic RL. Submitted 15 Nov 2026. (via web search; page not fetched)
+- **Relates to:** Stage 7 — agents; Stage 5 — RL post-training
+
+### Does Reasoning Improve Psychological Depth in Large Language Models?
+- **Type:** paper
+- **Source:** https://arxiv.org/abs/2611.09061
+- **Why it matters:** The paper tests whether reasoning-enhanced models write better open-ended creative text. Human raters found no universal advantage for reasoning models, but an LLM-as-a-judge setup showed a strong bias in their favour. It is a clean warning that automatic judges can reward the "reasoning model" style rather than quality, and that benchmark gains don't automatically transfer to every task. (via web search; page not fetched)
+- **Relates to:** Stage 3 — Evaluation (LLM-as-a-judge bias); Stage 7 — reasoning models
+
+### Google DeepMind: Gemini Robotics 2.5
+- **Type:** model release
+- **Source:** https://deepmind.google/blog/gemini-robotics-2-5-accelerates-real-world-physical-intelligence/
+- **Why it matters:** DeepMind calls this its most capable vision-language-action (VLA) model. It is a whole-body model that works across robot arms and humanoids, and it is rolling out to partners first (Agile Robots, Apptronik, Boston Dynamics). In a Mercedes-Benz proof-of-concept it reportedly packed parts with 96% success, while success across 200+ tasks ranged from 30% to 100%. The 2026-11-20 log mentioned it only in passing, alongside AlphaGenome 2. It shows the same Transformer-plus-post-training stack being pushed into physical action. DeepMind dates it Nov 10, and some outlets give later dates. (via web search; page not fetched)
+- **Relates to:** Stage 6 — Multimodality; Stage 7 — frontier systems
+
 ## 2026-11-26
 
 ### From Rewarding What Models Say to How They Think: Attention Process Reward Model for LLM Reinforcement Learning
